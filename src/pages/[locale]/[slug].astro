@@ -117,11 +117,11 @@ const titleBase = words.slice(1).join(" ") || "";
     </section>
 
     <section class="section-faq">
-      <FAQSection items={content.faq} title={content.ui.faqTitle} inLanguage={locale} />
+      <FAQSection items={content.faq} />
     </section>
 
     <section class="section-bibliography">
-      <Bibliography links={content.bibliography} title={content.ui.bibliographyTitle} />
+      <Bibliography links={content.bibliography} />
     </section>
   </div>
 </PreviewLayout>

@@ -1,0 +1,719 @@
+---
+import type { KnownLocale } from '../../types';
+import type { PixelesPantallaUI } from './ui';
+
+interface Props {
+  locale?: KnownLocale;
+  ui?: Record<string, unknown>;
+}
+
+const { ui } = Astro.props;
+const t = (ui ?? {}) as PixelesPantallaUI;
+---
+
+<div class="pt-root" data-badge={t.badge} data-title={t.title} data-description={t.description} data-btn-start-test={t.btnStartTest} data-btn-start-fix={t.btnStartFix} data-kbd-fullscreen={t.kbdFullscreen} data-kbd-fullscreen-label={t.kbdFullscreenLabel} data-kbd-space={t.kbdSpace} data-kbd-space-label={t.kbdSpaceLabel} data-kbd-esc={t.kbdEsc} data-kbd-esc-label={t.kbdEscLabel} data-color-black={t.colorBlack} data-color-white={t.colorWhite} data-color-red={t.colorRed} data-color-green={t.colorGreen} data-color-blue={t.colorBlue} data-btn-toggle-fixer={t.btnToggleFixer} data-btn-exit={t.btnExit}>
+  <style is:global>
+    .pt-root {
+      --pt-accent: #4f46e5;
+      --pt-accent-hover: #4338ca;
+      --pt-accent-bg: #e0e7ff;
+      --pt-accent-text: #4338ca;
+      --pt-surface: #ffffff;
+      --pt-surface-alt: #f8fafc;
+      --pt-border: #e2e8f0;
+      --pt-text: #0f172a;
+      --pt-text-muted: #64748b;
+      --pt-kbd-bg: #f1f5f9;
+      --pt-monitor-body: #1e293b;
+      --pt-monitor-screen: #020617;
+      --pt-shadow: rgba(0, 0, 0, 0.1);
+    }
+
+    .theme-dark .pt-root {
+      --pt-surface: #0f172a;
+      --pt-surface-alt: #1e293b;
+      --pt-border: #334155;
+      --pt-text: #f1f5f9;
+      --pt-text-muted: #94a3b8;
+      --pt-kbd-bg: #1e293b;
+      --pt-accent-bg: rgba(79, 70, 229, 0.3);
+      --pt-accent-text: #a5b4fc;
+      --pt-monitor-body: #334155;
+      --pt-monitor-screen: #1e293b;
+    }
+
+    body.is-widget .pt-root {
+      padding: 0 !important;
+    }
+
+    body.is-widget .pt-dashboard {
+      background: transparent !important;
+      box-shadow: none !important;
+      border: none !important;
+      padding: 1rem !important;
+    }
+  </style>
+
+  <div class="pt-wrapper">
+    <div class="pt-dashboard" id="dashboard">
+      <div class="pt-grid">
+        <div class="pt-content">
+          <div class="pt-badge-container">
+            <span class="pt-badge">
+              <svg class="pt-badge-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17 2H7c-1.1 0-1.99.9-1.99 2L5 21c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V4c0-1.1-.9-2-2-2zm-5 18c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
+              </svg>
+              {t.badge}
+            </span>
+          </div>
+
+          <h2 class="pt-title">{t.title}</h2>
+          <p class="pt-description">{t.description}</p>
+
+          <div class="pt-buttons">
+            <button id="btn-start-test" class="pt-btn pt-btn-primary">
+              <svg class="pt-btn-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+              </svg>
+              {t.btnStartTest}
+            </button>
+            <button id="btn-start-fix" class="pt-btn pt-btn-secondary">
+              <svg class="pt-btn-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M3 13h2v8H3zM17 13h2v8h-2zM5.73 10.04c2.96-2.96 7.78-2.96 10.74 0 .39.39.39 1.02 0 1.41l-1.41 1.41c-.39.39-1.02.39-1.41 0-1.95-1.95-5.12-1.95-7.07 0-.39.39-1.02.39-1.41 0L5.73 11.45c-.39-.39-.39-1.02 0-1.41zM10.59 5.59c1.77-1.77 4.13-2.29 6.36-1.64l2.12-2.12c.39-.39 1.02-.39 1.41 0 .39.39.39 1.02 0 1.41l-2.12 2.12c.65 2.23.13 4.59-1.64 6.36-1.95 1.95-4.74 2.35-7.07 1.29-.39-.19-.52-.65-.33-1.04.19-.39.65-.52 1.04-.33 1.81.92 4.08.68 5.59-.83 1.27-1.27 1.64-3.1.98-4.8.21.01.42-.06.59-.23 1.41-1.41 1.41-3.71 0-5.12-1.41-1.41-3.71-1.41-5.12 0-.16.16-.24.38-.23.59l-1.04-1.04zM12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z"/>
+              </svg>
+              {t.btnStartFix}
+            </button>
+          </div>
+
+          <div class="pt-shortcuts">
+            <div class="pt-shortcut">
+              <kbd class="pt-kbd">{t.kbdFullscreen}</kbd>
+              <span>{t.kbdFullscreenLabel}</span>
+            </div>
+            <span>•</span>
+            <div class="pt-shortcut">
+              <kbd class="pt-kbd">{t.kbdSpace}</kbd>
+              <span>{t.kbdSpaceLabel}</span>
+            </div>
+            <span>•</span>
+            <div class="pt-shortcut">
+              <kbd class="pt-kbd">{t.kbdEsc}</kbd>
+              <span>{t.kbdEscLabel}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-monitor-wrapper">
+          <div class="pt-monitor" id="monitor-preview">
+            <div class="pt-monitor-screen-wrapper">
+              <div class="pt-monitor-shine"></div>
+              <div class="pt-monitor-screen" id="preview-screen">
+                <div class="pt-monitor-section" style="background-color: #dc2626;"></div>
+                <div class="pt-monitor-section" style="background-color: #16a34a;"></div>
+                <div class="pt-monitor-section" style="background-color: #2563eb;"></div>
+              </div>
+              <div class="pt-fixer-preview" id="preview-fixer"></div>
+            </div>
+            <div class="pt-monitor-stand"></div>
+            <div class="pt-monitor-base"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="test-overlay" class="pt-overlay-hidden">
+      <div id="test-bg" class="pt-overlay-bg"></div>
+
+      <div id="fixer-box" class="pt-fixer-box pt-fixer-hidden">
+        <div class="pt-noise-canvas" id="noise-canvas"></div>
+        <button id="close-fixer" class="pt-close-fixer">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+          </svg>
+        </button>
+      </div>
+
+      <div id="test-controls" class="pt-controls">
+        <div class="pt-color-buttons">
+          <button class="pt-color-btn" data-color="#000000" style="background-color: #000000;" title={t.colorBlack}></button>
+          <button class="pt-color-btn" data-color="#ffffff" style="background-color: #ffffff;" title={t.colorWhite}></button>
+          <button class="pt-color-btn" data-color="#dc2626" style="background-color: #dc2626;" title={t.colorRed}></button>
+          <button class="pt-color-btn" data-color="#16a34a" style="background-color: #16a34a;" title={t.colorGreen}></button>
+          <button class="pt-color-btn" data-color="#2563eb" style="background-color: #2563eb;" title={t.colorBlue}></button>
+        </div>
+        <div class="pt-divider"></div>
+        <button id="toggle-fixer" class="pt-control-btn" title={t.btnToggleFixer}>
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M14 6l-3.732 6 3.732 6h4v-12h-4zm2 2h.952v8H16v-8zM4 6l3.732 6L4 18h4v-12H4zm2 2h.952v8H6v-8zm6-2l3.732 6-3.732 6h4v-12h-4zm2 2h.952v8h-.952v-8z"/>
+          </svg>
+        </button>
+        <div class="pt-divider"></div>
+        <button id="btn-exit" class="pt-control-btn pt-control-btn-exit" title={t.btnExit}>
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 19H5V8h14v12z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .pt-wrapper {
+      width: 100%;
+      max-width: 80rem;
+      margin: 0 auto;
+      padding: 1rem;
+      font-family: system-ui, -apple-system, sans-serif;
+      color: var(--pt-text);
+    }
+
+    .pt-dashboard {
+      background: var(--pt-surface);
+      border-radius: 1.5rem;
+      padding: 2rem;
+      box-shadow: 0 20px 25px -5px var(--pt-shadow);
+      border: 1px solid var(--pt-border);
+      transition: all 0.5s ease;
+    }
+
+    .pt-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    @media (max-width: 640px) {
+      .pt-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .pt-badge-container {
+      margin-bottom: 1.5rem;
+    }
+
+    .pt-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      background-color: var(--pt-accent-bg);
+      color: var(--pt-accent-text);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .pt-badge-icon {
+      width: 1rem;
+      height: 1rem;
+    }
+
+    .pt-title {
+      font-size: 2.25rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    @media (min-width: 768px) {
+      .pt-title {
+        font-size: 3rem;
+      }
+    }
+
+    .pt-description {
+      font-size: 1.125rem;
+      color: var(--pt-text-muted);
+      line-height: 1.625;
+      margin-bottom: 1.5rem;
+    }
+
+    .pt-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 640px) {
+      .pt-buttons {
+        flex-direction: column;
+      }
+    }
+
+    .pt-btn {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      padding: 1rem 2rem;
+      border-radius: 0.75rem;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      min-width: auto;
+    }
+
+    .pt-btn-primary {
+      background-color: var(--pt-accent);
+      color: white;
+    }
+
+    .pt-btn-primary:hover {
+      background-color: var(--pt-accent-hover);
+      box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.3);
+    }
+
+    .pt-btn-secondary {
+      background-color: var(--pt-surface-alt);
+      color: var(--pt-text);
+      border: 2px solid var(--pt-border);
+    }
+
+    .pt-btn-secondary:hover {
+      border-color: #10b981;
+      color: #059669;
+    }
+
+    .pt-btn-icon {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+
+    .pt-shortcuts {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.75rem;
+      color: var(--pt-text-muted);
+      flex-wrap: wrap;
+    }
+
+    .pt-shortcut {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .pt-kbd {
+      background-color: var(--pt-kbd-bg);
+      padding: 0.125rem 0.375rem;
+      border-radius: 0.25rem;
+      border: 1px solid var(--pt-border);
+      font-family: monospace;
+      font-size: 0.75rem;
+    }
+
+    .pt-monitor-wrapper {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      min-height: 250px;
+    }
+
+    .pt-monitor {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      width: 100%;
+      max-width: 500px;
+      background: var(--pt-monitor-body);
+      border-radius: 1rem;
+      border: 4px solid var(--pt-monitor-body);
+      box-shadow: 0 25px 50px -12px var(--pt-shadow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .pt-monitor-screen-wrapper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      border-radius: 0.5rem;
+      overflow: hidden;
+    }
+
+    .pt-monitor-shine {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top right, rgba(255, 255, 255, 0.05), transparent);
+      pointer-events: none;
+      z-index: 10;
+      border-radius: 0.5rem;
+    }
+
+    .pt-monitor-screen {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      transition: background-color 0.5s ease;
+      background-color: #000;
+    }
+
+    .pt-monitor-section {
+      flex: 1;
+      opacity: 0.9;
+    }
+
+    .pt-fixer-preview {
+      position: absolute;
+      width: 3rem;
+      height: 3rem;
+      background: white;
+      animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+      z-index: 20;
+      display: none;
+    }
+
+    @keyframes pulse-glow {
+      0%,
+      100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.7;
+      }
+    }
+
+    .pt-monitor-stand {
+      position: absolute;
+      bottom: -1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 6rem;
+      height: 3rem;
+      background: var(--pt-monitor-body);
+      border-radius: 0 0 0.75rem 0.75rem;
+      z-index: -1;
+    }
+
+    .pt-monitor-base {
+      position: absolute;
+      bottom: -1.25rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 12rem;
+      height: 1rem;
+      background: var(--pt-monitor-screen);
+      border-radius: 9999px;
+      margin-top: -1.25rem;
+    }
+
+    :global(.pt-overlay-hidden) {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      background-color: black;
+      cursor: none;
+      display: none;
+    }
+
+    :global(.pt-overlay-active) {
+      display: flex !important;
+    }
+
+    .pt-overlay-bg {
+      position: absolute;
+      inset: 0;
+      background-color: black;
+      transition: background-color 0s;
+    }
+
+    .pt-fixer-box {
+      position: fixed;
+      inset: 0;
+      z-index: 55;
+      background-color: white;
+      cursor: none;
+      overflow: hidden;
+      display: none;
+    }
+
+    :global(.theme-dark) .pt-fixer-box {
+      background-color: var(--pt-surface);
+    }
+
+    .pt-fixer-box:not(.pt-fixer-hidden) {
+      display: flex !important;
+    }
+
+    .pt-fixer-hidden {
+      display: none !important;
+    }
+
+    .pt-noise-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .pt-close-fixer {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      padding: 0.5rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      cursor: pointer;
+      z-index: 60;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pt-fixer-box:hover .pt-close-fixer {
+      opacity: 1;
+    }
+
+    .pt-close-fixer svg {
+      width: 1rem;
+      height: 1rem;
+    }
+
+    .pt-controls {
+      position: absolute;
+      bottom: 3rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(0.5rem);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 1rem;
+      border-radius: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      transition: opacity 0.3s ease;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    :global(.pt-controls-visible) {
+      opacity: 1 !important;
+      pointer-events: auto !important;
+    }
+
+    .pt-color-buttons {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .pt-color-btn {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 9999px;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .pt-color-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    }
+
+    .pt-divider {
+      width: 1px;
+      height: 2rem;
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .pt-control-btn {
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      background: transparent;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pt-control-btn:hover {
+      color: #4ade80;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .pt-control-btn-exit:hover {
+      color: #ef4444;
+    }
+
+    .pt-control-btn svg {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  </style>
+
+  <script>
+    const els = {
+      btnStart: document.getElementById('btn-start-test'),
+      btnFix: document.getElementById('btn-start-fix'),
+      overlay: document.getElementById('test-overlay'),
+      testBg: document.getElementById('test-bg'),
+      controls: document.getElementById('test-controls'),
+      btnExit: document.getElementById('btn-exit'),
+      toggleFixer: document.getElementById('toggle-fixer'),
+      fixerBox: document.getElementById('fixer-box'),
+      closeFixer: document.getElementById('close-fixer'),
+      noiseCanvas: document.getElementById('noise-canvas'),
+    };
+
+    let idleTimer: ReturnType<typeof setTimeout>;
+    let isStrobing = false;
+    let animationFrame: number;
+    let currentColorIndex = 0;
+
+    const colors = ['#000000', '#ffffff', '#dc2626', '#16a34a', '#2563eb'];
+
+    function startTest(initialMode = 'test') {
+      els.overlay?.classList.add('pt-overlay-active');
+      document.documentElement.requestFullscreen().catch(() => {});
+
+      if (initialMode === 'fix') {
+        toggleFixerBox(true);
+      } else {
+        const firstColor = colors[0];
+        if (firstColor) setColor(firstColor);
+      }
+
+      document.addEventListener('mousemove', handleMouseMove);
+      document.addEventListener('keydown', handleKeyDown);
+      resetIdleTimer();
+    }
+
+    function exitTest() {
+      if (document.fullscreenElement) {
+        document.exitFullscreen().catch(() => {});
+      }
+      els.overlay?.classList.remove('pt-overlay-active');
+      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('keydown', handleKeyDown);
+      toggleFixerBox(false);
+    }
+
+    function setColor(hex: string) {
+      if (!els.testBg) return;
+      els.testBg.style.backgroundColor = hex;
+    }
+
+    function rotateColor(direction = 1) {
+      currentColorIndex = (currentColorIndex + direction + colors.length) % colors.length;
+      const color = colors[currentColorIndex];
+      if (color) setColor(color);
+    }
+
+    function generateNoise(element: HTMLElement) {
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+
+      const baseSize = 64;
+      canvas.height = baseSize;
+      canvas.width = baseSize;
+
+      canvas.style.width = '100%';
+      canvas.style.height = '100%';
+      canvas.style.imageRendering = 'pixelated';
+
+      element.innerHTML = '';
+      element.appendChild(canvas);
+
+      const w = canvas.width;
+      const h = canvas.height;
+      const idata = ctx.createImageData(w, h);
+      const buffer32 = new Uint32Array(idata.data.buffer);
+
+      const step = () => {
+        if (!isStrobing) {
+          return;
+        }
+
+        for (let i = 0; i < buffer32.length; i++) {
+          buffer32[i] = (255 << 24) | ((Math.random() * 255) << 16) | ((Math.random() * 255) << 8) | ((Math.random() * 255) << 0);
+        }
+
+        ctx.putImageData(idata, 0, 0);
+        animationFrame = requestAnimationFrame(step);
+      };
+      step();
+    }
+
+    function toggleFixerBox(show: boolean) {
+      if (!els.fixerBox || !els.noiseCanvas) return;
+
+      if (show) {
+        els.fixerBox.classList.remove('pt-fixer-hidden');
+        isStrobing = true;
+        generateNoise(els.noiseCanvas);
+      } else {
+        els.fixerBox.classList.add('pt-fixer-hidden');
+        isStrobing = false;
+        if (animationFrame) cancelAnimationFrame(animationFrame);
+      }
+    }
+
+    function handleMouseMove() {
+      if (!els.controls || !els.overlay) return;
+
+      els.controls.classList.add('pt-controls-visible');
+      els.overlay.style.cursor = 'default';
+
+      resetIdleTimer();
+    }
+
+    function resetIdleTimer() {
+      if (idleTimer) clearTimeout(idleTimer);
+      idleTimer = setTimeout(() => {
+        if (els.controls && els.overlay) {
+          els.controls.classList.remove('pt-controls-visible');
+          els.overlay.style.cursor = 'none';
+        }
+      }, 3000);
+    }
+
+    function handleKeyDown(e: KeyboardEvent) {
+      if (e.key === 'Escape') exitTest();
+      if (e.key === ' ' || e.key === 'ArrowRight') rotateColor(1);
+      if (e.key === 'ArrowLeft') rotateColor(-1);
+    }
+
+    document.querySelectorAll('.pt-color-btn').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        const color = (e.target as HTMLElement).getAttribute('data-color');
+        if (color) setColor(color);
+      });
+    });
+
+    els.btnStart?.addEventListener('click', () => startTest('test'));
+    els.btnFix?.addEventListener('click', () => startTest('fix'));
+    els.btnExit?.addEventListener('click', exitTest);
+
+    els.toggleFixer?.addEventListener('click', () => {
+      const isHidden = els.fixerBox?.classList.contains('pt-fixer-hidden');
+      toggleFixerBox(!!isHidden);
+    });
+
+    els.closeFixer?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleFixerBox(false);
+    });
+  </script>
+</div>

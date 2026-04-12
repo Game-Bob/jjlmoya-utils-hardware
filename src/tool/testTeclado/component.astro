@@ -1,0 +1,602 @@
+---
+import type { KnownLocale } from '../../types';
+import type { TestTecladoUI } from './ui';
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  locale?: KnownLocale;
+  ui?: Record<string, unknown>;
+}
+
+const { ui } = Astro.props;
+const t = (ui ?? {}) as TestTecladoUI;
+
+const keyClass = 'tt-key';
+const activeClass = 'tt-key-active';
+const testedClass = 'tt-key-tested';
+---
+
+<div id="keyboard-tester-root" class="tt-wrapper" data-active-class={activeClass} data-tested-class={testedClass}>
+  <style is:global>
+    .tt-wrapper {
+      --tt-accent: #4f46e5;
+      --tt-accent-hover: #4338ca;
+      --tt-surface: #fff;
+      --tt-surface-alt: #f1f5f9;
+      --tt-border: #e2e8f0;
+      --tt-text: #0f172a;
+      --tt-text-muted: #64748b;
+      --tt-key-bg: #fff;
+      --tt-key-text: #64748b;
+      --tt-key-border: #e2e8f0;
+      --tt-key-shadow: rgba(0, 0, 0, 0.2);
+      --tt-key-active-bg: #4f46e5;
+      --tt-key-tested-bg: #d1fae5;
+      --tt-key-tested-text: #059669;
+      --tt-kb-bg: #e2e8f0;
+    }
+
+    .theme-dark .tt-wrapper {
+      --tt-surface: #0f172a;
+      --tt-surface-alt: #1e293b;
+      --tt-border: #334155;
+      --tt-text: #f1f5f9;
+      --tt-text-muted: #94a3b8;
+      --tt-key-bg: #334155;
+      --tt-key-text: #cbd5e1;
+      --tt-key-border: #475569;
+      --tt-key-shadow: rgba(0, 0, 0, 0.5);
+      --tt-key-active-bg: #6366f1;
+      --tt-key-tested-bg: rgba(16, 185, 129, 0.3);
+      --tt-key-tested-text: #6ee7b7;
+      --tt-kb-bg: #334155;
+    }
+
+    body.is-widget .tt-wrapper {
+      padding: 0;
+    }
+
+    body.is-widget .tt-wrapper > div {
+      background: transparent;
+      box-shadow: none;
+      border: none;
+      padding: 1rem;
+    }
+  </style>
+
+  <div class="tt-container">
+    <div class="tt-card">
+      <div class="tt-header">
+        <div class="tt-header-left">
+          <div class="tt-badge">
+            <Icon name="mdi:keyboard-outline" class="tt-badge-icon" />
+            {t.badge}
+          </div>
+          <h2 class="tt-title">{t.title}</h2>
+          <p class="tt-description">{t.description}</p>
+        </div>
+
+        <div class="tt-stats">
+          <div class="tt-stat-box">
+            <div class="tt-stat-label">{t.simultaneousLabel}</div>
+            <div class="tt-stat-value" id="max-kro">0</div>
+          </div>
+          <button id="reset-btn" class="tt-reset-btn" title={t.resetBtn}>
+            <Icon name="mdi:refresh" class="tt-reset-icon" />
+          </button>
+        </div>
+      </div>
+
+      <div class="tt-keyboard-wrapper">
+        <div class="tt-keyboard" id="keyboard-base">
+        <div class="tt-row">
+          <div class={`${keyClass} tt-key-esc`} data-code="Escape">ESC</div>
+          <div class="tt-spacer-8"></div>
+          <div class={`${keyClass} tt-key-f`} data-code="F1">F1</div>
+          <div class={`${keyClass} tt-key-f`} data-code="F2">F2</div>
+          <div class={`${keyClass} tt-key-f`} data-code="F3">F3</div>
+          <div class={`${keyClass} tt-key-f`} data-code="F4">F4</div>
+          <div class="tt-spacer-4"></div>
+          <div class={`${keyClass} tt-key-f`} data-code="F5">F5</div>
+          <div class={`${keyClass} tt-key-f`} data-code="F6">F6</div>
+          <div class={`${keyClass} tt-key-f`} data-code="F7">F7</div>
+          <div class={`${keyClass} tt-key-f`} data-code="F8">F8</div>
+          <div class="tt-spacer-4"></div>
+          <div class={`${keyClass} tt-key-f`} data-code="F9">F9</div>
+          <div class={`${keyClass} tt-key-f`} data-code="F10">F10</div>
+          <div class={`${keyClass} tt-key-f`} data-code="F11">F11</div>
+          <div class={`${keyClass} tt-key-f`} data-code="F12">F12</div>
+          <div class="tt-spacer-4"></div>
+          <div class={`${keyClass} tt-key-sm`} data-code="PrintScreen">PRT</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="ScrollLock">SCR</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="Pause">PAU</div>
+        </div>
+
+        <div class="tt-row">
+          <div class={`${keyClass} tt-key-sm`} data-code="Backquote">`</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="Digit1">1</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="Digit2">2</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="Digit3">3</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="Digit4">4</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="Digit5">5</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="Digit6">6</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="Digit7">7</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="Digit8">8</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="Digit9">9</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="Digit0">0</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="Minus">-</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="Equal">=</div>
+          <div class={`${keyClass} tt-key-md`} data-code="Backspace">BACK</div>
+          <div class="tt-spacer-4"></div>
+          <div class={`${keyClass} tt-key-sm`} data-code="Insert">INS</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="Home">HOM</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="PageUp">PGU</div>
+        </div>
+
+        <div class="tt-row">
+          <div class={`${keyClass} tt-key-md`} data-code="Tab">TAB</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="KeyQ">Q</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="KeyW">W</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="KeyE">E</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="KeyR">R</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="KeyT">T</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="KeyY">Y</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="KeyU">U</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="KeyI">I</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="KeyO">O</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="KeyP">P</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="BracketLeft">[</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="BracketRight">]</div>
+          <div class={`${keyClass} tt-key-md`} data-code="Backslash">\</div>
+          <div class="tt-spacer-4"></div>
+          <div class={`${keyClass} tt-key-sm`} data-code="Delete">DEL</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="End">END</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="PageDown">PGD</div>
+        </div>
+
+        <div class="tt-row">
+          <div class={`${keyClass} tt-key-lg`} data-code="CapsLock">CAPS</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="KeyA">A</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="KeyS">S</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="KeyD">D</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="KeyF">F</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="KeyG">G</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="KeyH">H</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="KeyJ">J</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="KeyK">K</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="KeyL">L</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="Semicolon">;</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="Quote">'</div>
+          <div class={`${keyClass} tt-key-lg`} data-code="Enter">ENTER</div>
+          <div class="tt-spacer-108"></div>
+        </div>
+
+        <div class="tt-row">
+          <div class={`${keyClass} tt-key-lg`} data-code="ShiftLeft">SHIFT</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="KeyZ">Z</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="KeyX">X</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="KeyC">C</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="KeyV">V</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="KeyB">B</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="KeyN">N</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="KeyM">M</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="Comma">,</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="Period">.</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="Slash">/</div>
+          <div class={`${keyClass} tt-key-xl`} data-code="ShiftRight">SHIFT</div>
+          <div class="tt-spacer-4"></div>
+          <div class="tt-spacer-12"></div>
+          <div class={`${keyClass} tt-key-sm`} data-code="ArrowUp">↑</div>
+          <div class="tt-spacer-12"></div>
+        </div>
+
+        <div class="tt-row">
+          <div class={`${keyClass} tt-key-md`} data-code="ControlLeft">CTRL</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="MetaLeft">WIN</div>
+          <div class={`${keyClass} tt-key-md`} data-code="AltLeft">ALT</div>
+          <div class={`${keyClass} tt-key-xxl`} data-code="Space">SPACE</div>
+          <div class={`${keyClass} tt-key-md`} data-code="AltRight">ALT</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="MetaRight">WIN</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="ContextMenu">CTX</div>
+          <div class={`${keyClass} tt-key-md`} data-code="ControlRight">CTRL</div>
+          <div class="tt-spacer-4"></div>
+          <div class={`${keyClass} tt-key-sm`} data-code="ArrowLeft">←</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="ArrowDown">↓</div>
+          <div class={`${keyClass} tt-key-sm`} data-code="ArrowRight">→</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tt-event-log-container">
+        <div class="tt-event-log-header">
+          <Icon name="mdi:history" class="tt-event-log-icon" />
+          <h3 class="tt-event-log-label">{t.eventLogLabel}</h3>
+        </div>
+        <div id="event-log" class="tt-event-log"></div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .tt-wrapper {
+      width: 100%;
+      color: var(--tt-text);
+    }
+
+    .tt-container {
+      max-width: 80rem;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+
+    .tt-card {
+      background: var(--tt-surface);
+      border-radius: 1.5rem;
+      padding: 2rem;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+      border: 1px solid var(--tt-border);
+    }
+
+    .tt-header {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      width: 100%;
+    }
+
+    @media (min-width: 768px) {
+      .tt-header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+    }
+
+    .tt-header-left {
+      flex: 1;
+    }
+
+    .tt-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      background-color: rgba(79, 70, 229, 0.1);
+      color: var(--tt-accent);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    .tt-badge-icon {
+      width: 1rem;
+      height: 1rem;
+    }
+
+    .tt-title {
+      font-size: 1.875rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      margin: 0 0 0.25rem;
+    }
+
+    .tt-description {
+      font-size: 0.9375rem;
+      color: var(--tt-text-muted);
+      margin: 0;
+    }
+
+    .tt-stats {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .tt-stat-box {
+      background: var(--tt-surface-alt);
+      padding: 1rem;
+      border-radius: 1rem;
+      text-align: center;
+      min-width: 120px;
+    }
+
+    .tt-stat-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--tt-text-muted);
+      letter-spacing: 0.05em;
+    }
+
+    .tt-stat-value {
+      font-size: 2.25rem;
+      font-weight: 900;
+      color: var(--tt-accent);
+      margin-top: 0.5rem;
+    }
+
+    .tt-reset-btn {
+      padding: 1rem;
+      background: var(--tt-surface-alt);
+      border: none;
+      border-radius: 1rem;
+      cursor: pointer;
+      color: var(--tt-text-muted);
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .tt-reset-btn:hover {
+      background: var(--tt-border);
+    }
+
+    .tt-reset-icon {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+
+    .tt-keyboard-wrapper {
+      position: relative;
+      width: 100%;
+      overflow-x: auto;
+      padding-bottom: 1rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .tt-keyboard {
+      background: var(--tt-kb-bg);
+      padding: 0.5rem;
+      border-radius: 0.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      user-select: none;
+      min-width: 900px;
+    }
+
+    .tt-row {
+      display: flex;
+      gap: 0.25rem;
+    }
+
+    .tt-key {
+      height: 3rem;
+      background: var(--tt-key-bg);
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--tt-key-text);
+      border-top: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 2px 0 var(--tt-key-shadow);
+      transition: all 300ms ease-out;
+      border: 1px solid var(--tt-key-border);
+    }
+
+    .tt-key-esc,
+    .tt-key-f,
+    .tt-key-sm {
+      width: 3rem;
+    }
+
+    .tt-key-md {
+      width: 4rem;
+    }
+
+    .tt-key-lg {
+      width: 5rem;
+    }
+
+    .tt-key-xl {
+      width: 8rem;
+    }
+
+    .tt-key-xxl {
+      width: 18rem;
+    }
+
+    .tt-key.tt-key-active {
+      background: var(--tt-key-active-bg);
+      color: white;
+      box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.2);
+      transform: translateY(1px);
+      border-color: var(--tt-accent);
+    }
+
+    .tt-key.tt-key-tested {
+      background: var(--tt-key-tested-bg);
+      color: var(--tt-key-tested-text);
+      border-color: var(--tt-key-tested-text);
+    }
+
+    .tt-key.tt-key-releasing {
+      background: var(--tt-key-bg);
+      color: var(--tt-key-text);
+      box-shadow: 0 2px 0 var(--tt-key-shadow);
+      transform: translateY(0);
+      border-color: var(--tt-key-border);
+    }
+
+    .tt-spacer-4 {
+      width: 0.25rem;
+    }
+
+    .tt-spacer-8 {
+      width: 0.5rem;
+    }
+
+    .tt-spacer-12 {
+      width: 0.75rem;
+    }
+
+    .tt-spacer-108 {
+      width: 6.75rem;
+    }
+
+    .tt-event-log-container {
+      margin-top: 0.75rem;
+      padding: 0;
+      background: transparent;
+      border-radius: 0;
+      border: none;
+      width: 100%;
+    }
+
+    .tt-event-log-header {
+      display: none;
+    }
+
+    .tt-event-log-icon {
+      display: none;
+    }
+
+    .tt-event-log-label {
+      display: none;
+    }
+
+    .tt-event-log {
+      font-size: 0.65rem;
+      color: var(--tt-text);
+      height: 2rem;
+      overflow-x: auto;
+      overflow-y: hidden;
+      background: var(--tt-surface-alt);
+      padding: 0.375rem;
+      border-radius: 0.5rem;
+      border: 1px solid var(--tt-border);
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 0.5rem;
+      white-space: nowrap;
+      width: 100%;
+      scrollbar-width: none;
+    }
+
+    .tt-event-log::-webkit-scrollbar {
+      display: none;
+    }
+
+    .tt-event-log div {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      font-weight: 600;
+      padding: 0.25rem 0.5rem;
+      min-width: 1.5rem;
+      height: 1.5rem;
+      background: var(--tt-key-bg);
+      border: 1px solid var(--tt-key-border);
+      border-radius: 0.375rem;
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+      flex-shrink: 0;
+    }
+  </style>
+
+  <script>
+    const root = document.getElementById('keyboard-tester-root');
+    const activeClass = 'tt-key-active';
+    const testedClass = 'tt-key-tested';
+
+    const activeClasses = [activeClass];
+    const testedClasses = [testedClass];
+
+    const keys = document.querySelectorAll('[data-code]');
+    const maxKroDisplay = document.getElementById('max-kro');
+    const eventLog = document.getElementById('event-log');
+    const resetBtn = document.getElementById('reset-btn');
+
+    const activeKeys = new Set<string>();
+    let maxSimultaneous = 0;
+
+    const keyMap = new Map<string, Element>();
+    keys.forEach((k) => {
+      const code = k.getAttribute('data-code');
+      if (code) keyMap.set(code, k);
+    });
+
+    function log(msg: string) {
+      if (!eventLog) return;
+      const div = document.createElement('div');
+      div.textContent = `${msg}`;
+      eventLog.appendChild(div);
+      if (eventLog.children.length > 50) eventLog.firstElementChild?.remove();
+      eventLog.scrollLeft = eventLog.scrollWidth;
+    }
+
+    function handleDown(e: KeyboardEvent) {
+      e.preventDefault();
+      const code = e.code;
+
+      if (!activeKeys.has(code)) {
+        activeKeys.add(code);
+
+        const el = keyMap.get(code) as HTMLElement | undefined;
+        if (el) {
+          el.classList.add(...activeClasses);
+          el.classList.add('is-tested');
+
+          if (!el.dataset.tested) {
+            el.classList.add(...testedClasses);
+            el.dataset.tested = 'true';
+          }
+
+          const keyText = el.textContent || code;
+          log(`${keyText}`);
+        }
+
+        if (activeKeys.size > maxSimultaneous) {
+          maxSimultaneous = activeKeys.size;
+          if (maxKroDisplay) maxKroDisplay.textContent = maxSimultaneous.toString();
+        }
+      }
+    }
+
+    function handleUp(e: KeyboardEvent) {
+      e.preventDefault();
+      const code = e.code;
+      activeKeys.delete(code);
+
+      const el = keyMap.get(code) as HTMLElement | undefined;
+      if (el) {
+        el.classList.add('tt-key-releasing');
+        el.classList.remove('tt-key-active');
+        el.classList.remove('tt-key-tested');
+        setTimeout(() => {
+          el.classList.remove('tt-key-releasing');
+        }, 300);
+      }
+    }
+
+    function reset() {
+      activeKeys.clear();
+      maxSimultaneous = 0;
+      if (maxKroDisplay) maxKroDisplay.textContent = '0';
+      if (eventLog) eventLog.innerHTML = '';
+
+      keys.forEach((k) => {
+        k.classList.remove(...activeClasses);
+        k.classList.remove(...testedClasses);
+        (k as HTMLElement).removeAttribute('data-tested');
+        k.classList.remove('is-tested');
+      });
+      log('Test reiniciado.');
+    }
+
+    window.addEventListener('keydown', handleDown);
+    window.addEventListener('keyup', handleUp);
+    resetBtn?.addEventListener('click', reset);
+
+    window.focus();
+  </script>
+</div>
