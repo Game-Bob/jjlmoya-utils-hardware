@@ -1,0 +1,14 @@
+---
+import { Bibliography as SharedBibliography } from '@jjlmoya/utils-shared';
+import type { KnownLocale } from '../../types';
+import { estimadorSaludBateria } from './index';
+
+interface Props {
+  locale?: KnownLocale;
+}
+
+const { locale = 'es' } = Astro.props;
+const content = await estimadorSaludBateria.i18n[locale]?.();
+---
+
+{content && content.bibliography.length > 0 && <SharedBibliography links={content.bibliography} />}

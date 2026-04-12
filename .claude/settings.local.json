@@ -1,7 +1,10 @@
 {
   "permissions": {
     "allow": [
-      "Bash(echo \"EXIT: $?\")"
+      "Bash(echo \"EXIT: $?\")",
+      "Bash(find d:/code/jjlmoya/src -name \"*.json\" -exec grep -l \"test-raton\\\\|mouse\" {} \\\\;)",
+      "Bash(find d:/code/jjlmoya -name \"*.astro\" -exec grep -l \"mouse-test\\\\|MouseTester\\\\|test-raton\" {} \\\\;)",
+      "Read(//c/Users/34677/.claude/projects/d--code-jjlmoya-utils-hardware/memory/**)"
     ]
   }
 }

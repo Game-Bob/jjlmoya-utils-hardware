@@ -1,0 +1,571 @@
+---
+import type { KnownLocale } from '../../types';
+import type { ToneGeneratorUI } from './ui';
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  locale?: KnownLocale;
+  ui?: Record<string, unknown>;
+}
+
+const { ui } = Astro.props;
+const t = (ui ?? {}) as ToneGeneratorUI;
+
+const S = JSON.stringify({ bp: t.btnPlay, bs: t.btnStop });
+---
+
+<div id="tg-root" class="tg-wrapper" data-s={S}>
+
+  <style is:global>
+    .tg-wrapper {
+      --tg-accent: #e11d48;
+      --tg-accent-glow: rgba(225, 29, 72, 0.3);
+      --tg-canvas-line: #f43f5e;
+      --tg-btn-bg: #e11d48;
+      --tg-btn-stop-bg: #1e293b;
+      --tg-surface: #fff;
+      --tg-surface-alt: #f8fafc;
+      --tg-border: #e2e8f0;
+      --tg-text: #0f172a;
+      --tg-text-muted: #64748b;
+      --tg-text-faint: #94a3b8;
+    }
+
+    .theme-dark .tg-wrapper {
+      --tg-btn-stop-bg: #27272a;
+      --tg-surface: #09090b;
+      --tg-surface-alt: #18181b;
+      --tg-border: #27272a;
+      --tg-text: #fafafa;
+      --tg-text-muted: #a1a1aa;
+      --tg-text-faint: #52525b;
+    }
+
+    .tg-wave-btn[data-active='true'] {
+      background: var(--tg-accent);
+      color: #fff;
+      box-shadow: 0 4px 14px var(--tg-accent-glow);
+    }
+
+    #tg-toggle[data-playing='true'] {
+      background: var(--tg-btn-stop-bg);
+      box-shadow: none;
+    }
+
+    #tg-play-icon {
+      display: inline-flex;
+    }
+
+    #tg-stop-icon {
+      display: none;
+    }
+
+    #tg-toggle[data-playing='true'] #tg-play-icon {
+      display: none;
+    }
+
+    #tg-toggle[data-playing='true'] #tg-stop-icon {
+      display: inline-flex;
+    }
+
+    @keyframes tg-pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    body.is-widget .tg-wrapper {
+      padding: 0;
+    }
+  </style>
+
+  <div class="tg-card">
+
+    <div class="tg-header">
+      <div class="tg-icon-wrap">
+        <Icon name="mdi:sine-wave" class="tg-icon" />
+      </div>
+      <div class="tg-header-text">
+        <span class="tg-badge">{t.badge}</span>
+        <h2 class="tg-title">{t.title}</h2>
+        <p class="tg-desc">{t.description}</p>
+      </div>
+    </div>
+
+    <div class="tg-canvas-wrap">
+      <canvas id="tg-canvas" class="tg-canvas"></canvas>
+      <div id="tg-hz-display" class="tg-hz-display">440 Hz</div>
+    </div>
+
+    <div class="tg-controls">
+
+      <div class="tg-section">
+        <div class="tg-section-header">
+          <label class="tg-label">{t.freqLabel}</label>
+          <div class="tg-presets">
+            <button class="tg-preset" data-val="60">{t.preset60}</button>
+            <button class="tg-preset" data-val="440">{t.preset440}</button>
+            <button class="tg-preset" data-val="1000">{t.preset1k}</button>
+          </div>
+        </div>
+        <input type="range" id="tg-freq" class="tg-slider" min="20" max="20000" value="440" step="1" />
+        <div class="tg-range-hints">
+          <span>{t.rangeMin}</span>
+          <span>{t.rangeMax}</span>
+        </div>
+      </div>
+
+      <div class="tg-two-col">
+        <div class="tg-section">
+          <label class="tg-label">{t.waveLabel}</label>
+          <div class="tg-wave-grid">
+            <button class="tg-wave-btn" data-type="sine" data-active="true" title={t.waveSine}>
+              <Icon name="mdi:sine-wave" class="tg-wave-icon" />
+            </button>
+            <button class="tg-wave-btn" data-type="square" title={t.waveSquare}>
+              <Icon name="mdi:square-wave" class="tg-wave-icon" />
+            </button>
+            <button class="tg-wave-btn" data-type="sawtooth" title={t.waveSawtooth}>
+              <Icon name="mdi:sawtooth-wave" class="tg-wave-icon" />
+            </button>
+            <button class="tg-wave-btn" data-type="triangle" title={t.waveTriangle}>
+              <Icon name="mdi:triangle-wave" class="tg-wave-icon" />
+            </button>
+          </div>
+        </div>
+
+        <div class="tg-section">
+          <label class="tg-label">{t.volLabel}</label>
+          <div class="tg-vol-row">
+            <Icon name="mdi:volume-high" class="tg-vol-icon" />
+            <input type="range" id="tg-vol" class="tg-slider tg-vol-slider" min="0" max="1" value="0.5" step="0.01" />
+          </div>
+        </div>
+      </div>
+
+      <button id="tg-toggle" class="tg-toggle-btn" data-playing="false">
+        <span id="tg-play-icon" class="tg-btn-icon">
+          <Icon name="mdi:play" class="tg-toggle-icon" />
+        </span>
+        <span id="tg-stop-icon" class="tg-btn-icon">
+          <Icon name="mdi:stop" class="tg-toggle-icon" />
+        </span>
+        <span id="tg-btn-text">{t.btnPlay}</span>
+      </button>
+
+    </div>
+  </div>
+
+  <style>
+    .tg-wrapper {
+      width: 100%;
+      color: var(--tg-text);
+    }
+
+    .tg-card {
+      background: var(--tg-surface);
+      border: 1px solid var(--tg-border);
+      border-radius: 1.5rem;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .tg-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .tg-icon-wrap {
+      flex-shrink: 0;
+      padding: 0.75rem;
+      background: rgba(225, 29, 72, 0.1);
+      color: var(--tg-accent);
+      border-radius: 1rem;
+    }
+
+    .tg-icon {
+      width: 2rem;
+      height: 2rem;
+    }
+
+    .tg-header-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.125rem;
+    }
+
+    .tg-badge {
+      display: inline-block;
+      font-size: 0.625rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--tg-accent);
+      background: rgba(225, 29, 72, 0.08);
+      border: 1px solid rgba(225, 29, 72, 0.2);
+      padding: 0.2rem 0.6rem;
+      border-radius: 9999px;
+      width: fit-content;
+    }
+
+    .tg-title {
+      font-size: 1.75rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      margin: 0;
+      color: var(--tg-text);
+    }
+
+    .tg-desc {
+      font-size: 0.875rem;
+      color: var(--tg-text-muted);
+      margin: 0;
+    }
+
+    .tg-canvas-wrap {
+      position: relative;
+      width: 100%;
+      height: 12rem;
+      background: #000;
+      border-radius: 1rem;
+      overflow: hidden;
+      border: 1px solid #111;
+    }
+
+    .tg-canvas {
+      width: 100%;
+      height: 100%;
+    }
+
+    .tg-hz-display {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 0.75rem;
+      color: #f43f5e;
+      letter-spacing: 0.05em;
+      animation: tg-pulse 2s ease-in-out infinite;
+    }
+
+    .tg-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .tg-section {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .tg-section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .tg-label {
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--tg-text-muted);
+    }
+
+    .tg-presets {
+      display: flex;
+      gap: 0.375rem;
+    }
+
+    .tg-preset {
+      padding: 0.25rem 0.5rem;
+      background: var(--tg-surface-alt);
+      border: 1px solid var(--tg-border);
+      border-radius: 0.375rem;
+      font-size: 0.75rem;
+      color: var(--tg-text-muted);
+      cursor: pointer;
+      transition: background 150ms, color 150ms;
+    }
+
+    .tg-preset:hover {
+      background: var(--tg-border);
+      color: var(--tg-text);
+    }
+
+    .tg-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 6px;
+      background: var(--tg-border);
+      border-radius: 3px;
+      outline: none;
+      accent-color: var(--tg-accent);
+    }
+
+    .tg-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      background: var(--tg-accent);
+      border-radius: 50%;
+      cursor: pointer;
+      border: 4px solid var(--tg-surface);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
+
+    .tg-range-hints {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.625rem;
+      color: var(--tg-text-faint);
+      letter-spacing: 0.02em;
+    }
+
+    .tg-two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    @media (max-width: 640px) {
+      .tg-two-col {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .tg-wave-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.5rem;
+    }
+
+    .tg-wave-btn {
+      padding: 0.75rem;
+      border-radius: 0.75rem;
+      background: var(--tg-surface-alt);
+      border: 1px solid var(--tg-border);
+      color: var(--tg-text-muted);
+      cursor: pointer;
+      transition: background 150ms, color 150ms, box-shadow 150ms;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .tg-wave-btn:hover {
+      background: var(--tg-border);
+      color: var(--tg-text);
+    }
+
+    .tg-wave-icon {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+
+    .tg-vol-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: var(--tg-surface-alt);
+      border: 1px solid var(--tg-border);
+      border-radius: 0.75rem;
+      padding: 0.75rem;
+    }
+
+    .tg-vol-icon {
+      width: 1.25rem;
+      height: 1.25rem;
+      color: var(--tg-text-faint);
+      flex-shrink: 0;
+    }
+
+    .tg-vol-slider {
+      height: 4px;
+    }
+
+    .tg-toggle-btn {
+      width: 100%;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      background: var(--tg-btn-bg);
+      border: none;
+      color: #fff;
+      font-size: 1.125rem;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      box-shadow: 0 8px 24px var(--tg-accent-glow);
+      transition: background 200ms, box-shadow 200ms, transform 100ms;
+    }
+
+    .tg-toggle-btn:active {
+      transform: scale(0.98);
+    }
+
+    .tg-btn-icon {
+      display: inherit;
+      align-items: center;
+    }
+
+    .tg-toggle-icon {
+      width: 1.75rem;
+      height: 1.75rem;
+    }
+  </style>
+
+  <script>
+    const root = document.getElementById('tg-root');
+    const S: Record<string, string> = JSON.parse(root?.dataset?.s ?? '{}');
+    const BP = S.bp ?? 'PLAY TONE';
+    const BS = S.bs ?? 'STOP';
+
+    const canvas = document.getElementById('tg-canvas') as HTMLCanvasElement | null;
+    const canvasCtx = canvas?.getContext('2d') ?? null;
+
+    const freqSlider = document.getElementById('tg-freq') as HTMLInputElement | null;
+    const volSlider = document.getElementById('tg-vol') as HTMLInputElement | null;
+    const toggleBtn = document.getElementById('tg-toggle') as HTMLButtonElement | null;
+    const btnText = document.getElementById('tg-btn-text');
+    const hzDisplay = document.getElementById('tg-hz-display');
+    const waveBtns = document.querySelectorAll<HTMLButtonElement>('.tg-wave-btn');
+    const presets = document.querySelectorAll<HTMLButtonElement>('.tg-preset');
+
+    let audioCtx: AudioContext | null = null;
+    let oscillator: OscillatorNode | null = null;
+    let gainNode: GainNode | null = null;
+    let analyser: AnalyserNode | null = null;
+    let isPlaying = false;
+    let waveform: OscillatorType = 'sine';
+
+    function initAudio(): boolean {
+      if (audioCtx) return true;
+      const W = window as typeof window & { webkitAudioContext?: typeof AudioContext };
+      const Ctx = W.AudioContext ?? W.webkitAudioContext;
+      if (!Ctx) return false;
+      const ctx = new Ctx();
+      audioCtx = ctx;
+      analyser = ctx.createAnalyser();
+      analyser.fftSize = 2048;
+      return true;
+    }
+
+    function updateUI(playing: boolean): void {
+      if (toggleBtn) toggleBtn.dataset.playing = playing ? 'true' : 'false';
+      if (btnText) btnText.textContent = playing ? BS : BP;
+    }
+
+    function resizeCanvas(): void {
+      if (!canvas) return;
+      const parent = canvas.parentElement;
+      if (!parent) return;
+      const rect = parent.getBoundingClientRect();
+      if (canvas.width !== rect.width) canvas.width = rect.width;
+      if (canvas.height !== rect.height) canvas.height = rect.height;
+    }
+
+    function drawWave(w: number, h: number, data: Uint8Array): void {
+      if (!canvasCtx) return;
+      canvasCtx.fillStyle = 'rgb(0,0,0)';
+      canvasCtx.fillRect(0, 0, w, h);
+      canvasCtx.lineWidth = 2;
+      canvasCtx.strokeStyle = '#f43f5e';
+      canvasCtx.beginPath();
+      const sliceWidth = w / data.length;
+      let x = 0;
+      for (let i = 0; i < data.length; i++) {
+        const v = (data[i] ?? 128) / 128.0;
+        const y = (v * h) / 2;
+        if (i === 0) canvasCtx.moveTo(x, y);
+        else canvasCtx.lineTo(x, y);
+        x += sliceWidth;
+      }
+      canvasCtx.lineTo(w, h / 2);
+      canvasCtx.stroke();
+    }
+
+    function drawVisualizer(): void {
+      if (!isPlaying || !analyser || !canvas) return;
+      const dataArray = new Uint8Array(analyser.frequencyBinCount);
+      analyser.getByteTimeDomainData(dataArray);
+      resizeCanvas();
+      drawWave(canvas.width, canvas.height, dataArray);
+      requestAnimationFrame(drawVisualizer);
+    }
+
+    function updateParams(): void {
+      if (oscillator && freqSlider) oscillator.frequency.value = parseInt(freqSlider.value, 10);
+      if (gainNode && volSlider) gainNode.gain.value = parseFloat(volSlider.value);
+      if (oscillator) oscillator.type = waveform;
+      if (hzDisplay && freqSlider) hzDisplay.textContent = `${freqSlider.value} Hz`;
+    }
+
+    function start(): void {
+      if (!audioCtx || !analyser || !freqSlider || !volSlider) return;
+      oscillator = audioCtx.createOscillator();
+      gainNode = audioCtx.createGain();
+      oscillator.type = waveform;
+      oscillator.frequency.value = parseInt(freqSlider.value, 10);
+      gainNode.gain.value = parseFloat(volSlider.value);
+      oscillator.connect(gainNode);
+      gainNode.connect(analyser);
+      analyser.connect(audioCtx.destination);
+      oscillator.start();
+      isPlaying = true;
+      updateUI(true);
+      drawVisualizer();
+    }
+
+    function stop(): void {
+      if (oscillator) {
+        oscillator.stop();
+        oscillator.disconnect();
+        oscillator = null;
+      }
+      isPlaying = false;
+      updateUI(false);
+    }
+
+    function toggle(): void {
+      if (!initAudio()) return;
+      if (audioCtx?.state === 'suspended') audioCtx.resume();
+      if (isPlaying) stop();
+      else start();
+    }
+
+    toggleBtn?.addEventListener('click', toggle);
+    freqSlider?.addEventListener('input', updateParams);
+    volSlider?.addEventListener('input', updateParams);
+
+    waveBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const t = btn.getAttribute('data-type');
+        if (!t) return;
+        waveform = t as OscillatorType;
+        updateParams();
+        waveBtns.forEach((b) => { b.dataset.active = 'false'; });
+        btn.dataset.active = 'true';
+      });
+    });
+
+    presets.forEach((p) => {
+      p.addEventListener('click', () => {
+        const val = p.getAttribute('data-val');
+        if (val && freqSlider) {
+          freqSlider.value = val;
+          updateParams();
+        }
+      });
+    });
+  </script>
+
+</div>

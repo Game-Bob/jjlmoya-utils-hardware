@@ -1327,11 +1327,15 @@ const t = (ui ?? {}) as TestMandoUI;
         updateTimerUI();
       }, 100);
     }
+    const [RLN, RLD, RLF] = [S.rln ?? 'LEGENDARIO', S.rld ?? 'Tus dedos se mueven a la velocidad del sonido.', S.rlf ?? 'Mi mando vuela!'];
+    const [RPN, RPD, RPF] = [S.rpn ?? 'PRO GAMER', S.rpd ?? 'Tienes reflejos de acero y un mando bien calibrado.', S.rpf ?? 'Mi mando vuela!'];
+    const [RGN, RGD, RGF] = [S.rgn ?? 'GAMER', S.rgd ?? 'No está mal, pero para el competitivo te falta calle.', S.rgf ?? 'Casi lo tengo!'];
+    const [RNN, RND, RNF] = [S.rnn ?? 'MANCO', S.rnd ?? '¿Seguro que tienes el mando encendido?', S.rnf ?? 'El mando me tiene manía!'];
     function getRank(s: number) {
-      if (s > 50) return { name: S.rln ?? 'LEGENDARIO', desc: S.rld ?? 'Tus dedos se mueven a la velocidad del sonido.', flavor: S.rlf ?? 'Mi mando vuela!' };
-      if (s > 35) return { name: S.rpn ?? 'PRO GAMER', desc: S.rpd ?? 'Tienes reflejos de acero y un mando bien calibrado.', flavor: S.rpf ?? 'Mi mando vuela!' };
-      if (s > 20) return { name: S.rgn ?? 'GAMER', desc: S.rgd ?? 'No está mal, pero para el competitivo te falta calle.', flavor: S.rgf ?? 'Casi lo tengo!' };
-      return { name: S.rnn ?? 'MANCO', desc: S.rnd ?? '¿Seguro que tienes el mando encendido?', flavor: S.rnf ?? 'El mando me tiene manía!' };
+      if (s > 50) return { name: RLN, desc: RLD, flavor: RLF };
+      if (s > 35) return { name: RPN, desc: RPD, flavor: RPF };
+      if (s > 20) return { name: RGN, desc: RGD, flavor: RGF };
+      return { name: RNN, desc: RND, flavor: RNF };
     }
     function endGame() {
       gameActive = false; if (timerInterval) clearInterval(timerInterval as unknown as number);

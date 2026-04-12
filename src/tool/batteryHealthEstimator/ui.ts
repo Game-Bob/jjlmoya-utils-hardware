@@ -1,0 +1,31 @@
+export interface EstimadorSaludBateriaUI extends Record<string, string> {
+  badge: string;
+  title: string;
+  description: string;
+  paramsTitle: string;
+  voltageLabel: string;
+  cyclesLabel: string;
+  tempLabel: string;
+  voltageHint: string;
+  labelUsefulLife: string;
+  yearsPrefix: string;
+  yearsSuffix: string;
+  metricThermalStress: string;
+  metricVoltageStress: string;
+  metricLithiumPlating: string;
+  statusExcelente: string;
+  statusBueno: string;
+  statusRegular: string;
+  statusCritico: string;
+  indicatorTempNormal: string;
+  indicatorTempCritical: string;
+  indicatorVoltageHigh: string;
+  indicatorVoltageLow: string;
+  indicatorPlatingRisk: string;
+  indicatorPlatingOk: string;
+  recTemp: string;
+  recVoltageHigh: string;
+  recVoltageLow: string;
+  recSohLow: string;
+  recDefault: string;
+}

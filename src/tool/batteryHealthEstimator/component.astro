@@ -1,0 +1,606 @@
+---
+import type { KnownLocale } from '../../types';
+import type { EstimadorSaludBateriaUI } from './ui';
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  locale?: KnownLocale;
+  ui?: Record<string, unknown>;
+}
+
+const { ui } = Astro.props;
+const t = (ui ?? {}) as EstimadorSaludBateriaUI;
+
+const S = JSON.stringify({
+  se: t.statusExcelente, sb: t.statusBueno, sr: t.statusRegular, sc: t.statusCritico,
+  yp: t.yearsPrefix, ys: t.yearsSuffix,
+  tn: t.indicatorTempNormal, tc: t.indicatorTempCritical,
+  vh: t.indicatorVoltageHigh, vl: t.indicatorVoltageLow,
+  pr: t.indicatorPlatingRisk, po: t.indicatorPlatingOk,
+  rt: t.recTemp, rvh: t.recVoltageHigh, rvl: t.recVoltageLow,
+  rs: t.recSohLow, rd: t.recDefault,
+});
+---
+
+<div id="bh-root" class="bh-wrapper" data-s={S}>
+
+  <style is:global>
+    .bh-wrapper {
+      --bh-accent: #10b981;
+      --bh-warn: #f59e0b;
+      --bh-danger: #f43f5e;
+      --bh-blue: #3b82f6;
+      --bh-surface: #fff;
+      --bh-surface-alt: #f8fafc;
+      --bh-surface-dark: #020617;
+      --bh-border: #e2e8f0;
+      --bh-text: #0f172a;
+      --bh-text-muted: #64748b;
+      --bh-text-faint: #94a3b8;
+    }
+
+    .theme-dark .bh-wrapper {
+      --bh-surface: #09090b;
+      --bh-surface-alt: #18181b;
+      --bh-border: #27272a;
+      --bh-text: #fafafa;
+      --bh-text-muted: #a1a1aa;
+      --bh-text-faint: #52525b;
+    }
+
+    .bh-status-card[data-status="excelente"] {
+      background: rgba(16, 185, 129, 0.08);
+      border-color: rgba(16, 185, 129, 0.2);
+      color: #065f46;
+    }
+
+    .theme-dark .bh-status-card[data-status="excelente"] {
+      color: #34d399;
+    }
+
+    .bh-status-card[data-status="bueno"] {
+      background: rgba(59, 130, 246, 0.08);
+      border-color: rgba(59, 130, 246, 0.2);
+      color: #1e40af;
+    }
+
+    .theme-dark .bh-status-card[data-status="bueno"] {
+      color: #93c5fd;
+    }
+
+    .bh-status-card[data-status="regular"] {
+      background: rgba(245, 158, 11, 0.08);
+      border-color: rgba(245, 158, 11, 0.2);
+      color: #92400e;
+    }
+
+    .theme-dark .bh-status-card[data-status="regular"] {
+      color: #fcd34d;
+    }
+
+    .bh-status-card[data-status="critico"] {
+      background: rgba(244, 63, 94, 0.08);
+      border-color: rgba(244, 63, 94, 0.2);
+      color: #9f1239;
+    }
+
+    .theme-dark .bh-status-card[data-status="critico"] {
+      color: #fda4af;
+    }
+
+    .bh-rec {
+      display: flex;
+      gap: 0.5rem;
+      align-items: flex-start;
+      opacity: 0.85;
+    }
+
+    .bh-rec-dot {
+      flex-shrink: 0;
+      width: 0.25rem;
+      height: 0.25rem;
+      border-radius: 9999px;
+      background: currentcolor;
+      margin-top: 0.5rem;
+    }
+
+    .bh-rec p {
+      margin: 0;
+      font-size: 0.75rem;
+      line-height: 1.5;
+    }
+
+    body.is-widget .bh-wrapper {
+      padding: 0;
+    }
+  </style>
+
+  <div class="bh-grid">
+
+    <div class="bh-left">
+      <div class="bh-params-panel">
+        <h3 class="bh-params-title">
+          <Icon name="mdi:battery-check" class="bh-params-icon" />
+          {t.paramsTitle}
+        </h3>
+
+        <div class="bh-sliders">
+          <div class="bh-slider-group">
+            <div class="bh-slider-header">
+              <label class="bh-slider-label">{t.voltageLabel}</label>
+              <span id="bh-v-val" class="bh-slider-val">3.70V</span>
+            </div>
+            <input type="range" id="bh-v" class="bh-slider" min="3.0" max="4.2" step="0.01" value="3.70" />
+            <p class="bh-slider-hint">{t.voltageHint}</p>
+          </div>
+
+          <div class="bh-slider-group">
+            <div class="bh-slider-header">
+              <label class="bh-slider-label">{t.cyclesLabel}</label>
+              <span id="bh-c-val" class="bh-slider-val">50</span>
+            </div>
+            <input type="range" id="bh-c" class="bh-slider" min="0" max="1000" step="1" value="50" />
+          </div>
+
+          <div class="bh-slider-group">
+            <div class="bh-slider-header">
+              <label class="bh-slider-label">{t.tempLabel}</label>
+              <span id="bh-t-val" class="bh-slider-val">25°C</span>
+            </div>
+            <input type="range" id="bh-t" class="bh-slider" min="0" max="60" step="1" value="25" />
+          </div>
+        </div>
+      </div>
+
+      <div id="bh-status-card" class="bh-status-card" data-status="excelente">
+        <span id="bh-status-text" class="bh-status-text">{t.statusExcelente}</span>
+        <div id="bh-recs" class="bh-recs"></div>
+      </div>
+    </div>
+
+    <div class="bh-right">
+      <div class="bh-ring-wrap">
+        <div class="bh-ring-glow"></div>
+        <div class="bh-ring-container">
+          <svg class="bh-ring-svg">
+            <circle class="bh-ring-track" cx="50%" cy="50%" r="45%" stroke-width="12" fill="transparent"></circle>
+            <circle id="bh-ring" class="bh-ring-progress" cx="50%" cy="50%" r="45%" stroke-width="12" fill="transparent" stroke-dasharray="100 100" stroke-linecap="round"></circle>
+          </svg>
+          <div class="bh-ring-overlay">
+            <span class="bh-ring-label">{t.labelUsefulLife}</span>
+            <div class="bh-ring-value">
+              <span id="bh-soh">100</span>
+              <span class="bh-ring-pct">%</span>
+            </div>
+            <div id="bh-years" class="bh-ring-years"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bh-indicators">
+        <div class="bh-indicator">
+          <span class="bh-indicator-title">{t.metricThermalStress}</span>
+          <div class="bh-indicator-row">
+            <div id="bh-dot-t" class="bh-dot"></div>
+            <span id="bh-lbl-t" class="bh-indicator-label">{t.indicatorTempNormal}</span>
+          </div>
+        </div>
+        <div class="bh-indicator">
+          <span class="bh-indicator-title">{t.metricVoltageStress}</span>
+          <div class="bh-indicator-row">
+            <div id="bh-dot-v" class="bh-dot"></div>
+            <span id="bh-lbl-v" class="bh-indicator-label">{t.indicatorVoltageLow}</span>
+          </div>
+        </div>
+        <div class="bh-indicator">
+          <span class="bh-indicator-title">{t.metricLithiumPlating}</span>
+          <div class="bh-indicator-row">
+            <div id="bh-dot-p" class="bh-dot"></div>
+            <span id="bh-lbl-p" class="bh-indicator-label">{t.indicatorPlatingOk}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <style>
+    .bh-wrapper {
+      width: 100%;
+      color: var(--bh-text);
+    }
+
+    .bh-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    @media (max-width: 768px) {
+      .bh-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .bh-left {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .bh-params-panel {
+      background: var(--bh-surface);
+      border: 1px solid var(--bh-border);
+      border-radius: 1.5rem;
+      padding: 2rem;
+    }
+
+    .bh-params-title {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1rem;
+      font-weight: 800;
+      margin: 0 0 2rem;
+    }
+
+    .bh-params-icon {
+      width: 1.25rem;
+      height: 1.25rem;
+      color: var(--bh-accent);
+    }
+
+    .bh-sliders {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .bh-slider-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .bh-slider-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .bh-slider-label {
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--bh-text-muted);
+    }
+
+    .bh-slider-val {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--bh-accent);
+    }
+
+    .bh-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 6px;
+      background: var(--bh-border);
+      border-radius: 3px;
+      outline: none;
+      accent-color: var(--bh-accent);
+    }
+
+    .bh-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      background: var(--bh-accent);
+      border-radius: 50%;
+      cursor: pointer;
+      border: 4px solid var(--bh-surface);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
+
+    .bh-slider-hint {
+      font-size: 0.625rem;
+      color: var(--bh-text-faint);
+      font-style: italic;
+      margin: 0;
+    }
+
+    .bh-status-card {
+      padding: 1.25rem;
+      border-radius: 1rem;
+      border: 1px solid var(--bh-border);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      transition: background 400ms, border-color 400ms, color 400ms;
+    }
+
+    .bh-status-text {
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .bh-recs {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .bh-right {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .bh-ring-wrap {
+      background: var(--bh-surface);
+      border: 1px solid var(--bh-border);
+      border-radius: 1.5rem;
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 340px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bh-ring-glow {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.05), transparent);
+      pointer-events: none;
+    }
+
+    .bh-ring-container {
+      position: relative;
+      width: 220px;
+      height: 220px;
+    }
+
+    .bh-ring-svg {
+      width: 100%;
+      height: 100%;
+      transform: rotate(-90deg);
+    }
+
+    .bh-ring-track {
+      color: var(--bh-border);
+      stroke: currentcolor;
+    }
+
+    .bh-ring-progress {
+      color: var(--bh-accent);
+      stroke: currentcolor;
+      transition: stroke-dashoffset 1s ease-out, stroke 500ms ease;
+    }
+
+    .bh-ring-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .bh-ring-label {
+      font-size: 0.6rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--bh-text-faint);
+      margin-bottom: 0.25rem;
+    }
+
+    .bh-ring-value {
+      display: flex;
+      align-items: flex-end;
+      gap: 0.25rem;
+      line-height: 1;
+    }
+
+    #bh-soh {
+      font-size: 4rem;
+      font-weight: 900;
+      color: var(--bh-text);
+    }
+
+    .bh-ring-pct {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--bh-text-muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .bh-ring-years {
+      margin-top: 1rem;
+      padding: 0.375rem 1rem;
+      border-radius: 9999px;
+      background: var(--bh-surface-alt);
+      border: 1px solid var(--bh-border);
+      font-size: 0.65rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--bh-text-muted);
+    }
+
+    .bh-indicators {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+    }
+
+    .bh-indicator {
+      background: var(--bh-surface);
+      border: 1px solid var(--bh-border);
+      border-radius: 1rem;
+      padding: 1rem;
+    }
+
+    .bh-indicator-title {
+      display: block;
+      font-size: 0.6rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--bh-text-faint);
+      margin-bottom: 0.5rem;
+    }
+
+    .bh-indicator-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .bh-dot {
+      width: 0.75rem;
+      height: 0.75rem;
+      border-radius: 9999px;
+      background: var(--bh-accent);
+      flex-shrink: 0;
+      transition: background 300ms;
+    }
+
+    .bh-indicator-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--bh-text);
+    }
+  </style>
+
+  <script>
+    const root = document.getElementById('bh-root');
+    const S: Record<string, string> = JSON.parse(root?.dataset?.s ?? '{}');
+    const C = { OK: '#10b981', WARN: '#f59e0b', DANGER: '#f43f5e', BLUE: '#3b82f6' };
+    const RT = S.rt ?? '', RVH = S.rvh ?? '', RVL = S.rvl ?? '', RS = S.rs ?? '', RD = S.rd ?? '';
+    const TN = S.tn ?? '', TC = S.tc ?? '', VH = S.vh ?? '', VL = S.vl ?? '';
+    const PR = S.pr ?? '', PO = S.po ?? '', YP = S.yp ?? 'Est.', YS = S.ys ?? 'años';
+    const STATUS_CSS: Record<string, string> = { se: 'excelente', sb: 'bueno', sr: 'regular', sc: 'critico' };
+    const STATUS_TXT: Record<string, string> = { se: S.se ?? '', sb: S.sb ?? '', sr: S.sr ?? '', sc: S.sc ?? '' };
+    const slV = document.getElementById('bh-v') as HTMLInputElement | null;
+    const slC = document.getElementById('bh-c') as HTMLInputElement | null;
+    const slT = document.getElementById('bh-t') as HTMLInputElement | null;
+    const valV = document.getElementById('bh-v-val');
+    const valC = document.getElementById('bh-c-val');
+    const valT = document.getElementById('bh-t-val');
+    const sohEl = document.getElementById('bh-soh');
+    const yearsEl = document.getElementById('bh-years');
+    const ring = document.getElementById('bh-ring') as unknown as SVGCircleElement | null;
+    const statusCard = document.getElementById('bh-status-card') as HTMLElement | null;
+    const statusText = document.getElementById('bh-status-text');
+    const recsEl = document.getElementById('bh-recs');
+    const dotT = document.getElementById('bh-dot-t') as HTMLElement | null;
+    const lblT = document.getElementById('bh-lbl-t');
+    const dotV = document.getElementById('bh-dot-v') as HTMLElement | null;
+    const lblV = document.getElementById('bh-lbl-v');
+    const dotP = document.getElementById('bh-dot-p') as HTMLElement | null;
+    const lblP = document.getElementById('bh-lbl-p');
+
+    function tempFactor(t: number): number {
+      if (t > 45) return 2 + (t - 45) * 0.1;
+      if (t > 30) return 1 + (t - 30) * 0.05;
+      if (t < 10) return 1.2;
+      return 1;
+    }
+
+    function voltFactor(v: number): number {
+      if (v > 4.15) return 1.8;
+      if (v > 4.05) return 1.3;
+      if (v < 3.2) return 1.2;
+      return 1;
+    }
+
+    function healthKey(soh: number): string {
+      if (soh < 65) return 'sc';
+      if (soh < 80) return 'sr';
+      if (soh < 90) return 'sb';
+      return 'se';
+    }
+
+    function getRecs(v: number, t: number, soh: number): string[] {
+      const recs: string[] = [];
+      if (t > 35) recs.push(RT);
+      if (v > 4.1) recs.push(RVH);
+      if (v < 3.3) recs.push(RVL);
+      if (soh < 80) recs.push(RS);
+      if (recs.length === 0) recs.push(RD);
+      return recs;
+    }
+
+    function calculate(v: number, c: number, t: number) {
+      const tp = tempFactor(t);
+      const vs = voltFactor(v);
+      const soh = Math.max(0, 100 - (c / 500) * 20 * tp * vs);
+      const life = Math.max(0, 5 * (soh / 100) * (1 / (tp * vs)));
+      return { soh: Math.round(soh * 10) / 10, life: Math.round(life * 10) / 10, key: healthKey(soh) };
+    }
+
+    function applyDot(dot: HTMLElement | null, lbl: Element | null, color: string, text: string) {
+      if (!dot || !lbl) return;
+      dot.style.background = color;
+      lbl.textContent = text;
+    }
+
+    function updateRing(soh: number) {
+      if (!ring) return;
+      const r = ring.r.baseVal.value;
+      const circ = 2 * Math.PI * r;
+      ring.style.strokeDasharray = `${circ} ${circ}`;
+      ring.style.strokeDashoffset = (circ - (soh / 100) * circ).toString();
+      let ringColor = C.DANGER;
+      if (soh > 70) ringColor = C.WARN;
+      if (soh > 85) ringColor = C.OK;
+      ring.style.stroke = ringColor;
+    }
+
+    function updateSliders(v: number, c: number, t: number) {
+      if (valV) valV.textContent = `${v.toFixed(2)}V`;
+      if (valC) valC.textContent = c.toString();
+      if (valT) valT.textContent = `${t}°C`;
+    }
+
+    function updateIndicators(v: number, t: number) {
+      const tWarn = t > 40, vWarn = v > 4.1, pWarn = t < 10;
+      applyDot(dotT, lblT, tWarn ? C.DANGER : C.OK, tWarn ? TC : TN);
+      applyDot(dotV, lblV, vWarn ? C.WARN : C.OK, vWarn ? VH : VL);
+      applyDot(dotP, lblP, pWarn ? C.BLUE : C.OK, pWarn ? PR : PO);
+    }
+
+    function applyStatus(key: string, v: number, t: number, soh: number) {
+      if (statusCard) statusCard.dataset.status = STATUS_CSS[key] ?? 'excelente';
+      if (statusText) statusText.textContent = STATUS_TXT[key] ?? '';
+      if (recsEl) recsEl.innerHTML = getRecs(v, t, soh).map((r) => `<div class="bh-rec"><span class="bh-rec-dot"></span><p>${r}</p></div>`).join('');
+    }
+
+    function update() {
+      if (!slV || !slC || !slT) return;
+      const v = parseFloat(slV.value);
+      const c = parseInt(slC.value, 10);
+      const t = parseInt(slT.value, 10);
+      updateSliders(v, c, t);
+      const { soh, life, key } = calculate(v, c, t);
+      if (sohEl) sohEl.textContent = Math.round(soh).toString();
+      if (yearsEl) yearsEl.textContent = `${YP} ${life.toFixed(1)} ${YS}`;
+      updateRing(soh);
+      updateIndicators(v, t);
+      applyStatus(key, v, t, soh);
+    }
+
+    [slV, slC, slT].forEach((el) => el?.addEventListener('input', update));
+    update();
+  </script>
+</div>
