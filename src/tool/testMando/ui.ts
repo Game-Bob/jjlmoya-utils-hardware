@@ -22,4 +22,20 @@ export interface TestMandoUI extends Record<string, string> {
   gameNewRecord: string;
   gameRestartBtn: string;
   gameFeedback: string;
+  gameIntroTitlePre: string;
+  gameIntroHighlight: string;
+  gameIntroTitlePost: string;
+  gameIntroDescPre: string;
+  gameIntroDescSeconds: string;
+  gameIntroDescPost: string;
+  gameShareBtn: string;
+  gameLogConnected: string;
+  gameLogDisconnected: string;
+  gameLogCleared: string;
+  gameLogBtnPrefix: string;
+  gameVibNotSupported: string;
+  gameVibLow: string;
+  gameVibHigh: string;
+  gameMoveStick: string;
+  gamePress: string;
 }

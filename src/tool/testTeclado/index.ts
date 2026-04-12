@@ -15,7 +15,7 @@ export const testTeclado: HardwareToolEntry<TestTecladoUI> = {
   id: 'test-teclado',
   icons: {
     bg: 'mdi:keyboard-variant',
-    fg: 'mdi:keyboard-check',
+    fg: 'mdi:keyboard-settings',
   },
   i18n: {
     es: async () => es,
