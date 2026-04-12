@@ -232,6 +232,6 @@ const t = (ui ?? {}) as TestRatonUI;
       placeholder: document.getElementById('tr-placeholder'),
       canvas: document.getElementById('tr-canvas') as HTMLCanvasElement | null,
       area: document.getElementById('tr-area')
-    }, new URL('./worker/mouseWorker.ts', import.meta.url));
+    });
   </script>
 </div>

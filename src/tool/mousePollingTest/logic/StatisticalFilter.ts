@@ -1,38 +1,30 @@
-export interface FilterConfig {
-  maxThreshold?: number;
-  stdDevMultiplier?: number;
-  minSamples?: number;
-}
-
 export class StatisticalFilter {
   private samples: number[] = [];
-  private readonly config: FilterConfig;
-
-  constructor(config: FilterConfig = {}) {
-    this.config = {
-      maxThreshold: 1100,
-      stdDevMultiplier: 2,
-      minSamples: 20,
-      ...config,
-    };
-  }
+  private readonly MAX_THRESHOLD: number = 10000;
+  private readonly STD_DEV_MULTIPLIER: number = 4;
+  private readonly MIN_SAMPLES: number = 20;
 
   public isOutlier(value: number): boolean {
-    if (this.config.maxThreshold && value > this.config.maxThreshold) {
-      return true;
-    }
+    if (value > this.MAX_THRESHOLD) return true;
 
-    if (this.samples.length < (this.config.minSamples || 20)) {
+    if (this.samples.length < this.MIN_SAMPLES) {
       this.samples.push(value);
       return false;
     }
 
-    const avg = this.samples.reduce((a, b) => a + b, 0) / this.samples.length;
-    const stdDev = Math.sqrt(
-      this.samples.reduce((a, b) => a + Math.pow(b - avg, 2), 0) / this.samples.length
-    );
+    const total: number = this.samples.reduce((acc: number, val: number) => acc + val, 0);
+    const avg: number = total / this.samples.length;
+    
+    const squareDiffs: number = this.samples.reduce((acc: number, val: number) => {
+      const diff: number = val - avg;
+      return acc + (diff * diff);
+    }, 0);
+    
+    const stdDev: number = Math.sqrt(squareDiffs / this.samples.length);
 
-    const isFiltered = Math.abs(value - avg) > stdDev * (this.config.stdDevMultiplier || 2.5);
+    if (stdDev === 0) return false;
+
+    const isFiltered: boolean = Math.abs(value - avg) > stdDev * this.STD_DEV_MULTIPLIER;
 
     if (!isFiltered) {
       this.samples.push(value);
