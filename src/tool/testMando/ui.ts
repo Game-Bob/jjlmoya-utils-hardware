@@ -38,4 +38,20 @@ export interface TestMandoUI extends Record<string, string> {
   gameVibHigh: string;
   gameMoveStick: string;
   gamePress: string;
+  rankLegendaryName: string;
+  rankLegendaryDesc: string;
+  rankLegendaryFlavor: string;
+  rankProName: string;
+  rankProDesc: string;
+  rankProFlavor: string;
+  rankGamerName: string;
+  rankGamerDesc: string;
+  rankGamerFlavor: string;
+  rankNoobName: string;
+  rankNoobDesc: string;
+  rankNoobFlavor: string;
+  gameShareText: string;
+  gameShareScorePrefix: string;
+  gameShareScoreSuffix: string;
+  gameShareTitle: string;
 }

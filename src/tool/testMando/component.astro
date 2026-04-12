@@ -13,7 +13,7 @@ const t = (ui ?? {}) as TestMandoUI;
 ---
 
 <div id="gamepad-root" class="tm-wrapper"
-  data-s={JSON.stringify({c:t.gameLogConnected,cm:t.connectionMessage,d:t.gameLogDisconnected,cl:t.gameLogCleared,bp:t.gameLogBtnPrefix,vn:t.gameVibNotSupported,vl:t.gameVibLow,vh:t.gameVibHigh,ms:t.gameMoveStick,pr:t.gamePress})}>
+  data-s={JSON.stringify({c:t.gameLogConnected,cm:t.connectionMessage,d:t.gameLogDisconnected,cl:t.gameLogCleared,bp:t.gameLogBtnPrefix,vn:t.gameVibNotSupported,vl:t.gameVibLow,vh:t.gameVibHigh,ms:t.gameMoveStick,pr:t.gamePress,rln:t.rankLegendaryName,rld:t.rankLegendaryDesc,rlf:t.rankLegendaryFlavor,rpn:t.rankProName,rpd:t.rankProDesc,rpf:t.rankProFlavor,rgn:t.rankGamerName,rgd:t.rankGamerDesc,rgf:t.rankGamerFlavor,rnn:t.rankNoobName,rnd:t.rankNoobDesc,rnf:t.rankNoobFlavor,gst:t.gameShareText,gsp:t.gameShareScorePrefix,gss:t.gameShareScoreSuffix,gt:t.gameShareTitle})}>
   <style is:global>
     .tm-wrapper {
       --tm-accent: #4f46e5;
@@ -1328,10 +1328,10 @@ const t = (ui ?? {}) as TestMandoUI;
       }, 100);
     }
     function getRank(s: number) {
-      if (s > 50) return { name: 'LEGENDARIO', desc: 'Tus dedos se mueven a la velocidad del sonido.', flavor: 'Mi mando vuela!' };
-      if (s > 35) return { name: 'PRO GAMER', desc: 'Tienes reflejos de acero y un mando bien calibrado.', flavor: 'Mi mando vuela!' };
-      if (s > 20) return { name: 'GAMER', desc: 'No está mal, pero para el competitivo te falta calle.', flavor: 'Casi lo tengo!' };
-      return { name: 'MANCO', desc: '¿Seguro que tienes el mando encendido?', flavor: 'El mando me tiene manía!' };
+      if (s > 50) return { name: S.rln ?? 'LEGENDARIO', desc: S.rld ?? 'Tus dedos se mueven a la velocidad del sonido.', flavor: S.rlf ?? 'Mi mando vuela!' };
+      if (s > 35) return { name: S.rpn ?? 'PRO GAMER', desc: S.rpd ?? 'Tienes reflejos de acero y un mando bien calibrado.', flavor: S.rpf ?? 'Mi mando vuela!' };
+      if (s > 20) return { name: S.rgn ?? 'GAMER', desc: S.rgd ?? 'No está mal, pero para el competitivo te falta calle.', flavor: S.rgf ?? 'Casi lo tengo!' };
+      return { name: S.rnn ?? 'MANCO', desc: S.rnd ?? '¿Seguro que tienes el mando encendido?', flavor: S.rnf ?? 'El mando me tiene manía!' };
     }
     function endGame() {
       gameActive = false; if (timerInterval) clearInterval(timerInterval as unknown as number);
@@ -1375,8 +1375,8 @@ const t = (ui ?? {}) as TestMandoUI;
     });
     shareBtn?.addEventListener('click', () => {
       const rank = getRank(score), url = window.location.href;
-      const text = `Hice ${score} aciertos. ${rank.flavor} ¿Me superas? ${url}`;
-      if (navigator.share) navigator.share({ title: 'Test de Mando', text, url }).catch(() => navigator.clipboard.writeText(text));
+      const text = `${S.gsp ?? 'Hice'} ${score} ${S.gss ?? 'aciertos'}. ${rank.flavor} ${S.gst ?? '¿Me superas?'} ${url}`;
+      if (navigator.share) navigator.share({ title: S.gt ?? 'Test de Mando', text, url }).catch(() => navigator.clipboard.writeText(text));
       else navigator.clipboard.writeText(text);
     });
     function startGame() {
