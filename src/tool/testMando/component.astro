@@ -152,6 +152,9 @@ const t = (ui ?? {}) as TestMandoUI;
               <div id="btn-0" class="tm-face-btn">A</div>
               <div id="btn-2" class="tm-face-btn">X</div>
             </div>
+          </div>
+
+          <div class="tm-stick-right">
             <div class="tm-stick-base">
               <div id="stick-right" class="tm-stick-cap">
                 <div id="btn-11" class="tm-stick-press"></div>
@@ -342,7 +345,7 @@ const t = (ui ?? {}) as TestMandoUI;
     .tm-stage {
       position: relative;
       width: 600px;
-      height: 360px;
+      height: 420px;
       transition: all 500ms;
     }
 
@@ -445,12 +448,13 @@ const t = (ui ?? {}) as TestMandoUI;
       left: 0;
       width: 6rem;
       height: 6rem;
-      background: var(--tm-surface-alt);
+      background: var(--tm-kb-bg);
       border-radius: 9999px;
-      border: 1px solid var(--tm-border);
+      border: 2px solid var(--tm-kb-border);
       display: flex;
       align-items: center;
       justify-content: center;
+      box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.4);
     }
 
     .tm-left-cluster .tm-stick-base {
@@ -461,12 +465,12 @@ const t = (ui ?? {}) as TestMandoUI;
     .tm-stick-cap {
       width: 3.5rem;
       height: 3.5rem;
-      background: var(--tm-btn-bg);
+      background: #475569;
       border-radius: 9999px;
-      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 2px 6px rgba(0, 0, 0, 0.5);
       position: relative;
       will-change: transform;
-      transition: background 150ms;
+      transition: background 150ms, box-shadow 150ms;
     }
 
     .tm-stick-press {
@@ -528,14 +532,14 @@ const t = (ui ?? {}) as TestMandoUI;
       position: absolute;
       top: 8rem;
       right: 4rem;
-      width: 12rem;
-      height: 12rem;
+      width: 6rem;
+      height: 6rem;
     }
 
-    .tm-right-cluster .tm-stick-base {
+    .tm-stick-right {
       position: absolute;
-      bottom: 0;
-      left: 0;
+      bottom: 12rem;
+      right: 16rem;
     }
 
     .tm-face-buttons {
