@@ -32,6 +32,9 @@ const t = (ui ?? {}) as TestMandoUI;
       --tm-danger: #f43f5e;
       --tm-kb-bg: #1e293b;
       --tm-kb-border: #334155;
+      --tm-stick-base: #475569;
+      --tm-stick-cap: #334155;
+      --tm-stick-border: #64748b;
     }
 
     .theme-dark .tm-wrapper {
@@ -44,6 +47,9 @@ const t = (ui ?? {}) as TestMandoUI;
       --tm-btn-border: #475569;
       --tm-kb-bg: #020617;
       --tm-kb-border: #1e293b;
+      --tm-stick-base: #0f172a;
+      --tm-stick-cap: #475569;
+      --tm-stick-border: #334155;
     }
 
     body.is-widget .tm-wrapper {
@@ -448,9 +454,9 @@ const t = (ui ?? {}) as TestMandoUI;
       left: 0;
       width: 6rem;
       height: 6rem;
-      background: var(--tm-kb-bg);
+      background: var(--tm-stick-base);
       border-radius: 9999px;
-      border: 2px solid var(--tm-kb-border);
+      border: 2px solid var(--tm-stick-border);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -465,7 +471,7 @@ const t = (ui ?? {}) as TestMandoUI;
     .tm-stick-cap {
       width: 3.5rem;
       height: 3.5rem;
-      background: #475569;
+      background: var(--tm-stick-cap);
       border-radius: 9999px;
       box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 2px 6px rgba(0, 0, 0, 0.5);
       position: relative;
@@ -498,6 +504,7 @@ const t = (ui ?? {}) as TestMandoUI;
       height: 2rem;
       border-radius: 0.25rem;
       background: var(--tm-btn-bg);
+      border: 2px solid var(--tm-btn-border);
       transition: all 150ms;
     }
 
