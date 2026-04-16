@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import type * as DATA from '../data';
 
-const TOOLS: typeof DATA.hardwareCategory[] = [];
+const TOOLS: typeof DATA.audiovisualCategory[] = [];
 
 describe('FAQ Content Validation', () => {
   TOOLS.forEach((entry) => {
