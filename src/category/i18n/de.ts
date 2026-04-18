@@ -2,7 +2,7 @@ import type { CategoryLocaleContent } from '../../types';
 
 export const content: CategoryLocaleContent = {
   slug: 'hardware-werkzeuge',
-  title: 'Hardware-Test & Diagnosewerkzeuge',
+  title: 'Hardware Test & Diagnosewerkzeuge',
   description: 'Überprüfe den Zustand deiner Peripheriegeräte und Anzeigen mit kostenlosen Online-Tools. Teste tote Pixel, Tastatur-Ghosting, Gamepad-Drift und Akkuzustand.',
   seo: [
     {

@@ -2,7 +2,7 @@ import type { CategoryLocaleContent } from '../../types';
 
 export const content: CategoryLocaleContent = {
   slug: 'hardware-testtools',
-  title: 'Hardware Test- en Diagnostische Tools',
+  title: 'Hardware Test en Diagnostische Tools',
   description: 'Controleer de status van je randapparatuur en beeldscherm met gratis online tools. Test dode pixels, keyboard-ghosting, gamepad-drift en batterijgezondheid.',
   seo: [
     {
