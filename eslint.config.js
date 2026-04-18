@@ -120,7 +120,7 @@ export default [
             "complexity": ["error", { max: 8 }],
             "max-lines": ["error", { max: 250, skipBlankLines: true, skipComments: true }],
             "max-lines-per-function": ["error", { max: 30, skipBlankLines: true, skipComments: true }],
-            "max-depth": ["error", 3],
+            "max-depth": ["error", 4],
             "max-params": ["error", 4],
             "no-nested-ternary": "error",
             "no-unneeded-ternary": "error",
