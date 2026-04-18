@@ -17,10 +17,10 @@ export type {
 
 export { ALL_ENTRIES, ALL_TOOLS } from './tools';
 
-export { PixelesPantallaComponent, PixelesPantallaSEO, PixelesPantallaBibliography, PIXELES_PANTALLA_TOOL } from './tool/deadPixelTest/index';
-export { TestTecladoComponent, TestTecladoSEO, TestTecladoBibliography, TEST_TECLADO_TOOL } from './tool/keyboardTest/index';
-export { TestMandoComponent, TestMandoSEO, TestMandoBibliography, TEST_MANDO_TOOL } from './tool/gamepadTest/index';
-export { ProbadorVibracionMandoComponent, ProbadorVibracionMandoSEO, ProbadorVibracionMandoBibliography, PROBADOR_VIBRACION_MANDO_TOOL } from './tool/gamepadVibrationTester/index';
-export { TestRatonComponent, TestRatonSEO, TestRatonBibliography, TEST_RATON_TOOL } from './tool/mousePollingTest/index';
-export { EstimadorSaludBateriaComponent, EstimadorSaludBateriaSEO, EstimadorSaludBateriaBibliography, ESTIMADOR_SALUD_BATERIA_TOOL } from './tool/batteryHealthEstimator/index';
-export { ToneGeneratorComponent, ToneGeneratorSEO, ToneGeneratorBibliography, TONE_GENERATOR_TOOL } from './tool/toneGenerator/index';
+export { PIXELES_PANTALLA_TOOL } from './tool/deadPixelTest/index';
+export { TEST_TECLADO_TOOL } from './tool/keyboardTest/index';
+export { TEST_MANDO_TOOL } from './tool/gamepadTest/index';
+export { PROBADOR_VIBRACION_MANDO_TOOL } from './tool/gamepadVibrationTester/index';
+export { TEST_RATON_TOOL } from './tool/mousePollingTest/index';
+export { ESTIMADOR_SALUD_BATERIA_TOOL } from './tool/batteryHealthEstimator/index';
+export { TONE_GENERATOR_TOOL } from './tool/toneGenerator/index';
