@@ -1,3 +1,4 @@
+import { estimadorSaludBateria } from './entry';
 export * from './entry';
 export const ESTIMADOR_SALUD_BATERIA_TOOL: ToolDefinition = {
   entry: estimadorSaludBateria,

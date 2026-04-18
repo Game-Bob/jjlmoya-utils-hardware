@@ -1,3 +1,4 @@
+import { probadorVibracionMando } from './entry';
 export * from './entry';
 export const PROBADOR_VIBRACION_MANDO_TOOL: ToolDefinition = {
   entry: probadorVibracionMando,

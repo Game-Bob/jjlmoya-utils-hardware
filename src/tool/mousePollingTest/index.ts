@@ -1,3 +1,4 @@
+import { testRaton } from './entry';
 export * from './entry';
 export const TEST_RATON_TOOL: ToolDefinition = {
   entry: testRaton,
