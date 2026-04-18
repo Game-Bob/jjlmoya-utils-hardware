@@ -8,3 +8,5 @@ import { ESTIMADOR_SALUD_BATERIA_TOOL } from './tool/batteryHealthEstimator/inde
 import { TONE_GENERATOR_TOOL } from './tool/toneGenerator/index';
 
 export const ALL_TOOLS: ToolDefinition[] = [PIXELES_PANTALLA_TOOL, TEST_TECLADO_TOOL, TEST_MANDO_TOOL, PROBADOR_VIBRACION_MANDO_TOOL, TEST_RATON_TOOL, ESTIMADOR_SALUD_BATERIA_TOOL, TONE_GENERATOR_TOOL];
+
+export const ALL_ENTRIES = ALL_TOOLS.map(t => t.entry);

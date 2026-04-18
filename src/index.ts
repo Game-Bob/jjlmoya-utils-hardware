@@ -15,7 +15,7 @@ export type {
   ToolDefinition,
 } from './types';
 
-export { ALL_TOOLS } from './tools';
+export { ALL_ENTRIES, ALL_TOOLS } from './tools';
 
 export { PixelesPantallaComponent, PixelesPantallaSEO, PixelesPantallaBibliography, PIXELES_PANTALLA_TOOL } from './tool/deadPixelTest/index';
 export { TestTecladoComponent, TestTecladoSEO, TestTecladoBibliography, TEST_TECLADO_TOOL } from './tool/keyboardTest/index';
