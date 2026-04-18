@@ -1,8 +1,5 @@
 import type { HardwareToolEntry, ToolLocaleContent, ToolDefinition } from '../../types';
 
-import PixelesPantallaComponent from './component.astro';
-import PixelesPantallaSEO from './seo.astro';
-import PixelesPantallaBibliography from './bibliography.astro';
 
 import type { PixelesPantallaUI } from './ui';
 export type PixelesPantallaLocaleContent = ToolLocaleContent<PixelesPantallaUI>;
@@ -32,11 +29,10 @@ export const pixelesPantalla: HardwareToolEntry<PixelesPantallaUI> = {
   },
 };
 
-export { PixelesPantallaComponent, PixelesPantallaSEO, PixelesPantallaBibliography };
 
 export const PIXELES_PANTALLA_TOOL: ToolDefinition = {
   entry: pixelesPantalla,
-  Component: PixelesPantallaComponent,
-  SEOComponent: PixelesPantallaSEO,
-  BibliographyComponent: PixelesPantallaBibliography,
+  Component: () => import('./component.astro'),
+  SEOComponent: () => import('./seo.astro'),
+  BibliographyComponent: () => import('./bibliography.astro'),
 };

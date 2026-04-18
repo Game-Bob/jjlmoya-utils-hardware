@@ -1,8 +1,5 @@
 import type { HardwareToolEntry, ToolLocaleContent, ToolDefinition } from '../../types';
 
-import TestMandoComponent from './component.astro';
-import TestMandoSEO from './seo.astro';
-import TestMandoBibliography from './bibliography.astro';
 
 import type { TestMandoUI } from './ui';
 export type TestMandoLocaleContent = ToolLocaleContent<TestMandoUI>;
@@ -32,11 +29,10 @@ export const testMando: HardwareToolEntry<TestMandoUI> = {
   },
 };
 
-export { TestMandoComponent, TestMandoSEO, TestMandoBibliography };
 
 export const TEST_MANDO_TOOL: ToolDefinition = {
   entry: testMando,
-  Component: TestMandoComponent,
-  SEOComponent: TestMandoSEO,
-  BibliographyComponent: TestMandoBibliography,
+  Component: () => import('./component.astro'),
+  SEOComponent: () => import('./seo.astro'),
+  BibliographyComponent: () => import('./bibliography.astro'),
 };

@@ -1,8 +1,5 @@
 import type { HardwareToolEntry, ToolLocaleContent, ToolDefinition } from '../../types';
 
-import EstimadorSaludBateriaComponent from './component.astro';
-import EstimadorSaludBateriaSEO from './seo.astro';
-import EstimadorSaludBateriaBibliography from './bibliography.astro';
 
 import type { EstimadorSaludBateriaUI } from './ui';
 export type EstimadorSaludBateriaLocaleContent = ToolLocaleContent<EstimadorSaludBateriaUI>;
@@ -32,11 +29,10 @@ export const estimadorSaludBateria: HardwareToolEntry<EstimadorSaludBateriaUI> =
   },
 };
 
-export { EstimadorSaludBateriaComponent, EstimadorSaludBateriaSEO, EstimadorSaludBateriaBibliography };
 
 export const ESTIMADOR_SALUD_BATERIA_TOOL: ToolDefinition = {
   entry: estimadorSaludBateria,
-  Component: EstimadorSaludBateriaComponent,
-  SEOComponent: EstimadorSaludBateriaSEO,
-  BibliographyComponent: EstimadorSaludBateriaBibliography,
+  Component: () => import('./component.astro'),
+  SEOComponent: () => import('./seo.astro'),
+  BibliographyComponent: () => import('./bibliography.astro'),
 };

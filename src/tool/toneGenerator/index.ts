@@ -1,8 +1,5 @@
 import type { HardwareToolEntry, ToolLocaleContent, ToolDefinition } from '../../types';
 
-import ToneGeneratorComponent from './component.astro';
-import ToneGeneratorSEO from './seo.astro';
-import ToneGeneratorBibliography from './bibliography.astro';
 
 import type { ToneGeneratorUI } from './ui';
 export type ToneGeneratorLocaleContent = ToolLocaleContent<ToneGeneratorUI>;
@@ -32,11 +29,10 @@ export const toneGenerator: HardwareToolEntry<ToneGeneratorUI> = {
   },
 };
 
-export { ToneGeneratorComponent, ToneGeneratorSEO, ToneGeneratorBibliography };
 
 export const TONE_GENERATOR_TOOL: ToolDefinition = {
   entry: toneGenerator,
-  Component: ToneGeneratorComponent,
-  SEOComponent: ToneGeneratorSEO,
-  BibliographyComponent: ToneGeneratorBibliography,
+  Component: () => import('./component.astro'),
+  SEOComponent: () => import('./seo.astro'),
+  BibliographyComponent: () => import('./bibliography.astro'),
 };

@@ -1,5 +1,5 @@
 export { hardwareCategory } from './category';
-export { default as hardwareCategorySEO } from './category/seo.astro';
+export const hardwareCategorySEO = () => import('./category/seo.astro').then((m) => m.default);
 
 export type {
   KnownLocale,

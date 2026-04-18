@@ -1,8 +1,5 @@
 import type { HardwareToolEntry, ToolLocaleContent, ToolDefinition } from '../../types';
 
-import TestRatonComponent from './component.astro';
-import TestRatonSEO from './seo.astro';
-import TestRatonBibliography from './bibliography.astro';
 
 import type { TestRatonUI } from './ui';
 export type TestRatonLocaleContent = ToolLocaleContent<TestRatonUI>;
@@ -32,11 +29,10 @@ export const testRaton: HardwareToolEntry<TestRatonUI> = {
   },
 };
 
-export { TestRatonComponent, TestRatonSEO, TestRatonBibliography };
 
 export const TEST_RATON_TOOL: ToolDefinition = {
   entry: testRaton,
-  Component: TestRatonComponent,
-  SEOComponent: TestRatonSEO,
-  BibliographyComponent: TestRatonBibliography,
+  Component: () => import('./component.astro'),
+  SEOComponent: () => import('./seo.astro'),
+  BibliographyComponent: () => import('./bibliography.astro'),
 };

@@ -1,8 +1,5 @@
 import type { HardwareToolEntry, ToolLocaleContent, ToolDefinition } from '../../types';
 
-import TestTecladoComponent from './component.astro';
-import TestTecladoSEO from './seo.astro';
-import TestTecladoBibliography from './bibliography.astro';
 
 import type { TestTecladoUI } from './ui';
 export type TestTecladoLocaleContent = ToolLocaleContent<TestTecladoUI>;
@@ -32,11 +29,10 @@ export const testTeclado: HardwareToolEntry<TestTecladoUI> = {
   },
 };
 
-export { TestTecladoComponent, TestTecladoSEO, TestTecladoBibliography };
 
 export const TEST_TECLADO_TOOL: ToolDefinition = {
   entry: testTeclado,
-  Component: TestTecladoComponent,
-  SEOComponent: TestTecladoSEO,
-  BibliographyComponent: TestTecladoBibliography,
+  Component: () => import('./component.astro'),
+  SEOComponent: () => import('./seo.astro'),
+  BibliographyComponent: () => import('./bibliography.astro'),
 };

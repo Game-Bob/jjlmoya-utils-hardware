@@ -1,8 +1,5 @@
 import type { HardwareToolEntry, ToolLocaleContent, ToolDefinition } from '../../types';
 
-import ProbadorVibracionMandoComponent from './component.astro';
-import ProbadorVibracionMandoSEO from './seo.astro';
-import ProbadorVibracionMandoBibliography from './bibliography.astro';
 
 import type { ProbadorVibracionMandoUI } from './ui';
 export type ProbadorVibracionMandoLocaleContent = ToolLocaleContent<ProbadorVibracionMandoUI>;
@@ -32,11 +29,10 @@ export const probadorVibracionMando: HardwareToolEntry<ProbadorVibracionMandoUI>
   },
 };
 
-export { ProbadorVibracionMandoComponent, ProbadorVibracionMandoSEO, ProbadorVibracionMandoBibliography };
 
 export const PROBADOR_VIBRACION_MANDO_TOOL: ToolDefinition = {
   entry: probadorVibracionMando,
-  Component: ProbadorVibracionMandoComponent,
-  SEOComponent: ProbadorVibracionMandoSEO,
-  BibliographyComponent: ProbadorVibracionMandoBibliography,
+  Component: () => import('./component.astro'),
+  SEOComponent: () => import('./seo.astro'),
+  BibliographyComponent: () => import('./bibliography.astro'),
 };
