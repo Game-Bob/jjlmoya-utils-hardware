@@ -14,32 +14,7 @@ const t = (ui ?? {}) as TestRatonUI;
 
 <div id="tr-root" class="tr-wrapper">
 
-  <style is:global>
-    .tr-wrapper {
-      --tr-accent: #10b981;
-      --tr-accent-glow: rgba(16, 185, 129, 0.4);
-      --tr-surface: #fff;
-      --tr-surface-alt: #f1f5f9;
-      --tr-surface-dark: #020617;
-      --tr-border: #e2e8f0;
-      --tr-text: #0f172a;
-      --tr-text-muted: #64748b;
-    }
-
-    .theme-dark .tr-wrapper {
-      --tr-surface: #0f172a;
-      --tr-surface-alt: #1e293b;
-      --tr-surface-dark: #020617;
-      --tr-border: #334155;
-      --tr-text: #f1f5f9;
-      --tr-text-muted: #94a3b8;
-    }
-
-    body.is-widget .tr-wrapper {
-      padding: 0;
-    }
-  </style>
-
+  
   <div class="tr-card">
     <div class="tr-header">
       <div class="tr-header-info">

@@ -16,68 +16,7 @@ const S = JSON.stringify({ bp: t.btnPlay, bs: t.btnStop });
 
 <div id="tg-root" class="tg-wrapper" data-s={S}>
 
-  <style is:global>
-    .tg-wrapper {
-      --tg-accent: #e11d48;
-      --tg-accent-glow: rgba(225, 29, 72, 0.3);
-      --tg-canvas-line: #f43f5e;
-      --tg-btn-bg: #e11d48;
-      --tg-btn-stop-bg: #1e293b;
-      --tg-surface: #fff;
-      --tg-surface-alt: #f8fafc;
-      --tg-border: #e2e8f0;
-      --tg-text: #0f172a;
-      --tg-text-muted: #64748b;
-      --tg-text-faint: #94a3b8;
-    }
-
-    .theme-dark .tg-wrapper {
-      --tg-btn-stop-bg: #27272a;
-      --tg-surface: #09090b;
-      --tg-surface-alt: #18181b;
-      --tg-border: #27272a;
-      --tg-text: #fafafa;
-      --tg-text-muted: #a1a1aa;
-      --tg-text-faint: #52525b;
-    }
-
-    .tg-wave-btn[data-active='true'] {
-      background: var(--tg-accent);
-      color: #fff;
-      box-shadow: 0 4px 14px var(--tg-accent-glow);
-    }
-
-    #tg-toggle[data-playing='true'] {
-      background: var(--tg-btn-stop-bg);
-      box-shadow: none;
-    }
-
-    #tg-play-icon {
-      display: inline-flex;
-    }
-
-    #tg-stop-icon {
-      display: none;
-    }
-
-    #tg-toggle[data-playing='true'] #tg-play-icon {
-      display: none;
-    }
-
-    #tg-toggle[data-playing='true'] #tg-stop-icon {
-      display: inline-flex;
-    }
-
-    @keyframes tg-pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.4; }
-    }
-
-    body.is-widget .tg-wrapper {
-      padding: 0;
-    }
-  </style>
-
+  
   <div class="tg-card">
 
     <div class="tg-header">

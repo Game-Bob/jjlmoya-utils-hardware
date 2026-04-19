@@ -17,53 +17,7 @@ const testedClass = 'tt-key-tested';
 ---
 
 <div id="keyboard-tester-root" class="tt-wrapper" data-active-class={activeClass} data-tested-class={testedClass}>
-  <style is:global>
-    .tt-wrapper {
-      --tt-accent: #4f46e5;
-      --tt-accent-hover: #4338ca;
-      --tt-surface: #fff;
-      --tt-surface-alt: #f1f5f9;
-      --tt-border: #e2e8f0;
-      --tt-text: #0f172a;
-      --tt-text-muted: #64748b;
-      --tt-key-bg: #fff;
-      --tt-key-text: #64748b;
-      --tt-key-border: #e2e8f0;
-      --tt-key-shadow: rgba(0, 0, 0, 0.2);
-      --tt-key-active-bg: #4f46e5;
-      --tt-key-tested-bg: #d1fae5;
-      --tt-key-tested-text: #059669;
-      --tt-kb-bg: #e2e8f0;
-    }
-
-    .theme-dark .tt-wrapper {
-      --tt-surface: #0f172a;
-      --tt-surface-alt: #1e293b;
-      --tt-border: #334155;
-      --tt-text: #f1f5f9;
-      --tt-text-muted: #94a3b8;
-      --tt-key-bg: #334155;
-      --tt-key-text: #cbd5e1;
-      --tt-key-border: #475569;
-      --tt-key-shadow: rgba(0, 0, 0, 0.5);
-      --tt-key-active-bg: #6366f1;
-      --tt-key-tested-bg: rgba(16, 185, 129, 0.3);
-      --tt-key-tested-text: #6ee7b7;
-      --tt-kb-bg: #334155;
-    }
-
-    body.is-widget .tt-wrapper {
-      padding: 0;
-    }
-
-    body.is-widget .tt-wrapper > div {
-      background: transparent;
-      box-shadow: none;
-      border: none;
-      padding: 1rem;
-    }
-  </style>
-
+  
   <div class="tt-container">
     <div class="tt-card">
       <div class="tt-header">
