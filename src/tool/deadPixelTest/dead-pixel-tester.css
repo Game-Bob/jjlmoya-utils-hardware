@@ -249,7 +249,7 @@
       margin-top: -1.25rem;
     }
 
-    :global(.pt-overlay-hidden) {
+    .pt-overlay-hidden {
       position: fixed;
       inset: 0;
       z-index: 50;
@@ -258,7 +258,7 @@
       display: none;
     }
 
-    :global(.pt-overlay-active) {
+    .pt-overlay-active {
       display: flex;
     }
 
@@ -279,7 +279,7 @@
       display: none;
     }
 
-    :global(.theme-dark) .pt-fixer-box {
+    .theme-dark .pt-fixer-box {
       background-color: var(--pt-surface);
     }
 
@@ -342,7 +342,7 @@
       pointer-events: none;
     }
 
-    :global(.pt-controls-visible) {
+    .pt-controls-visible {
       opacity: 1;
       pointer-events: auto;
     }
