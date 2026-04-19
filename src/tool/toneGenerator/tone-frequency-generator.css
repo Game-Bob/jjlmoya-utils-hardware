@@ -1,7 +1,29 @@
 .tg-wrapper {
-      width: 100%;
-      color: var(--tg-text);
-    }
+  --tg-accent: #e11d48;
+  --tg-accent-glow: rgba(225, 29, 72, 0.3);
+  --tg-canvas-line: #f43f5e;
+  --tg-btn-bg: #e11d48;
+  --tg-btn-stop-bg: #1e293b;
+  --tg-surface: #fff;
+  --tg-surface-alt: #f8fafc;
+  --tg-border: #e2e8f0;
+  --tg-text: #0f172a;
+  --tg-text-muted: #64748b;
+  --tg-text-faint: #94a3b8;
+
+  width: 100%;
+  color: var(--tg-text);
+}
+
+.theme-dark .tg-wrapper {
+  --tg-btn-stop-bg: #27272a;
+  --tg-surface: #09090b;
+  --tg-surface-alt: #18181b;
+  --tg-border: #27272a;
+  --tg-text: #fafafa;
+  --tg-text-muted: #a1a1aa;
+  --tg-text-faint: #52525b;
+}
 
     .tg-card {
       background: var(--tg-surface);
