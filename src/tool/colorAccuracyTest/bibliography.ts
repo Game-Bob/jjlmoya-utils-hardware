@@ -12,17 +12,5 @@ export const bibliography: BibliographyEntry[] = [
   {
     name: 'DCI-P3 Digital Cinema Initiatives Color Space',
     url: 'https://en.wikipedia.org/wiki/DCI-P3',
-  },
-  {
-    name: 'Delta E (CIE 1976) Color Difference Measurement',
-    url: 'https://en.wikipedia.org/wiki/Color_difference',
-  },
-  {
-    name: 'ITU-R BT.709 Television Color Primaries',
-    url: 'https://en.wikipedia.org/wiki/Rec._709',
-  },
-  {
-    name: 'Gamma Correction and Display Calibration',
-    url: 'https://en.wikipedia.org/wiki/Gamma_correction',
-  },
+  }
 ];
