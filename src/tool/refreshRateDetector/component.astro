@@ -1,0 +1,206 @@
+---
+import type { KnownLocale } from '../../types';
+import type { RefreshRateDetectorUI } from './ui';
+
+interface Props {
+  locale?: KnownLocale;
+  ui?: Record<string, unknown>;
+}
+
+const { ui } = Astro.props;
+const t = (ui ?? {}) as RefreshRateDetectorUI;
+---
+
+<div id="rrd-root" class="rrd-wrapper" data-config={JSON.stringify({
+  currentHz: t.currentHz,
+  averageHz: t.averageHz,
+  maxHz: t.maxHz,
+  minHz: t.minHz,
+})}>
+  <div class="rrd-container">
+    <div class="rrd-card">
+      <div class="rrd-layout">
+      <div class="rrd-left">
+        <div class="rrd-metrics">
+          <div class="rrd-metric-item">
+            <div class="rrd-metric-label">{t.currentHz}</div>
+            <div class="rrd-metric-value" id="current-hz">—</div>
+            <div class="rrd-metric-unit">Hz</div>
+          </div>
+          <div class="rrd-metric-item">
+            <div class="rrd-metric-label">{t.averageHz}</div>
+            <div class="rrd-metric-value" id="average-hz">—</div>
+            <div class="rrd-metric-unit">Hz</div>
+          </div>
+          <div class="rrd-metric-item">
+            <div class="rrd-metric-label">{t.maxHz}</div>
+            <div class="rrd-metric-value" id="max-hz">—</div>
+            <div class="rrd-metric-unit">Hz</div>
+          </div>
+          <div class="rrd-metric-item">
+            <div class="rrd-metric-label">{t.minHz}</div>
+            <div class="rrd-metric-value" id="min-hz">—</div>
+            <div class="rrd-metric-unit">Hz</div>
+          </div>
+        </div>
+
+        <div class="rrd-mode-selector">
+          <button id="mode-fast" class="rrd-mode-btn selected" data-mode="fast" data-duration="3000">
+            {t.modeFast}
+          </button>
+          <button id="mode-stable" class="rrd-mode-btn" data-mode="stable" data-duration="10000">
+            {t.modeStable}
+          </button>
+        </div>
+      </div>
+
+      <div class="rrd-right">
+        <div class="rrd-monitor">
+          <div class="rrd-monitor-bezel">
+            <div class="rrd-monitor-screen">
+              <div class="rrd-monitor-content">
+                <div class="rrd-hz-display" id="hz-display">—</div>
+              </div>
+            </div>
+          </div>
+          <div class="rrd-monitor-stand"></div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<link rel="stylesheet" href="./monitor-refresh-rate-detector.css" />
+
+<script>
+  interface State {
+    mode: 'fast' | 'stable';
+    duration: number;
+    frameTimestamps: number[];
+    startTime: number;
+    maxHz: number;
+    minHz: number;
+    averageHz: number;
+    currentHz: number;
+  }
+
+  const state: State = {
+    mode: 'fast',
+    duration: 3000,
+    frameTimestamps: [],
+    startTime: 0,
+    maxHz: 0,
+    minHz: Infinity,
+    averageHz: 0,
+    currentHz: 0,
+  };
+
+  const elements = {
+    currentHz: document.getElementById('current-hz'),
+    averageHz: document.getElementById('average-hz'),
+    maxHz: document.getElementById('max-hz'),
+    minHz: document.getElementById('min-hz'),
+    hzDisplay: document.getElementById('hz-display'),
+    modeFast: document.getElementById('mode-fast'),
+    modeStable: document.getElementById('mode-stable'),
+  };
+
+  function getFrameDeltas(timestamps: number[]): number[] {
+    const deltas: number[] = [];
+    for (let i = 1; i < timestamps.length; i++) {
+      const prev = timestamps[i - 1];
+      const curr = timestamps[i];
+      if (prev !== undefined && curr !== undefined) {
+        deltas.push(curr - prev);
+      }
+    }
+    return deltas;
+  }
+
+  function filterOutliers(deltas: number[]): number[] {
+    if (deltas.length === 0) return deltas;
+    const sorted = [...deltas].sort((a, b) => a - b);
+    const q1Index = Math.floor(sorted.length * 0.25);
+    const q3Index = Math.floor(sorted.length * 0.75);
+    const q1 = sorted[q1Index] ?? 0;
+    const q3 = sorted[q3Index] ?? 0;
+    const iqr = q3 - q1;
+    return deltas.filter(d => d >= q1 - 1.5 * iqr && d <= q3 + 1.5 * iqr);
+  }
+
+  function calculateHz(timestamps: number[]): number {
+    if (timestamps.length < 2) return 0;
+    const deltas = getFrameDeltas(timestamps);
+    if (deltas.length === 0) return 0;
+    const filtered = filterOutliers(deltas);
+    if (filtered.length === 0) return 0;
+    const avgDelta = filtered.reduce((a, b) => a + b) / filtered.length;
+    return avgDelta > 0 ? Math.round(1000 / avgDelta * 10) / 10 : 0;
+  }
+
+  function updateMetrics(): void {
+    if (state.frameTimestamps.length < 2) return;
+    const warmupTime = state.startTime + 500;
+    const warmedUpTimestamps = state.frameTimestamps.filter(t => t >= warmupTime);
+    if (warmedUpTimestamps.length < 2) return;
+
+    const recentHz = calculateHz(warmedUpTimestamps.slice(-60));
+    state.currentHz = recentHz;
+
+    const allHz: number[] = [];
+    for (let i = 1; i < warmedUpTimestamps.length; i++) {
+      const prev = warmedUpTimestamps[i - 1];
+      const curr = warmedUpTimestamps[i];
+      if (prev !== undefined && curr !== undefined) {
+        allHz.push(1000 / (curr - prev));
+      }
+    }
+
+    if (allHz.length > 0) {
+      state.maxHz = Math.max(...allHz);
+      state.minHz = Math.min(...allHz);
+      state.averageHz = allHz.reduce((a, b) => a + b) / allHz.length;
+    }
+
+    elements.currentHz!.textContent = state.currentHz.toFixed(1);
+    elements.averageHz!.textContent = state.averageHz.toFixed(1);
+    elements.maxHz!.textContent = state.maxHz.toFixed(1);
+    elements.minHz!.textContent = state.minHz.toFixed(1);
+    elements.hzDisplay!.textContent = state.currentHz.toFixed(0);
+  }
+
+  function measureFrame() {
+    state.frameTimestamps.push(performance.now());
+    updateMetrics();
+    requestAnimationFrame(measureFrame);
+  }
+
+  function restartMeasurement() {
+    state.frameTimestamps = [];
+    state.startTime = performance.now();
+    state.maxHz = 0;
+    state.minHz = Infinity;
+    state.averageHz = 0;
+    state.currentHz = 0;
+  }
+
+  elements.modeFast?.addEventListener('click', () => {
+    state.mode = 'fast';
+    state.duration = 3000;
+    elements.modeFast!.classList.add('selected');
+    elements.modeStable!.classList.remove('selected');
+    restartMeasurement();
+  });
+
+  elements.modeStable?.addEventListener('click', () => {
+    state.mode = 'stable';
+    state.duration = 10000;
+    elements.modeStable!.classList.add('selected');
+    elements.modeFast!.classList.remove('selected');
+    restartMeasurement();
+  });
+
+  restartMeasurement();
+  requestAnimationFrame(measureFrame);
+</script>

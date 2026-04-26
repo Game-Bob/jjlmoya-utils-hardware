@@ -7,6 +7,7 @@ import { PROBADOR_VIBRACION_MANDO_TOOL } from './tool/gamepadVibrationTester/ind
 import { TEST_RATON_TOOL } from './tool/mousePollingTest/index';
 import { ESTIMADOR_SALUD_BATERIA_TOOL } from './tool/batteryHealthEstimator/index';
 import { TONE_GENERATOR_TOOL } from './tool/toneGenerator/index';
+import { REFRESH_RATE_DETECTOR_TOOL } from './tool/refreshRateDetector/index';
 
-export const ALL_TOOLS: ToolDefinition[] = [PIXELES_PANTALLA_TOOL, TEST_TECLADO_TOOL, TEST_MANDO_TOOL, PROBADOR_VIBRACION_MANDO_TOOL, TEST_RATON_TOOL, ESTIMADOR_SALUD_BATERIA_TOOL, TONE_GENERATOR_TOOL];
+export const ALL_TOOLS: ToolDefinition[] = [PIXELES_PANTALLA_TOOL, TEST_TECLADO_TOOL, TEST_MANDO_TOOL, PROBADOR_VIBRACION_MANDO_TOOL, TEST_RATON_TOOL, ESTIMADOR_SALUD_BATERIA_TOOL, TONE_GENERATOR_TOOL, REFRESH_RATE_DETECTOR_TOOL];
 

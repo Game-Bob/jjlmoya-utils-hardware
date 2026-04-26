@@ -6,10 +6,11 @@ import { probadorVibracionMando } from '../tool/gamepadVibrationTester/index';
 import { testRaton } from '../tool/mousePollingTest/index';
 import { estimadorSaludBateria } from '../tool/batteryHealthEstimator/index';
 import { toneGenerator } from '../tool/toneGenerator/index';
+import { refreshRateDetector } from '../tool/refreshRateDetector/index';
 
 export const hardwareCategory: HardwareCategoryEntry = {
   icon: 'mdi:memory',
-  tools: [pixelesPantalla, testTeclado, testMando, probadorVibracionMando, testRaton, estimadorSaludBateria, toneGenerator],
+  tools: [pixelesPantalla, testTeclado, testMando, probadorVibracionMando, testRaton, estimadorSaludBateria, toneGenerator, refreshRateDetector],
   i18n: {
     en: () => import('./i18n/en').then((m) => m.content),
     es: () => import('./i18n/es').then((m) => m.content),
