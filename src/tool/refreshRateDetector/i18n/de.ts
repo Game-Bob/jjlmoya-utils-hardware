@@ -4,7 +4,7 @@ import type { RefreshRateDetectorUI } from '../ui';
 import { bibliography } from '../bibliography';
 
 const slug = 'monitor-bildwiederholfrequenz-detektor';
-const title = 'Monitor Bildwiederholfrequenz-Detektor';
+const title = 'Monitor Bildwiederholfrequenz Detektor';
 const description = 'Erkennen Sie sofort die Bildwiederholfrequenz Ihres Monitors mit Präzision unter Verwendung von requestAnimationFrame. Testen Sie die Bildstabilität und vergleichen Sie sie mit Industriestandards.';
 
 const faqData = [
@@ -170,8 +170,8 @@ export const content: ToolLocaleContent<RefreshRateDetectorUI> = {
     },
   ],
   ui: {
-    badge: 'Display-Test',
-    title: 'Monitor-Bildwiederholfrequenz-Detektor',
+    badge: 'Display Test',
+    title: 'Monitor Bildwiederholfrequenz Detektor',
     description: 'Erkennen Sie sofort die Bildwiederholfrequenz Ihres Displays',
     modeStable: 'Stabil (10s, präzise)',
     modeFast: 'Schnell (3s, fix)',
