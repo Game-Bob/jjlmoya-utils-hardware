@@ -1,6 +1,7 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { EstimadorSaludBateriaUI } from '../ui';
+import { bibliography } from '../bibliography';
 
 const slug = 'calculateur-sante-batterie-lithium';
 const title = 'Calculateur de Santé de Batterie Lithium';
@@ -87,21 +88,10 @@ export const content: ToolLocaleContent<EstimadorSaludBateriaUI> = {
   slug,
   title,
   description,
-  faqTitle: 'Questions Fréquentes',
   faq: faqData,
-  bibliographyTitle: 'Références',
-  bibliography: [
-    {
-      name: 'Journal of Power Sources',
-      url: 'https://www.sciencedirect.com/journal/journal-of-power-sources',
-    },
-    {
-      name: 'IEEE Xplore — Lithium-Ion Battery Life Prediction',
-      url: 'https://ieeexplore.ieee.org/abstract/document/11090151',
-    },
-  ],
   howTo: howToData,
   schemas: [faqSchema, howToSchema, appSchema],
+  bibliography,
   seo: [
     { type: 'title', text: 'La chimie du temps : pourquoi les batteries lithium meurent', level: 2 },
     {

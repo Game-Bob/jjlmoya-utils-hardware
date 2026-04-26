@@ -1,6 +1,7 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { ProbadorVibracionMandoUI } from '../ui';
+import { bibliography } from '../bibliography';
 
 const slug = 'gamepad-vibration-tester';
 const title = 'Online Gamepad Vibration Tester';
@@ -87,21 +88,10 @@ export const content: ToolLocaleContent<ProbadorVibracionMandoUI> = {
   slug,
   title,
   description,
-  faqTitle: 'Frequently Asked Questions',
   faq: faqData,
-  bibliographyTitle: 'References',
-  bibliography: [
-    {
-      name: 'How haptic vibration works — HobbyConsolas',
-      url: 'https://www.hobbyconsolas.com/reportajes/como-funciona-vibracion-haptica-mando-dualsense-ps5-757673',
-    },
-    {
-      name: 'Gamepad API — W3C',
-      url: 'https://w3c.github.io/gamepad/',
-    },
-  ],
   howTo: howToData,
   schemas: [faqSchema, howToSchema, appSchema],
+  bibliography,
   seo: [
     { type: 'title', text: 'How to audit your gaming gamepad vibration', level: 2 },
     {

@@ -1,6 +1,7 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { PixelesPantallaUI } from '../ui';
+import { bibliography } from '../bibliography';
 
 const slug = 'test-bityh-pikselej-remont-ekrana';
 const title = 'Тест на битые пиксели и инструмент для ремонта экрана';
@@ -87,21 +88,10 @@ export const content: ToolLocaleContent<PixelesPantallaUI> = {
   slug,
   title,
   description,
-  faqTitle: 'Часто задаваемые вопросы',
   faq: faqData,
-  bibliographyTitle: 'Ссылки и стандарты',
-  bibliography: [
-    {
-      name: 'ISO/IEC 9241-307: Эргономика дисплеев и сопутствующего оборудования',
-      url: 'https://www.iso.org/standard/72025.html',
-    },
-    {
-      name: 'Политика битых пикселей — общие стандарты (VESA)',
-      url: 'https://www.vesa.org/',
-    },
-  ],
   howTo: howToData,
   schemas: [faqSchema, howToSchema, appSchema],
+  bibliography,
   seo: [
     {
       type: 'title',

@@ -1,6 +1,7 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { EstimadorSaludBateriaUI } from '../ui';
+import { bibliography } from '../bibliography';
 
 const slug = 'lityum-pil-sagligi-hesaplayici';
 const title = 'Lityum Pil Sağlığı Hesaplayıcı';
@@ -87,21 +88,10 @@ export const content: ToolLocaleContent<EstimadorSaludBateriaUI> = {
   slug,
   title,
   description,
-  faqTitle: 'Sıkça Sorulan Sorular',
   faq: faqData,
-  bibliographyTitle: 'Referanslar',
-  bibliography: [
-    {
-      name: 'Journal of Power Sources',
-      url: 'https://www.sciencedirect.com/journal/journal-of-power-sources',
-    },
-    {
-      name: 'IEEE Xplore — Lithium-Ion Battery Life Prediction',
-      url: 'https://ieeexplore.ieee.org/abstract/document/11090151',
-    },
-  ],
   howTo: howToData,
   schemas: [faqSchema, howToSchema, appSchema],
+  bibliography,
   seo: [
     { type: 'title', text: 'Zamanın kimyası: lityum piller neden ölür', level: 2 },
     {

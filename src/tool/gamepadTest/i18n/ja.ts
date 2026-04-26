@@ -1,6 +1,7 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { TestMandoUI } from '../ui';
+import { bibliography } from '../bibliography';
 
 const slug = 'gamepad-test';
 const title = 'オンライン・ゲームパッド＆コントローラーテスト';
@@ -82,21 +83,10 @@ export const content: ToolLocaleContent<TestMandoUI> = {
   slug,
   title,
   description,
-  faqTitle: 'よくある質問',
   faq: faqData,
-  bibliographyTitle: '技術リファレンス',
-  bibliography: [
-    {
-      name: 'Gamepad API 標準 - W3C',
-      url: 'https://w3c.github.io/gamepad/',
-    },
-    {
-      name: 'Vibration API - MDN Web Docs',
-      url: 'https://developer.mozilla.org/en-US/docs/Web/API/Vibration_API',
-    },
-  ],
   howTo: howToData,
   schemas: [faqSchema, howToSchema, appSchema],
+  bibliography,
   seo: [
     {
       type: 'title',

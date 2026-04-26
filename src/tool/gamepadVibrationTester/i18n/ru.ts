@@ -1,6 +1,7 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { ProbadorVibracionMandoUI } from '../ui';
+import { bibliography } from '../bibliography';
 
 const slug = 'test-vibracii-gejmpada-online';
 const title = 'Онлайн тест вибрации геймпада';
@@ -87,21 +88,10 @@ export const content: ToolLocaleContent<ProbadorVibracionMandoUI> = {
   slug,
   title,
   description,
-  faqTitle: 'Часто задаваемые вопросы',
   faq: faqData,
-  bibliographyTitle: 'Ссылки',
-  bibliography: [
-    {
-      name: 'Как работает тактильная вибрация — HobbyConsolas',
-      url: 'https://www.hobbyconsolas.com/reportajes/como-funciona-vibracion-haptica-mando-dualsense-ps5-757673',
-    },
-    {
-      name: 'Gamepad API — W3C',
-      url: 'https://w3c.github.io/gamepad/',
-    },
-  ],
   howTo: howToData,
   schemas: [faqSchema, howToSchema, appSchema],
+  bibliography,
   seo: [
     { type: 'title', text: 'Как проверить вибрацию геймпада', level: 2 },
     {

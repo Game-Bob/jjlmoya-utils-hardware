@@ -1,6 +1,7 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { PixelesPantallaUI } from '../ui';
+import { bibliography } from '../bibliography';
 
 const slug = 'dead-pixel-tester';
 const title = '불량 화소 테스트 및 화면 복구 도구';
@@ -87,21 +88,10 @@ export const content: ToolLocaleContent<PixelesPantallaUI> = {
   slug,
   title,
   description,
-  faqTitle: '자주 묻는 질문',
   faq: faqData,
-  bibliographyTitle: '참고 문헌 및 표준',
-  bibliography: [
-    {
-      name: 'ISO/IEC 9241-307: 디스플레이 인체공학 및 관련 장비',
-      url: 'https://www.iso.org/standard/72025.html',
-    },
-    {
-      name: '불량 화소 정책 - 일반 표준 (VESA)',
-      url: 'https://www.vesa.org/',
-    },
-  ],
   howTo: howToData,
   schemas: [faqSchema, howToSchema, appSchema],
+  bibliography,
   seo: [
     {
       type: 'title',

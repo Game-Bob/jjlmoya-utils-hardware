@@ -1,6 +1,7 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { ToneGeneratorUI } from '../ui';
+import { bibliography } from '../bibliography';
 
 const slug = 'generador-tonos';
 const title = 'Generador de Tonos y Frecuencias Online';
@@ -87,21 +88,10 @@ export const content: ToolLocaleContent<ToneGeneratorUI> = {
   slug,
   title,
   description,
-  faqTitle: 'Preguntas Frecuentes',
   faq: faqData,
-  bibliographyTitle: 'Referencias',
-  bibliography: [
-    {
-      name: 'MDN Web Docs — Web Audio API',
-      url: 'https://developer.mozilla.org/es/docs/Web/API/Web_Audio_API',
-    },
-    {
-      name: 'ISO 226:2023 — Curvas de igual sonoridad',
-      url: 'https://www.iso.org/standard/83117.html',
-    },
-  ],
   howTo: howToData,
   schemas: [faqSchema, howToSchema, appSchema],
+  bibliography,
   seo: [
     { type: 'title', text: 'Todo sobre Frecuencias y Ondas de Sonido', level: 2 },
     {

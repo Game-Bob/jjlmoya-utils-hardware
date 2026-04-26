@@ -1,6 +1,7 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { TestRatonUI } from '../ui';
+import { bibliography } from '../bibliography';
 
 const slug = 'test-taux-sondage-souris';
 const title = 'Test du Taux de Sondage de la Souris en Ligne';
@@ -87,21 +88,10 @@ export const content: ToolLocaleContent<TestRatonUI> = {
   slug,
   title,
   description,
-  faqTitle: 'Questions Fréquentes',
   faq: faqData,
-  bibliographyTitle: 'Références',
-  bibliography: [
-    {
-      name: 'Gamepad Polling Rate — Logitech',
-      url: 'https://www.logitechg.com/en-us/innovation/delta-zero.html',
-    },
-    {
-      name: 'USB HID Polling Rate — USB Implementers Forum',
-      url: 'https://www.usb.org/hid',
-    },
-  ],
   howTo: howToData,
   schemas: [faqSchema, howToSchema, appSchema],
+  bibliography,
   seo: [
     { type: 'title', text: 'Guide Complet sur le Taux de Sondage', level: 2 },
     {

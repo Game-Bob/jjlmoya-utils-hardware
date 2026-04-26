@@ -1,6 +1,7 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { EstimadorSaludBateriaUI } from '../ui';
+import { bibliography } from '../bibliography';
 
 const slug = 'kalkulyator-sostoyaniya-litievoj-batarei';
 const title = 'Калькулятор Состояния Литиевой Батареи';
@@ -87,21 +88,10 @@ export const content: ToolLocaleContent<EstimadorSaludBateriaUI> = {
   slug,
   title,
   description,
-  faqTitle: 'Часто задаваемые вопросы',
   faq: faqData,
-  bibliographyTitle: 'Ссылки',
-  bibliography: [
-    {
-      name: 'Journal of Power Sources',
-      url: 'https://www.sciencedirect.com/journal/journal-of-power-sources',
-    },
-    {
-      name: 'IEEE Xplore — Lithium-Ion Battery Life Prediction',
-      url: 'https://ieeexplore.ieee.org/abstract/document/11090151',
-    },
-  ],
   howTo: howToData,
   schemas: [faqSchema, howToSchema, appSchema],
+  bibliography,
   seo: [
     { type: 'title', text: 'Химия времени: почему умирают литиевые батареи', level: 2 },
     {

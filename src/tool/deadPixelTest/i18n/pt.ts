@@ -1,6 +1,7 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { PixelesPantallaUI } from '../ui';
+import { bibliography } from '../bibliography';
 
 const slug = 'teste-pixel-morto-reparacao-ecra';
 const title = 'Teste de Pixel Morto e Ferramenta de Reparação de Ecrã';
@@ -87,21 +88,10 @@ export const content: ToolLocaleContent<PixelesPantallaUI> = {
   slug,
   title,
   description,
-  faqTitle: 'Perguntas Frequentes',
   faq: faqData,
-  bibliographyTitle: 'Referências e Normas',
-  bibliography: [
-    {
-      name: 'ISO/IEC 9241-307: Ergonomia do ecrã e equipamento relacionado',
-      url: 'https://www.iso.org/standard/72025.html',
-    },
-    {
-      name: 'Dead Pixel Policy - Normas Comuns (VESA)',
-      url: 'https://www.vesa.org/',
-    },
-  ],
   howTo: howToData,
   schemas: [faqSchema, howToSchema, appSchema],
+  bibliography,
   seo: [
     {
       type: 'title',

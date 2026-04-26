@@ -1,6 +1,7 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { ProbadorVibracionMandoUI } from '../ui';
+import { bibliography } from '../bibliography';
 
 const slug = 'test-wibracji-pada-online';
 const title = 'Test Wibracji Pada Online';
@@ -87,21 +88,10 @@ export const content: ToolLocaleContent<ProbadorVibracionMandoUI> = {
   slug,
   title,
   description,
-  faqTitle: 'Często Zadawane Pytania',
   faq: faqData,
-  bibliographyTitle: 'Referencje',
-  bibliography: [
-    {
-      name: 'Jak działają wibracje haptyczne — HobbyConsolas',
-      url: 'https://www.hobbyconsolas.com/reportajes/como-funciona-vibracion-haptica-mando-dualsense-ps5-757673',
-    },
-    {
-      name: 'Gamepad API — W3C',
-      url: 'https://w3c.github.io/gamepad/',
-    },
-  ],
   howTo: howToData,
   schemas: [faqSchema, howToSchema, appSchema],
+  bibliography,
   seo: [
     { type: 'title', text: 'Jak sprawdzić wibracje swojego pada do gier', level: 2 },
     {

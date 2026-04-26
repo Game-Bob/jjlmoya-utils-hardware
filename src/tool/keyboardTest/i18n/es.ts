@@ -1,6 +1,7 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { TestTecladoUI } from '../ui';
+import { bibliography } from '../bibliography';
 
 const slug = 'test-teclado';
 const title = 'Test de Teclado y Ghosting Online';
@@ -82,21 +83,10 @@ export const content: ToolLocaleContent<TestTecladoUI> = {
   slug,
   title,
   description,
-  faqTitle: 'Preguntas Frecuentes',
   faq: faqData,
-  bibliographyTitle: 'Referencias Técnicas',
-  bibliography: [
-    {
-      name: 'USB Keyboard/Keypad Page - HID Usage Tables',
-      url: 'https://www.usb.org/sites/default/files/documents/hut1_12v2.pdf',
-    },
-    {
-      name: 'Mechanical vs Membrane Keyboards - Technical Deep Dive',
-      url: 'https://deskthority.net/wiki/Rollover',
-    },
-  ],
   howTo: howToData,
   schemas: [faqSchema, howToSchema, appSchema],
+  bibliography,
   seo: [
     {
       type: 'title',

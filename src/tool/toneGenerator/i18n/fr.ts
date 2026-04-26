@@ -1,6 +1,7 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { ToneGeneratorUI } from '../ui';
+import { bibliography } from '../bibliography';
 
 const slug = 'generateur-de-frequences';
 const title = 'Générateur de Tons et Fréquences en Ligne';
@@ -87,21 +88,10 @@ export const content: ToolLocaleContent<ToneGeneratorUI> = {
   slug,
   title,
   description,
-  faqTitle: 'Questions Fréquentes',
   faq: faqData,
-  bibliographyTitle: 'Références',
-  bibliography: [
-    {
-      name: 'MDN Web Docs — Web Audio API',
-      url: 'https://developer.mozilla.org/fr/docs/Web/API/Web_Audio_API',
-    },
-    {
-      name: 'ISO 226:2023 — Courbes isophoniques',
-      url: 'https://www.iso.org/standard/83117.html',
-    },
-  ],
   howTo: howToData,
   schemas: [faqSchema, howToSchema, appSchema],
+  bibliography,
   seo: [
     { type: 'title', text: 'Tout sur les Fréquences et les Ondes Sonores', level: 2 },
     {

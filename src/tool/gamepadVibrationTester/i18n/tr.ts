@@ -1,6 +1,7 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { ProbadorVibracionMandoUI } from '../ui';
+import { bibliography } from '../bibliography';
 
 const slug = 'oyun-kolu-titresim-testi-online';
 const title = 'Çevrimiçi Oyun Kolu Titreşim Testi';
@@ -87,21 +88,10 @@ export const content: ToolLocaleContent<ProbadorVibracionMandoUI> = {
   slug,
   title,
   description,
-  faqTitle: 'Sıkça Sorulan Sorular',
   faq: faqData,
-  bibliographyTitle: 'Referanslar',
-  bibliography: [
-    {
-      name: 'Haptik titreşim nasıl çalışır — HobbyConsolas',
-      url: 'https://www.hobbyconsolas.com/reportajes/como-funciona-vibracion-haptica-mando-dualsense-ps5-757673',
-    },
-    {
-      name: 'Gamepad API — W3C',
-      url: 'https://w3c.github.io/gamepad/',
-    },
-  ],
   howTo: howToData,
   schemas: [faqSchema, howToSchema, appSchema],
+  bibliography,
   seo: [
     { type: 'title', text: 'Oyun kolunuzun titreşimini nasıl denetlersiniz', level: 2 },
     {

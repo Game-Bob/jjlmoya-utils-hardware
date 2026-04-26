@@ -1,6 +1,7 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { ToneGeneratorUI } from '../ui';
+import { bibliography } from '../bibliography';
 
 const slug = 'tone-frequency-generator';
 const title = '在线音频和频率发生器';
@@ -87,21 +88,10 @@ export const content: ToolLocaleContent<ToneGeneratorUI> = {
   slug,
   title,
   description,
-  faqTitle: '常见问题',
   faq: faqData,
-  bibliographyTitle: '参考资料',
-  bibliography: [
-    {
-      name: 'MDN Web Docs — Web Audio API',
-      url: 'https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API',
-    },
-    {
-      name: 'ISO 226:2023 — Equal-loudness contours',
-      url: 'https://www.iso.org/standard/83117.html',
-    },
-  ],
   howTo: howToData,
   schemas: [faqSchema, howToSchema, appSchema],
+  bibliography,
   seo: [
     { type: 'title', text: '关于频率和声波的一切', level: 2 },
     {

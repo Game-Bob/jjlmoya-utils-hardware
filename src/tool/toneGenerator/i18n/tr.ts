@@ -1,6 +1,7 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { ToneGeneratorUI } from '../ui';
+import { bibliography } from '../bibliography';
 
 const slug = 'online-ses-ve-frekans-ureteci';
 const title = 'Çevrimiçi Ses ve Frekans Üreteci';
@@ -87,21 +88,10 @@ export const content: ToolLocaleContent<ToneGeneratorUI> = {
   slug,
   title,
   description,
-  faqTitle: 'Sıkça Sorulan Sorular',
   faq: faqData,
-  bibliographyTitle: 'Referanslar',
-  bibliography: [
-    {
-      name: 'MDN Web Docs — Web Audio API',
-      url: 'https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API',
-    },
-    {
-      name: 'ISO 226:2023 — Equal-loudness contours',
-      url: 'https://www.iso.org/standard/83117.html',
-    },
-  ],
   howTo: howToData,
   schemas: [faqSchema, howToSchema, appSchema],
+  bibliography,
   seo: [
     { type: 'title', text: 'Frekanslar ve Ses Dalgaları Hakkında Her Şey', level: 2 },
     {

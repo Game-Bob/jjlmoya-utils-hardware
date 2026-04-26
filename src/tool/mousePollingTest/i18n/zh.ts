@@ -1,6 +1,7 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { TestRatonUI } from '../ui';
+import { bibliography } from '../bibliography';
 
 const slug = 'mouse-polling-rate-test';
 const title = '在线鼠标回报率测试';
@@ -87,21 +88,10 @@ export const content: ToolLocaleContent<TestRatonUI> = {
   slug,
   title,
   description,
-  faqTitle: '常见问题',
   faq: faqData,
-  bibliographyTitle: '参考资料',
-  bibliography: [
-    {
-      name: 'Gamepad Polling Rate — Logitech',
-      url: 'https://www.logitechg.com/en-us/innovation/delta-zero.html',
-    },
-    {
-      name: 'USB HID Polling Rate — USB Implementers Forum',
-      url: 'https://www.usb.org/hid',
-    },
-  ],
   howTo: howToData,
   schemas: [faqSchema, howToSchema, appSchema],
+  bibliography,
   seo: [
     { type: 'title', text: '鼠标回报率权威指南', level: 2 },
     {

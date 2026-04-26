@@ -1,6 +1,7 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { PixelesPantallaUI } from '../ui';
+import { bibliography } from '../bibliography';
 
 const slug = 'dead-pixel-tester';
 const title = 'ドット抜けテスト・液晶修復ツール';
@@ -87,21 +88,10 @@ export const content: ToolLocaleContent<PixelesPantallaUI> = {
   slug,
   title,
   description,
-  faqTitle: 'よくある質問',
   faq: faqData,
-  bibliographyTitle: '参考文献と規格',
-  bibliography: [
-    {
-      name: 'ISO/IEC 9241-307：ディスプレイの人間工学および関連機器',
-      url: 'https://www.iso.org/standard/72025.html',
-    },
-    {
-      name: 'ドット抜けに関するポリシー - 一般的な規格 (VESA)',
-      url: 'https://www.vesa.org/',
-    },
-  ],
   howTo: howToData,
   schemas: [faqSchema, howToSchema, appSchema],
+  bibliography,
   seo: [
     {
       type: 'title',

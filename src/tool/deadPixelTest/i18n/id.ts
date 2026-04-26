@@ -1,6 +1,7 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { PixelesPantallaUI } from '../ui';
+import { bibliography } from '../bibliography';
 
 const slug = 'tes-pixel-mati-perbaikan-layar';
 const title = 'Tes Pixel Mati dan Alat Perbaikan Layar';
@@ -87,21 +88,10 @@ export const content: ToolLocaleContent<PixelesPantallaUI> = {
   slug,
   title,
   description,
-  faqTitle: 'Pertanyaan yang Sering Diajukan',
   faq: faqData,
-  bibliographyTitle: 'Referensi dan Standar',
-  bibliography: [
-    {
-      name: 'ISO/IEC 9241-307: Ergonomi tampilan dan peralatan terkait',
-      url: 'https://www.iso.org/standard/72025.html',
-    },
-    {
-      name: 'Kebijakan Pixel Mati - Standar Umum (VESA)',
-      url: 'https://www.vesa.org/',
-    },
-  ],
   howTo: howToData,
   schemas: [faqSchema, howToSchema, appSchema],
+  bibliography,
   seo: [
     {
       type: 'title',

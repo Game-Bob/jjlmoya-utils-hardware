@@ -1,6 +1,7 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { PixelesPantallaUI } from '../ui';
+import { bibliography } from '../bibliography';
 
 const slug = 'doda-pixel-test-skarmreparation';
 const title = 'Test för Döda Pixlar och Skärmreparationsverktyg';
@@ -87,21 +88,10 @@ export const content: ToolLocaleContent<PixelesPantallaUI> = {
   slug,
   title,
   description,
-  faqTitle: 'Vanliga frågor',
   faq: faqData,
-  bibliographyTitle: 'Referenser och standarder',
-  bibliography: [
-    {
-      name: 'ISO/IEC 9241-307: Bildskärmsergonomi och relaterad utrustning',
-      url: 'https://www.iso.org/standard/72025.html',
-    },
-    {
-      name: 'Dead Pixel Policy - Vanliga standarder (VESA)',
-      url: 'https://www.vesa.org/',
-    },
-  ],
   howTo: howToData,
   schemas: [faqSchema, howToSchema, appSchema],
+  bibliography,
   seo: [
     {
       type: 'title',
