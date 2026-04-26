@@ -4,7 +4,7 @@ import type { SpectrumCanvasUI } from '../ui';
 import { bibliography } from '../bibliography';
 
 const slug = 'farbgenauigkeit-test';
-const title = 'Farbgenauigkeitstest - Spectrum Canvas';
+const title = 'Farbgenauigkeitstest: Spectrum Canvas';
 const description =
   'Kalibrieren Sie Ihr Display mit Präzision. Testen Sie sRGB- und DCI-P3-Farbräume, erkennen Sie Farbverschiebungen, messen Sie die Genauigkeit mit Delta-E-Metriken und erstellen Sie professionelle Kalibrierungsberichte.';
 
@@ -255,7 +255,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
   ],
   ui: {
     badge: 'Display-Kalibrierung',
-    title: 'Spectrum Canvas - Farbgenauigkeitstest',
+    title: 'Spectrum Canvas: Farbgenauigkeitstest',
     description:
       'Professionelle Display-Kalibrierung trifft auf Kino-Ästhetik. Testen Sie sRGB und DCI-P3, messen Sie die Delta-E-Genauigkeit, erkennen Sie Farbverschiebungen und erstellen Sie einen visuellen Bericht, der Daten in Erkenntnisse verwandelt.',
     btnStartCalibration: 'Kalibrierung starten',

@@ -4,7 +4,7 @@ import type { SpectrumCanvasUI } from '../ui';
 import { bibliography } from '../bibliography';
 
 const slug = 'renk-dogruluk-testi';
-const title = 'Renk Doğruluk Testi - Spectrum Canvas';
+const title = 'Renk Doğruluk Testi: Spectrum Canvas';
 const description =
   'Ekranınızı hassasiyetle kalibre edin. sRGB ve DCI-P3 renk uzaylarını test edin, renk kaymalarını tespit edin, Delta E metrikleri ile doğruluğu ölçün ve profesyonel kalibrasyon raporları oluşturun.';
 
@@ -255,7 +255,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
   ],
   ui: {
     badge: 'Ekran Kalibrasyonu',
-    title: 'Spectrum Canvas - Renk Doğruluk Testi',
+    title: 'Spectrum Canvas: Renk Doğruluk Testi',
     description:
       'Profesyonel ekran kalibrasyonu sinematik estetikle buluşuyor. sRGB ve DCI-P3\'ü test edin, Delta E doğruluğunu ölçün, renk kaymalarını tespit edin ve verileri içgörüye dönüştüren görsel bir rapor oluşturun.',
     btnStartCalibration: 'Kalibrasyonu Başlat',

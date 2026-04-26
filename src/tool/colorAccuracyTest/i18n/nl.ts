@@ -4,7 +4,7 @@ import type { SpectrumCanvasUI } from '../ui';
 import { bibliography } from '../bibliography';
 
 const slug = 'kleurnauwkeurigheid-test';
-const title = 'Kleurnauwkeurigheidstest - Spectrum Canvas';
+const title = 'Kleurnauwkeurigheidstest: Spectrum Canvas';
 const description =
   'Kalibreer uw display met precisie. Test sRGB- en DCI-P3-kleurruimten, detecteer kleurverschuivingen, meet de nauwkeurigheid met Delta E-metrieken en genereer professionele kalibratierapporten.';
 
@@ -255,7 +255,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
   ],
   ui: {
     badge: 'Display Kalibratie',
-    title: 'Spectrum Canvas - Kleurnauwkeurigheidstest',
+    title: 'Spectrum Canvas: Kleurnauwkeurigheidstest',
     description:
       'Professionele displaykalibratie ontmoet bioscoopesthetiek. Test sRGB en DCI-P3, meet Delta E-nauwkeurigheid, detecteer kleurverschuivingen en genereer een visueel rapport dat data in inzicht verandert.',
     btnStartCalibration: 'Start kalibratie',

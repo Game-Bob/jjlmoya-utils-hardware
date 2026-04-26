@@ -4,7 +4,7 @@ import type { SpectrumCanvasUI } from '../ui';
 import { bibliography } from '../bibliography';
 
 const slug = 'color-accuracy-test';
-const title = '색상 정확도 테스트 - Spectrum Canvas';
+const title = '색상 정확도 테스트: Spectrum Canvas';
 const description =
   '디스플레이를 정밀하게 교정하세요. sRGB 및 DCI-P3 색 영역을 테스트하고, 색상 편차를 감지하며, Delta E 지표로 정확도를 측정하고 전문적인 캘리브레이션 보고서를 생성합니다.';
 
@@ -255,7 +255,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
   ],
   ui: {
     badge: '디스플레이 교정',
-    title: 'Spectrum Canvas - 색상 정확도 테스트',
+    title: 'Spectrum Canvas: 색상 정확도 테스트',
     description:
       '전문적인 디스플레이 교정과 시네마틱 미학의 만남. sRGB 및 DCI-P3를 테스트하고, Delta E 정확도를 측정하며, 색상 편차를 감지하고 데이터를 인사이트로 바꿔주는 시각적 보고서를 생성합니다.',
     btnStartCalibration: '교정 시작',

@@ -4,7 +4,7 @@ import type { SpectrumCanvasUI } from '../ui';
 import { bibliography } from '../bibliography';
 
 const slug = 'fargprecision-test';
-const title = 'Färgprecisionstest - Spectrum Canvas';
+const title = 'Färgprecisionstest: Spectrum Canvas';
 const description =
   'Kalibrera din display med precision. Testa sRGB- och DCI-P3-färgrymder, upptäck färgförskjutningar, mät noggrannhet med Delta E-metriker och generera professionella kalibreringsrapporter.';
 
@@ -255,7 +255,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
   ],
   ui: {
     badge: 'Displaykalibrering',
-    title: 'Spectrum Canvas - Färgprecisionstest',
+    title: 'Spectrum Canvas: Färgprecisionstest',
     description:
       'Professionell displaykalibrering möter biokänsla. Testa sRGB och DCI-P3, mät Delta E-noggrannhet, upptäck färgförskjutningar och generera en visuell rapport som förvandlar data till insikt.',
     btnStartCalibration: 'Starta kalibrering',

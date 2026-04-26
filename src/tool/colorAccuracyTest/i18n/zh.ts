@@ -4,7 +4,7 @@ import type { SpectrumCanvasUI } from '../ui';
 import { bibliography } from '../bibliography';
 
 const slug = 'color-accuracy-test';
-const title = '色彩精准度测试 - Spectrum Canvas';
+const title = '色彩精准度测试: Spectrum Canvas';
 const description =
   '精准校准您的显示器。测试 sRGB 和 DCI-P3 色域，检测色彩漂移，使用 Delta E 指标衡量准确度，并生成专业的校准报告。';
 
@@ -255,7 +255,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
   ],
   ui: {
     badge: '显示器校准',
-    title: 'Spectrum Canvas - 色彩精准度测试',
+    title: 'Spectrum Canvas: 色彩精准度测试',
     description:
       '专业显示器校准与电影级美学的结合。测试 sRGB 和 DCI-P3，衡量 Delta E 准确度，检测色彩漂移，并生成将数据转化为洞察力的视觉报告。',
     btnStartCalibration: '开始校准',

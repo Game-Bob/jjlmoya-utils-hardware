@@ -4,7 +4,7 @@ import type { SpectrumCanvasUI } from '../ui';
 import { bibliography } from '../bibliography';
 
 const slug = 'color-accuracy-test';
-const title = 'Color Accuracy Test -Spectrum Canvas';
+const title = 'Color Accuracy Test: Spectrum Canvas';
 const description =
   'Calibrate your display with precision. Test sRGB and DCI-P3 color spaces, detect color shifts, measure accuracy with Delta E metrics, and generate professional calibration reports.';
 
@@ -255,7 +255,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
   ],
   ui: {
     badge: 'Display Calibration',
-    title: 'Spectrum Canvas -Color Accuracy Test',
+    title: 'Spectrum Canvas: Color Accuracy Test',
     description:
       'Professional display calibration meets cinema-grade aesthetics. Test sRGB and DCI-P3, measure Delta E accuracy, detect color shifts, and generate a visual report that transforms data into insight.',
     btnStartCalibration: 'Start Calibration',

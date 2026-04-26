@@ -4,7 +4,7 @@ import type { SpectrumCanvasUI } from '../ui';
 import { bibliography } from '../bibliography';
 
 const slug = 'test-dokladnosci-kolorow';
-const title = 'Test Dokładności Kolorów - Spectrum Canvas';
+const title = 'Test Dokładności Kolorów: Spectrum Canvas';
 const description =
   'Skalibruj swój wyświetlacz z precyzją. Przetestuj przestrzenie kolorów sRGB i DCI-P3, wykryj przesunięcia kolorów, zmierz dokładność za pomocą wskaźników Delta E i generuj profesjonalne raporty kalibracji.';
 
@@ -255,7 +255,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
   ],
   ui: {
     badge: 'Kalibracja Wyświetlacza',
-    title: 'Spectrum Canvas - Test Dokładności Kolorów',
+    title: 'Spectrum Canvas: Test Dokładności Kolorów',
     description:
       'Profesjonalna kalibracja wyświetlacza łączy się z kinową estetyką. Przetestuj sRGB i DCI-P3, zmierz dokładność Delta E, wykryj przesunięcia kolorów i wygeneruj wizualny raport, który zmienia dane w wiedzę.',
     btnStartCalibration: 'Rozpocznij Kalibrację',

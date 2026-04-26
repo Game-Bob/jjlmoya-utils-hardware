@@ -4,7 +4,7 @@ import type { SpectrumCanvasUI } from '../ui';
 import { bibliography } from '../bibliography';
 
 const slug = 'color-accuracy-test';
-const title = '色再現性テスト - Spectrum Canvas';
+const title = '色再現性テスト: Spectrum Canvas';
 const description =
   'ディスプレイを精密にキャリブレーション。sRGBおよびDCI-P3色域のテスト、色ずれの検出、Delta E指標による精度測定、そしてプロ仕様のキャリブレーションレポート作成が可能です。';
 
@@ -255,7 +255,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
   ],
   ui: {
     badge: 'ディスプレイ調整',
-    title: 'Spectrum Canvas -色再現性テスト',
+    title: 'Spectrum Canvas: 色再現性テスト',
     description:
       'プロフェッショナルなディスプレイ調整とシネマ級の美学が融合。sRGBとDCI-P3をテストし、Delta E精度を測定。色ずれを検出し、データを洞察へと変えるビジュアルレポートを生成します。',
     btnStartCalibration: 'キャリブレーション開始',

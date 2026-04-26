@@ -4,7 +4,7 @@ import type { SpectrumCanvasUI } from '../ui';
 import { bibliography } from '../bibliography';
 
 const slug = 'tes-akurasi-warna';
-const title = 'Tes Akurasi Warna - Spectrum Canvas';
+const title = 'Tes Akurasi Warna: Spectrum Canvas';
 const description =
   'Kalibrasi layar Anda dengan presisi. Uji ruang warna sRGB dan DCI-P3, deteksi pergeseran warna, ukur akurasi dengan metrik Delta E, dan buat laporan kalibrasi profesional.';
 
@@ -255,7 +255,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
   ],
   ui: {
     badge: 'Kalibrasi Layar',
-    title: 'Spectrum Canvas - Tes Akurasi Warna',
+    title: 'Spectrum Canvas: Tes Akurasi Warna',
     description:
       'Kalibrasi layar profesional bertemu dengan estetika sinematik. Uji sRGB dan DCI-P3, ukur akurasi Delta E, deteksi pergeseran warna, dan buat laporan visual yang mengubah data menjadi wawasan.',
     btnStartCalibration: 'Mulai Kalibrasi',
