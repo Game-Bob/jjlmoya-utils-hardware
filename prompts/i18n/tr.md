@@ -1,4 +1,4 @@
-# Prompts — Türkçe (tr)
+# Prompts -Türkçe (tr)
 
 ## Çeviri
 

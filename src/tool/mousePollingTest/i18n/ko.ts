@@ -101,7 +101,7 @@ export const content: ToolLocaleContent<TestRatonUI> = {
     { type: 'title', text: '폴링 레이트 단계 및 용도', level: 3 },
     {
       type: 'paragraph',
-      html: '<strong>125 Hz</strong> — 마우스가 8밀리초마다 보고합니다. 사무용으로는 괜찮지만 144Hz 모니터에서는 끊겨 보일 수 있습니다. <strong>1000 Hz</strong> — 게이밍의 표준: 1ms마다 보고합니다. 눈에 띄는 지연 없는 부드러운 움직임을 제공합니다. <strong>8000 Hz</strong> — 최첨단 기술(Razer, Logitech). 0.125ms마다 보고하지만 고성능 CPU가 필요합니다.',
+      html: '<strong>125 Hz</strong> -마우스가 8밀리초마다 보고합니다. 사무용으로는 괜찮지만 144Hz 모니터에서는 끊겨 보일 수 있습니다. <strong>1000 Hz</strong> -게이밍의 표준: 1ms마다 보고합니다. 눈에 띄는 지연 없는 부드러운 움직임을 제공합니다. <strong>8000 Hz</strong> -최첨단 기술(Razer, Logitech). 0.125ms마다 보고하지만 고성능 CPU가 필요합니다.',
     },
     { type: 'title', text: 'Hz 수치가 왜 변동하나요?', level: 3 },
     {

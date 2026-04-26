@@ -143,6 +143,6 @@ export const content: ToolLocaleContent<EstimadorSaludBateriaUI> = {
     recVoltageHigh: 'Evite manter a bateria com 100% de carga (4.2V) por períodos prolongados.',
     recVoltageLow: 'Evite descargas profundas; ciclos entre 20% e 80% duplicam a vida útil da bateria.',
     recSohLow: 'A capacidade caiu abaixo do padrão ideal. Considere uma substituição se a autonomia for insuficiente.',
-    recDefault: 'Mantenha os seus hábitos atuais — a sua bateria está numa gama de funcionamento ideal.',
+    recDefault: 'Mantenha os seus hábitos atuais -a sua bateria está numa gama de funcionamento ideal.',
   },
 };

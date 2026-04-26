@@ -143,6 +143,6 @@ export const content: ToolLocaleContent<EstimadorSaludBateriaUI> = {
     recVoltageHigh: 'Unikaj trzymania baterii naładowanej w 100% (4.2V) przez dłuższy czas.',
     recVoltageLow: 'Unikaj głębokich rozładowań; cykle między 20% a 80% podwajają żywotność baterii.',
     recSohLow: 'Pojemność spadła poniżej optymalnego standardu. Rozważ wymianę, jeśli czas pracy jest niewystarczający.',
-    recDefault: 'Utrzymuj obecne nawyki — Twoja bateria pracuje w idealnym zakresie.',
+    recDefault: 'Utrzymuj obecne nawyki -Twoja bateria pracuje w idealnym zakresie.',
   },
 };

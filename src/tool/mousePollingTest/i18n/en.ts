@@ -101,7 +101,7 @@ export const content: ToolLocaleContent<TestRatonUI> = {
     { type: 'title', text: 'Polling Rate Levels and Their Uses', level: 3 },
     {
       type: 'paragraph',
-      html: '<strong>125 Hz</strong> — The mouse reports every 8 milliseconds. Fine for office use but feels choppy on 144Hz monitors. <strong>1000 Hz</strong> — The gaming gold standard: reports every 1 ms. Smooth movement with no perceptible delay. <strong>8000 Hz</strong> — Cutting-edge technology (Razer, Logitech). Reports every 0.125 ms but requires a powerful CPU.',
+      html: '<strong>125 Hz</strong> -The mouse reports every 8 milliseconds. Fine for office use but feels choppy on 144Hz monitors. <strong>1000 Hz</strong> -The gaming gold standard: reports every 1 ms. Smooth movement with no perceptible delay. <strong>8000 Hz</strong> -Cutting-edge technology (Razer, Logitech). Reports every 0.125 ms but requires a powerful CPU.',
     },
     { type: 'title', text: 'Why Do My Hz Fluctuate?', level: 3 },
     {

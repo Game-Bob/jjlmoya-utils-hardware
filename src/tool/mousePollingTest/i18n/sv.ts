@@ -101,7 +101,7 @@ export const content: ToolLocaleContent<TestRatonUI> = {
     { type: 'title', text: 'Polling Rate-nivåer och deras användning', level: 3 },
     {
       type: 'paragraph',
-      html: '<strong>125 Hz</strong> — Musen rapporterar var 8:e millisekund. Okej för kontorsbruk men ser ryckigt ut på 144Hz-monitorer. <strong>1000 Hz</strong> — Den gyllene standarden för gaming: rapporterar varje millisekund (1 ms). Mjuk rörelse utan märkbar fördröjning. <strong>8000 Hz</strong> — Banbrytande teknologi (Razer, Logitech). Rapporterar var 0,125 ms men kräver en kraftfull CPU.',
+      html: '<strong>125 Hz</strong> -Musen rapporterar var 8:e millisekund. Okej för kontorsbruk men ser ryckigt ut på 144Hz-monitorer. <strong>1000 Hz</strong> -Den gyllene standarden för gaming: rapporterar varje millisekund (1 ms). Mjuk rörelse utan märkbar fördröjning. <strong>8000 Hz</strong> -Banbrytande teknologi (Razer, Logitech). Rapporterar var 0,125 ms men kräver en kraftfull CPU.',
     },
     { type: 'title', text: 'Varför fluktuerar mina Hz?', level: 3 },
     {

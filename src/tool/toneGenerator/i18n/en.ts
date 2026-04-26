@@ -106,7 +106,7 @@ export const content: ToolLocaleContent<ToneGeneratorUI> = {
     { type: 'title', text: 'Wave Types and Their Uses', level: 3 },
     {
       type: 'paragraph',
-      html: '<strong>Sine:</strong> pure tone with no harmonics, used in medical hearing tests and instrument calibration. <strong>Square:</strong> rich in odd harmonics, sounds like retro 8-bit consoles. <strong>Sawtooth:</strong> contains all harmonics, the basis of electronic music synthesisers. <strong>Triangle:</strong> midpoint between sine and square — smoother than square but with more harmonic content than sine.',
+      html: '<strong>Sine:</strong> pure tone with no harmonics, used in medical hearing tests and instrument calibration. <strong>Square:</strong> rich in odd harmonics, sounds like retro 8-bit consoles. <strong>Sawtooth:</strong> contains all harmonics, the basis of electronic music synthesisers. <strong>Triangle:</strong> midpoint between sine and square -smoother than square but with more harmonic content than sine.',
     },
     { type: 'title', text: 'Speaker Testing and Vibration Cleaning', level: 3 },
     {

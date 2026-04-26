@@ -101,7 +101,7 @@ export const content: ToolLocaleContent<TestRatonUI> = {
     { type: 'title', text: 'Niveaux de Taux de Sondage et Leurs Usages', level: 3 },
     {
       type: 'paragraph',
-      html: "<strong>125 Hz</strong> — La souris communique toutes les 8 ms. Parfait pour un usage bureautique, mais saccadé sur un écran 144Hz. <strong>1000 Hz</strong> — L'étalon-or du gaming : communication toutes les 1 ms, mouvement fluide. <strong>8000 Hz</strong> — Technologie de pointe (Razer, Logitech), nécessite un processeur puissant.",
+      html: "<strong>125 Hz</strong> -La souris communique toutes les 8 ms. Parfait pour un usage bureautique, mais saccadé sur un écran 144Hz. <strong>1000 Hz</strong> -L'étalon-or du gaming : communication toutes les 1 ms, mouvement fluide. <strong>8000 Hz</strong> -Technologie de pointe (Razer, Logitech), nécessite un processeur puissant.",
     },
     { type: 'title', text: 'Pourquoi mes Hz fluctuent-ils ?', level: 3 },
     {

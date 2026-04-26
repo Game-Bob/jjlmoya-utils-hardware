@@ -143,6 +143,6 @@ export const content: ToolLocaleContent<EstimadorSaludBateriaUI> = {
     recVoltageHigh: 'Undvik att hålla batteriet vid 100 % laddning (4,2 V) under längre perioder.',
     recVoltageLow: 'Undvik djupa urladdningar; cykler mellan 20 % och 80 % fördubblar batteriets livslängd.',
     recSohLow: 'Kapaciteten har sjunkit under den optimala nivån. Överväg ett byte om batteritiden är otillräcklig.',
-    recDefault: 'Behåll dina nuvarande vanor — ditt batteri är i ett idealiskt driftintervall.',
+    recDefault: 'Behåll dina nuvarande vanor -ditt batteri är i ett idealiskt driftintervall.',
   },
 };

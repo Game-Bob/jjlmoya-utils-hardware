@@ -106,7 +106,7 @@ export const content: ToolLocaleContent<ToneGeneratorUI> = {
     { type: 'title', text: 'Vågtyper och deras användning', level: 3 },
     {
       type: 'paragraph',
-      html: '<strong>Sinus:</strong> ren ton utan övertoner, används i medicinska hörseltester och instrumentkalibrering. <strong>Fyrkant:</strong> rik på udda övertoner, låter som retro 8-bitarskonsoler. <strong>Sågtand:</strong> innehåller alla övertoner, basen för elektroniska musik-syntar. <strong>Triangel:</strong> mittpunkt mellan sinus och fyrkant — mjukare än fyrkant men med mer harmoniskt innehåll än sinus.',
+      html: '<strong>Sinus:</strong> ren ton utan övertoner, används i medicinska hörseltester och instrumentkalibrering. <strong>Fyrkant:</strong> rik på udda övertoner, låter som retro 8-bitarskonsoler. <strong>Sågtand:</strong> innehåller alla övertoner, basen för elektroniska musik-syntar. <strong>Triangel:</strong> mittpunkt mellan sinus och fyrkant -mjukare än fyrkant men med mer harmoniskt innehåll än sinus.',
     },
     { type: 'title', text: 'Högtalartest och rengöring genom vibration', level: 3 },
     {

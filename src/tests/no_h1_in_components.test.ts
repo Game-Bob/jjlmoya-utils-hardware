@@ -40,7 +40,7 @@ describe('No H1 in Components', () => {
       const content = readFileSync(file, 'utf-8');
       expect(
         hasH1(content),
-        `File "${relativePath}" contains a <h1> element. Use <h2> or lower inside components — h1 belongs to the page layout.`,
+        `File "${relativePath}" contains a <h1> element. Use <h2> or lower inside components -h1 belongs to the page layout.`,
       ).toBe(false);
     });
   });

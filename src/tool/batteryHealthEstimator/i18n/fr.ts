@@ -143,6 +143,6 @@ export const content: ToolLocaleContent<EstimadorSaludBateriaUI> = {
     recVoltageHigh: "Évitez de maintenir la batterie à 100% de charge (4,2V) pendant de longues périodes.",
     recVoltageLow: "Évitez les décharges profondes ; les cycles entre 20% et 80% doublent la durée de vie.",
     recSohLow: "La capacité est tombée en dessous du standard optimal. Envisagez un remplacement si l'autonomie est insuffisante.",
-    recDefault: "Maintenez vos habitudes actuelles — votre batterie est dans une plage de fonctionnement idéale.",
+    recDefault: "Maintenez vos habitudes actuelles -votre batterie est dans une plage de fonctionnement idéale.",
   },
 };

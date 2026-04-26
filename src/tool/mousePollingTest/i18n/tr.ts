@@ -101,7 +101,7 @@ export const content: ToolLocaleContent<TestRatonUI> = {
     { type: 'title', text: 'Polling Rate Seviyeleri ve Kullanımları', level: 3 },
     {
       type: 'paragraph',
-      html: '<strong>125 Hz</strong> — Fare her 8 milisaniyede bir bildirim yapar. Ofis kullanımı için uygundur ancak 144Hz monitörlerde kesik kesik hissettirir. <strong>1000 Hz</strong> — Oyun oynamanın altın standardı: her 1 ms\'de bir bildirim yapar. Algılanabilir bir gecikme olmaksızın akıcı hareket. <strong>8000 Hz</strong> — En son teknoloji (Razer, Logitech). Her 0,125 ms\'de bir bildirim yapar ancak güçlü bir CPU gerektirir.',
+      html: '<strong>125 Hz</strong> -Fare her 8 milisaniyede bir bildirim yapar. Ofis kullanımı için uygundur ancak 144Hz monitörlerde kesik kesik hissettirir. <strong>1000 Hz</strong> -Oyun oynamanın altın standardı: her 1 ms\'de bir bildirim yapar. Algılanabilir bir gecikme olmaksızın akıcı hareket. <strong>8000 Hz</strong> -En son teknoloji (Razer, Logitech). Her 0,125 ms\'de bir bildirim yapar ancak güçlü bir CPU gerektirir.',
     },
     { type: 'title', text: 'Hz Neden Dalgalanıyor?', level: 3 },
     {

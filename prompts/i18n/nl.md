@@ -1,4 +1,4 @@
-# Prompts — Nederlands (nl)
+# Prompts -Nederlands (nl)
 
 ## Vertaling
 

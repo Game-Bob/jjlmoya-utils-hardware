@@ -106,7 +106,7 @@ export const content: ToolLocaleContent<ToneGeneratorUI> = {
     { type: 'title', text: 'Rodzaje Fal i ich Zastosowanie', level: 3 },
     {
       type: 'paragraph',
-      html: '<strong>Sinusoidalna:</strong> czysty ton bez harmonicznych, używany w medycznych badaniach słuchu i kalibracji instrumentów. <strong>Prostokątna:</strong> bogata w nieparzyste harmoniczne, brzmi jak retro konsole 8-bitowe. <strong>Piłokształtna:</strong> zawiera wszystkie harmoniczne, podstawa syntezatorów muzyki elektronicznej. <strong>Trójkątna:</strong> punkt pośredni między sinusoidalną a prostokątną — gładsza niż prostokątna, ale z większą zawartością harmonicznych niż sinusoidalna.',
+      html: '<strong>Sinusoidalna:</strong> czysty ton bez harmonicznych, używany w medycznych badaniach słuchu i kalibracji instrumentów. <strong>Prostokątna:</strong> bogata w nieparzyste harmoniczne, brzmi jak retro konsole 8-bitowe. <strong>Piłokształtna:</strong> zawiera wszystkie harmoniczne, podstawa syntezatorów muzyki elektronicznej. <strong>Trójkątna:</strong> punkt pośredni między sinusoidalną a prostokątną -gładsza niż prostokątna, ale z większą zawartością harmonicznych niż sinusoidalna.',
     },
     { type: 'title', text: 'Testowanie Głośników i Czyszczenie Wibracyjne', level: 3 },
     {

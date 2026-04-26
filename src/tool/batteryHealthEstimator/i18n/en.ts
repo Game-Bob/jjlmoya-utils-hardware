@@ -143,6 +143,6 @@ export const content: ToolLocaleContent<EstimadorSaludBateriaUI> = {
     recVoltageHigh: 'Avoid keeping the battery at 100% charge (4.2V) for extended periods.',
     recVoltageLow: 'Avoid deep discharges; cycles between 20% and 80% double battery life.',
     recSohLow: 'Capacity has dropped below the optimal standard. Consider a replacement if autonomy is insufficient.',
-    recDefault: 'Keep your current habits — your battery is in an ideal operating range.',
+    recDefault: 'Keep your current habits -your battery is in an ideal operating range.',
   },
 };

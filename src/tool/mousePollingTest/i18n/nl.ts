@@ -101,7 +101,7 @@ export const content: ToolLocaleContent<TestRatonUI> = {
     { type: 'title', text: 'Polling Rate Niveaus en hun Gebruik', level: 3 },
     {
       type: 'paragraph',
-      html: '<strong>125 Hz</strong> — De muis rapporteert elke 8 milliseconden. Prima voor kantoorgebruik, maar voelt schokkerig aan op 144Hz monitoren. <strong>1000 Hz</strong> — De gouden standaard voor gaming: rapporteert elke 1 ms. Vloeiende beweging zonder merkbare vertraging. <strong>8000 Hz</strong> — Geavanceerde technologie (Razer, Logitech). Rapporteert elke 0,125 ms, maar vereist een krachtige CPU.',
+      html: '<strong>125 Hz</strong> -De muis rapporteert elke 8 milliseconden. Prima voor kantoorgebruik, maar voelt schokkerig aan op 144Hz monitoren. <strong>1000 Hz</strong> -De gouden standaard voor gaming: rapporteert elke 1 ms. Vloeiende beweging zonder merkbare vertraging. <strong>8000 Hz</strong> -Geavanceerde technologie (Razer, Logitech). Rapporteert elke 0,125 ms, maar vereist een krachtige CPU.',
     },
     { type: 'title', text: 'Waarom fluctueren mijn Hz?', level: 3 },
     {

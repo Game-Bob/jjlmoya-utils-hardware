@@ -143,6 +143,6 @@ export const content: ToolLocaleContent<EstimadorSaludBateriaUI> = {
     recVoltageHigh: 'Vermeiden Sie es, die Batterie über längere Zeit bei 100 % Ladung (4,2 V) zu halten.',
     recVoltageLow: 'Tiefe Entladungen vermeiden; Zyklen zwischen 20 % und 80 % verdoppeln die Lebensdauer.',
     recSohLow: 'Kapazität ist unter den optimalen Standard gefallen. Erwägen Sie einen Austausch, wenn die Autonomie nicht ausreicht.',
-    recDefault: 'Behalten Sie Ihre aktuellen Gewohnheiten bei — Ihre Batterie befindet sich in einem idealen Betriebsbereich.',
+    recDefault: 'Behalten Sie Ihre aktuellen Gewohnheiten bei -Ihre Batterie befindet sich in einem idealen Betriebsbereich.',
   },
 };

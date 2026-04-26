@@ -122,7 +122,7 @@ export const content: ToolLocaleContent<RefreshRateDetectorUI> = {
     {
       type: 'list',
       items: [
-        'Chargez ce détecteur — la mesure commence immédiatement',
+        'Chargez ce détecteur -la mesure commence immédiatement',
         'Choisissez entre le mode de mesure Rapide (3s) ou Stable (10s)',
         'Lisez les Hz de votre moniteur sur le cadran du tachymètre',
         'Comparez aux normes de l\'industrie (60, 75, 120, 144, 240, 360Hz)',
@@ -152,7 +152,7 @@ export const content: ToolLocaleContent<RefreshRateDetectorUI> = {
     {
       type: 'list',
       items: [
-        'Vérifiez les connexions du câble HDMI/DisplayPort — des câbles lâches réduisent la bande passante',
+        'Vérifiez les connexions du câble HDMI/DisplayPort -des câbles lâches réduisent la bande passante',
         'Mettez à jour vos pilotes GPU (NVIDIA, AMD, Intel)',
         'Vérifiez les paramètres d\'affichage de l\'OS pour vous assurer que le taux de rafraîchissement élevé est activé',
         'Essayez différents câbles ou ports sur votre moniteur',
@@ -166,7 +166,7 @@ export const content: ToolLocaleContent<RefreshRateDetectorUI> = {
     },
     {
       type: 'paragraph',
-      html: 'Cet outil utilise l\'API requestAnimationFrame du navigateur, qui se synchronise directement avec le cycle de rafraîchissement de votre moniteur. En mesurant le temps entre les images d\'animation, nous calculons votre taux de rafraîchissement exact avec une grande précision — aucun matériel spécial n\'est requis.',
+      html: 'Cet outil utilise l\'API requestAnimationFrame du navigateur, qui se synchronise directement avec le cycle de rafraîchissement de votre moniteur. En mesurant le temps entre les images d\'animation, nous calculons votre taux de rafraîchissement exact avec une grande précision -aucun matériel spécial n\'est requis.',
     },
   ],
   ui: {

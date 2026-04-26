@@ -143,6 +143,6 @@ export const content: ToolLocaleContent<EstimadorSaludBateriaUI> = {
     recVoltageHigh: 'Hindari menjaga baterai pada daya 100% (4.2V) untuk waktu yang lama.',
     recVoltageLow: 'Hindari pengosongan daya yang dalam; siklus antara 20% dan 80% menggandakan masa pakai baterai.',
     recSohLow: 'Kapasitas telah turun di bawah standar optimal. Pertimbangkan penggantian jika otonomi tidak mencukupi.',
-    recDefault: 'Pertahankan kebiasaan Anda saat ini — baterai Anda berada dalam rentang operasi yang ideal.',
+    recDefault: 'Pertahankan kebiasaan Anda saat ini -baterai Anda berada dalam rentang operasi yang ideal.',
   },
 };

@@ -143,6 +143,6 @@ export const content: ToolLocaleContent<EstimadorSaludBateriaUI> = {
     recVoltageHigh: 'Vermijd het langdurig op 100% lading (4,2 V) houden van de batterij.',
     recVoltageLow: 'Vermijd diepe ontladingen; cycli tussen 20% en 80% verdubbelen de levensduur van de batterij.',
     recSohLow: 'De capaciteit is onder de optimale standaard gezakt. Overweeg vervanging als de autonomie onvoldoende is.',
-    recDefault: 'Houd uw huidige gewoonten aan — uw batterij bevindt zich in een ideaal werkingsbereik.',
+    recDefault: 'Houd uw huidige gewoonten aan -uw batterij bevindt zich in een ideaal werkingsbereik.',
   },
 };

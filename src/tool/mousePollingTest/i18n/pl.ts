@@ -101,7 +101,7 @@ export const content: ToolLocaleContent<TestRatonUI> = {
     { type: 'title', text: 'Poziomy Polling Rate i ich zastosowania', level: 3 },
     {
       type: 'paragraph',
-      html: '<strong>125 Hz</strong> — Mysz raportuje co 8 milisekund. Dobre do pracy biurowej, ale wydaje się rwane na monitorach 144Hz. <strong>1000 Hz</strong> — Złoty standard gamingowy: raportuje co 1 ms. Płynny ruch bez odczuwalnych opóźnień. <strong>8000 Hz</strong> — Najnowocześniejsza technologia (Razer, Logitech). Raportuje co 0,125 ms, ale wymaga mocnego procesora.',
+      html: '<strong>125 Hz</strong> -Mysz raportuje co 8 milisekund. Dobre do pracy biurowej, ale wydaje się rwane na monitorach 144Hz. <strong>1000 Hz</strong> -Złoty standard gamingowy: raportuje co 1 ms. Płynny ruch bez odczuwalnych opóźnień. <strong>8000 Hz</strong> -Najnowocześniejsza technologia (Razer, Logitech). Raportuje co 0,125 ms, ale wymaga mocnego procesora.',
     },
     { type: 'title', text: 'Dlaczego moje Hz wahają się?', level: 3 },
     {

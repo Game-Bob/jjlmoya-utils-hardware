@@ -143,6 +143,6 @@ export const content: ToolLocaleContent<EstimadorSaludBateriaUI> = {
     recVoltageHigh: 'Pili uzun süre %100 şarjda (4.2V) tutmaktan kaçının.',
     recVoltageLow: 'Derin deşarjlardan kaçının; %20 ile %80 arasındaki döngüler pil ömrünü iki katına çıkarır.',
     recSohLow: 'Kapasite optimal standardın altına düştü. Otonomi yetersizse değişim yapmayı düşünün.',
-    recDefault: 'Mevcut alışkanlıklarınızı koruyun — piliniz ideal çalışma aralığında.',
+    recDefault: 'Mevcut alışkanlıklarınızı koruyun -piliniz ideal çalışma aralığında.',
   },
 };

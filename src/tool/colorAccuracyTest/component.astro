@@ -1,0 +1,157 @@
+---
+import type { KnownLocale } from '../../types';
+import type { SpectrumCanvasUI } from './ui';
+
+interface Props {
+  locale?: KnownLocale;
+  ui?: Record<string, unknown>;
+}
+
+const { ui } = Astro.props;
+const t = (ui ?? {}) as SpectrumCanvasUI;
+---
+
+<div class="sc-root">
+  <div class="sc-wrapper">
+    <div class="sc-dashboard" id="dashboard">
+      <div class="sc-grid">
+        <div class="sc-content">
+          <div class="sc-config">
+            <div class="sc-gamut-selector">
+              <label class="sc-gamut-label">{t.gamutToggle}</label>
+              <div class="sc-gamut-toggle">
+                <button class="sc-gamut-btn sc-gamut-active" data-gamut="srgb">
+                  {t.gamutSRGB}
+                </button>
+                <button class="sc-gamut-btn" data-gamut="dcip3">
+                  {t.gamutDCIP3}
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="sc-buttons">
+            <button id="btn-start-calibration" class="sc-btn sc-btn-primary">
+              <svg class="sc-btn-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+              </svg>
+              {t.btnStartCalibration}
+            </button>
+          </div>
+
+          <div class="sc-shortcuts">
+            <div class="sc-shortcut">
+              <kbd class="sc-kbd">{t.kbdFullscreen}</kbd>
+              <span>{t.kbdFullscreenLabel}</span>
+            </div>
+            <span>•</span>
+            <div class="sc-shortcut">
+              <kbd class="sc-kbd">{t.kbdReset}</kbd>
+              <span>{t.kbdResetLabel}</span>
+            </div>
+            <span>•</span>
+            <div class="sc-shortcut">
+              <kbd class="sc-kbd">{t.kbdEsc}</kbd>
+              <span>{t.kbdEscLabel}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="sc-preview-wrapper">
+          <div class="sc-preview-canvas" id="preview-canvas">
+            <div class="sc-preview-gradient"></div>
+            <div class="sc-preview-label">Spectrum Preview</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="test-overlay" style="display: none;">
+      <div id="test-bg" class="sc-overlay-bg"></div>
+      <div id="test-controls" class="sc-controls">
+        <button id="close-test" class="sc-close-test">×</button>
+
+        <p id="test-description" class="sc-test-description">
+          Observe each color carefully. Look for any color shifts, banding, or inconsistencies across the screen.
+        </p>
+
+        <div class="sc-test-progress" id="test-progress">
+          <div class="sc-progress-bar"></div>
+        </div>
+
+        <div class="sc-test-actions">
+          <button id="btn-prev-color" class="sc-action-btn sc-action-secondary">
+            Previous
+          </button>
+          <button id="btn-next-color" class="sc-action-btn sc-action-primary">
+            Next
+          </button>
+        </div>
+
+        <div class="sc-keyboard-hints sc-kbd-desktop">
+          <small>
+            Keyboard: SPACE = Next, R = Reset, ESC = Exit
+          </small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  import { SpectrumCanvasTest } from './logic';
+
+  function setupTest() {
+    const startBtn = document.getElementById('btn-start-calibration');
+    const testOverlay = document.getElementById('test-overlay');
+    const closeTestBtn = document.getElementById('close-test');
+    const nextColorBtn = document.getElementById('btn-next-color');
+    const prevColorBtn = document.getElementById('btn-prev-color');
+    const gamutBtns = document.querySelectorAll('.sc-gamut-btn');
+
+    let selectedGamut: 'srgb' | 'dcip3' = 'srgb';
+    let test: SpectrumCanvasTest;
+
+    setupGamutButtons(gamutBtns, (gamut) => { selectedGamut = gamut; });
+    setupStartButton(startBtn, testOverlay, selectedGamut, (t) => { test = t; });
+    setupControlButtons({ closeTestBtn, nextColorBtn, prevColorBtn, testOverlay, getTest: () => test });
+  }
+
+  function setupGamutButtons(btns: NodeListOf<Element>, onChange: (gamut: 'srgb' | 'dcip3') => void) {
+    btns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        btns.forEach((b) => b.classList.remove('sc-gamut-active'));
+        btn.classList.add('sc-gamut-active');
+        onChange((btn.getAttribute('data-gamut') as 'srgb' | 'dcip3') || 'srgb');
+      });
+    });
+  }
+
+  function setupStartButton(btn: HTMLElement | null, overlay: HTMLElement | null, gamut: 'srgb' | 'dcip3', setTest: (t: SpectrumCanvasTest) => void) {
+    if (btn) {
+      btn.addEventListener('click', () => {
+        if (overlay) overlay.style.display = 'flex';
+        const test = new SpectrumCanvasTest();
+        test.start(gamut);
+        setTest(test);
+      });
+    }
+  }
+
+  function setupControlButtons(opts: { closeTestBtn: HTMLElement | null; nextColorBtn: HTMLElement | null; prevColorBtn: HTMLElement | null; testOverlay: HTMLElement | null; getTest: () => SpectrumCanvasTest }) {
+    if (opts.closeTestBtn) {
+      opts.closeTestBtn.addEventListener('click', () => {
+        opts.getTest().finish();
+        if (opts.testOverlay) opts.testOverlay.style.display = 'none';
+      });
+    }
+    if (opts.nextColorBtn) {
+      opts.nextColorBtn.addEventListener('click', () => opts.getTest().nextColor());
+    }
+    if (opts.prevColorBtn) {
+      opts.prevColorBtn.addEventListener('click', () => opts.getTest().prevColor());
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', setupTest);
+</script>

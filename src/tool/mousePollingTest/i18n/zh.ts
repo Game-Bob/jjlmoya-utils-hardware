@@ -101,7 +101,7 @@ export const content: ToolLocaleContent<TestRatonUI> = {
     { type: 'title', text: '回报率等级及其用途', level: 3 },
     {
       type: 'paragraph',
-      html: '<strong>125 Hz</strong> — 鼠标每 8 毫秒报告一次。适用于办公，但在 144Hz 显示器上会感到卡顿。 <strong>1000 Hz</strong> — 游戏黄金标准：每 1 毫秒报告一次。平滑移动，无感知延迟。 <strong>8000 Hz</strong> — 尖端技术（Razer, Logitech）。每 0.125 毫秒报告一次，但需要强劲的 CPU。',
+      html: '<strong>125 Hz</strong> -鼠标每 8 毫秒报告一次。适用于办公，但在 144Hz 显示器上会感到卡顿。 <strong>1000 Hz</strong> -游戏黄金标准：每 1 毫秒报告一次。平滑移动，无感知延迟。 <strong>8000 Hz</strong> -尖端技术（Razer, Logitech）。每 0.125 毫秒报告一次，但需要强劲的 CPU。',
     },
     { type: 'title', text: '为什么我的 Hz 值会波动？', level: 3 },
     {

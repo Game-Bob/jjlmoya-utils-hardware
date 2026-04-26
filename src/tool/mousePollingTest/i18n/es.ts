@@ -101,7 +101,7 @@ export const content: ToolLocaleContent<TestRatonUI> = {
     { type: 'title', text: 'Niveles de Polling Rate y sus usos', level: 3 },
     {
       type: 'paragraph',
-      html: '<strong>125 Hz</strong> — El ratón informa cada 8 milisegundos. Perfecto para uso de oficina, pero se nota a tirones en monitores de 144Hz. <strong>1000 Hz</strong> — El estándar de oro del gaming: informa cada 1 ms. Movimiento fluido y sin retraso perceptible. <strong>8000 Hz</strong> — Tecnología punta (Razer, Logitech). Informa cada 0.125 ms, pero requiere una CPU potente.',
+      html: '<strong>125 Hz</strong> -El ratón informa cada 8 milisegundos. Perfecto para uso de oficina, pero se nota a tirones en monitores de 144Hz. <strong>1000 Hz</strong> -El estándar de oro del gaming: informa cada 1 ms. Movimiento fluido y sin retraso perceptible. <strong>8000 Hz</strong> -Tecnología punta (Razer, Logitech). Informa cada 0.125 ms, pero requiere una CPU potente.',
     },
     { type: 'title', text: '¿Por qué mis Hz fluctúan?', level: 3 },
     {

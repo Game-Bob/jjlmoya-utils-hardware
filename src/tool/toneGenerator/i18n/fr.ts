@@ -106,7 +106,7 @@ export const content: ToolLocaleContent<ToneGeneratorUI> = {
     { type: 'title', text: 'Types d\'ondes et leurs utilisations', level: 3 },
     {
       type: 'paragraph',
-      html: "<strong>Sinusoïdale :</strong> ton pur sans harmoniques, utilisé dans les tests auditifs médicaux et la calibration d'instruments. <strong>Carrée :</strong> riche en harmoniques impaires, sonne comme les consoles rétro 8-bits. <strong>Dent de scie :</strong> contient toutes les harmoniques, base des synthétiseurs de musique électronique. <strong>Triangulaire :</strong> point médian entre sinusoïdale et carrée — plus douce que la carrée mais avec plus de contenu harmonique que la sinusoïdale.",
+      html: "<strong>Sinusoïdale :</strong> ton pur sans harmoniques, utilisé dans les tests auditifs médicaux et la calibration d'instruments. <strong>Carrée :</strong> riche en harmoniques impaires, sonne comme les consoles rétro 8-bits. <strong>Dent de scie :</strong> contient toutes les harmoniques, base des synthétiseurs de musique électronique. <strong>Triangulaire :</strong> point médian entre sinusoïdale et carrée -plus douce que la carrée mais avec plus de contenu harmonique que la sinusoïdale.",
     },
     { type: 'title', text: 'Test de haut-parleurs et nettoyage par vibration', level: 3 },
     {

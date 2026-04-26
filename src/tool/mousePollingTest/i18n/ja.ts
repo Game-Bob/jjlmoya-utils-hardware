@@ -101,7 +101,7 @@ export const content: ToolLocaleContent<TestRatonUI> = {
     { type: 'title', text: 'ポーリングレートの種類と用途', level: 3 },
     {
       type: 'paragraph',
-      html: '<strong>125 Hz</strong> — 8ミリ秒ごとに報告。一般事務用途には十分ですが、144Hzモニターでは動きが荒く感じられます。<strong>1000 Hz</strong> — ゲーミングの標準：1ミリ秒ごとに報告。感知できる遅延のないスムーズな動き。<strong>8000 Hz</strong> — 最新技術（Razer、Logitechなど）。0.125ミリ秒ごとに報告しますが、ハイスペックなCPUが必要です。',
+      html: '<strong>125 Hz</strong> -8ミリ秒ごとに報告。一般事務用途には十分ですが、144Hzモニターでは動きが荒く感じられます。<strong>1000 Hz</strong> -ゲーミングの標準：1ミリ秒ごとに報告。感知できる遅延のないスムーズな動き。<strong>8000 Hz</strong> -最新技術（Razer、Logitechなど）。0.125ミリ秒ごとに報告しますが、ハイスペックなCPUが必要です。',
     },
     { type: 'title', text: 'Hzが変動するのはなぜですか？', level: 3 },
     {

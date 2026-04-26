@@ -122,7 +122,7 @@ export const content: ToolLocaleContent<RefreshRateDetectorUI> = {
     {
       type: 'list',
       items: [
-        'Laad deze detector — de meting begint onmiddellijk',
+        'Laad deze detector -de meting begint onmiddellijk',
         'Kies tussen Snelle (3s) of Stabiele (10s) meetmodus',
         'Lees de Hz van uw monitor af van de snelheidsmeter',
         'Vergelijk met industriestandaarden (60, 75, 120, 144, 240, 360Hz)',
@@ -152,7 +152,7 @@ export const content: ToolLocaleContent<RefreshRateDetectorUI> = {
     {
       type: 'list',
       items: [
-        'Controleer HDMI/DisplayPort kabelverbindingen — losse kabels verminderen de bandbreedte',
+        'Controleer HDMI/DisplayPort kabelverbindingen -losse kabels verminderen de bandbreedte',
         'Update uw GPU-stuurprogramma\'s (NVIDIA, AMD, Intel)',
         'Controleer de OS-beeldscherminstellingen om er zeker van te zijn dat een hoge verversingssnelheid is ingeschakeld',
         'Probeer andere kabels of poorten op uw monitor',
@@ -166,7 +166,7 @@ export const content: ToolLocaleContent<RefreshRateDetectorUI> = {
     },
     {
       type: 'paragraph',
-      html: 'Deze tool maakt gebruik van de requestAnimationFrame API van de browser, die direct synchroniseert met de verversingscyclus van uw monitor. Door de tijd tussen animatieframes te meten, berekenen we uw exacte verversingssnelheid met hoge precisie — geen speciale hardware nodig.',
+      html: 'Deze tool maakt gebruik van de requestAnimationFrame API van de browser, die direct synchroniseert met de verversingscyclus van uw monitor. Door de tijd tussen animatieframes te meten, berekenen we uw exacte verversingssnelheid met hoge precisie -geen speciale hardware nodig.',
     },
   ],
   ui: {

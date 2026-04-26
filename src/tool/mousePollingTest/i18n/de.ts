@@ -101,7 +101,7 @@ export const content: ToolLocaleContent<TestRatonUI> = {
     { type: 'title', text: 'Polling Rate Stufen und ihre Verwendung', level: 3 },
     {
       type: 'paragraph',
-      html: '<strong>125 Hz</strong> — Die Maus meldet alle 8 Millisekunden. Gut für die Büroarbeit, fühlt sich aber auf 144Hz-Monitoren ruckelig an. <strong>1000 Hz</strong> — Der Goldstandard für Gaming: meldet jede Millisekunde (1 ms). Flüssige Bewegung ohne spürbare Verzögerung. <strong>8000 Hz</strong> — Modernste Technologie (Razer, Logitech). Meldet alle 0,125 ms, erfordert aber eine starke CPU.',
+      html: '<strong>125 Hz</strong> -Die Maus meldet alle 8 Millisekunden. Gut für die Büroarbeit, fühlt sich aber auf 144Hz-Monitoren ruckelig an. <strong>1000 Hz</strong> -Der Goldstandard für Gaming: meldet jede Millisekunde (1 ms). Flüssige Bewegung ohne spürbare Verzögerung. <strong>8000 Hz</strong> -Modernste Technologie (Razer, Logitech). Meldet alle 0,125 ms, erfordert aber eine starke CPU.',
     },
     { type: 'title', text: 'Warum schwanken meine Hz?', level: 3 },
     {

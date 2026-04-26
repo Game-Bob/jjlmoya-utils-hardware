@@ -101,7 +101,7 @@ export const content: ToolLocaleContent<TestRatonUI> = {
     { type: 'title', text: 'Tingkat Polling Rate dan Kegunaannya', level: 3 },
     {
       type: 'paragraph',
-      html: '<strong>125 Hz</strong> — Mouse melapor setiap 8 milidetik. Baik untuk penggunaan kantor tetapi terasa patah-patah pada monitor 144Hz. <strong>1000 Hz</strong> — Standar emas gaming: melapor setiap 1 ms. Gerakan mulus tanpa lag yang terasa. <strong>8000 Hz</strong> — Teknologi mutakhir (Razer, Logitech). Melapor setiap 0,125 ms tetapi membutuhkan CPU yang kuat.',
+      html: '<strong>125 Hz</strong> -Mouse melapor setiap 8 milidetik. Baik untuk penggunaan kantor tetapi terasa patah-patah pada monitor 144Hz. <strong>1000 Hz</strong> -Standar emas gaming: melapor setiap 1 ms. Gerakan mulus tanpa lag yang terasa. <strong>8000 Hz</strong> -Teknologi mutakhir (Razer, Logitech). Melapor setiap 0,125 ms tetapi membutuhkan CPU yang kuat.',
     },
     { type: 'title', text: 'Mengapa Hz saya Berfluktuasi?', level: 3 },
     {

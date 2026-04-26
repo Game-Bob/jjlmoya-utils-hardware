@@ -101,7 +101,7 @@ export const content: ToolLocaleContent<TestRatonUI> = {
     { type: 'title', text: 'Livelli di Polling Rate e loro utilizzi', level: 3 },
     {
       type: 'paragraph',
-      html: '<strong>125 Hz</strong> — Il mouse comunica ogni 8 millisecondi. Va bene per l\'ufficio ma appare a scatti sui monitor a 144Hz. <strong>1000 Hz</strong> — Lo standard d\'oro per il gaming: comunica ogni 1 ms. Movimento fluido senza ritardi percettibili. <strong>8000 Hz</strong> — Tecnologia all\'avanguardia (Razer, Logitech). Comunica ogni 0,125 ms ma richiede una CPU potente.',
+      html: '<strong>125 Hz</strong> -Il mouse comunica ogni 8 millisecondi. Va bene per l\'ufficio ma appare a scatti sui monitor a 144Hz. <strong>1000 Hz</strong> -Lo standard d\'oro per il gaming: comunica ogni 1 ms. Movimento fluido senza ritardi percettibili. <strong>8000 Hz</strong> -Tecnologia all\'avanguardia (Razer, Logitech). Comunica ogni 0,125 ms ma richiede una CPU potente.',
     },
     { type: 'title', text: 'Perché i miei Hz fluttuano?', level: 3 },
     {

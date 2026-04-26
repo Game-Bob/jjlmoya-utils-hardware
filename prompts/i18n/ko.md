@@ -1,4 +1,4 @@
-# Prompts — 한국어 (ko)
+# Prompts -한국어 (ko)
 
 ## 번역
 

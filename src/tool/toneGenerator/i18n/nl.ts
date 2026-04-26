@@ -106,7 +106,7 @@ export const content: ToolLocaleContent<ToneGeneratorUI> = {
     { type: 'title', text: 'Golfvormen en hun Gebruik', level: 3 },
     {
       type: 'paragraph',
-      html: '<strong>Sinus:</strong> zuivere toon zonder boventonen, gebruikt bij medische gehoortesten en instrumentkalibratie. <strong>Blok:</strong> rijk aan oneven boventonen, klinkt als retro 8-bit consoles. <strong>Zaagtand:</strong> bevat alle boventonen, de basis van synthesizers voor elektronische muziek. <strong>Driehoek:</strong> middelpunt tussen sinus en blok — gladder dan blok maar met meer harmonische inhoud dan sinus.',
+      html: '<strong>Sinus:</strong> zuivere toon zonder boventonen, gebruikt bij medische gehoortesten en instrumentkalibratie. <strong>Blok:</strong> rijk aan oneven boventonen, klinkt als retro 8-bit consoles. <strong>Zaagtand:</strong> bevat alle boventonen, de basis van synthesizers voor elektronische muziek. <strong>Driehoek:</strong> middelpunt tussen sinus en blok -gladder dan blok maar met meer harmonische inhoud dan sinus.',
     },
     { type: 'title', text: 'Luidsprekertest en Reiniging door Vibratie', level: 3 },
     {

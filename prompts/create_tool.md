@@ -14,7 +14,7 @@ Create a new tool in the current utility library repository.
 1. **Discover patterns first.** Read one existing tool in `src/tool/` completely:
    logic.ts, entry.ts, index.ts, component.astro, seo.astro, bibliography.astro,
    bibliography.ts, the CSS file, and i18n/en.ts.
-   Use those files as the exact template — naming conventions, CSS architecture,
+   Use those files as the exact template -naming conventions, CSS architecture,
    component structure, TypeScript patterns, everything.
 
 2. **Only English.** Create only `i18n/en.ts`. Register only `en` in entry.ts.
@@ -31,7 +31,7 @@ Create a new tool in the current utility library repository.
    (typically src/index.ts, src/entries.ts, src/tools.ts, src/category/index.ts —
    read each one first to understand exactly what needs adding).
 
-5. **Verify** — run in order and fix any errors before finishing:
+5. **Verify** -run in order and fix any errors before finishing:
    - `npm run type-check`
    - `npm run lint`
    - `npm run test -- --testPathIgnorePatterns=i18n_coverage`

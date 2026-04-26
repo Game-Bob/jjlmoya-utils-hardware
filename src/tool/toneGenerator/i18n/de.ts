@@ -106,7 +106,7 @@ export const content: ToolLocaleContent<ToneGeneratorUI> = {
     { type: 'title', text: 'Wellenformen und ihre Verwendung', level: 3 },
     {
       type: 'paragraph',
-      html: '<strong>Sinus:</strong> reiner Ton ohne Oberwellen, wird in medizinischen Hörtests und zur Instrumentenkalibrierung verwendet. <strong>Rechteck:</strong> reich an ungeraden Oberwellen, klingt wie Retro-8-Bit-Konsolen. <strong>Sägezahn:</strong> enthält alle Oberwellen, die Basis für Synthesizer in der elektronischen Musik. <strong>Dreieck:</strong> Mittelpunkt zwischen Sinus und Rechteck — glatter als Rechteck, aber mit mehr harmonischem Gehalt als Sinus.',
+      html: '<strong>Sinus:</strong> reiner Ton ohne Oberwellen, wird in medizinischen Hörtests und zur Instrumentenkalibrierung verwendet. <strong>Rechteck:</strong> reich an ungeraden Oberwellen, klingt wie Retro-8-Bit-Konsolen. <strong>Sägezahn:</strong> enthält alle Oberwellen, die Basis für Synthesizer in der elektronischen Musik. <strong>Dreieck:</strong> Mittelpunkt zwischen Sinus und Rechteck -glatter als Rechteck, aber mit mehr harmonischem Gehalt als Sinus.',
     },
     { type: 'title', text: 'Lautsprechertest und Reinigung durch Vibration', level: 3 },
     {

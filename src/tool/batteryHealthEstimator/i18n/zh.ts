@@ -143,6 +143,6 @@ export const content: ToolLocaleContent<EstimadorSaludBateriaUI> = {
     recVoltageHigh: '避免让电池长时间保持 100% 电量 (4.2V)。',
     recVoltageLow: '避免深度放电；将电量保持在 20% 到 80% 之间可使电池寿命翻倍。',
     recSohLow: '容量已降至最佳标准以下。如果续航不足，请考虑更换电池。',
-    recDefault: '保持当前习惯 — 你的电池处于理想的工作范围内。',
+    recDefault: '保持当前习惯 -你的电池处于理想的工作范围内。',
   },
 };

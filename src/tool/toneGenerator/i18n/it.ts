@@ -106,7 +106,7 @@ export const content: ToolLocaleContent<ToneGeneratorUI> = {
     { type: 'title', text: 'Tipi di Onde e loro utilizzi', level: 3 },
     {
       type: 'paragraph',
-      html: '<strong>Sinusoidale:</strong> tono puro senza armoniche, utilizzato nei test uditivi medici e nella calibrazione degli strumenti. <strong>Quadra:</strong> ricca di armoniche dispari, suona come le console retrò a 8 bit. <strong>Dente di sega:</strong> contiene tutte le armoniche, la base dei sintetizzatori musicali elettronici. <strong>Triangolare:</strong> punto di mezzo tra sinusoidale e quadra — più liscia della quadra ma con più contenuto armonico della sinusoidale.',
+      html: '<strong>Sinusoidale:</strong> tono puro senza armoniche, utilizzato nei test uditivi medici e nella calibrazione degli strumenti. <strong>Quadra:</strong> ricca di armoniche dispari, suona come le console retrò a 8 bit. <strong>Dente di sega:</strong> contiene tutte le armoniche, la base dei sintetizzatori musicali elettronici. <strong>Triangolare:</strong> punto di mezzo tra sinusoidale e quadra -più liscia della quadra ma con più contenuto armonico della sinusoidale.',
     },
     { type: 'title', text: 'Test degli Altoparlanti e Pulizia tramite Vibrazione', level: 3 },
     {

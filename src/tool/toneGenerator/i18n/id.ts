@@ -106,7 +106,7 @@ export const content: ToolLocaleContent<ToneGeneratorUI> = {
     { type: 'title', text: 'Jenis Gelombang dan Kegunaannya', level: 3 },
     {
       type: 'paragraph',
-      html: '<strong>Sinus:</strong> nada murni tanpa harmonik, digunakan dalam tes pendengaran medis dan kalibrasi instrumen. <strong>Kotak:</strong> kaya akan harmonik ganjil, terdengar seperti konsol 8-bit retro. <strong>Gigi Gergaji:</strong> mengandung semua harmonik, dasar dari synthesizer musik elektronik. <strong>Segitiga:</strong> titik tengah antara sinus dan kotak — lebih halus dari kotak tetapi dengan konten harmonik lebih banyak daripada sinus.',
+      html: '<strong>Sinus:</strong> nada murni tanpa harmonik, digunakan dalam tes pendengaran medis dan kalibrasi instrumen. <strong>Kotak:</strong> kaya akan harmonik ganjil, terdengar seperti konsol 8-bit retro. <strong>Gigi Gergaji:</strong> mengandung semua harmonik, dasar dari synthesizer musik elektronik. <strong>Segitiga:</strong> titik tengah antara sinus dan kotak -lebih halus dari kotak tetapi dengan konten harmonik lebih banyak daripada sinus.',
     },
     { type: 'title', text: 'Pengujian Speaker dan Pembersihan Getaran', level: 3 },
     {

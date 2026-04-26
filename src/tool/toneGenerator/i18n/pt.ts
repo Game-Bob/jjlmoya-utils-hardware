@@ -106,7 +106,7 @@ export const content: ToolLocaleContent<ToneGeneratorUI> = {
     { type: 'title', text: 'Tipos de Onda e Seus Usos', level: 3 },
     {
       type: 'paragraph',
-      html: '<strong>Sinusoidal:</strong> tom puro sem harmónicas, usado em testes de audição médicos e calibração de instrumentos. <strong>Quadrada:</strong> rica em harmónicas ímpares, soa como consolas retro de 8 bits. <strong>Dente de serra:</strong> contém todas as harmónicas, a base dos sintetizadores de música eletrónica. <strong>Triangular:</strong> ponto médio entre sinusoidal e quadrada — mais suave que a quadrada, mas com mais conteúdo harmónico que a sinusoidal.',
+      html: '<strong>Sinusoidal:</strong> tom puro sem harmónicas, usado em testes de audição médicos e calibração de instrumentos. <strong>Quadrada:</strong> rica em harmónicas ímpares, soa como consolas retro de 8 bits. <strong>Dente de serra:</strong> contém todas as harmónicas, a base dos sintetizadores de música eletrónica. <strong>Triangular:</strong> ponto médio entre sinusoidal e quadrada -mais suave que a quadrada, mas com mais conteúdo harmónico que a sinusoidal.',
     },
     { type: 'title', text: 'Teste de Colunas e Limpeza por Vibração', level: 3 },
     {
