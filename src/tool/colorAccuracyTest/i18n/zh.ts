@@ -43,7 +43,7 @@ const howToData = [
   },
   {
     name: '命名您的硬件（可选）',
-    text: '输入显示器或设备的描述性名称（例如“MacBook Pro 16 M1”）。这将个性化您的报告。',
+    text: '输入显示器或设备的描述性名称（例如"MacBook Pro 16 M1"）。这将个性化您的报告。',
   },
   {
     name: '进入全屏模式',
@@ -118,7 +118,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
     },
     {
       type: 'paragraph',
-      html: '色彩还原中哪怕只有 1% 的差异，也可能决定了作品是令人“惊叹”还是让人感觉“不对劲”。专业显示器提供的精准度在 <strong>Delta E &lt; 2</strong> 以内。消费级显示器通常会漂移到 Delta E 4-6+，导致：',
+      html: '色彩还原中哪怕只有 1% 的差异，也可能决定了作品是令人"惊叹"还是让人感觉"不对劲"。专业显示器提供的精准度在 <strong>Delta E &lt; 2</strong> 以内。消费级显示器通常会漂移到 Delta E 4-6+，导致：',
     },
     {
       type: 'paragraph',
@@ -166,7 +166,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
     },
     {
       type: 'paragraph',
-      html: '<strong>Delta E 分级 (CIE 1976)：</strong><ul><li>0–1：人眼无法察觉</li><li>1–2：几乎无法察觉</li><li>2–4：可察觉，但对于普通用途是可以接受的</li><li>4–6：明显的色彩漂移</li><li>&gt;6: 非常明显的差异</li></ul>',
+      html: '<strong>Delta E 分级 (CIE 1976)：</strong><ul><li>0-1：人眼无法察觉</li><li>1-2：几乎无法察觉</li><li>2-4：可察觉，但对于普通用途是可以接受的</li><li>4-6：明显的色彩漂移</li><li>&gt;6: 非常明显的差异</li></ul>',
     },
     {
       type: 'paragraph',
@@ -184,7 +184,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
     },
     {
       type: 'paragraph',
-      html: '显示纯正的原色和间色（红、绿、蓝、青、洋红、黄），并测量您的显示器如何还原它们。色彩“泛滥”动画可揭示全屏色彩还原的一致性。',
+      html: '显示纯正的原色和间色（红、绿、蓝、青、洋红、黄），并测量您的显示器如何还原它们。色彩"泛滥"动画可揭示全屏色彩还原的一致性。',
     },
     {
       type: 'title',
@@ -202,7 +202,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
     },
     {
       type: 'paragraph',
-      html: '纯黑 (0,0,0) 背景上带有几乎看不见的近黑阴影。如果暗部细节“挤”在了一起，说明您的显示器正在丢失阴影部分的色彩信息——这在移动设备屏幕和廉价面板中很常见。',
+      html: '纯黑 (0,0,0) 背景上带有几乎看不见的近黑阴影。如果暗部细节"挤"在了一起，说明您的显示器正在丢失阴影部分的色彩信息；这在移动设备屏幕和廉价面板中很常见。',
     },
     {
       type: 'title',
@@ -224,7 +224,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
     },
     {
       type: 'paragraph',
-      html: '<ul><li><strong>3D 色域可视化：</strong> 一个可旋转的 3D 图表，展示您显示器的实际色域体积与参考标准的对比</li><li><strong>Delta E 热力图：</strong> 显示您的显示器在光谱的哪些部分发生了漂移</li><li><strong>伽马曲线：</strong> 0-255 范围内的亮度线性度</li><li><strong>校准评分：</strong> 根据总体准确度给出的单一“色彩等级”(Spectrum Grade)（顶尖、影院级、工作站级、标准）</li></ul>',
+      html: '<ul><li><strong>3D 色域可视化：</strong> 一个可旋转的 3D 图表，展示您显示器的实际色域体积与参考标准的对比</li><li><strong>Delta E 热力图：</strong> 显示您的显示器在光谱的哪些部分发生了漂移</li><li><strong>伽马曲线：</strong> 0-255 范围内的亮度线性度</li><li><strong>校准评分：</strong> 根据总体准确度给出的单一"色彩等级"(Spectrum Grade)（顶尖、影院级、工作站级、标准）</li></ul>',
     },
     {
       type: 'title',
@@ -237,7 +237,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
     },
     {
       type: 'paragraph',
-      html: '<ul><li><strong>色温：</strong> 如果颜色偏冷/偏蓝，向“暖色”移动；如果偏暖/偏黄，向“冷色”移动</li><li><strong>对比度：</strong> 如果黑色看起来发白，则增加；如果暗部细节丢失，则减少</li><li><strong>亮度：</strong> 调整以在 50% 亮度下实现没有色偏的中性灰色</li><li><strong>饱和度：</strong> 如果颜色过度饱和，则减少；如果显得暗淡，则增加</li></ul>',
+      html: '<ul><li><strong>色温：</strong> 如果颜色偏冷/偏蓝，向"暖色"移动；如果偏暖/偏黄，向"冷色"移动</li><li><strong>对比度：</strong> 如果黑色看起来发白，则增加；如果暗部细节丢失，则减少</li><li><strong>亮度：</strong> 调整以在 50% 亮度下实现没有色偏的中性灰色</li><li><strong>饱和度：</strong> 如果颜色过度饱和，则减少；如果显得暗淡，则增加</li></ul>',
     },
     {
       type: 'title',

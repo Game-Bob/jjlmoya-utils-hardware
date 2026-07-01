@@ -133,7 +133,7 @@ export const content: ToolLocaleContent<ProbadorVibracionMandoUI> = {
     presetHeartbeatDesc: 'Palpitaciones sutiles consecutivas. Perfecto para ver retenciones inerciales.',
     presetSongTitle: 'Ritmo Moneda',
     presetSongDesc: 'Simula el ruido de monedas consecutivas. Corto y táctil.',
-    presetRockYouTitle: 'Rock You!',
+    presetRockYouTitle: '¡Rock You!',
     presetRockYouDesc: "El clásico de Queen en tus manos: pum, pum, ¡clap!",
     presetEarthquakeTitle: '¡Terremoto Máximo!',
     presetEarthquakeDesc: 'Ambos motores al 100% de fuerza explosiva. MUY intenso.',

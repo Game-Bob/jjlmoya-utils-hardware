@@ -166,7 +166,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
     },
     {
       type: 'paragraph',
-      html: '<strong>Delta E-schaal (CIE 1976):</strong><ul><li>0–1: Onwaarneembaar voor het menselijk oog</li><li>1–2: Nauwelijks waarneembaar</li><li>2–4: Waarneembaar maar acceptabel voor algemeen gebruik</li><li>4–6: Merkbare kleurverschuiving</li><li>&gt;6: Zeer duidelijk verschil</li></ul>',
+      html: '<strong>Delta E-schaal (CIE 1976):</strong><ul><li>0-1: Onwaarneembaar voor het menselijk oog</li><li>1-2: Nauwelijks waarneembaar</li><li>2-4: Waarneembaar maar acceptabel voor algemeen gebruik</li><li>4-6: Merkbare kleurverschuiving</li><li>&gt;6: Zeer duidelijk verschil</li></ul>',
     },
     {
       type: 'paragraph',
@@ -202,7 +202,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
     },
     {
       type: 'paragraph',
-      html: 'Zuivere zwarte (0,0,0) achtergrond met nauwelijks zichtbare bijna-zwarte tinten. Als schaduwdetails "samendrukken", verliest uw monitor informatie in donkere tonen — een veelvoorkomend probleem bij mobiele displays en goedkope panelen.',
+      html: 'Zuivere zwarte (0,0,0) achtergrond met nauwelijks zichtbare bijna-zwarte tinten. Als schaduwdetails "samendrukken", verliest uw monitor informatie in donkere tonen - een veelvoorkomend probleem bij mobiele displays en goedkope panelen.',
     },
     {
       type: 'title',
@@ -224,7 +224,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
     },
     {
       type: 'paragraph',
-      html: '<ul><li><strong>3D Gamut-visualisatie:</strong> Een roterende 3D-plot die het werkelijke kleurvolume van uw display toont ten opzichte van de referentiestandaard</li><li><strong>Delta E Heatmap:</strong> Waar in het spectrum uw display afwijkt</li><li><strong>Gammacurve:</strong> Helderheidslineariteit over het bereik van 0–255</li><li><strong>Kalibratiescore:</strong> Een enkele "Spectrum Grade" (Elite, Cinematic, Studio, Standard) gebaseerd op de algehele nauwkeurigheid</li></ul>',
+      html: '<ul><li><strong>3D Gamut-visualisatie:</strong> Een roterende 3D-plot die het werkelijke kleurvolume van uw display toont ten opzichte van de referentiestandaard</li><li><strong>Delta E Heatmap:</strong> Waar in het spectrum uw display afwijkt</li><li><strong>Gammacurve:</strong> Helderheidslineariteit over het bereik van 0-255</li><li><strong>Kalibratiescore:</strong> Een enkele "Spectrum Grade" (Elite, Cinematic, Studio, Standard) gebaseerd op de algehele nauwkeurigheid</li></ul>',
     },
     {
       type: 'title',

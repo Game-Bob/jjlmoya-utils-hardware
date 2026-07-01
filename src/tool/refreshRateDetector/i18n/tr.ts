@@ -122,7 +122,7 @@ export const content: ToolLocaleContent<RefreshRateDetectorUI> = {
     {
       type: 'list',
       items: [
-        'Bu dedektörü yükleyin – ölçüm hemen başlar',
+        'Bu dedektörü yükleyin - ölçüm hemen başlar',
         'Hızlı (3s) veya Kararlı (10s) ölçüm modu arasında seçim yapın',
         'Monitörünüzün Hz değerini hız göstergesi kadranından okuyun',
         'Endüstri standartlarıyla (60, 75, 120, 144, 240, 360Hz) karşılaştırın',
@@ -152,7 +152,7 @@ export const content: ToolLocaleContent<RefreshRateDetectorUI> = {
     {
       type: 'list',
       items: [
-        'HDMI/DisplayPort kablo bağlantılarını kontrol edin – gevşek kablolar bant genişliğini düşürür',
+        'HDMI/DisplayPort kablo bağlantılarını kontrol edin - gevşek kablolar bant genişliğini düşürür',
         'GPU sürücülerinizi güncelleyin (NVIDIA, AMD, Intel)',
         'Yüksek yenileme hızının etkinleştirildiğinden emin olmak için işletim sistemi ekran ayarlarını kontrol edin',
         'Monitörünüzdeki farklı kabloları veya bağlantı noktalarını deneyin',

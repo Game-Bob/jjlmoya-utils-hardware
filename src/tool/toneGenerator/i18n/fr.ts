@@ -101,7 +101,7 @@ export const content: ToolLocaleContent<ToneGeneratorUI> = {
     { type: 'title', text: 'Plage Auditive Humaine et Presbyacousie', level: 3 },
     {
       type: 'paragraph',
-      html: "Une oreille humaine saine perçoit entre <strong>20Hz et 20kHz</strong>. Avec l'âge, la limite supérieure baisse : la plupart des adultes de plus de 50 ans ne peuvent pas entendre au-dessus de 12kHz. Le ton à 17,4kHz, connu comme le « ton moustique », est un test classique que seuls les adolescents peuvent généralement franchir.",
+      html: "Une oreille humaine saine perçoit entre <strong>20Hz et 20kHz</strong>. Avec l'âge, la limite supérieure baisse: la plupart des adultes de plus de 50 ans ne peuvent pas entendre au-dessus de 12kHz. Le ton à 17,4kHz, connu comme le &quot;ton moustique&quot;, est un test classique que seuls les adolescents peuvent généralement franchir.",
     },
     { type: 'title', text: 'Types d\'ondes et leurs utilisations', level: 3 },
     {
@@ -111,7 +111,7 @@ export const content: ToolLocaleContent<ToneGeneratorUI> = {
     { type: 'title', text: 'Test de haut-parleurs et nettoyage par vibration', level: 3 },
     {
       type: 'paragraph',
-      html: "Une onde de basse fréquence (généralement <strong>165Hz</strong>) à volume maximum avec une forme carrée ou en dents de scie force le diaphragme du haut-parleur à vibrer violemment, expulsant mécaniquement les gouttes d'eau piégées dans la grille. Ne reproduisez pas des fréquences extrêmement aiguës à volume maximum pendant longtemps : même si vous ne les entendez pas, l'énergie peut endommager les tweeters de votre équipement.",
+      html: "Une onde de basse fréquence (généralement <strong>165Hz</strong>) à volume maximum avec une forme carrée ou en dents de scie force le diaphragme du haut-parleur à vibrer violemment, expulsant mécaniquement les gouttes d'eau piégées dans la grille. Ne reproduisez pas des fréquences extrêmement aiguës à volume maximum pendant longtemps: même si vous ne les entendez pas, l'énergie peut endommager les tweeters de votre équipement.",
     },
   ],
   ui: {

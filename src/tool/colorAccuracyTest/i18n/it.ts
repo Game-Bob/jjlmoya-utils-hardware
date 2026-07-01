@@ -166,7 +166,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
     },
     {
       type: 'paragraph',
-      html: '<strong>Scala Delta E (CIE 1976):</strong><ul><li>0–1: Impercettibile all\'occhio umano</li><li>1–2: Appena percettibile</li><li>2–4: Percettibile ma accettabile per uso generale</li><li>4–6: Deriva cromatica evidente</li><li>&gt;6: Differenza molto ovvia</li></ul>',
+      html: '<strong>Scala Delta E (CIE 1976):</strong><ul><li>0-1: Impercettibile all\'occhio umano</li><li>1-2: Appena percettibile</li><li>2-4: Percettibile ma accettabile per uso generale</li><li>4-6: Deriva cromatica evidente</li><li>&gt;6: Differenza molto ovvia</li></ul>',
     },
     {
       type: 'paragraph',
@@ -202,7 +202,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
     },
     {
       type: 'paragraph',
-      html: 'Sfondo nero puro (0,0,0) con sfumature quasi nere appena visibili. Se il dettaglio delle ombre si "schiaccia", il monitor sta perdendo informazioni nei toni scuri — comune nei display mobile e nei pannelli economici.',
+      html: 'Sfondo nero puro (0,0,0) con sfumature quasi nere appena visibili. Se il dettaglio delle ombre si "schiaccia", il monitor sta perdendo informazioni nei toni scuri - comune nei display mobile e nei pannelli economici.',
     },
     {
       type: 'title',
@@ -224,7 +224,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
     },
     {
       type: 'paragraph',
-      html: '<ul><li><strong>Visualizzazione Gamma 3D:</strong> Un grafico 3D rotante che mostra il volume di colore effettivo del display rispetto allo standard di riferimento</li><li><strong>Mappa di calore Delta E:</strong> Dove nello spettro il tuo display deriva</li><li><strong>Curva Gamma:</strong> Linearità della luminosità nell\'intervallo 0–255</li><li><strong>Punteggio di calibrazione:</strong> Un unico "Spectrum Grade" (Elite, Cinematic, Studio, Standard) basato sulla precisione complessiva</li></ul>',
+      html: '<ul><li><strong>Visualizzazione Gamma 3D:</strong> Un grafico 3D rotante che mostra il volume di colore effettivo del display rispetto allo standard di riferimento</li><li><strong>Mappa di calore Delta E:</strong> Dove nello spettro il tuo display deriva</li><li><strong>Curva Gamma:</strong> Linearità della luminosità nell\'intervallo 0-255</li><li><strong>Punteggio di calibrazione:</strong> Un unico "Spectrum Grade" (Elite, Cinematic, Studio, Standard) basato sulla precisione complessiva</li></ul>',
     },
     {
       type: 'title',

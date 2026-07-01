@@ -61,7 +61,7 @@ export const content: CategoryLocaleContent = {
     },
     {
       type: 'paragraph',
-      html: 'Os monitores degradam-se. A temperatura de cor de fábrica (Kelvin), tipicamente 6500K = D65 Luz do Dia, muda com o tempo. Para designers gráficos, fotógrafos e editores, isto é catastrófico: edita cores num monitor mal calibrado, o trabalho parece diferente noutros ecrãs e o cliente rejeita-o. A calibração profunda requer hardware (colorímetro a €300–1000), mas o nosso <strong>teste de espaço de cor</strong> permite pelo menos auditar se o seu monitor mantém uma gama de gama consistente (tipicamente 2,2).',
+      html: 'Os monitores degradam-se. A temperatura de cor de fábrica (Kelvin), tipicamente 6500K = D65 Luz do Dia, muda com o tempo. Para designers gráficos, fotógrafos e editores, isto é catastrófico: edita cores num monitor mal calibrado, o trabalho parece diferente noutros ecrãs e o cliente rejeita-o. A calibração profunda requer hardware (colorímetro a €300-1000), mas o nosso <strong>teste de espaço de cor</strong> permite pelo menos auditar se o seu monitor mantém uma gama de gama consistente (tipicamente 2,2).',
     },
     {
       type: 'paragraph',
@@ -78,7 +78,7 @@ export const content: CategoryLocaleContent = {
     },
     {
       type: 'paragraph',
-      html: 'Os testes de latência são também cruciais para o gaming competitivo. A latência de entrada para ecrã (de pressionar um botão a vê-lo no ecrã) pode ser 20–50ms num setup decente, mas 200+ms num lento. Em jogos competitivos (FPS, jogos de luta), 50ms é a diferença entre vitória e derrota. É por isso que os jogadores profissionais investem em monitores de 240Hz, ratos de 8000Hz e PCs otimizados.',
+      html: 'Os testes de latência são também cruciais para o gaming competitivo. A latência de entrada para ecrã (de pressionar um botão a vê-lo no ecrã) pode ser 20-50ms num setup decente, mas 200+ms num lento. Em jogos competitivos (FPS, jogos de luta), 50ms é a diferença entre vitória e derrota. É por isso que os jogadores profissionais investem em monitores de 240Hz, ratos de 8000Hz e PCs otimizados.',
     },
     {
       type: 'title',
@@ -87,7 +87,7 @@ export const content: CategoryLocaleContent = {
     },
     {
       type: 'paragraph',
-      html: 'A "reparabilidade" é cada vez mais importante em 2026. Um telemóvel "reparável" dura 6 anos; um "selado" expira em 2–3 anos. Um portátil com RAM atualizável é um investimento; um com RAM soldada é descartável. As ferramentas de diagnóstico que implementamos estão alinhadas com o movimento pelo Direito a Reparar: queremos que saiba exatamente o que está avariado antes de descartar os seus dispositivos.',
+      html: 'A "reparabilidade" é cada vez mais importante em 2026. Um telemóvel "reparável" dura 6 anos; um "selado" expira em 2-3 anos. Um portátil com RAM atualizável é um investimento; um com RAM soldada é descartável. As ferramentas de diagnóstico que implementamos estão alinhadas com o movimento pelo Direito a Reparar: queremos que saiba exatamente o que está avariado antes de descartar os seus dispositivos.',
     },
     {
       type: 'paragraph',

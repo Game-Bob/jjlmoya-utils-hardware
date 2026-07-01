@@ -14,7 +14,7 @@ const faqData = [
   },
   {
     question: '我可以通过软件修复漂移吗？',
-    answer: '如果漂移较轻，您可以在游戏设置中配置更大的“死区 (Dead Zone)”。这将忽略中心位置的微小摇杆移动。',
+    answer: '如果漂移较轻，您可以在游戏设置中配置更大的"死区 (Dead Zone)"。这将忽略中心位置的微小摇杆移动。',
   },
   {
     question: '是否兼容 PS5、Xbox 和 Switch 控制器？',

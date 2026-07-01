@@ -122,7 +122,7 @@ export const content: ToolLocaleContent<RefreshRateDetectorUI> = {
     {
       type: 'list',
       items: [
-        '加载此检测器——测量立即开始',
+        '加载此检测器；测量立即开始',
         '选择快速（3秒）或稳定（10秒）测量模式',
         '从仪表盘读取显示器的 Hz 数值',
         '对照行业标准（60, 75, 120, 144, 240, 360Hz）',
@@ -152,7 +152,7 @@ export const content: ToolLocaleContent<RefreshRateDetectorUI> = {
     {
       type: 'list',
       items: [
-        '检查 HDMI/DisplayPort 线缆连接——接触不良会降低带宽',
+        '检查 HDMI/DisplayPort 线缆连接；接触不良会降低带宽',
         '更新显卡驱动程序（NVIDIA, AMD, Intel）',
         '检查系统的显示设置，确保已启用高刷新率',
         '尝试更换显示器上的线缆或接口',

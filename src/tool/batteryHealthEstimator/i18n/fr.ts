@@ -93,7 +93,7 @@ export const content: ToolLocaleContent<EstimadorSaludBateriaUI> = {
   schemas: [faqSchema, howToSchema, appSchema],
   bibliography,
   seo: [
-    { type: 'title', text: 'La chimie du temps : pourquoi les batteries lithium meurent', level: 2 },
+    { type: 'title', text: 'La chimie du temps: pourquoi les batteries lithium meurent', level: 2 },
     {
       type: 'paragraph',
       html: "Une batterie lithium-ion n'est pas une boîte d'énergie statique, mais un écosystème chimique dynamique en dégradation constante depuis sa fabrication. Chaque cycle de charge et décharge, chaque variation de température et chaque minute à des tensions extrêmes contribue à la formation de sous-produits qui entravent le flux d'ions.",
@@ -103,7 +103,7 @@ export const content: ToolLocaleContent<EstimadorSaludBateriaUI> = {
       type: 'paragraph',
       html: "<strong>Couche SEI :</strong> l'interface électrolyte solide croît avec le temps, consomme du lithium actif et augmente la résistance interne. <strong>Oxydation de l'électrolyte :</strong> des tensions supérieures à 4,1V accélèrent l'oxydation et peuvent gonfler la batterie. <strong>Lithium Plating :</strong> charger à basse température dépose du lithium sous forme métallique, créant des dendrites qui peuvent percer le séparateur.",
     },
-    { type: 'title', text: "Le mythe des 100% : pourquoi charger toute la nuit est une erreur", level: 3 },
+    { type: 'title', text: "Le mythe des 100%: pourquoi charger toute la nuit est une erreur", level: 3 },
     {
       type: 'paragraph',
       html: "Pour un ion lithium, être à 100% de charge (4,2V) est un état de haute tension. Les recherches montrent que la durée de vie double ou triple si l'on maintient l'appareil entre <strong>20% et 80%</strong>. De plus, pour chaque hausse de 10°C au-dessus de 25°C, la vitesse de dégradation chimique double approximativement.",
@@ -111,7 +111,7 @@ export const content: ToolLocaleContent<EstimadorSaludBateriaUI> = {
     { type: 'title', text: 'Protocole de survie énergétique', level: 3 },
     {
       type: 'paragraph',
-      html: "Ne chargez jamais une batterie en dessous de 0°C : le lithium se dépose sur l'anode, causant des dommages permanents. La charge rapide génère de la chaleur localisée et du stress mécanique ; utilisez-la uniquement en cas de stricte nécessité. Pour un stockage prolongé, conservez la batterie à 50% dans un endroit frais.",
+      html: "Ne chargez jamais une batterie en dessous de 0°C: le lithium se dépose sur l'anode, causant des dommages permanents. La charge rapide génère de la chaleur localisée et du stress mécanique ; utilisez-la uniquement en cas de stricte nécessité. Pour un stockage prolongé, conservez la batterie à 50% dans un endroit frais.",
     },
   ],
   ui: {
@@ -122,7 +122,7 @@ export const content: ToolLocaleContent<EstimadorSaludBateriaUI> = {
     voltageLabel: 'Tension Actuelle',
     cyclesLabel: 'Cycles de Charge',
     tempLabel: 'Température',
-    voltageHint: 'Plage nominale : 3,0V (vide) à 4,2V (plein).',
+    voltageHint: 'Plage nominale: 3,0V (vide) à 4,2V (plein).',
     labelUsefulLife: 'Durée de Vie',
     yearsPrefix: 'Est.',
     yearsSuffix: 'ans',

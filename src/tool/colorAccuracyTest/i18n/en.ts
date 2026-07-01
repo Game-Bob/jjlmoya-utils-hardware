@@ -166,7 +166,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
     },
     {
       type: 'paragraph',
-      html: '<strong>Delta E Scale (CIE 1976):</strong><ul><li>0–1: Imperceptible by human eye</li><li>1–2: Barely perceptible</li><li>2–4: Perceptible but acceptable for general use</li><li>4–6: Noticeable color shift</li><li>&gt;6: Very obvious difference</li></ul>',
+      html: '<strong>Delta E Scale (CIE 1976):</strong><ul><li>0-1: Imperceptible by human eye</li><li>1-2: Barely perceptible</li><li>2-4: Perceptible but acceptable for general use</li><li>4-6: Noticeable color shift</li><li>&gt;6: Very obvious difference</li></ul>',
     },
     {
       type: 'paragraph',
@@ -202,7 +202,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
     },
     {
       type: 'paragraph',
-      html: 'Pure black (0,0,0) background with barely-visible near-black shades. If shadow detail "crushes" together, your monitor is losing information in dark tones—common in mobile displays and cheap panels.',
+      html: 'Pure black (0,0,0) background with barely-visible near-black shades. If shadow detail "crushes" together, your monitor is losing information in dark tones-common in mobile displays and cheap panels.',
     },
     {
       type: 'title',
@@ -224,7 +224,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
     },
     {
       type: 'paragraph',
-      html: '<ul><li><strong>3D Gamut Visualization:</strong> A rotating 3D plot showing your display\'s actual color volume versus the reference standard</li><li><strong>Delta E Heatmap:</strong> Where on the spectrum your display drifts</li><li><strong>Gamma Curve:</strong> Brightness linearity across the 0–255 range</li><li><strong>Calibration Score:</strong> A single "Spectrum Grade" (Elite, Cinematic, Studio, Standard) based on overall accuracy</li></ul>',
+      html: '<ul><li><strong>3D Gamut Visualization:</strong> A rotating 3D plot showing your display\'s actual color volume versus the reference standard</li><li><strong>Delta E Heatmap:</strong> Where on the spectrum your display drifts</li><li><strong>Gamma Curve:</strong> Brightness linearity across the 0-255 range</li><li><strong>Calibration Score:</strong> A single "Spectrum Grade" (Elite, Cinematic, Studio, Standard) based on overall accuracy</li></ul>',
     },
     {
       type: 'title',

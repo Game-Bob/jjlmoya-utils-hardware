@@ -61,7 +61,7 @@ export const content: CategoryLocaleContent = {
     },
     {
       type: 'paragraph',
-      html: 'Monitörler bozunur. Fabrika renk sıcaklığı (Kelvin), genellikle 6500K = D65 Gün Işığı, zamanla değişir. Grafik tasarımcılar, fotoğrafçılar ve editörler için bu felaket anlamına gelir: yanlış kalibre edilmiş bir monitörde renkleri düzenlersiniz, çalışma diğer ekranlarda farklı görünür ve müşteri reddeder. Derin kalibrasyon donanım gerektirir (€300–1000 kolorimetri), ancak <strong>renk uzayı testimiz</strong> en azından monitörünüzün tutarlı bir gama aralığını (genellikle 2,2) koruyup korumadığını denetlemenizi sağlar.',
+      html: 'Monitörler bozunur. Fabrika renk sıcaklığı (Kelvin), genellikle 6500K = D65 Gün Işığı, zamanla değişir. Grafik tasarımcılar, fotoğrafçılar ve editörler için bu felaket anlamına gelir: yanlış kalibre edilmiş bir monitörde renkleri düzenlersiniz, çalışma diğer ekranlarda farklı görünür ve müşteri reddeder. Derin kalibrasyon donanım gerektirir (€300-1000 kolorimetri), ancak <strong>renk uzayı testimiz</strong> en azından monitörünüzün tutarlı bir gama aralığını (genellikle 2,2) koruyup korumadığını denetlemenizi sağlar.',
     },
     {
       type: 'paragraph',
@@ -78,7 +78,7 @@ export const content: CategoryLocaleContent = {
     },
     {
       type: 'paragraph',
-      html: 'Gecikme testleri de rekabetçi oyunculuk için kritiktir. Giriş-ekran gecikmesi (bir düğmeye basmaktan ekranda görmek) iyi bir kurulumda 20–50ms, yavaş bir kurulumda 200+ms olabilir. Rekabetçi oyunlarda (FPS, dövüş oyunları) 50ms zafer ile yenilgi arasındaki farktır. Bu yüzden profesyonel oyuncular 240Hz monitörlere, 8000Hz farelere ve optimize edilmiş PC\'lere yatırım yapar.',
+      html: 'Gecikme testleri de rekabetçi oyunculuk için kritiktir. Giriş-ekran gecikmesi (bir düğmeye basmaktan ekranda görmek) iyi bir kurulumda 20-50ms, yavaş bir kurulumda 200+ms olabilir. Rekabetçi oyunlarda (FPS, dövüş oyunları) 50ms zafer ile yenilgi arasındaki farktır. Bu yüzden profesyonel oyuncular 240Hz monitörlere, 8000Hz farelere ve optimize edilmiş PC\'lere yatırım yapar.',
     },
     {
       type: 'title',
@@ -87,7 +87,7 @@ export const content: CategoryLocaleContent = {
     },
     {
       type: 'paragraph',
-      html: '"Onarılabilirlik" 2026\'da giderek daha önemli hale geliyor. "Onarılabilir" bir telefon 6 yıl dayanır; "mühürlü" olan 2–3 yılda sona erer. Yükseltilebilir RAM\'lı dizüstü bilgisayar bir yatırımdır; lehimli RAM\'lı olan ise tek kullanımlıktır. Uyguladığımız tanı araçları Onarım Hakkı hareketiyle uyumludur: cihazlarınızı atmadan önce tam olarak neyin bozuk olduğunu bilmenizi istiyoruz.',
+      html: '"Onarılabilirlik" 2026\'da giderek daha önemli hale geliyor. "Onarılabilir" bir telefon 6 yıl dayanır; "mühürlü" olan 2-3 yılda sona erer. Yükseltilebilir RAM\'lı dizüstü bilgisayar bir yatırımdır; lehimli RAM\'lı olan ise tek kullanımlıktır. Uyguladığımız tanı araçları Onarım Hakkı hareketiyle uyumludur: cihazlarınızı atmadan önce tam olarak neyin bozuk olduğunu bilmenizi istiyoruz.',
     },
     {
       type: 'paragraph',

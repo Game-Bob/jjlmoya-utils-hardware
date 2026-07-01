@@ -61,7 +61,7 @@ export const content: CategoryLocaleContent = {
     },
     {
       type: 'paragraph',
-      html: 'I monitor si degradano. La temperatura del colore di fabbrica (Kelvin), tipicamente 6500K = D65 Daylight, cambia nel tempo. Per grafici, fotografi ed editor, questo è catastrofico: si modificano i colori su un monitor mal calibrato, il lavoro appare diverso su altri display e il cliente lo rifiuta. La calibrazione approfondita richiede hardware (colorimetro da €300–1000), ma il nostro <strong>test dello spazio colore</strong> ti permette almeno di verificare se il tuo monitor mantiene un gamma range coerente (tipicamente 2,2).',
+      html: 'I monitor si degradano. La temperatura del colore di fabbrica (Kelvin), tipicamente 6500K = D65 Daylight, cambia nel tempo. Per grafici, fotografi ed editor, questo è catastrofico: si modificano i colori su un monitor mal calibrato, il lavoro appare diverso su altri display e il cliente lo rifiuta. La calibrazione approfondita richiede hardware (colorimetro da €300-1000), ma il nostro <strong>test dello spazio colore</strong> ti permette almeno di verificare se il tuo monitor mantiene un gamma range coerente (tipicamente 2,2).',
     },
     {
       type: 'paragraph',
@@ -78,7 +78,7 @@ export const content: CategoryLocaleContent = {
     },
     {
       type: 'paragraph',
-      html: 'I test di latenza sono fondamentali anche per il gaming competitivo. La latenza input-display (dalla pressione di un tasto al vederlo sullo schermo) può essere di 20–50 ms su un setup decente, ma di 200+ ms su uno lento. Nei giochi competitivi (FPS, picchiaduro), 50 ms è la differenza tra vittoria e sconfitta. Ecco perché i gamer professionisti investono in monitor a 240Hz, mouse a 8000Hz e PC ottimizzati.',
+      html: 'I test di latenza sono fondamentali anche per il gaming competitivo. La latenza input-display (dalla pressione di un tasto al vederlo sullo schermo) può essere di 20-50 ms su un setup decente, ma di 200+ ms su uno lento. Nei giochi competitivi (FPS, picchiaduro), 50 ms è la differenza tra vittoria e sconfitta. Ecco perché i gamer professionisti investono in monitor a 240Hz, mouse a 8000Hz e PC ottimizzati.',
     },
     {
       type: 'title',
@@ -87,7 +87,7 @@ export const content: CategoryLocaleContent = {
     },
     {
       type: 'paragraph',
-      html: 'La "riparabilità" è sempre più importante nel 2026. Un telefono "riparabile" dura 6 anni; uno "sigillato" scade in 2–3 anni. Un laptop con RAM aggiornabile è un investimento; uno con RAM saldata è usa e getta. Gli strumenti diagnostici che implementiamo si allineano con il movimento per il Diritto alla Riparazione: vogliamo che tu sappia esattamente cosa è rotto prima di buttare i tuoi dispositivi.',
+      html: 'La "riparabilità" è sempre più importante nel 2026. Un telefono "riparabile" dura 6 anni; uno "sigillato" scade in 2-3 anni. Un laptop con RAM aggiornabile è un investimento; uno con RAM saldata è usa e getta. Gli strumenti diagnostici che implementiamo si allineano con il movimento per il Diritto alla Riparazione: vogliamo che tu sappia esattamente cosa è rotto prima di buttare i tuoi dispositivi.',
     },
     {
       type: 'paragraph',

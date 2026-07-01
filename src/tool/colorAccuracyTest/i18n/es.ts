@@ -166,7 +166,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
     },
     {
       type: 'paragraph',
-      html: '<strong>Escala Delta E (CIE 1976):</strong><ul><li>0–1: Imperceptible por el ojo humano</li><li>1–2: Apenas perceptible</li><li>2–4: Perceptible pero aceptable para uso general</li><li>4–6: Desviación de color notable</li><li>&gt;6: Diferencia muy obvia</li></ul>',
+      html: '<strong>Escala Delta E (CIE 1976):</strong><ul><li>0-1: Imperceptible por el ojo humano</li><li>1-2: Apenas perceptible</li><li>2-4: Perceptible pero aceptable para uso general</li><li>4-6: Desviación de color notable</li><li>&gt;6: Diferencia muy obvia</li></ul>',
     },
     {
       type: 'paragraph',
@@ -224,7 +224,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
     },
     {
       type: 'paragraph',
-      html: '<ul><li><strong>Visualización de Gama 3D:</strong> Un gráfico 3D giratorio que muestra el volumen de color real de tu pantalla frente al estándar de referencia</li><li><strong>Mapa de Calor Delta E:</strong> En qué parte del espectro se desvía tu pantalla</li><li><strong>Curva Gamma:</strong> Linealidad del brillo en el rango 0–255</li><li><strong>Puntuación de Calibración:</strong> Una única "Calificación Spectrum" (Élite, Cinematográfica, Estudio, Estándar) basada en la precisión general</li></ul>',
+      html: '<ul><li><strong>Visualización de Gama 3D:</strong> Un gráfico 3D giratorio que muestra el volumen de color real de tu pantalla frente al estándar de referencia</li><li><strong>Mapa de Calor Delta E:</strong> En qué parte del espectro se desvía tu pantalla</li><li><strong>Curva Gamma:</strong> Linealidad del brillo en el rango 0-255</li><li><strong>Puntuación de Calibración:</strong> Una única "Calificación Spectrum" (Élite, Cinematográfica, Estudio, Estándar) basada en la precisión general</li></ul>',
     },
     {
       type: 'title',

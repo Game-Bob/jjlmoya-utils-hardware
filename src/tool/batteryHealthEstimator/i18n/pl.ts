@@ -106,7 +106,7 @@ export const content: ToolLocaleContent<EstimadorSaludBateriaUI> = {
     { type: 'title', text: 'Mit 100%: dlaczego ładowanie przez noc to błąd', level: 3 },
     {
       type: 'paragraph',
-      html: 'Dla jonu litu stan naładowania 100% (4.2V) jest stanem wysokiego stresu. Badania pokazują, że żywotność cyklu wzrasta dwu- lub trzykrotnie przy utrzymywaniu urządzenia w zakresie <strong>20% – 80%</strong>. Ponadto na każde 10°C powyżej 25°C tempo degradacji chemicznej wzrasta około dwukrotnie.',
+      html: 'Dla jonu litu stan naładowania 100% (4.2V) jest stanem wysokiego stresu. Badania pokazują, że żywotność cyklu wzrasta dwu- lub trzykrotnie przy utrzymywaniu urządzenia w zakresie <strong>20% - 80%</strong>. Ponadto na każde 10°C powyżej 25°C tempo degradacji chemicznej wzrasta około dwukrotnie.',
     },
     { type: 'title', text: 'Protokół przetrwania energii', level: 3 },
     {

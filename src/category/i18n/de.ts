@@ -61,7 +61,7 @@ export const content: CategoryLocaleContent = {
     },
     {
       type: 'paragraph',
-      html: 'Monitore verschlechtern sich. Die werksseitige Farbtemperatur (Kelvin), typischerweise 6500K = D65-Tageslicht, verändert sich mit der Zeit. Für Grafikdesigner, Fotografen und Editoren ist dies katastrophal: Man bearbeitet Farben auf einem falsch kalibrierten Monitor, die Arbeit sieht auf anderen Displays anders aus, und der Kunde lehnt sie ab. Tiefe Kalibrierung erfordert Hardware (Kolorimeter für 300–1000 €), aber unser <strong>Farbraum-Test</strong> ermöglicht es dir zumindest zu prüfen, ob dein Monitor einen konsistenten Gammabereich (typischerweise 2,2) beibehält.',
+      html: 'Monitore verschlechtern sich. Die werksseitige Farbtemperatur (Kelvin), typischerweise 6500K = D65-Tageslicht, verändert sich mit der Zeit. Für Grafikdesigner, Fotografen und Editoren ist dies katastrophal: Man bearbeitet Farben auf einem falsch kalibrierten Monitor, die Arbeit sieht auf anderen Displays anders aus, und der Kunde lehnt sie ab. Tiefe Kalibrierung erfordert Hardware (Kolorimeter für 300-1000 €), aber unser <strong>Farbraum-Test</strong> ermöglicht es dir zumindest zu prüfen, ob dein Monitor einen konsistenten Gammabereich (typischerweise 2,2) beibehält.',
     },
     {
       type: 'paragraph',
@@ -74,11 +74,11 @@ export const content: CategoryLocaleContent = {
     },
     {
       type: 'paragraph',
-      html: 'Gamer sprechen von „Bottleneck", wenn GPU und CPU unausgeglichen sind. Eine leistungsstarke GPU, die von einer schwachen CPU gespeist wird, erreicht nie ihr Potenzial. Das Konzept ist einfach: Wenn die GPU darauf wartet, dass die CPU fertig wird, ist das Verschwendung. Testwerkzeuge helfen zu diagnostizieren: Liegt mein Problem an der GPU oder CPU? Brauche ich ein Upgrade? Oder reicht es, die Videoeinstellungen zu reduzieren?',
+      html: 'Gamer sprechen von "Bottleneck", wenn GPU und CPU unausgeglichen sind. Eine leistungsstarke GPU, die von einer schwachen CPU gespeist wird, erreicht nie ihr Potenzial. Das Konzept ist einfach: Wenn die GPU darauf wartet, dass die CPU fertig wird, ist das Verschwendung. Testwerkzeuge helfen zu diagnostizieren: Liegt mein Problem an der GPU oder CPU? Brauche ich ein Upgrade? Oder reicht es, die Videoeinstellungen zu reduzieren?',
     },
     {
       type: 'paragraph',
-      html: 'Latenz-Tests sind auch für kompetitives Gaming entscheidend. Die Eingabe-zu-Display-Latenz (vom Drücken einer Taste bis zum Erscheinen auf dem Bildschirm) kann bei einem guten Setup 20–50 ms betragen, aber bei einem langsamen 200+ ms. In Wettkampfspielen (FPS, Kampfspiele) ist 50 ms der Unterschied zwischen Sieg und Niederlage. Deshalb investieren Profi-Gamer in 240-Hz-Monitore, 8000-Hz-Mäuse und optimierte PCs.',
+      html: 'Latenz-Tests sind auch für kompetitives Gaming entscheidend. Die Eingabe-zu-Display-Latenz (vom Drücken einer Taste bis zum Erscheinen auf dem Bildschirm) kann bei einem guten Setup 20-50 ms betragen, aber bei einem langsamen 200+ ms. In Wettkampfspielen (FPS, Kampfspiele) ist 50 ms der Unterschied zwischen Sieg und Niederlage. Deshalb investieren Profi-Gamer in 240-Hz-Monitore, 8000-Hz-Mäuse und optimierte PCs.',
     },
     {
       type: 'title',
@@ -87,7 +87,7 @@ export const content: CategoryLocaleContent = {
     },
     {
       type: 'paragraph',
-      html: '„Reparierbarkeit" ist im Jahr 2026 immer wichtiger. Ein „reparierbares" Telefon hält 6 Jahre; ein „versiegeltes" läuft in 2–3 Jahren ab. Ein Laptop mit aufrüstbarem RAM ist eine Investition; einer mit verlötetem RAM ist wegwerfbar. Die von uns implementierten Diagnosewerkzeuge stehen im Einklang mit der Recht-auf-Reparatur-Bewegung: Wir möchten, dass du genau weißt, was kaputt ist, bevor du deine Geräte wegwirfst.',
+      html: '"Reparierbarkeit" ist im Jahr 2026 immer wichtiger. Ein "reparierbares" Telefon hält 6 Jahre; ein "versiegeltes" läuft in 2-3 Jahren ab. Ein Laptop mit aufrüstbarem RAM ist eine Investition; einer mit verlötetem RAM ist wegwerfbar. Die von uns implementierten Diagnosewerkzeuge stehen im Einklang mit der Recht-auf-Reparatur-Bewegung: Wir möchten, dass du genau weißt, was kaputt ist, bevor du deine Geräte wegwirfst.',
     },
     {
       type: 'paragraph',

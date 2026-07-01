@@ -172,7 +172,7 @@ export const content: ToolLocaleContent<PixelesPantallaUI> = {
     },
     {
       type: 'paragraph',
-      html: 'Om du bekräftar defekta pixlar (särskilt flera döda pixlar) kan du använda vårt test som bevis vid garantianspråk. Många tillverkare anser att fler än 2–3 ljusa pixlar eller 1 död pixel är ett tillverkningsfel som berättigar till utbyte enligt ISO 9241-307 (Klass 1)-standarden.',
+      html: 'Om du bekräftar defekta pixlar (särskilt flera döda pixlar) kan du använda vårt test som bevis vid garantianspråk. Många tillverkare anser att fler än 2-3 ljusa pixlar eller 1 död pixel är ett tillverkningsfel som berättigar till utbyte enligt ISO 9241-307 (Klass 1)-standarden.',
     },
     {
       type: 'title',

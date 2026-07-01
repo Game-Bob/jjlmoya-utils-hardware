@@ -104,7 +104,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
   seo: [
     {
       type: 'title',
-      text: 'Test de Précision des Couleurs Professionnel : Calibrez votre Écran avec Précision',
+      text: 'Test de Précision des Couleurs Professionnel: Calibrez votre Écran avec Précision',
       level: 2,
     },
     {
@@ -126,7 +126,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
     },
     {
       type: 'title',
-      text: 'Comprendre les espaces colorimétriques : sRGB vs DCI-P3',
+      text: 'Comprendre les espaces colorimétriques: sRGB vs DCI-P3',
       level: 3,
     },
     {
@@ -136,11 +136,11 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
     },
     {
       type: 'paragraph',
-      html: 'Établi par Microsoft et HP en 1996, le sRGB est la <strong>norme universelle pour l\'électronique grand public</strong> et le web. Il utilise un gamut de couleurs triangulaire défini par trois couleurs primaires (Rouge : 0.6400x 0.3300, Vert : 0.3000 0.6000, Bleu : 0.1500 0.0600).',
+      html: 'Établi par Microsoft et HP en 1996, le sRGB est la <strong>norme universelle pour l\'électronique grand public</strong> et le web. Il utilise un gamut de couleurs triangulaire défini par trois couleurs primaires (Rouge: 0.6400x 0.3300, Vert: 0.3000 0.6000, Bleu: 0.1500 0.0600).',
     },
     {
       type: 'paragraph',
-      html: '<strong>Caractéristiques :</strong><ul><li>Couvre ~35 % du spectre de couleurs visibles</li><li>Optimisé pour les conditions d\'éclairage ambiant typiques</li><li>Gamma : 2.2 (correspond à la plupart des écrans grand public)</li><li>Adapté pour : web, réseaux sociaux, photos grand public</li></ul>',
+      html: '<strong>Caractéristiques :</strong><ul><li>Couvre ~35 % du spectre de couleurs visibles</li><li>Optimisé pour les conditions d\'éclairage ambiant typiques</li><li>Gamma: 2.2 (correspond à la plupart des écrans grand public)</li><li>Adapté pour: web, réseaux sociaux, photos grand public</li></ul>',
     },
     {
       type: 'title',
@@ -153,7 +153,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
     },
     {
       type: 'paragraph',
-      html: '<strong>Caractéristiques :</strong><ul><li>Couvre ~53 % du spectre de couleurs visibles</li><li>Optimisé pour les environnements de cinéma sombres</li><li>Gamma : 2.6 (corrigé en gamma pour un contraste élevé)</li><li>Adapté pour : réalisation de films, photographie professionnelle, contenu HDR</li></ul>',
+      html: '<strong>Caractéristiques :</strong><ul><li>Couvre ~53 % du spectre de couleurs visibles</li><li>Optimisé pour les environnements de cinéma sombres</li><li>Gamma: 2.6 (corrigé en gamma pour un contraste élevé)</li><li>Adapté pour: réalisation de films, photographie professionnelle, contenu HDR</li></ul>',
     },
     {
       type: 'title',
@@ -166,7 +166,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
     },
     {
       type: 'paragraph',
-      html: '<strong>Échelle Delta E (CIE 1976) :</strong><ul><li>0–1 : Imperceptible par l\'œil humain</li><li>1–2 : À peine perceptible</li><li>2–4 : Perceptible mais acceptable pour un usage général</li><li>4–6 : Dérive de couleur notable</li><li>&gt;6 : Différence très évidente</li></ul>',
+      html: '<strong>Échelle Delta E (CIE 1976) :</strong><ul><li>0-1: Imperceptible par l\'œil humain</li><li>1-2: À peine perceptible</li><li>2-4: Perceptible mais acceptable pour un usage général</li><li>4-6: Dérive de couleur notable</li><li>&gt;6: Différence très évidente</li></ul>',
     },
     {
       type: 'paragraph',
@@ -202,7 +202,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
     },
     {
       type: 'paragraph',
-      html: 'Fond noir pur (0,0,0) avec des nuances de gris sombre à peine visibles. Si les détails des ombres se "télescopent", votre moniteur perd des informations dans les tons sombres — courant sur les écrans mobiles et les dalles bon marché.',
+      html: 'Fond noir pur (0,0,0) avec des nuances de gris sombre à peine visibles. Si les détails des ombres se "télescopent", votre moniteur perd des informations dans les tons sombres - courant sur les écrans mobiles et les dalles bon marché.',
     },
     {
       type: 'title',
@@ -224,11 +224,11 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
     },
     {
       type: 'paragraph',
-      html: '<ul><li><strong>Visualisation du Gamut 3D :</strong> Un graphique 3D rotatif montrant le volume de couleur réel de votre écran par rapport à la norme de référence</li><li><strong>Carte thermique Delta E :</strong> Les zones du spectre où votre écran dérive</li><li><strong>Courbe Gamma :</strong> Linéarité de la luminosité sur la plage 0–255</li><li><strong>Score de calibrage :</strong> Une "Note Spectrum" unique (Élite, Cinématique, Studio, Standard) basée sur la précision globale</li></ul>',
+      html: '<ul><li><strong>Visualisation du Gamut 3D :</strong> Un graphique 3D rotatif montrant le volume de couleur réel de votre écran par rapport à la norme de référence</li><li><strong>Carte thermique Delta E :</strong> Les zones du spectre où votre écran dérive</li><li><strong>Courbe Gamma :</strong> Linéarité de la luminosité sur la plage 0-255</li><li><strong>Score de calibrage :</strong> Une "Note Spectrum" unique (Élite, Cinématique, Studio, Standard) basée sur la précision globale</li></ul>',
     },
     {
       type: 'title',
-      text: 'Avancé : Conseils de calibrage manuel',
+      text: 'Avancé: Conseils de calibrage manuel',
       level: 3,
     },
     {

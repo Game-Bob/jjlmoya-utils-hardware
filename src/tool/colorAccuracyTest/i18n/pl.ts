@@ -43,7 +43,7 @@ const howToData = [
   },
   {
     name: 'Nazwij swój Sprzęt (opcjonalnie)',
-    text: 'Wprowadź opisową nazwę swojego monitora lub urządzenia (np. „MacBook Pro 16 M1”). Spersonalizuje to Twój raport.',
+    text: 'Wprowadź opisową nazwę swojego monitora lub urządzenia (np. "MacBook Pro 16 M1"). Spersonalizuje to Twój raport.',
   },
   {
     name: 'Wejdź w Tryb Pełnoekranowy',
@@ -166,7 +166,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
     },
     {
       type: 'paragraph',
-      html: '<strong>Skala Delta E (CIE 1976):</strong><ul><li>0–1: Niedostrzegalna dla ludzkiego oka</li><li>1–2: Ledwie dostrzegalna</li><li>2–4: Dostrzegalna, ale akceptowalna do ogólnego użytku</li><li>4–6: Zauważalne przesunięcie kolorów</li><li>&gt;6: Bardzo wyraźna różnica</li></ul>',
+      html: '<strong>Skala Delta E (CIE 1976):</strong><ul><li>0-1: Niedostrzegalna dla ludzkiego oka</li><li>1-2: Ledwie dostrzegalna</li><li>2-4: Dostrzegalna, ale akceptowalna do ogólnego użytku</li><li>4-6: Zauważalne przesunięcie kolorów</li><li>&gt;6: Bardzo wyraźna różnica</li></ul>',
     },
     {
       type: 'paragraph',
@@ -202,7 +202,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
     },
     {
       type: 'paragraph',
-      html: 'Czysto czarne (0,0,0) tło z ledwie widocznymi odcieniami bliskimi czerni. Jeśli detale w cieniach "zlewają się", monitor traci informacje w ciemnych tonach — typowe dla wyświetlaczy mobilnych i tanich paneli.',
+      html: 'Czysto czarne (0,0,0) tło z ledwie widocznymi odcieniami bliskimi czerni. Jeśli detale w cieniach "zlewają się", monitor traci informacje w ciemnych tonach - typowe dla wyświetlaczy mobilnych i tanich paneli.',
     },
     {
       type: 'title',
@@ -224,7 +224,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
     },
     {
       type: 'paragraph',
-      html: '<ul><li><strong>Wizualizacja Gamy 3D:</strong> Obrotowy wykres 3D pokazujący rzeczywistą objętość kolorów wyświetlacza w porównaniu do standardu wzorcowego</li><li><strong>Mapa Ciepła Delta E:</strong> Informacja o tym, w którym miejscu spektrum monitor wykazuje odchylenia</li><li><strong>Krzywa Gamma:</strong> Liniowość jasności w zakresie 0–255</li><li><strong>Wynik Kalibracji:</strong> Pojedyncza ocena „Spectrum Grade” (Elite, Cinematic, Studio, Standard) oparta na ogólnej dokładności</li></ul>',
+      html: '<ul><li><strong>Wizualizacja Gamy 3D:</strong> Obrotowy wykres 3D pokazujący rzeczywistą objętość kolorów wyświetlacza w porównaniu do standardu wzorcowego</li><li><strong>Mapa Ciepła Delta E:</strong> Informacja o tym, w którym miejscu spektrum monitor wykazuje odchylenia</li><li><strong>Krzywa Gamma:</strong> Liniowość jasności w zakresie 0-255</li><li><strong>Wynik Kalibracji:</strong> Pojedyncza ocena "Spectrum Grade" (Elite, Cinematic, Studio, Standard) oparta na ogólnej dokładności</li></ul>',
     },
     {
       type: 'title',
@@ -237,7 +237,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
     },
     {
       type: 'paragraph',
-      html: '<ul><li><strong>Temperatura barwowa:</strong> Przesuń w stronę „Ciepłej”, jeśli kolory są zbyt chłodne/niebieskie; w stronę „Chłodnej”, jeśli są zbyt ciepłe/żółte</li><li><strong>Kontrast:</strong> Zwiększ, jeśli czernie wydają się wyblakłe; zmniejsz, jeśli detale są zlane</li><li><strong>Jasność:</strong> Dostosuj, aby uzyskać neutralną szarość bez zabarwienia przy jasności 50%</li><li><strong>Nasycenie:</strong> Jeśli kolory są przesycone, zmniejsz; jeśli są blade, zwiększ</li></ul>',
+      html: '<ul><li><strong>Temperatura barwowa:</strong> Przesuń w stronę "Ciepłej", jeśli kolory są zbyt chłodne/niebieskie; w stronę "Chłodnej", jeśli są zbyt ciepłe/żółte</li><li><strong>Kontrast:</strong> Zwiększ, jeśli czernie wydają się wyblakłe; zmniejsz, jeśli detale są zlane</li><li><strong>Jasność:</strong> Dostosuj, aby uzyskać neutralną szarość bez zabarwienia przy jasności 50%</li><li><strong>Nasycenie:</strong> Jeśli kolory są przesycone, zmniejsz; jeśli są blade, zwiększ</li></ul>',
     },
     {
       type: 'title',

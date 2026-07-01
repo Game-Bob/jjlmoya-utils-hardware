@@ -61,7 +61,7 @@ export const content: CategoryLocaleContent = {
     },
     {
       type: 'paragraph',
-      html: 'Monitoren degraderen. De fabriekskleurtemperatuur (Kelvin), doorgaans 6500K = D65-daglicht, verandert in de loop der tijd. Voor grafisch ontwerpers, fotografen en editors is dit catastrofaal: je bewerkt kleuren op een verkeerd gekalibreerde monitor, het werk ziet er anders uit op andere schermen en de klant wijst het af. Diepe kalibratie vereist hardware (colorimeter van €300–1000), maar onze <strong>kleurruimtetest</strong> stelt je in elk geval in staat te controleren of je monitor een consistent gammagebied (doorgaans 2,2) handhaaft.',
+      html: 'Monitoren degraderen. De fabriekskleurtemperatuur (Kelvin), doorgaans 6500K = D65-daglicht, verandert in de loop der tijd. Voor grafisch ontwerpers, fotografen en editors is dit catastrofaal: je bewerkt kleuren op een verkeerd gekalibreerde monitor, het werk ziet er anders uit op andere schermen en de klant wijst het af. Diepe kalibratie vereist hardware (colorimeter van €300-1000), maar onze <strong>kleurruimtetest</strong> stelt je in elk geval in staat te controleren of je monitor een consistent gammagebied (doorgaans 2,2) handhaaft.',
     },
     {
       type: 'paragraph',
@@ -78,7 +78,7 @@ export const content: CategoryLocaleContent = {
     },
     {
       type: 'paragraph',
-      html: 'Latentietests zijn ook cruciaal voor competitief gaming. De invoer-naar-scherm latentie (van het indrukken van een knop tot het zien ervan op scherm) kan 20–50ms zijn bij een goede setup, maar 200+ms bij een trage. In competitieve games (FPS, vechtspellen) is 50ms het verschil tussen winst en verlies. Daarom investeren pro-gamers in 240Hz-monitors, 8000Hz-muizen en geoptimaliseerde pc\'s.',
+      html: 'Latentietests zijn ook cruciaal voor competitief gaming. De invoer-naar-scherm latentie (van het indrukken van een knop tot het zien ervan op scherm) kan 20-50ms zijn bij een goede setup, maar 200+ms bij een trage. In competitieve games (FPS, vechtspellen) is 50ms het verschil tussen winst en verlies. Daarom investeren pro-gamers in 240Hz-monitors, 8000Hz-muizen en geoptimaliseerde pc\'s.',
     },
     {
       type: 'title',
@@ -87,7 +87,7 @@ export const content: CategoryLocaleContent = {
     },
     {
       type: 'paragraph',
-      html: '"Repareerbaarheid" wordt in 2026 steeds belangrijker. Een "repareerbare" telefoon gaat 6 jaar mee; een "verzegelde" verloopt in 2–3 jaar. Een laptop met upgradeerbaar RAM is een investering; een met gesoldeerd RAM is wegwerpbaar. De diagnostische tools die we implementeren sluiten aan bij de Recht op Reparatie-beweging: we willen dat je precies weet wat er kapot is voordat je je apparaten weggooit.',
+      html: '"Repareerbaarheid" wordt in 2026 steeds belangrijker. Een "repareerbare" telefoon gaat 6 jaar mee; een "verzegelde" verloopt in 2-3 jaar. Een laptop met upgradeerbaar RAM is een investering; een met gesoldeerd RAM is wegwerpbaar. De diagnostische tools die we implementeren sluiten aan bij de Recht op Reparatie-beweging: we willen dat je precies weet wat er kapot is voordat je je apparaten weggooit.',
     },
     {
       type: 'paragraph',

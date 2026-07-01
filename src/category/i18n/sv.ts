@@ -61,7 +61,7 @@ export const content: CategoryLocaleContent = {
     },
     {
       type: 'paragraph',
-      html: 'Monitorer försämras. Fabriksfärgtemperaturen (Kelvin), vanligtvis 6500K = D65-dagsljus, förändras med tiden. För grafiska designers, fotografer och redaktörer är detta katastrofalt: du redigerar färger på en felkalibrerad monitor, arbetet ser annorlunda ut på andra skärmar och kunden avvisar det. Djup kalibrering kräver hårdvara (kolorimeter för €300–1000), men vårt <strong>färgrymstest</strong> låter dig åtminstone granska om din monitor bibehåller ett konsekvent gammaomfång (typiskt 2,2).',
+      html: 'Monitorer försämras. Fabriksfärgtemperaturen (Kelvin), vanligtvis 6500K = D65-dagsljus, förändras med tiden. För grafiska designers, fotografer och redaktörer är detta katastrofalt: du redigerar färger på en felkalibrerad monitor, arbetet ser annorlunda ut på andra skärmar och kunden avvisar det. Djup kalibrering kräver hårdvara (kolorimeter för €300-1000), men vårt <strong>färgrymstest</strong> låter dig åtminstone granska om din monitor bibehåller ett konsekvent gammaomfång (typiskt 2,2).',
     },
     {
       type: 'paragraph',
@@ -78,7 +78,7 @@ export const content: CategoryLocaleContent = {
     },
     {
       type: 'paragraph',
-      html: 'Latenstester är också kritiska för tävlingsinriktat gaming. Inmatnings-till-skärm-latens (från att trycka på en knapp till att se det på skärmen) kan vara 20–50ms på ett bra setup, men 200+ms på ett långsamt. I tävlingsspel (FPS, fightingspel) är 50ms skillnaden mellan seger och nederlag. Det är därför pro-gamers investerar i 240Hz-monitorer, 8000Hz-möss och optimerade datorer.',
+      html: 'Latenstester är också kritiska för tävlingsinriktat gaming. Inmatnings-till-skärm-latens (från att trycka på en knapp till att se det på skärmen) kan vara 20-50ms på ett bra setup, men 200+ms på ett långsamt. I tävlingsspel (FPS, fightingspel) är 50ms skillnaden mellan seger och nederlag. Det är därför pro-gamers investerar i 240Hz-monitorer, 8000Hz-möss och optimerade datorer.',
     },
     {
       type: 'title',
@@ -87,7 +87,7 @@ export const content: CategoryLocaleContent = {
     },
     {
       type: 'paragraph',
-      html: '"Reparerbarhet" är allt viktigare 2026. En "reparerbar" telefon håller 6 år; en "förseglad" löper ut på 2–3 år. En bärbar dator med uppgraderbart RAM är en investering; en med lödad RAM är förbrukningsbar. Diagnostikverktygen vi implementerar stämmer överens med Rätt till reparation-rörelsen: vi vill att du vet exakt vad som är sönder innan du kastar dina enheter.',
+      html: '"Reparerbarhet" är allt viktigare 2026. En "reparerbar" telefon håller 6 år; en "förseglad" löper ut på 2-3 år. En bärbar dator med uppgraderbart RAM är en investering; en med lödad RAM är förbrukningsbar. Diagnostikverktygen vi implementerar stämmer överens med Rätt till reparation-rörelsen: vi vill att du vet exakt vad som är sönder innan du kastar dina enheter.',
     },
     {
       type: 'paragraph',

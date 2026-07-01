@@ -106,7 +106,7 @@ export const content: ToolLocaleContent<ProbadorVibracionMandoUI> = {
     { type: 'title', text: 'Architecture Dual-Rumble vs. Actionneurs Linéaires', level: 3 },
     {
       type: 'paragraph',
-      html: "Les manettes classiques (Xbox, DualShock) utilisent deux micromoteurs asymétriques : le gauche génère des vibrations graves et profondes ; le droit produit des bourdonnements aigus et rapides. Les appareils avancés comme le DualSense utilisent des actionneurs linéaires qui simulent textures et résistance.",
+      html: "Les manettes classiques (Xbox, DualShock) utilisent deux micromoteurs asymétriques: le gauche génère des vibrations graves et profondes ; le droit produit des bourdonnements aigus et rapides. Les appareils avancés comme le DualSense utilisent des actionneurs linéaires qui simulent textures et résistance.",
     },
   ],
   ui: {
@@ -129,7 +129,7 @@ export const content: ToolLocaleContent<ProbadorVibracionMandoUI> = {
     presetSongTitle: 'Rythme Pièce',
     presetSongDesc: 'Simule le son de pièces collectées. Court et tactile.',
     presetRockYouTitle: 'Rock You!',
-    presetRockYouDesc: "Le classique de Queen dans vos mains : boum, boum, clap !",
+    presetRockYouDesc: "Le classique de Queen dans vos mains: boum, boum, clap !",
     presetEarthquakeTitle: 'Tremblement Maximal !',
     presetEarthquakeDesc: 'Les deux moteurs à 100% de force explosive. TRÈS intense.',
     customStrongLabel: 'Force Grave (Gauche)',

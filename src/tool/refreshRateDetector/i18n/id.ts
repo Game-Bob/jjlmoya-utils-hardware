@@ -122,7 +122,7 @@ export const content: ToolLocaleContent<RefreshRateDetectorUI> = {
     {
       type: 'list',
       items: [
-        'Buka detektor ini—pengukuran dimulai segera',
+        'Buka detektor ini-pengukuran dimulai segera',
         'Pilih antara mode pengukuran Cepat (3 detik) atau Stabil (10 detik)',
         'Baca Hz monitor Anda dari dial speedometer',
         'Bandingkan dengan standar industri (60, 75, 120, 144, 240, 360Hz)',
@@ -152,7 +152,7 @@ export const content: ToolLocaleContent<RefreshRateDetectorUI> = {
     {
       type: 'list',
       items: [
-        'Periksa koneksi kabel HDMI/DisplayPort—kabel longgar mengurangi bandwidth',
+        'Periksa koneksi kabel HDMI/DisplayPort-kabel longgar mengurangi bandwidth',
         'Perbarui driver GPU Anda (NVIDIA, AMD, Intel)',
         'Periksa pengaturan layar OS untuk memastikan refresh rate tinggi telah diaktifkan',
         'Coba kabel atau port yang berbeda pada monitor Anda',
@@ -166,7 +166,7 @@ export const content: ToolLocaleContent<RefreshRateDetectorUI> = {
     },
     {
       type: 'paragraph',
-      html: 'Alat ini menggunakan API requestAnimationFrame browser, yang sinkron langsung dengan siklus refresh monitor Anda. Dengan mengukur waktu antar frame animasi, kami menghitung refresh rate Anda yang tepat dengan presisi tinggi—tanpa perlu perangkat keras khusus.',
+      html: 'Alat ini menggunakan API requestAnimationFrame browser, yang sinkron langsung dengan siklus refresh monitor Anda. Dengan mengukur waktu antar frame animasi, kami menghitung refresh rate Anda yang tepat dengan presisi tinggi-tanpa perlu perangkat keras khusus.',
     },
   ],
   ui: {

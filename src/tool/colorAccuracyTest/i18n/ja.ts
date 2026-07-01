@@ -166,7 +166,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
     },
     {
       type: 'paragraph',
-      html: '<strong>Delta Eスケール（CIE 1976）：</strong><ul><li>0–1：人間の目では知覚不能</li><li>1–2：かろうじて知覚可能</li><li>2–4：知覚可能だが一般的な用途には許容範囲内</li><li>4–6：目立つ色ずれ</li><li>&gt;6：非常に明らかな違い</li></ul>',
+      html: '<strong>Delta Eスケール（CIE 1976）：</strong><ul><li>0-1：人間の目では知覚不能</li><li>1-2：かろうじて知覚可能</li><li>2-4：知覚可能だが一般的な用途には許容範囲内</li><li>4-6：目立つ色ずれ</li><li>&gt;6：非常に明らかな違い</li></ul>',
     },
     {
       type: 'paragraph',

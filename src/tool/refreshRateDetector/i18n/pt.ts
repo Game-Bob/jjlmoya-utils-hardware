@@ -122,7 +122,7 @@ export const content: ToolLocaleContent<RefreshRateDetectorUI> = {
     {
       type: 'list',
       items: [
-        'Carregue este detector – a medição começa imediatamente',
+        'Carregue este detector - a medição começa imediatamente',
         'Escolha entre o modo de medição Rápido (3s) ou Estável (10s)',
         'Leia os Hz do seu monitor no mostrador do velocímetro',
         'Compare com os padrões da indústria (60, 75, 120, 144, 240, 360Hz)',
@@ -152,7 +152,7 @@ export const content: ToolLocaleContent<RefreshRateDetectorUI> = {
     {
       type: 'list',
       items: [
-        'Verifique as conexões do cabo HDMI/DisplayPort – cabos soltos reduzem a largura de banda',
+        'Verifique as conexões do cabo HDMI/DisplayPort - cabos soltos reduzem a largura de banda',
         'Atualize os drivers da sua GPU (NVIDIA, AMD, Intel)',
         'Verifique as configurações de ecrã do SO para garantir que a alta taxa de atualização está ativada',
         'Tente diferentes cabos ou portas no seu monitor',
@@ -166,7 +166,7 @@ export const content: ToolLocaleContent<RefreshRateDetectorUI> = {
     },
     {
       type: 'paragraph',
-      html: 'Esta ferramenta utiliza a API requestAnimationFrame do navegador, que se sincroniza diretamente com o ciclo de atualização do seu monitor. Ao medir o tempo entre os frames da animação, calculamos a sua taxa de atualização exata com alta precisão – sem necessidade de hardware especial.',
+      html: 'Esta ferramenta utiliza a API requestAnimationFrame do navegador, que se sincroniza diretamente com o ciclo de atualização do seu monitor. Ao medir o tempo entre os frames da animação, calculamos a sua taxa de atualização exata com alta precisão - sem necessidade de hardware especial.',
     },
   ],
   ui: {

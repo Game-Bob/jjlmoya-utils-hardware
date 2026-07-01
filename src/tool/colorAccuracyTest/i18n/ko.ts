@@ -166,7 +166,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
     },
     {
       type: 'paragraph',
-      html: '<strong>Delta E 스케일 (CIE 1976):</strong><ul><li>0–1: 사람의 눈으로 인지할 수 없음</li><li>1–2: 간신히 인지할 수 있는 수준</li><li>2–4: 인지할 수 있으나 일반적인 용도로는 허용 가능</li><li>4–6: 두드러지는 색상 편차</li><li>&gt;6: 매우 명백한 차이</li></ul>',
+      html: '<strong>Delta E 스케일 (CIE 1976):</strong><ul><li>0-1: 사람의 눈으로 인지할 수 없음</li><li>1-2: 간신히 인지할 수 있는 수준</li><li>2-4: 인지할 수 있으나 일반적인 용도로는 허용 가능</li><li>4-6: 두드러지는 색상 편차</li><li>&gt;6: 매우 명백한 차이</li></ul>',
     },
     {
       type: 'paragraph',
@@ -224,7 +224,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
     },
     {
       type: 'paragraph',
-      html: '<ul><li><strong>3D 색 영역 시각화:</strong> 디스플레이의 실제 색상 볼륨을 표준 참조와 비교하여 보여주는 회전 가능한 3D 플롯</li><li><strong>Delta E 히트맵:</strong> 스펙트럼의 어느 부분에서 색상이 틀어지는지 표시</li><li><strong>감마 곡선:</strong> 0–255 범위에서의 밝기 선형성 확인</li><li><strong>교정 점수:</strong> 종합적인 정확도를 바탕으로 부여되는 단일 "Spectrum Grade" (Elite, Cinematic, Studio, Standard)</li></ul>',
+      html: '<ul><li><strong>3D 색 영역 시각화:</strong> 디스플레이의 실제 색상 볼륨을 표준 참조와 비교하여 보여주는 회전 가능한 3D 플롯</li><li><strong>Delta E 히트맵:</strong> 스펙트럼의 어느 부분에서 색상이 틀어지는지 표시</li><li><strong>감마 곡선:</strong> 0-255 범위에서의 밝기 선형성 확인</li><li><strong>교정 점수:</strong> 종합적인 정확도를 바탕으로 부여되는 단일 "Spectrum Grade" (Elite, Cinematic, Studio, Standard)</li></ul>',
     },
     {
       type: 'title',

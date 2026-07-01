@@ -96,7 +96,7 @@ export const content: ToolLocaleContent<TestRatonUI> = {
     { type: 'title', text: '鼠标回报率权威指南', level: 2 },
     {
       type: 'paragraph',
-      html: '当您在鼠标垫上物理移动鼠标时，这种模拟运动必须转换为电脑理解的数字信号。<strong>回报率 (Polling Rate)</strong> 是鼠标向电脑“报告”其位置的频率。它以赫兹 (Hz) 为单位。',
+      html: '当您在鼠标垫上物理移动鼠标时，这种模拟运动必须转换为电脑理解的数字信号。<strong>回报率 (Polling Rate)</strong> 是鼠标向电脑"报告"其位置的频率。它以赫兹 (Hz) 为单位。',
     },
     { type: 'title', text: '回报率等级及其用途', level: 3 },
     {

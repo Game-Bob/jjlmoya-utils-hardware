@@ -122,7 +122,7 @@ export const content: ToolLocaleContent<RefreshRateDetectorUI> = {
     {
       type: 'list',
       items: [
-        'Ladda denna detektor – mätningen börjar omedelbart',
+        'Ladda denna detektor - mätningen börjar omedelbart',
         'Välj mellan snabbt (3s) eller stabilt (10s) mätläge',
         'Läs av din monitors Hz på mätartavlan',
         'Jämför mot branschstandarder (60, 75, 120, 144, 240, 360Hz)',
@@ -152,7 +152,7 @@ export const content: ToolLocaleContent<RefreshRateDetectorUI> = {
     {
       type: 'list',
       items: [
-        'Kontrollera HDMI/DisplayPort-kablar – lösa kablar begränsar bandbredden',
+        'Kontrollera HDMI/DisplayPort-kablar - lösa kablar begränsar bandbredden',
         'Uppdatera dina GPU-drivrutiner (NVIDIA, AMD, Intel)',
         'Kontrollera OS-inställningar för bildskärm så att hög uppdateringsfrekvens är aktiverad',
         'Prova andra kablar eller portar på din monitor',
@@ -166,7 +166,7 @@ export const content: ToolLocaleContent<RefreshRateDetectorUI> = {
     },
     {
       type: 'paragraph',
-      html: 'Verktyget använder webbläsarens requestAnimationFrame-API, som synkroniserar direkt med din monitors uppdateringscykel. Genom att mäta tiden mellan bildrutorna beräknar vi din exakta frekvens med hög precision – ingen speciell hårdvara krävs.',
+      html: 'Verktyget använder webbläsarens requestAnimationFrame-API, som synkroniserar direkt med din monitors uppdateringscykel. Genom att mäta tiden mellan bildrutorna beräknar vi din exakta frekvens med hög precision - ingen speciell hårdvara krävs.',
     },
   ],
   ui: {

@@ -43,7 +43,7 @@ const howToData = [
   },
   {
     name: 'Hardware benennen (optional)',
-    text: 'Geben Sie einen aussagekräftigen Namen für Ihren Monitor oder Ihr Gerät ein (z. B. „MacBook Pro 16 M1“). Dies personalisiert Ihren Bericht.',
+    text: 'Geben Sie einen aussagekräftigen Namen für Ihren Monitor oder Ihr Gerät ein (z. B. "MacBook Pro 16 M1"). Dies personalisiert Ihren Bericht.',
   },
   {
     name: 'Vollbildmodus aktivieren',
@@ -118,7 +118,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
     },
     {
       type: 'paragraph',
-      html: 'Schon ein Unterschied von einem Prozentpunkt bei der Farbwiedergabe kann den Unterschied zwischen einem „Wow“-Moment und einer Reaktion wie „das sieht irgendwie falsch aus“ ausmachen. Professionelle Displays liefern eine Genauigkeit innerhalb von <strong>Delta E &lt; 2</strong>. Consumer-Displays driften oft in einen Bereich von Delta E 4-6+ ab, was folgendes verursacht:',
+      html: 'Schon ein Unterschied von einem Prozentpunkt bei der Farbwiedergabe kann den Unterschied zwischen einem "Wow"-Moment und einer Reaktion wie "das sieht irgendwie falsch aus" ausmachen. Professionelle Displays liefern eine Genauigkeit innerhalb von <strong>Delta E &lt; 2</strong>. Consumer-Displays driften oft in einen Bereich von Delta E 4-6+ ab, was folgendes verursacht:',
     },
     {
       type: 'paragraph',
@@ -166,7 +166,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
     },
     {
       type: 'paragraph',
-      html: '<strong>Delta-E-Skala (CIE 1976):</strong><ul><li>0–1: Vom menschlichen Auge nicht wahrnehmbar</li><li>1–2: Kaum wahrnehmbar</li><li>2–4: Wahrnehmbar, aber für den allgemeinen Gebrauch akzeptabel</li><li>4–6: Deutliche Farbverschiebung</li><li>&gt;6: Sehr offensichtlicher Unterschied</li></ul>',
+      html: '<strong>Delta-E-Skala (CIE 1976):</strong><ul><li>0-1: Vom menschlichen Auge nicht wahrnehmbar</li><li>1-2: Kaum wahrnehmbar</li><li>2-4: Wahrnehmbar, aber für den allgemeinen Gebrauch akzeptabel</li><li>4-6: Deutliche Farbverschiebung</li><li>&gt;6: Sehr offensichtlicher Unterschied</li></ul>',
     },
     {
       type: 'paragraph',
@@ -184,7 +184,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
     },
     {
       type: 'paragraph',
-      html: 'Zeigt reine Primär- und Sekundärfarben (Rot, Grün, Blau, Cyan, Magenta, Gelb) an und misst, wie Ihr Monitor diese wiedergibt. Farb-„Flut“-Animationen zeigen eine konsistente Farbwiedergabe auf dem gesamten Bildschirm.',
+      html: 'Zeigt reine Primär- und Sekundärfarben (Rot, Grün, Blau, Cyan, Magenta, Gelb) an und misst, wie Ihr Monitor diese wiedergibt. Farb-"Flut"-Animationen zeigen eine konsistente Farbwiedergabe auf dem gesamten Bildschirm.',
     },
     {
       type: 'title',
@@ -202,7 +202,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
     },
     {
       type: 'paragraph',
-      html: 'Reiner schwarzer (0,0,0) Hintergrund mit kaum sichtbaren, fast schwarzen Tönen. Wenn Schattendetails „zerquetscht“ werden, verliert Ihr Monitor Informationen in dunklen Tönen – häufig bei Mobilgeräten und günstigen Panels.',
+      html: 'Reiner schwarzer (0,0,0) Hintergrund mit kaum sichtbaren, fast schwarzen Tönen. Wenn Schattendetails "zerquetscht" werden, verliert Ihr Monitor Informationen in dunklen Tönen - häufig bei Mobilgeräten und günstigen Panels.',
     },
     {
       type: 'title',
@@ -224,7 +224,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
     },
     {
       type: 'paragraph',
-      html: '<ul><li><strong>3D-Gamut-Visualisierung:</strong> Ein rotierender 3D-Plot, der das tatsächliche Farbvolumen Ihres Displays im Vergleich zum Referenzstandard zeigt</li><li><strong>Delta-E-Heatmap:</strong> Wo im Spektrum Ihr Display abweicht</li><li><strong>Gammakurve:</strong> Helligkeitslinearität über den Bereich von 0–255</li><li><strong>Kalibrierungs-Score:</strong> Eine einzige „Spectrum Grade“ (Elite, Cinematic, Studio, Standard) basierend auf der Gesamtgenauigkeit</li></ul>',
+      html: '<ul><li><strong>3D-Gamut-Visualisierung:</strong> Ein rotierender 3D-Plot, der das tatsächliche Farbvolumen Ihres Displays im Vergleich zum Referenzstandard zeigt</li><li><strong>Delta-E-Heatmap:</strong> Wo im Spektrum Ihr Display abweicht</li><li><strong>Gammakurve:</strong> Helligkeitslinearität über den Bereich von 0-255</li><li><strong>Kalibrierungs-Score:</strong> Eine einzige "Spectrum Grade" (Elite, Cinematic, Studio, Standard) basierend auf der Gesamtgenauigkeit</li></ul>',
     },
     {
       type: 'title',
@@ -237,7 +237,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
     },
     {
       type: 'paragraph',
-      html: '<ul><li><strong>Farbtemperatur:</strong> In Richtung „Warm“ verschieben, wenn die Farben zu kühl/blau wirken; in Richtung „Kühl“, wenn sie zu warm/gelb wirken</li><li><strong>Kontrast:</strong> Erhöhen, wenn Schwarztöne verwaschen aussehen; verringern, wenn Details „zerquetscht“ werden</li><li><strong>Helligkeit:</strong> So einstellen, dass ein neutrales Grau ohne Farbstich bei 50 % Helligkeit erreicht wird</li><li><strong>Sättigung:</strong> Wenn Farben übersättigt sind, verringern; wenn sie stumpf wirken, erhöhen</li></ul>',
+      html: '<ul><li><strong>Farbtemperatur:</strong> In Richtung "Warm" verschieben, wenn die Farben zu kühl/blau wirken; in Richtung "Kühl", wenn sie zu warm/gelb wirken</li><li><strong>Kontrast:</strong> Erhöhen, wenn Schwarztöne verwaschen aussehen; verringern, wenn Details "zerquetscht" werden</li><li><strong>Helligkeit:</strong> So einstellen, dass ein neutrales Grau ohne Farbstich bei 50 % Helligkeit erreicht wird</li><li><strong>Sättigung:</strong> Wenn Farben übersättigt sind, verringern; wenn sie stumpf wirken, erhöhen</li></ul>',
     },
     {
       type: 'title',

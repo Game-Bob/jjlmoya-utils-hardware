@@ -166,7 +166,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
     },
     {
       type: 'paragraph',
-      html: '<strong>Skala Delta E (CIE 1976):</strong><ul><li>0–1: Tidak terlihat oleh mata manusia</li><li>1–2: Nyaris tidak terlihat</li><li>2–4: Terlihat tetapi dapat diterima untuk penggunaan umum</li><li>4–6: Pergeseran warna yang nyata</li><li>&gt;6: Perbedaan yang sangat jelas</li></ul>',
+      html: '<strong>Skala Delta E (CIE 1976):</strong><ul><li>0-1: Tidak terlihat oleh mata manusia</li><li>1-2: Nyaris tidak terlihat</li><li>2-4: Terlihat tetapi dapat diterima untuk penggunaan umum</li><li>4-6: Pergeseran warna yang nyata</li><li>&gt;6: Perbedaan yang sangat jelas</li></ul>',
     },
     {
       type: 'paragraph',
@@ -202,7 +202,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
     },
     {
       type: 'paragraph',
-      html: 'Latar belakang hitam murni (0,0,0) dengan nuansa nyaris hitam yang hampir tidak terlihat. Jika detail bayangan "hancur" bersama-sama, monitor Anda kehilangan informasi dalam nada gelap—umum pada layar ponsel dan panel murah.',
+      html: 'Latar belakang hitam murni (0,0,0) dengan nuansa nyaris hitam yang hampir tidak terlihat. Jika detail bayangan "hancur" bersama-sama, monitor Anda kehilangan informasi dalam nada gelap-umum pada layar ponsel dan panel murah.',
     },
     {
       type: 'title',
@@ -224,7 +224,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
     },
     {
       type: 'paragraph',
-      html: '<ul><li><strong>Visualisasi Gamut 3D:</strong> Plot 3D berputar yang menunjukkan volume warna aktual layar Anda versus standar referensi</li><li><strong>Heatmap Delta E:</strong> Di bagian spektrum mana layar Anda bergeser</li><li><strong>Kurva Gamma:</strong> Linearitas kecerahan di seluruh rentang 0–255</li><li><strong>Skor Kalibrasi:</strong> Sebuah "Spectrum Grade" tunggal (Elite, Cinematic, Studio, Standard) berdasarkan akurasi keseluruhan</li></ul>',
+      html: '<ul><li><strong>Visualisasi Gamut 3D:</strong> Plot 3D berputar yang menunjukkan volume warna aktual layar Anda versus standar referensi</li><li><strong>Heatmap Delta E:</strong> Di bagian spektrum mana layar Anda bergeser</li><li><strong>Kurva Gamma:</strong> Linearitas kecerahan di seluruh rentang 0-255</li><li><strong>Skor Kalibrasi:</strong> Sebuah "Spectrum Grade" tunggal (Elite, Cinematic, Studio, Standard) berdasarkan akurasi keseluruhan</li></ul>',
     },
     {
       type: 'title',

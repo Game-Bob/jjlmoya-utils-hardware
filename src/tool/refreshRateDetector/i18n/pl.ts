@@ -122,7 +122,7 @@ export const content: ToolLocaleContent<RefreshRateDetectorUI> = {
     {
       type: 'list',
       items: [
-        'Uruchom detektor – pomiar zaczyna się automatycznie',
+        'Uruchom detektor - pomiar zaczyna się automatycznie',
         'Wybierz tryb Szybki (3s) lub Stabilny (10s)',
         'Odczytaj Hz z tarczy prędkościomierza',
         'Porównaj z normami branżowymi (60, 75, 120, 144, 240, 360Hz)',
@@ -152,7 +152,7 @@ export const content: ToolLocaleContent<RefreshRateDetectorUI> = {
     {
       type: 'list',
       items: [
-        'Sprawdź kabel HDMI/DisplayPort – słabe połączenie ogranicza przepustowość',
+        'Sprawdź kabel HDMI/DisplayPort - słabe połączenie ogranicza przepustowość',
         'Zaktualizuj sterowniki karty graficznej (NVIDIA, AMD, Intel)',
         'Sprawdź ustawienia ekranu w systemie, aby włączyć wysokie odświeżanie',
         'Wypróbuj inne kable lub porty w monitorze',

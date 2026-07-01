@@ -166,7 +166,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
     },
     {
       type: 'paragraph',
-      html: '<strong>Escala Delta E (CIE 1976):</strong><ul><li>0–1: Impercetível pelo olho humano</li><li>1–2: Apenas percetível</li><li>2–4: Percetível, mas aceitável para uso geral</li><li>4–6: Desvio de cor notável</li><li>&gt;6: Diferença muito óbvia</li></ul>',
+      html: '<strong>Escala Delta E (CIE 1976):</strong><ul><li>0-1: Impercetível pelo olho humano</li><li>1-2: Apenas percetível</li><li>2-4: Percetível, mas aceitável para uso geral</li><li>4-6: Desvio de cor notável</li><li>&gt;6: Diferença muito óbvia</li></ul>',
     },
     {
       type: 'paragraph',
@@ -202,7 +202,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
     },
     {
       type: 'paragraph',
-      html: 'Fundo preto puro (0,0,0) com tons quase pretos apenas visíveis. Se o detalhe das sombras se "esmaga", o seu monitor está a perder informações nos tons escuros — comum em ecrãs móveis e painéis económicos.',
+      html: 'Fundo preto puro (0,0,0) com tons quase pretos apenas visíveis. Se o detalhe das sombras se "esmaga", o seu monitor está a perder informações nos tons escuros - comum em ecrãs móveis e painéis económicos.',
     },
     {
       type: 'title',
@@ -224,7 +224,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
     },
     {
       type: 'paragraph',
-      html: '<ul><li><strong>Visualização de Gama 3D:</strong> Um gráfico 3D rotativo que mostra o volume de cor real do seu ecrã versus o padrão de referência</li><li><strong>Mapa de Calor Delta E:</strong> Onde no espetro o seu ecrã se desvia</li><li><strong>Curva Gamma:</strong> Linearidade do brilho em toda a faixa 0–255</li><li><strong>Pontuação de Calibração:</strong> Uma única "Classificação Spectrum" (Elite, Cinematic, Studio, Standard) baseada na precisão geral</li></ul>',
+      html: '<ul><li><strong>Visualização de Gama 3D:</strong> Um gráfico 3D rotativo que mostra o volume de cor real do seu ecrã versus o padrão de referência</li><li><strong>Mapa de Calor Delta E:</strong> Onde no espetro o seu ecrã se desvia</li><li><strong>Curva Gamma:</strong> Linearidade do brilho em toda a faixa 0-255</li><li><strong>Pontuação de Calibração:</strong> Uma única "Classificação Spectrum" (Elite, Cinematic, Studio, Standard) baseada na precisão geral</li></ul>',
     },
     {
       type: 'title',

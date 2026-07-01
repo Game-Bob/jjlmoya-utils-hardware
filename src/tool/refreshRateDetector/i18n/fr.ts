@@ -22,7 +22,7 @@ const faqData = [
   },
   {
     question: 'Pourquoi mon Hz détecté est-il différent de ce qu\'indique mon moniteur ?',
-    answer: 'Cela peut arriver si : votre connexion par câble est lâche, vos pilotes sont obsolètes ou la mise à l\'échelle de votre système d\'exploitation interfère. Essayez de débrancher et de rebrancher votre câble d\'affichage, ou de mettre à jour les pilotes de votre GPU.',
+    answer: 'Cela peut arriver si: votre connexion par câble est lâche, vos pilotes sont obsolètes ou la mise à l\'échelle de votre système d\'exploitation interfère. Essayez de débrancher et de rebrancher votre câble d\'affichage, ou de mettre à jour les pilotes de votre GPU.',
   },
   {
     question: 'Quels taux de rafraîchissement les moniteurs modernes prennent-ils en charge ?',
@@ -48,7 +48,7 @@ const howToData = [
     text: 'L\'outil affiche la norme correspondant à votre moniteur (60, 75, 120, 144, 240, 360Hz).',
   },
   {
-    name: 'Optionnel : test de saut d\'images',
+    name: 'Optionnel: test de saut d\'images',
     text: 'Observez le carré animé traverser l\'écran pour confirmer visuellement la fluidité.',
   },
 ];
@@ -98,7 +98,7 @@ export const content: ToolLocaleContent<RefreshRateDetectorUI> = {
   seo: [
     {
       type: 'title',
-      text: 'Détecteur de Taux de Rafraîchissement du Moniteur : Testez les Hz de votre Écran en Ligne',
+      text: 'Détecteur de Taux de Rafraîchissement du Moniteur: Testez les Hz de votre Écran en Ligne',
       level: 2,
     },
     {
@@ -146,7 +146,7 @@ export const content: ToolLocaleContent<RefreshRateDetectorUI> = {
     },
     {
       type: 'title',
-      text: 'Dépannage : L\'Écran Affiche moins de Hz que Prévu',
+      text: 'Dépannage: L\'Écran Affiche moins de Hz que Prévu',
       level: 3,
     },
     {

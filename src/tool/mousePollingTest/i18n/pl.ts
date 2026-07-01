@@ -96,7 +96,7 @@ export const content: ToolLocaleContent<TestRatonUI> = {
     { type: 'title', text: 'Definitywny Przewodnik po Polling Rate', level: 2 },
     {
       type: 'paragraph',
-      html: 'Gdy fizycznie poruszasz myszką po podkładce, ten analogowy ruch musi zostać przetłumaczony na sygnały cyfrowe zrozumiałe dla komputera. <strong>Polling Rate</strong> to częstotliwość, z jaką mysz „raportuje” swoją pozycję do PC. Mierzy się ją w Hercach (Hz).',
+      html: 'Gdy fizycznie poruszasz myszką po podkładce, ten analogowy ruch musi zostać przetłumaczony na sygnały cyfrowe zrozumiałe dla komputera. <strong>Polling Rate</strong> to częstotliwość, z jaką mysz "raportuje" swoją pozycję do PC. Mierzy się ją w Hercach (Hz).',
     },
     { type: 'title', text: 'Poziomy Polling Rate i ich zastosowania', level: 3 },
     {

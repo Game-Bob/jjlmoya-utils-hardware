@@ -122,7 +122,7 @@ export const content: ToolLocaleContent<RefreshRateDetectorUI> = {
     {
       type: 'list',
       items: [
-        'Laden Sie diesen Detektor – die Messung beginnt sofort',
+        'Laden Sie diesen Detektor - die Messung beginnt sofort',
         'Wählen Sie zwischen dem schnellen (3s) oder dem stabilen (10s) Messmodus',
         'Lesen Sie die Hz-Zahl Ihres Monitors auf der Tachometerskala ab',
         'Vergleichen Sie sie mit Industriestandards (60, 75, 120, 144, 240, 360 Hz)',
@@ -152,7 +152,7 @@ export const content: ToolLocaleContent<RefreshRateDetectorUI> = {
     {
       type: 'list',
       items: [
-        'Prüfen Sie die HDMI/DisplayPort-Kabelverbindungen – lose Kabel reduzieren die Bandbreite',
+        'Prüfen Sie die HDMI/DisplayPort-Kabelverbindungen - lose Kabel reduzieren die Bandbreite',
         'Aktualisieren Sie Ihre GPU-Treiber (NVIDIA, AMD, Intel)',
         'Überprüfen Sie die Betriebssystem-Anzeigeeinstellungen, um sicherzustellen, dass eine hohe Bildwiederholfrequenz aktiviert ist',
         'Probieren Sie verschiedene Kabel oder Anschlüsse an Ihrem Monitor aus',
@@ -166,7 +166,7 @@ export const content: ToolLocaleContent<RefreshRateDetectorUI> = {
     },
     {
       type: 'paragraph',
-      html: 'Dieses Tool verwendet die requestAnimationFrame-API des Browsers, die direkt mit dem Aktualisierungszyklus Ihres Monitors synchronisiert wird. Durch Messen der Zeit zwischen den Animationsframes berechnen wir Ihre exakte Bildwiederholfrequenz mit hoher Präzision – keine spezielle Hardware erforderlich.',
+      html: 'Dieses Tool verwendet die requestAnimationFrame-API des Browsers, die direkt mit dem Aktualisierungszyklus Ihres Monitors synchronisiert wird. Durch Messen der Zeit zwischen den Animationsframes berechnen wir Ihre exakte Bildwiederholfrequenz mit hoher Präzision - keine spezielle Hardware erforderlich.',
     },
   ],
   ui: {

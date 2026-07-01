@@ -166,7 +166,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
     },
     {
       type: 'paragraph',
-      html: '<strong>Delta E-skala (CIE 1976):</strong><ul><li>0–1: Ouppfattbar för det mänskliga ögat</li><li>1–2: Knappt märkbar</li><li>2–4: Märkbar men acceptabel för allmän användning</li><li>4–6: Tydlig färgförskjutning</li><li>&gt;6: Mycket tydlig skillnad</li></ul>',
+      html: '<strong>Delta E-skala (CIE 1976):</strong><ul><li>0-1: Ouppfattbar för det mänskliga ögat</li><li>1-2: Knappt märkbar</li><li>2-4: Märkbar men acceptabel för allmän användning</li><li>4-6: Tydlig färgförskjutning</li><li>&gt;6: Mycket tydlig skillnad</li></ul>',
     },
     {
       type: 'paragraph',
@@ -202,7 +202,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
     },
     {
       type: 'paragraph',
-      html: 'Ren svart (0,0,0) bakgrund med knappt synliga nyanser nära svart. Om skuggdetaljer flyter ihop (crushar), förlorar din monitor information i mörka toner – vanligt på mobilskärmar och billigare paneler.',
+      html: 'Ren svart (0,0,0) bakgrund med knappt synliga nyanser nära svart. Om skuggdetaljer flyter ihop (crushar), förlorar din monitor information i mörka toner - vanligt på mobilskärmar och billigare paneler.',
     },
     {
       type: 'title',
@@ -224,7 +224,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
     },
     {
       type: 'paragraph',
-      html: '<ul><li><strong>3D Gamut-visualisering:</strong> Ett roterande 3D-diagram som visar displayens faktiska färgvolym jämfört med referensstandarden</li><li><strong>Delta E-värmekarta:</strong> Var i spektrumet din display driver iväg</li><li><strong>Gammakurva:</strong> Ljusstyrkans linearitet över intervallet 0–255</li><li><strong>Kalibreringspoäng:</strong> Ett "Spectrum Grade" (Elite, Cinematic, Studio, Standard) baserat på övergripande noggrannhet</li></ul>',
+      html: '<ul><li><strong>3D Gamut-visualisering:</strong> Ett roterande 3D-diagram som visar displayens faktiska färgvolym jämfört med referensstandarden</li><li><strong>Delta E-värmekarta:</strong> Var i spektrumet din display driver iväg</li><li><strong>Gammakurva:</strong> Ljusstyrkans linearitet över intervallet 0-255</li><li><strong>Kalibreringspoäng:</strong> Ett "Spectrum Grade" (Elite, Cinematic, Studio, Standard) baserat på övergripande noggrannhet</li></ul>',
     },
     {
       type: 'title',

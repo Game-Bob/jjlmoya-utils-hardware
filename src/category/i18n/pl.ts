@@ -12,7 +12,7 @@ export const content: CategoryLocaleContent = {
     },
     {
       type: 'paragraph',
-      html: 'Utrzymanie sprzętu nie wymaga już instalowania ciężkich aplikacji diagnostycznych. W tej sekcji oferujemy zestaw <strong>bezpłatnych narzędzi online</strong> zaprojektowanych do testowania komponentów przy użyciu natywnych interfejsów API sieci Web. Od wykrywania zmęczenia panelu LED po pomiar częstotliwości próbkowania urządzeń peryferyjnych do gier – stosujemy standardowe protokoły testowe, abyś znał rzeczywisty stan swojego sprzętu.',
+      html: 'Utrzymanie sprzętu nie wymaga już instalowania ciężkich aplikacji diagnostycznych. W tej sekcji oferujemy zestaw <strong>bezpłatnych narzędzi online</strong> zaprojektowanych do testowania komponentów przy użyciu natywnych interfejsów API sieci Web. Od wykrywania zmęczenia panelu LED po pomiar częstotliwości próbkowania urządzeń peryferyjnych do gier - stosujemy standardowe protokoły testowe, abyś znał rzeczywisty stan swojego sprzętu.',
     },
     {
       type: 'paragraph',
@@ -61,7 +61,7 @@ export const content: CategoryLocaleContent = {
     },
     {
       type: 'paragraph',
-      html: 'Monitory degradują się. Fabryczna temperatura barwowa (Kelviny), zazwyczaj 6500K = D65 światło dzienne, zmienia się z czasem. Dla grafików, fotografów i edytorów jest to katastrofalne: edytujesz kolory na źle skalibrowanym monitorze, praca wygląda inaczej na innych wyświetlaczach, a klient ją odrzuca. Głęboka kalibracja wymaga sprzętu (kolorymetr za 300–1000 €), ale nasz <strong>test przestrzeni barw</strong> pozwala przynajmniej sprawdzić, czy monitor utrzymuje spójny zakres gammy (zazwyczaj 2,2).',
+      html: 'Monitory degradują się. Fabryczna temperatura barwowa (Kelviny), zazwyczaj 6500K = D65 światło dzienne, zmienia się z czasem. Dla grafików, fotografów i edytorów jest to katastrofalne: edytujesz kolory na źle skalibrowanym monitorze, praca wygląda inaczej na innych wyświetlaczach, a klient ją odrzuca. Głęboka kalibracja wymaga sprzętu (kolorymetr za 300-1000 €), ale nasz <strong>test przestrzeni barw</strong> pozwala przynajmniej sprawdzić, czy monitor utrzymuje spójny zakres gammy (zazwyczaj 2,2).',
     },
     {
       type: 'paragraph',
@@ -78,7 +78,7 @@ export const content: CategoryLocaleContent = {
     },
     {
       type: 'paragraph',
-      html: 'Testy opóźnień są również kluczowe dla gier kompetytywnych. Opóźnienie wejście-wyświetlacz (od naciśnięcia przycisku do zobaczenia go na ekranie) może wynosić 20–50ms przy dobrym zestawie, ale 200+ms przy wolnym. W grach kompetytywnych (FPS, bijatyki) 50ms to różnica między zwycięstwem a porażką. Dlatego profesjonalni gracze inwestują w monitory 240Hz, myszy 8000Hz i zoptymalizowane komputery.',
+      html: 'Testy opóźnień są również kluczowe dla gier kompetytywnych. Opóźnienie wejście-wyświetlacz (od naciśnięcia przycisku do zobaczenia go na ekranie) może wynosić 20-50ms przy dobrym zestawie, ale 200+ms przy wolnym. W grach kompetytywnych (FPS, bijatyki) 50ms to różnica między zwycięstwem a porażką. Dlatego profesjonalni gracze inwestują w monitory 240Hz, myszy 8000Hz i zoptymalizowane komputery.',
     },
     {
       type: 'title',
@@ -87,7 +87,7 @@ export const content: CategoryLocaleContent = {
     },
     {
       type: 'paragraph',
-      html: '"Naprawialność" jest coraz ważniejsza w 2026 roku. "Naprawialny" telefon wytrzymuje 6 lat; "zapieczętowany" wygasa w 2–3 lata. Laptop z wymienialną pamięcią RAM to inwestycja; z wlutowaną RAM to jednorazówka. Narzędzia diagnostyczne, które wdrażamy, są zgodne z ruchem Prawa do Naprawy: chcemy, abyś wiedział dokładnie, co się zepsuje, zanim wyrzucisz urządzenia.',
+      html: '"Naprawialność" jest coraz ważniejsza w 2026 roku. "Naprawialny" telefon wytrzymuje 6 lat; "zapieczętowany" wygasa w 2-3 lata. Laptop z wymienialną pamięcią RAM to inwestycja; z wlutowaną RAM to jednorazówka. Narzędzia diagnostyczne, które wdrażamy, są zgodne z ruchem Prawa do Naprawy: chcemy, abyś wiedział dokładnie, co się zepsuje, zanim wyrzucisz urządzenia.',
     },
     {
       type: 'paragraph',

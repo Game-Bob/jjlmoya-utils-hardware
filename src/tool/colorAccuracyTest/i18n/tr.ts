@@ -166,7 +166,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
     },
     {
       type: 'paragraph',
-      html: '<strong>Delta E Ölçeği (CIE 1976):</strong><ul><li>0–1: İnsan gözüyle algılanamaz</li><li>1–2: Zar zor algılanabilir</li><li>2–4: Algılanabilir ancak genel kullanım için kabul edilebilir</li><li>4–6: Belirgin renk kayması</li><li>&gt;6: Çok bariz fark</li></ul>',
+      html: '<strong>Delta E Ölçeği (CIE 1976):</strong><ul><li>0-1: İnsan gözüyle algılanamaz</li><li>1-2: Zar zor algılanabilir</li><li>2-4: Algılanabilir ancak genel kullanım için kabul edilebilir</li><li>4-6: Belirgin renk kayması</li><li>&gt;6: Çok bariz fark</li></ul>',
     },
     {
       type: 'paragraph',
@@ -224,7 +224,7 @@ export const content: ToolLocaleContent<SpectrumCanvasUI> = {
     },
     {
       type: 'paragraph',
-      html: '<ul><li><strong>3D Gamut Görselleştirmesi:</strong> Ekranınızın gerçek renk hacmini referans standartla karşılaştıran dönen bir 3D grafik</li><li><strong>Delta E Isı Haritası:</strong> Ekranınızın spektrumun neresinde kayma yaptığını gösterir</li><li><strong>Gama Eğrisi:</strong> 0–255 aralığında parlaklık doğrusallığı</li><li><strong>Kalibrasyon Puanı:</strong> Genel doğruluğa dayalı tek bir "Spectrum Grade" (Elit, Sinematik, Stüdyo, Standart)</li></ul>',
+      html: '<ul><li><strong>3D Gamut Görselleştirmesi:</strong> Ekranınızın gerçek renk hacmini referans standartla karşılaştıran dönen bir 3D grafik</li><li><strong>Delta E Isı Haritası:</strong> Ekranınızın spektrumun neresinde kayma yaptığını gösterir</li><li><strong>Gama Eğrisi:</strong> 0-255 aralığında parlaklık doğrusallığı</li><li><strong>Kalibrasyon Puanı:</strong> Genel doğruluğa dayalı tek bir "Spectrum Grade" (Elit, Sinematik, Stüdyo, Standart)</li></ul>',
     },
     {
       type: 'title',

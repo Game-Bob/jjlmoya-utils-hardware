@@ -61,7 +61,7 @@ export const content: CategoryLocaleContent = {
     },
     {
       type: 'paragraph',
-      html: 'Monitor mengalami penurunan kualitas. Suhu warna pabrik (Kelvin), biasanya 6500K = D65 Daylight, berubah seiring waktu. Bagi desainer grafis, fotografer, dan editor, ini sangat merugikan: Anda mengedit warna pada monitor yang salah dikalibrasi, hasilnya terlihat berbeda di layar lain, dan klien menolaknya. Kalibrasi mendalam memerlukan perangkat keras (kolorimeter seharga €300–1000), tetapi <strong>uji ruang warna</strong> kami setidaknya memungkinkan Anda mengaudit apakah monitor Anda mempertahankan rentang gamma yang konsisten (biasanya 2,2).',
+      html: 'Monitor mengalami penurunan kualitas. Suhu warna pabrik (Kelvin), biasanya 6500K = D65 Daylight, berubah seiring waktu. Bagi desainer grafis, fotografer, dan editor, ini sangat merugikan: Anda mengedit warna pada monitor yang salah dikalibrasi, hasilnya terlihat berbeda di layar lain, dan klien menolaknya. Kalibrasi mendalam memerlukan perangkat keras (kolorimeter seharga €300-1000), tetapi <strong>uji ruang warna</strong> kami setidaknya memungkinkan Anda mengaudit apakah monitor Anda mempertahankan rentang gamma yang konsisten (biasanya 2,2).',
     },
     {
       type: 'paragraph',
@@ -78,7 +78,7 @@ export const content: CategoryLocaleContent = {
     },
     {
       type: 'paragraph',
-      html: 'Uji latensi juga penting untuk gaming kompetitif. Latensi input-ke-layar (dari menekan tombol hingga melihatnya di layar) bisa 20–50 ms pada setup yang layak, tetapi 200+ ms pada setup yang lambat. Dalam game kompetitif (FPS, fighting game), 50 ms adalah perbedaan antara kemenangan dan kekalahan. Itulah mengapa gamer pro berinvestasi dalam monitor 240Hz, mouse 8000Hz, dan PC yang dioptimalkan.',
+      html: 'Uji latensi juga penting untuk gaming kompetitif. Latensi input-ke-layar (dari menekan tombol hingga melihatnya di layar) bisa 20-50 ms pada setup yang layak, tetapi 200+ ms pada setup yang lambat. Dalam game kompetitif (FPS, fighting game), 50 ms adalah perbedaan antara kemenangan dan kekalahan. Itulah mengapa gamer pro berinvestasi dalam monitor 240Hz, mouse 8000Hz, dan PC yang dioptimalkan.',
     },
     {
       type: 'title',
@@ -87,7 +87,7 @@ export const content: CategoryLocaleContent = {
     },
     {
       type: 'paragraph',
-      html: '"Kemampuan perbaikan" semakin penting di tahun 2026. Ponsel yang "dapat diperbaiki" bertahan 6 tahun; yang "tersegel" kadaluarsa dalam 2–3 tahun. Laptop dengan RAM yang dapat ditingkatkan adalah investasi; yang dengan RAM yang disolder adalah barang sekali pakai. Alat diagnostik yang kami implementasikan selaras dengan gerakan Hak untuk Memperbaiki: kami ingin Anda mengetahui dengan tepat apa yang rusak sebelum Anda membuang perangkat Anda.',
+      html: '"Kemampuan perbaikan" semakin penting di tahun 2026. Ponsel yang "dapat diperbaiki" bertahan 6 tahun; yang "tersegel" kadaluarsa dalam 2-3 tahun. Laptop dengan RAM yang dapat ditingkatkan adalah investasi; yang dengan RAM yang disolder adalah barang sekali pakai. Alat diagnostik yang kami implementasikan selaras dengan gerakan Hak untuk Memperbaiki: kami ingin Anda mengetahui dengan tepat apa yang rusak sebelum Anda membuang perangkat Anda.',
     },
     {
       type: 'paragraph',

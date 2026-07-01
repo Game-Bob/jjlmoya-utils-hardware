@@ -122,7 +122,7 @@ export const content: ToolLocaleContent<RefreshRateDetectorUI> = {
     {
       type: 'list',
       items: [
-        'Load this detector—measurement begins immediately',
+        'Load this detector-measurement begins immediately',
         'Choose between Fast (3s) or Stable (10s) measurement mode',
         'Read your monitor\'s Hz from the speedometer dial',
         'Compare against industry standards (60, 75, 120, 144, 240, 360Hz)',
@@ -152,7 +152,7 @@ export const content: ToolLocaleContent<RefreshRateDetectorUI> = {
     {
       type: 'list',
       items: [
-        'Check HDMI/DisplayPort cable connections—loose cables reduce bandwidth',
+        'Check HDMI/DisplayPort cable connections-loose cables reduce bandwidth',
         'Update your GPU drivers (NVIDIA, AMD, Intel)',
         'Check OS display settings to ensure high refresh rate is enabled',
         'Try different cables or ports on your monitor',
@@ -166,7 +166,7 @@ export const content: ToolLocaleContent<RefreshRateDetectorUI> = {
     },
     {
       type: 'paragraph',
-      html: 'This tool uses the browser\'s requestAnimationFrame API, which synchronizes directly with your monitor\'s refresh cycle. By measuring the time between animation frames, we calculate your exact refresh rate with high precision—no special hardware needed.',
+      html: 'This tool uses the browser\'s requestAnimationFrame API, which synchronizes directly with your monitor\'s refresh cycle. By measuring the time between animation frames, we calculate your exact refresh rate with high precision-no special hardware needed.',
     },
   ],
   ui: {

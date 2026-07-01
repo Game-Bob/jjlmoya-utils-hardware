@@ -101,7 +101,7 @@ export const content: ToolLocaleContent<ToneGeneratorUI> = {
     { type: 'title', text: 'Zakres Słuchu Człowieka i Presbycusis', level: 3 },
     {
       type: 'paragraph',
-      html: 'Zdrowe ludzkie ucho dostrzega dźwięki między <strong>20Hz a 20kHz</strong>. Z wiekiem górna granica spada: większość dorosłych powyżej 50 roku życia nie słyszy powyżej 12kHz. Ton 17,4kHz, znany jako „mosquito tone”, to klasyczny test, który zazwyczaj przechodzą tylko nastolatkowie.',
+      html: 'Zdrowe ludzkie ucho dostrzega dźwięki między <strong>20Hz a 20kHz</strong>. Z wiekiem górna granica spada: większość dorosłych powyżej 50 roku życia nie słyszy powyżej 12kHz. Ton 17,4kHz, znany jako "mosquito tone", to klasyczny test, który zazwyczaj przechodzą tylko nastolatkowie.',
     },
     { type: 'title', text: 'Rodzaje Fal i ich Zastosowanie', level: 3 },
     {
