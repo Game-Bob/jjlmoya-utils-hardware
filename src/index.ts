@@ -23,6 +23,7 @@ export { TEST_MANDO_TOOL } from './tool/gamepadTest/index';
 export { PROBADOR_VIBRACION_MANDO_TOOL } from './tool/gamepadVibrationTester/index';
 export { TEST_RATON_TOOL } from './tool/mousePollingTest/index';
 export { MOUSE_DOUBLE_CLICK_TEST_TOOL } from './tool/mouseDoubleClickTest/index';
+export { MOUSE_SCROLL_TEST_TOOL } from './tool/mouseScrollTest/index';
 export { ESTIMADOR_SALUD_BATERIA_TOOL } from './tool/batteryHealthEstimator/index';
 export { TONE_GENERATOR_TOOL } from './tool/toneGenerator/index';
 export { REFRESH_RATE_DETECTOR_TOOL } from './tool/refreshRateDetector/index';

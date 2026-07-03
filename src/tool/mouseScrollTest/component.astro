@@ -1,0 +1,150 @@
+---
+import type { KnownLocale } from '../../types';
+import type { MouseScrollTestUI } from './ui';
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  locale?: KnownLocale;
+  ui?: Record<string, unknown>;
+}
+
+const { ui } = Astro.props;
+const t = (ui ?? {}) as MouseScrollTestUI;
+---
+
+<div class="mst-root" id="mst-root" data-config={JSON.stringify({
+  statusIdle: t.statusIdle,
+  statusClean: t.statusClean,
+  statusWarning: t.statusWarning,
+  statusMixed: t.statusMixed,
+  upward: t.upward,
+  downward: t.downward,
+  leftward: t.leftward,
+  rightward: t.rightward,
+  noDirection: t.noDirection,
+  sensitivityUnit: t.sensitivityUnit,
+  emptyLog: t.emptyLog,
+  cleanEvent: t.cleanEvent,
+  reversalEvent: t.reversalEvent,
+  jitterEvent: t.jitterEvent,
+  verticalAxis: t.verticalAxis,
+  horizontalAxis: t.horizontalAxis,
+  noDataValue: t.noDataValue,
+})}>
+  <section class="mst-card">
+    <div id="mst-capture" class="mst-capture" data-capture-state="locked" tabindex="0" role="application" aria-label={t.captureTitle}>
+      <div class="mst-scope" aria-hidden="true">
+        <span class="mst-orbit mst-orbit-one"></span>
+        <span class="mst-orbit mst-orbit-two"></span>
+        <span class="mst-wheel">
+          <span class="mst-wheel-line"></span>
+          <span class="mst-wheel-line"></span>
+          <span class="mst-wheel-line"></span>
+        </span>
+      </div>
+      <div class="mst-capture-copy">
+        <span><Icon name="mdi:mouse" /> {t.badge}</span>
+        <small>{t.captureHint}</small>
+      </div>
+      <div class="mst-axis-grid" aria-hidden="true">
+        <span id="mst-vertical-needle" class="mst-needle mst-needle-vertical"></span>
+        <span id="mst-horizontal-needle" class="mst-needle mst-needle-horizontal"></span>
+      </div>
+      <div class="mst-focus-lock" aria-live="polite">
+        <span class="mst-lock-badge mst-lock-badge-locked">
+          <Icon name="mdi:lock" />
+          {t.focusLockTitle}
+        </span>
+        <p class="mst-lock-text mst-lock-text-locked">{t.focusLockText}</p>
+      </div>
+    </div>
+
+    <div class="mst-panel">
+      <div class="mst-score">
+        <span>{t.stabilityScore}</span>
+        <strong id="mst-score">100%</strong>
+        <small id="mst-status" data-state="idle">{t.statusIdle}</small>
+      </div>
+
+      <p class="mst-direction-note">{t.directionNote}</p>
+
+      <div class="mst-metrics">
+        <div>
+          <span>{t.totalTicks}</span>
+          <strong id="mst-total">0</strong>
+        </div>
+        <div>
+          <span>{t.reversals}</span>
+          <strong id="mst-reversals">0</strong>
+        </div>
+        <div>
+          <span>{t.longestRun}</span>
+          <strong id="mst-longest-run">0</strong>
+        </div>
+      </div>
+
+      <div class="mst-telemetry">
+        <div class="mst-axis-card">
+          <span>{t.verticalAxis}</span>
+          <b id="mst-vertical-meter"></b>
+        </div>
+        <div class="mst-axis-card">
+          <span>{t.horizontalAxis}</span>
+          <b id="mst-horizontal-meter"></b>
+        </div>
+      </div>
+
+      <div class="mst-readouts">
+        <div>
+          <span>{t.dominantDirection}</span>
+          <strong id="mst-dominant">{t.noDirection}</strong>
+        </div>
+        <div>
+          <span>{t.lastDelta}</span>
+          <strong id="mst-last-delta">{t.noDataValue}</strong>
+        </div>
+      </div>
+
+      <label class="mst-sensitivity">
+        <span>{t.sensitivityLabel}</span>
+        <b><span id="mst-sensitivity-value">12</span> {t.sensitivityUnit}</b>
+        <input id="mst-sensitivity" type="range" min="2" max="40" step="1" value="12" />
+      </label>
+
+      <div class="mst-log-head">
+        <span>{t.logTitle}</span>
+        <button id="mst-reset" type="button">{t.reset}</button>
+      </div>
+      <ol id="mst-log" class="mst-log"></ol>
+    </div>
+  </section>
+</div>
+
+<script>
+  import { MouseScrollTester } from './logic';
+
+  const root = document.getElementById('mst-root');
+  const labels = JSON.parse(root?.dataset.config ?? '{}');
+
+  new MouseScrollTester(
+    {
+      capture: document.getElementById('mst-capture'),
+      score: document.getElementById('mst-score'),
+      status: document.getElementById('mst-status'),
+      total: document.getElementById('mst-total'),
+      reversals: document.getElementById('mst-reversals'),
+      longestRun: document.getElementById('mst-longest-run'),
+      lastDelta: document.getElementById('mst-last-delta'),
+      dominant: document.getElementById('mst-dominant'),
+      sensitivity: document.getElementById('mst-sensitivity') as HTMLInputElement | null,
+      sensitivityValue: document.getElementById('mst-sensitivity-value'),
+      reset: document.getElementById('mst-reset'),
+      log: document.getElementById('mst-log'),
+      verticalNeedle: document.getElementById('mst-vertical-needle'),
+      horizontalNeedle: document.getElementById('mst-horizontal-needle'),
+      verticalMeter: document.getElementById('mst-vertical-meter'),
+      horizontalMeter: document.getElementById('mst-horizontal-meter'),
+    },
+    labels,
+  );
+</script>

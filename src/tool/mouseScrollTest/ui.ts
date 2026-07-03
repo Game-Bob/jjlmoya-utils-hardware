@@ -1,0 +1,34 @@
+export interface MouseScrollTestUI extends Record<string, string> {
+  badge: string;
+  captureTitle: string;
+  captureHint: string;
+  focusLockTitle: string;
+  focusLockText: string;
+  stabilityScore: string;
+  statusIdle: string;
+  statusClean: string;
+  statusWarning: string;
+  statusMixed: string;
+  directionNote: string;
+  totalTicks: string;
+  reversals: string;
+  longestRun: string;
+  lastDelta: string;
+  verticalAxis: string;
+  horizontalAxis: string;
+  dominantDirection: string;
+  upward: string;
+  downward: string;
+  leftward: string;
+  rightward: string;
+  noDirection: string;
+  noDataValue: string;
+  sensitivityLabel: string;
+  sensitivityUnit: string;
+  reset: string;
+  logTitle: string;
+  emptyLog: string;
+  cleanEvent: string;
+  reversalEvent: string;
+  jitterEvent: string;
+}
