@@ -1,0 +1,30 @@
+export interface MonitorGhostingTestUI extends Record<string, string> {
+  badge: string;
+  speedLabel: string;
+  pixelsPerSecondUnit: string;
+  pixelUnit: string;
+  millisecondUnit: string;
+  trailLabel: string;
+  backgroundLabel: string;
+  backgroundDark: string;
+  backgroundLight: string;
+  backgroundGrid: string;
+  patternLabel: string;
+  patternBars: string;
+  patternText: string;
+  patternUfo: string;
+  pursuitLabel: string;
+  pursuitOn: string;
+  pursuitOff: string;
+  fullscreen: string;
+  exitFullscreen: string;
+  pause: string;
+  resume: string;
+  targetText: string;
+  estimatedBlur: string;
+  frameStep: string;
+  persistence: string;
+  sampleCount: string;
+  instructions: string;
+  reset: string;
+}

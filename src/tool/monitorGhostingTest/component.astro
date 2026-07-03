@@ -1,0 +1,156 @@
+---
+import type { KnownLocale } from '../../types';
+import type { MonitorGhostingTestUI } from './ui';
+
+interface Props {
+  locale?: KnownLocale;
+  ui?: Record<string, unknown>;
+}
+
+const { ui } = Astro.props;
+const t = (ui ?? {}) as MonitorGhostingTestUI;
+---
+
+<div id="mgt-root" class="mgt-root" data-config={JSON.stringify({
+  pixelsPerSecondUnit: t.pixelsPerSecondUnit,
+  pixelUnit: t.pixelUnit,
+  millisecondUnit: t.millisecondUnit,
+  fullscreen: t.fullscreen,
+  exitFullscreen: t.exitFullscreen,
+  pause: t.pause,
+  resume: t.resume,
+})}>
+  <section class="mgt-card">
+    <div class="mgt-stage">
+      <div class="mgt-monitor" id="mgt-monitor">
+        <div class="mgt-screen">
+          <div class="mgt-ruler" aria-hidden="true"></div>
+          <div id="mgt-track" class="mgt-track">
+            <span class="mgt-ghost ghost-5"></span>
+            <span class="mgt-ghost ghost-4"></span>
+            <span class="mgt-ghost ghost-3"></span>
+            <span class="mgt-ghost ghost-2"></span>
+            <span class="mgt-ghost ghost-1"></span>
+            <span id="mgt-target-object" class="mgt-target-object">
+              <span class="mgt-bars" aria-hidden="true"></span>
+              <span class="mgt-word">{t.targetText}</span>
+              <span class="mgt-ufo" aria-hidden="true">
+                <span class="mgt-ufo-dome"></span>
+                <span class="mgt-ufo-body"></span>
+                <span class="mgt-ufo-light"></span>
+              </span>
+            </span>
+          </div>
+          <div class="mgt-pursuit" aria-hidden="true"></div>
+          <div class="mgt-screen-actions">
+            <button id="mgt-fullscreen" type="button">{t.fullscreen}</button>
+            <button id="mgt-pause" type="button">{t.pause}</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="mgt-panel">
+        <div class="mgt-readout">
+          <span>{t.badge}</span>
+          <strong id="mgt-blur">--</strong>
+          <small>{t.estimatedBlur}</small>
+        </div>
+
+        <label class="mgt-control">
+          <span>{t.speedLabel}</span>
+          <b id="mgt-speed-value">--</b>
+          <input id="mgt-speed" type="range" min="240" max="1920" step="120" value="960" />
+        </label>
+
+        <label class="mgt-control">
+          <span>{t.trailLabel}</span>
+          <b id="mgt-trail-value">--</b>
+          <input id="mgt-trail" type="range" min="1" max="10" step="1" value="5" />
+        </label>
+
+        <label class="mgt-select">
+          <span>{t.backgroundLabel}</span>
+          <select id="mgt-background">
+            <option value="dark">{t.backgroundDark}</option>
+            <option value="light">{t.backgroundLight}</option>
+            <option value="grid">{t.backgroundGrid}</option>
+          </select>
+        </label>
+
+        <label class="mgt-select">
+          <span>{t.patternLabel}</span>
+          <select id="mgt-pattern">
+            <option value="bars">{t.patternBars}</option>
+            <option value="text">{t.patternText}</option>
+            <option value="ufo">{t.patternUfo}</option>
+          </select>
+        </label>
+
+        <label class="mgt-toggle">
+          <span>
+            <b>{t.pursuitLabel}</b>
+            <small>{t.pursuitOn} / {t.pursuitOff}</small>
+          </span>
+          <input id="mgt-pursuit" type="checkbox" checked />
+        </label>
+
+        <div class="mgt-metrics">
+          <div>
+            <span>{t.frameStep}</span>
+            <strong id="mgt-frame-step">--</strong>
+          </div>
+          <div>
+            <span>{t.persistence}</span>
+            <strong id="mgt-persistence">--</strong>
+          </div>
+          <div>
+            <span>{t.sampleCount}</span>
+            <strong id="mgt-sample-count">--</strong>
+          </div>
+        </div>
+
+        <p class="mgt-instructions">{t.instructions}</p>
+        <button id="mgt-reset" class="mgt-reset" type="button">{t.reset}</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+  import { MonitorGhostingLab } from './logic';
+
+  const root = document.getElementById('mgt-root');
+  const labels = JSON.parse(root?.dataset.config ?? '{}');
+
+  new MonitorGhostingLab(
+    {
+      root,
+      monitor: document.getElementById('mgt-monitor'),
+      track: document.getElementById('mgt-track'),
+      target: document.getElementById('mgt-target-object'),
+      speed: document.getElementById('mgt-speed') as HTMLInputElement | null,
+      trail: document.getElementById('mgt-trail') as HTMLInputElement | null,
+      background: document.getElementById('mgt-background') as HTMLSelectElement | null,
+      pattern: document.getElementById('mgt-pattern') as HTMLSelectElement | null,
+      pursuit: document.getElementById('mgt-pursuit') as HTMLInputElement | null,
+      fullscreen: document.getElementById('mgt-fullscreen'),
+      pause: document.getElementById('mgt-pause'),
+      reset: document.getElementById('mgt-reset'),
+      speedValue: document.getElementById('mgt-speed-value'),
+      trailValue: document.getElementById('mgt-trail-value'),
+      blur: document.getElementById('mgt-blur'),
+      frameStep: document.getElementById('mgt-frame-step'),
+      persistence: document.getElementById('mgt-persistence'),
+      sampleCount: document.getElementById('mgt-sample-count'),
+    },
+    {
+      pixelsPerSecondUnit: labels.pixelsPerSecondUnit,
+      pixelUnit: labels.pixelUnit,
+      millisecondUnit: labels.millisecondUnit,
+      fullscreen: labels.fullscreen,
+      exitFullscreen: labels.exitFullscreen,
+      pause: labels.pause,
+      resume: labels.resume,
+    },
+  );
+</script>

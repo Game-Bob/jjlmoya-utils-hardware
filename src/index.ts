@@ -26,4 +26,5 @@ export { MOUSE_DOUBLE_CLICK_TEST_TOOL } from './tool/mouseDoubleClickTest/index'
 export { ESTIMADOR_SALUD_BATERIA_TOOL } from './tool/batteryHealthEstimator/index';
 export { TONE_GENERATOR_TOOL } from './tool/toneGenerator/index';
 export { REFRESH_RATE_DETECTOR_TOOL } from './tool/refreshRateDetector/index';
+export { MONITOR_GHOSTING_TEST_TOOL } from './tool/monitorGhostingTest/index';
 export { SPECTRUM_CANVAS_TOOL } from './tool/colorAccuracyTest/index';
