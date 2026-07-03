@@ -1,0 +1,384 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { KnownLocale } from '../../types';
+import type { UpsRuntimeCalculatorUI } from './ui';
+
+interface Props {
+  locale?: KnownLocale;
+  ui?: Record<string, unknown>;
+}
+
+const { ui } = Astro.props;
+const t = (ui ?? {}) as UpsRuntimeCalculatorUI;
+---
+
+<div
+  class="ups-root"
+  data-config={JSON.stringify({
+    presetDesktop: t.presetDesktop,
+    presetMonitor: t.presetMonitor,
+    presetRouter: t.presetRouter,
+    presetNas: t.presetNas,
+    deviceName: t.deviceName,
+    watts: t.watts,
+    remove: t.remove,
+    bandLight: t.bandLight,
+    bandBalanced: t.bandBalanced,
+    bandHeavy: t.bandHeavy,
+    summaryPrefix: t.summaryPrefix,
+    minutes: t.minutes,
+    hours: t.hours,
+    wattsUnit: t.wattsUnit,
+    percentUnit: t.percentUnit,
+    assumptionsLabel: t.assumptionsLabel,
+  })}
+>
+  <section class="ups-panel">
+    <div class="ups-console ups-load">
+      <div class="ups-strip">
+        <span>{t.loadTitle}</span>
+        <button class="ups-add" type="button" data-add-device>{t.addDevice}</button>
+      </div>
+      <div class="ups-devices" data-devices></div>
+    </div>
+
+    <div class="ups-machine" aria-hidden="true">
+      <div class="ups-shell">
+        <div class="ups-port-row">
+          <i></i><i></i><i></i><i></i>
+        </div>
+        <div class="ups-screen">
+          <span data-runtime-big>0</span>
+          <small data-runtime-unit>{t.minutes}</small>
+        </div>
+        <div class="ups-core">
+          <b></b><b></b><b></b><b></b>
+        </div>
+      </div>
+      <div class="ups-energy-rail">
+        <span data-load-bar></span>
+      </div>
+    </div>
+
+    <div class="ups-console ups-controls" aria-label={t.assumptionsLabel}>
+      <label class="ups-capacity">
+        <span>{t.batteryWh}</span>
+        <span class="ups-number-field ups-number-field-large">
+          <input data-battery type="number" min="50" max="3000" step="10" value="432" />
+          <em>{t.whUnit}</em>
+        </span>
+      </label>
+      <label>
+        <span>{t.efficiency}</span>
+        <input data-efficiency type="range" min="70" max="95" value="86" />
+        <strong data-efficiency-label>86%</strong>
+      </label>
+      <label>
+        <span>{t.powerFactor}</span>
+        <input data-power-factor type="range" min="50" max="100" value="70" />
+        <strong data-power-factor-label>0.70</strong>
+      </label>
+      <label>
+        <span>{t.reserve}</span>
+        <input data-reserve type="range" min="0" max="50" value="20" />
+        <strong data-reserve-label>20%</strong>
+      </label>
+    </div>
+
+    <div class="ups-dashboard">
+      <div class="ups-metrics">
+        <article>
+          <span>{t.totalLoad}</span>
+          <strong><output data-total-load>0</output> {t.wattsUnit}</strong>
+          <i data-load-meter></i>
+        </article>
+        <article>
+          <span>{t.runtime}</span>
+          <strong><output data-runtime>0</output></strong>
+          <i data-runtime-meter></i>
+        </article>
+        <article>
+          <span>{t.recommendedUps}</span>
+          <strong><output data-recommended>0</output> {t.vaUnit}</strong>
+          <i data-va-meter></i>
+        </article>
+        <article>
+          <span>{t.usableEnergy}</span>
+          <strong><output data-usable-energy>0</output> {t.whUnit}</strong>
+          <i data-energy-meter></i>
+        </article>
+      </div>
+      <p class="ups-summary" data-summary></p>
+    </div>
+  </section>
+  <template data-trash-icon>
+    <Icon name="mdi:trash-can-outline" class="ups-trash-icon" />
+  </template>
+</div>
+
+<link rel="stylesheet" href="./ups-runtime-calculator.css" />
+
+<script>
+  interface Device {
+    name: string;
+    watts: number;
+  }
+  interface Config {
+    presetDesktop: string;
+    presetMonitor: string;
+    presetRouter: string;
+    presetNas: string;
+    deviceName: string;
+    watts: string;
+    remove: string;
+    bandLight: string;
+    bandBalanced: string;
+    bandHeavy: string;
+    summaryPrefix: string;
+    minutes: string;
+    hours: string;
+    wattsUnit: string;
+    percentUnit: string;
+    assumptionsLabel: string;
+  }
+  interface PersistedState {
+    devices?: Device[];
+    batteryWh?: string;
+    efficiency?: string;
+    powerFactor?: string;
+    reserve?: string;
+  }
+  type RuntimeStats = { totalWatts: number; usableWh: number; runtimeMinutes: number; recommendedWatts: number; recommendedVa: number };
+  const root = document.querySelector<HTMLElement>('.ups-root');
+  const storageKey = 'ups-runtime-calculator-state';
+  const config = JSON.parse(root?.dataset.config ?? '{}') as Config;
+  const defaultDevices: Device[] = [
+    { name: config.presetDesktop, watts: 260 },
+    { name: config.presetMonitor, watts: 45 },
+    { name: config.presetRouter, watts: 14 },
+    { name: config.presetNas, watts: 38 },
+  ];
+  const savedState = readState();
+  const devices: Device[] = Array.isArray(savedState.devices) && savedState.devices.length > 0
+    ? savedState.devices.map((device) => ({ name: String(device.name), watts: Number(device.watts) || 0 }))
+    : defaultDevices;
+  const els = {
+    devices: root?.querySelector<HTMLElement>('[data-devices]'),
+    add: root?.querySelector<HTMLButtonElement>('[data-add-device]'),
+    battery: root?.querySelector<HTMLInputElement>('[data-battery]'),
+    efficiency: root?.querySelector<HTMLInputElement>('[data-efficiency]'),
+    efficiencyLabel: root?.querySelector<HTMLElement>('[data-efficiency-label]'),
+    powerFactor: root?.querySelector<HTMLInputElement>('[data-power-factor]'),
+    powerFactorLabel: root?.querySelector<HTMLElement>('[data-power-factor-label]'),
+    reserve: root?.querySelector<HTMLInputElement>('[data-reserve]'),
+    reserveLabel: root?.querySelector<HTMLElement>('[data-reserve-label]'),
+    totalLoad: root?.querySelector<HTMLOutputElement>('[data-total-load]'),
+    runtime: root?.querySelector<HTMLOutputElement>('[data-runtime]'),
+    runtimeBig: root?.querySelector<HTMLElement>('[data-runtime-big]'),
+    runtimeUnit: root?.querySelector<HTMLElement>('[data-runtime-unit]'),
+    recommended: root?.querySelector<HTMLOutputElement>('[data-recommended]'),
+    usableEnergy: root?.querySelector<HTMLOutputElement>('[data-usable-energy]'),
+    summary: root?.querySelector<HTMLElement>('[data-summary]'),
+    loadBar: root?.querySelector<HTMLElement>('[data-load-bar]'),
+    loadMeter: root?.querySelector<HTMLElement>('[data-load-meter]'),
+    runtimeMeter: root?.querySelector<HTMLElement>('[data-runtime-meter]'),
+    vaMeter: root?.querySelector<HTMLElement>('[data-va-meter]'),
+    energyMeter: root?.querySelector<HTMLElement>('[data-energy-meter]'),
+    trashIcon: root?.querySelector<HTMLTemplateElement>('[data-trash-icon]'),
+  };
+  applySavedControls();
+  function readState(): PersistedState {
+    try {
+      return JSON.parse(localStorage.getItem(storageKey) ?? '{}') as PersistedState;
+    } catch {
+      return {};
+    }
+  }
+  function saveState() {
+    const nextState: PersistedState = {
+      devices,
+      batteryWh: els.battery?.value,
+      efficiency: els.efficiency?.value,
+      powerFactor: els.powerFactor?.value,
+      reserve: els.reserve?.value,
+    };
+    localStorage.setItem(storageKey, JSON.stringify(nextState));
+  }
+  function applySavedControls() {
+    [
+      [els.battery, savedState.batteryWh],
+      [els.efficiency, savedState.efficiency],
+      [els.powerFactor, savedState.powerFactor],
+      [els.reserve, savedState.reserve],
+    ].forEach(([input, value]) => applySavedValue(input as HTMLInputElement | null | undefined, value as string | undefined));
+  }
+  function applySavedValue(input: HTMLInputElement | null | undefined, value: string | undefined) {
+    if (input && value) {
+      input.value = value;
+    }
+  }
+  function calculate() {
+    const stats = getRuntimeStats();
+    updateLabels();
+    updateOutputs(stats);
+    updateMeters(stats);
+    saveState();
+  }
+  function getRuntimeStats(): RuntimeStats {
+    const totalWatts = devices.reduce((sum, device) => sum + Math.max(0, device.watts), 0);
+    const batteryWh = readNumber(els.battery, 0);
+    const efficiency = readNumber(els.efficiency, 86) / 100;
+    const reserve = readNumber(els.reserve, 20) / 100;
+    const powerFactor = readNumber(els.powerFactor, 70) / 100;
+    const usableWh = batteryWh * efficiency * (1 - reserve);
+    const runtimeMinutes = totalWatts > 0 ? (usableWh / totalWatts) * 60 : 0;
+    const recommendedWatts = Math.ceil((totalWatts * 1.25) / 10) * 10;
+    const recommendedVa = Math.ceil((recommendedWatts / powerFactor) / 50) * 50;
+    return { totalWatts, usableWh, runtimeMinutes, recommendedWatts, recommendedVa };
+  }
+  function updateLabels() {
+    const efficiency = readNumber(els.efficiency, 86) / 100;
+    const reserve = readNumber(els.reserve, 20) / 100;
+    const powerFactor = readNumber(els.powerFactor, 70) / 100;
+    els.efficiencyLabel!.textContent = `${Math.round(efficiency * 100)}${config.percentUnit}`;
+    els.powerFactorLabel!.textContent = powerFactor.toFixed(2);
+    els.reserveLabel!.textContent = `${Math.round(reserve * 100)}${config.percentUnit}`;
+  }
+
+  function updateOutputs(stats: RuntimeStats) {
+    const runtimeValue = getRuntimeValue(stats.runtimeMinutes);
+    const band = getBandText(stats.runtimeMinutes);
+    els.totalLoad!.textContent = stats.totalWatts.toFixed(0);
+    els.usableEnergy!.textContent = stats.usableWh.toFixed(0);
+    els.recommended!.textContent = stats.recommendedVa.toFixed(0);
+    els.runtime!.textContent = formatRuntime(stats.runtimeMinutes);
+    els.runtimeBig!.textContent = runtimeValue.value;
+    els.runtimeUnit!.textContent = runtimeValue.unit;
+    els.summary!.textContent = `${config.summaryPrefix} ${band} ${stats.recommendedVa.toFixed(0)} ${config.vaUnit} / ${stats.recommendedWatts.toFixed(0)} ${config.wattsUnit}.`;
+  }
+
+  function updateMeters(stats: RuntimeStats) {
+    const runtimeFill = clampFill(stats.runtimeMinutes * 2, 6);
+    const loadFill = clampFill(stats.totalWatts / 8, 8);
+    const vaFill = clampFill(stats.recommendedVa / 12, 8);
+    const energyFill = clampFill(stats.usableWh / 8, 8);
+    root?.style.setProperty('--ups-fill', `${runtimeFill}%`);
+    root?.style.setProperty('--ups-load-fill', `${loadFill}%`);
+    els.loadBar!.style.width = `${loadFill}%`;
+    els.loadMeter!.style.setProperty('--meter-fill', `${loadFill}%`);
+    els.runtimeMeter!.style.setProperty('--meter-fill', `${runtimeFill}%`);
+    els.vaMeter!.style.setProperty('--meter-fill', `${vaFill}%`);
+    els.energyMeter!.style.setProperty('--meter-fill', `${energyFill}%`);
+  }
+
+  function clampFill(value: number, min: number) {
+    return Math.max(min, Math.min(100, value));
+  }
+
+  function readNumber(input: HTMLInputElement | null | undefined, fallback: number) {
+    return input ? Number(input.value) : fallback;
+  }
+
+  function getRuntimeValue(minutes: number) {
+    if (minutes >= 60) {
+      return { value: (minutes / 60).toFixed(1), unit: config.hours };
+    }
+    return { value: minutes.toFixed(0), unit: config.minutes };
+  }
+
+  function getBandText(minutes: number) {
+    if (minutes >= 30) {
+      return config.bandLight;
+    }
+    if (minutes >= 12) {
+      return config.bandBalanced;
+    }
+    return config.bandHeavy;
+  }
+
+  function formatRuntime(minutes: number): string {
+    if (minutes >= 60) return `${(minutes / 60).toFixed(1)} ${config.hours}`;
+    return `${minutes.toFixed(0)} ${config.minutes}`;
+  }
+
+  function renderDevices() {
+    els.devices!.innerHTML = '';
+    devices.forEach((device, index) => els.devices!.append(createDeviceRow(device, index)));
+  }
+
+  function createDeviceRow(device: Device, index: number) {
+    const row = document.createElement('div');
+    const nameInput = createNameInput(device, index);
+    const wattsInput = createWattsInput(device, index);
+    row.className = 'ups-device';
+    row.append(nameInput, createWattsLabel(wattsInput), createRemoveButton(index));
+    return row;
+  }
+
+  function createNameInput(device: Device, index: number) {
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.className = 'ups-device-name';
+    input.ariaLabel = config.deviceName;
+    input.value = device.name;
+    input.addEventListener('input', () => {
+      devices[index]!.name = input.value;
+      saveState();
+    });
+    return input;
+  }
+
+  function createWattsInput(device: Device, index: number) {
+    const input = document.createElement('input');
+    input.type = 'number';
+    input.min = '0';
+    input.max = '2000';
+    input.step = '5';
+    input.value = String(device.watts);
+    input.addEventListener('input', () => {
+      devices[index]!.watts = Number(input.value);
+      calculate();
+    });
+    return input;
+  }
+
+  function createWattsLabel(input: HTMLInputElement) {
+    const label = document.createElement('label');
+    const text = document.createElement('span');
+    const field = document.createElement('span');
+    const unit = document.createElement('em');
+    text.textContent = config.watts;
+    field.className = 'ups-number-field';
+    unit.textContent = config.wattsUnit;
+    field.append(input, unit);
+    label.append(text, field);
+    return label;
+  }
+
+  function createRemoveButton(index: number) {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.ariaLabel = config.remove;
+    appendTrashIcon(button);
+    button.addEventListener('click', () => {
+      devices.splice(index, 1);
+      renderDevices();
+      calculate();
+    });
+    return button;
+  }
+
+  function appendTrashIcon(button: HTMLButtonElement) {
+    if (els.trashIcon?.content) button.append(els.trashIcon.content.cloneNode(true));
+  }
+
+  els.add?.addEventListener('click', () => {
+    devices.push({ name: config.deviceName, watts: 25 });
+    renderDevices();
+    calculate();
+  });
+  [els.battery, els.efficiency, els.powerFactor, els.reserve].forEach((input) => input?.addEventListener('input', calculate));
+
+  renderDevices();
+  calculate();
+</script>

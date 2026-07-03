@@ -10,10 +10,11 @@ import { toneGenerator } from '../tool/toneGenerator/index';
 import { refreshRateDetector } from '../tool/refreshRateDetector/index';
 import { monitorGhostingTest } from '../tool/monitorGhostingTest/index';
 import { spectrumCanvas } from '../tool/colorAccuracyTest/index';
+import { upsRuntimeCalculator } from '../tool/upsRuntimeCalculator/index';
 
 export const hardwareCategory: HardwareCategoryEntry = {
   icon: 'mdi:memory',
-  tools: [pixelesPantalla, testTeclado, testMando, probadorVibracionMando, testRaton, mouseDoubleClickTest, estimadorSaludBateria, toneGenerator, refreshRateDetector, monitorGhostingTest, spectrumCanvas],
+  tools: [pixelesPantalla, testTeclado, testMando, probadorVibracionMando, testRaton, mouseDoubleClickTest, estimadorSaludBateria, toneGenerator, refreshRateDetector, monitorGhostingTest, spectrumCanvas, upsRuntimeCalculator],
   i18n: {
     en: () => import('./i18n/en').then((m) => m.content),
     es: () => import('./i18n/es').then((m) => m.content),

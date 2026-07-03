@@ -1,0 +1,31 @@
+export interface UpsRuntimeCalculatorUI extends Record<string, string> {
+  loadTitle: string;
+  addDevice: string;
+  deviceName: string;
+  watts: string;
+  remove: string;
+  batteryWh: string;
+  efficiency: string;
+  powerFactor: string;
+  reserve: string;
+  totalLoad: string;
+  runtime: string;
+  recommendedUps: string;
+  usableEnergy: string;
+  minutes: string;
+  hours: string;
+  wattsUnit: string;
+  vaUnit: string;
+  whUnit: string;
+  percentUnit: string;
+  assumptionsLabel: string;
+  presetDesktop: string;
+  presetMonitor: string;
+  presetRouter: string;
+  presetNas: string;
+  percentUnit: string;
+  bandLight: string;
+  bandBalanced: string;
+  bandHeavy: string;
+  summaryPrefix: string;
+}
