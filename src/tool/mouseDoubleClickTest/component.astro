@@ -1,0 +1,135 @@
+---
+import type { KnownLocale } from '../../types';
+import type { MouseDoubleClickTestUI } from './ui';
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  locale?: KnownLocale;
+  ui?: Record<string, unknown>;
+}
+
+const { ui } = Astro.props;
+const t = (ui ?? {}) as MouseDoubleClickTestUI;
+---
+
+<div class="mdct-root" id="mdct-root" data-config={JSON.stringify({
+  statusIdle: t.statusIdle,
+  statusClean: t.statusClean,
+  statusWarning: t.statusWarning,
+  emptyLog: t.emptyLog,
+  leftButton: t.leftButton,
+  middleButton: t.middleButton,
+  rightButton: t.rightButton,
+  backButton: t.backButton,
+  forwardButton: t.forwardButton,
+  otherButton: t.otherButton,
+  thresholdUnit: t.thresholdUnit,
+  cleanEvent: t.cleanEvent,
+  suspiciousEvent: t.suspiciousEvent,
+})}>
+  <section class="mdct-card">
+    <div class="mdct-stage">
+      <button id="mdct-target" class="mdct-target" type="button">
+        <span class="mdct-mouse" aria-hidden="true">
+          <span class="mdct-cable"></span>
+          <span class="mdct-button mdct-left" data-button="left" data-label={t.leftButton}></span>
+          <span class="mdct-button mdct-right" data-button="right" data-label={t.rightButton}></span>
+          <span class="mdct-button mdct-middle" data-button="middle" data-label={t.middleButton}></span>
+          <span class="mdct-button mdct-back" data-button="back" data-label={t.backButton}></span>
+          <span class="mdct-button mdct-forward" data-button="forward" data-label={t.forwardButton}></span>
+          <span class="mdct-palm"></span>
+        </span>
+        <span class="mdct-target-copy">
+          <span class="mdct-target-kicker">
+            <Icon name="mdi:mouse" class="mdct-target-icon" />
+            {t.badge}
+          </span>
+          <strong>{t.clickTarget}</strong>
+          <small>{t.clickTargetHint}</small>
+        </span>
+      </button>
+
+      <div class="mdct-dashboard">
+        <div class="mdct-readout">
+          <span>{t.healthScore}</span>
+          <strong id="mdct-score">100%</strong>
+          <small id="mdct-status" data-state="clean">{t.statusIdle}</small>
+        </div>
+
+        <div class="mdct-metrics">
+          <div class="mdct-metric mdct-metric-total">
+            <span>{t.totalClicks}</span>
+            <strong id="mdct-total">0</strong>
+          </div>
+          <div class="mdct-metric mdct-metric-alert">
+            <span>{t.suspiciousClicks}</span>
+            <strong id="mdct-suspicious">0</strong>
+          </div>
+        </div>
+
+        <label class="mdct-threshold">
+          <span>{t.thresholdLabel}</span>
+          <b><span id="mdct-threshold-value">80</span> {t.thresholdUnit}</b>
+          <input id="mdct-threshold" type="range" min="30" max="180" value="80" step="5" />
+        </label>
+
+        <div class="mdct-speed-row">
+          <div>
+            <span>{t.fastestGap}</span>
+            <strong id="mdct-fastest">--</strong>
+          </div>
+          <div>
+            <span>{t.lastGap}</span>
+            <strong id="mdct-last-gap">--</strong>
+          </div>
+        </div>
+
+        <div class="mdct-log-head">
+          <span>{t.logTitle}</span>
+          <button id="mdct-reset" class="mdct-reset" type="button">{t.reset}</button>
+        </div>
+        <ol id="mdct-log" class="mdct-log"></ol>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+  import { MouseDoubleClickTester } from './logic';
+
+  const root = document.getElementById('mdct-root');
+  const labels = JSON.parse(root?.dataset.config ?? '{}');
+  const buttons = root?.querySelectorAll<HTMLElement>('.mdct-button') ?? document.querySelectorAll<HTMLElement>('.mdct-button');
+
+  new MouseDoubleClickTester(
+    {
+      target: document.getElementById('mdct-target'),
+      total: document.getElementById('mdct-total'),
+      suspicious: document.getElementById('mdct-suspicious'),
+      fastest: document.getElementById('mdct-fastest'),
+      score: document.getElementById('mdct-score'),
+      status: document.getElementById('mdct-status'),
+      threshold: document.getElementById('mdct-threshold') as HTMLInputElement | null,
+      thresholdValue: document.getElementById('mdct-threshold-value'),
+      lastGap: document.getElementById('mdct-last-gap'),
+      log: document.getElementById('mdct-log'),
+      reset: document.getElementById('mdct-reset'),
+      buttons,
+    },
+    {
+      statusIdle: labels.statusIdle,
+      statusClean: labels.statusClean,
+      statusWarning: labels.statusWarning,
+      emptyLog: labels.emptyLog,
+      leftButton: labels.leftButton,
+      middleButton: labels.middleButton,
+      rightButton: labels.rightButton,
+      backButton: labels.backButton,
+      forwardButton: labels.forwardButton,
+      otherButton: labels.otherButton,
+      thresholdUnit: labels.thresholdUnit,
+      cleanEvent: labels.cleanEvent,
+      suspiciousEvent: labels.suspiciousEvent,
+    },
+  );
+</script>

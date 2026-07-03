@@ -187,6 +187,11 @@ const testedClass = 'tt-key-tested';
     const activeKeys = new Set<string>();
     let maxSimultaneous = 0;
 
+    function scrollLogToEnd(el: HTMLElement) {
+      void el.offsetWidth;
+      el.scrollLeft = el.scrollWidth;
+    }
+
     const keyMap = new Map<string, Element>();
     keys.forEach((k) => {
       const code = k.getAttribute('data-code');
@@ -199,7 +204,7 @@ const testedClass = 'tt-key-tested';
       div.textContent = `${msg}`;
       eventLog.appendChild(div);
       if (eventLog.children.length > 50) eventLog.firstElementChild?.remove();
-      eventLog.scrollLeft = eventLog.scrollWidth;
+      scrollLogToEnd(eventLog);
     }
 
     function handleDown(e: KeyboardEvent) {

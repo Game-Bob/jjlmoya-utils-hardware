@@ -83,19 +83,19 @@ export class RatonManager {
   }
 
   private updateUI(hz: number, avg: number): void {
-    const { max, avg: avgEl, placeholder } = this.el;
+    const { max, avg: avgEl, placeholder, area } = this.el;
+    const rect = area?.getBoundingClientRect();
     if (max) max.textContent = Math.round(this.maxHz).toString();
     if (avgEl) avgEl.textContent = Math.round(avg).toString();
     if (placeholder) placeholder.style.opacity = '0';
-    this.updateFollower(hz);
+    this.updateFollower(hz, rect);
     this.updateGraph();
   }
 
-  private updateFollower(hz: number): void {
-    const { follower, area } = this.el;
-    if (!follower || !this.lastMouseEvent || !area) return;
+  private updateFollower(hz: number, rect: DOMRect | undefined): void {
+    const { follower } = this.el;
+    if (!follower || !this.lastMouseEvent || !rect) return;
     follower.textContent = `${Math.round(hz)} Hz`;
-    const rect = area.getBoundingClientRect();
     const x: number = this.lastMouseEvent.clientX - rect.left + 15;
     const y: number = this.lastMouseEvent.clientY - rect.top + 15;
     follower.style.transform = `translate(${x}px, ${y}px)`;

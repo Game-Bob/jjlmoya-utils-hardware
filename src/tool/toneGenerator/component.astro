@@ -39,7 +39,7 @@ const S = JSON.stringify({ bp: t.btnPlay, bs: t.btnStop });
 
       <div class="tg-section">
         <div class="tg-section-header">
-          <label class="tg-label">{t.freqLabel}</label>
+          <label class="tg-label" for="tg-freq">{t.freqLabel}</label>
           <div class="tg-presets">
             <button class="tg-preset" data-val="60">{t.preset60}</button>
             <button class="tg-preset" data-val="440">{t.preset440}</button>
@@ -73,7 +73,7 @@ const S = JSON.stringify({ bp: t.btnPlay, bs: t.btnStop });
         </div>
 
         <div class="tg-section">
-          <label class="tg-label">{t.volLabel}</label>
+          <label class="tg-label" for="tg-vol">{t.volLabel}</label>
           <div class="tg-vol-row">
             <Icon name="mdi:volume-high" class="tg-vol-icon" />
             <input type="range" id="tg-vol" class="tg-slider tg-vol-slider" min="0" max="1" value="0.5" step="0.01" />
@@ -131,11 +131,6 @@ const S = JSON.stringify({ bp: t.btnPlay, bs: t.btnStop });
       return true;
     }
 
-    function updateUI(playing: boolean): void {
-      if (toggleBtn) toggleBtn.dataset.playing = playing ? 'true' : 'false';
-      if (btnText) btnText.textContent = playing ? BS : BP;
-    }
-
     function resizeCanvas(): void {
       if (!canvas) return;
       const parent = canvas.parentElement;
@@ -143,6 +138,11 @@ const S = JSON.stringify({ bp: t.btnPlay, bs: t.btnStop });
       const rect = parent.getBoundingClientRect();
       if (canvas.width !== rect.width) canvas.width = rect.width;
       if (canvas.height !== rect.height) canvas.height = rect.height;
+    }
+
+    function updateUI(playing: boolean): void {
+      if (toggleBtn) toggleBtn.dataset.playing = playing ? 'true' : 'false';
+      if (btnText) btnText.textContent = playing ? BS : BP;
     }
 
     function drawWave(w: number, h: number, data: Uint8Array): void {

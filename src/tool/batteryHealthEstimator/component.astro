@@ -37,7 +37,7 @@ const S = JSON.stringify({
         <div class="bh-sliders">
           <div class="bh-slider-group">
             <div class="bh-slider-header">
-              <label class="bh-slider-label">{t.voltageLabel}</label>
+              <label for="bh-v" class="bh-slider-label">{t.voltageLabel}</label>
               <span id="bh-v-val" class="bh-slider-val">3.70V</span>
             </div>
             <input type="range" id="bh-v" class="bh-slider" min="3.0" max="4.2" step="0.01" value="3.70" />
@@ -46,7 +46,7 @@ const S = JSON.stringify({
 
           <div class="bh-slider-group">
             <div class="bh-slider-header">
-              <label class="bh-slider-label">{t.cyclesLabel}</label>
+              <label for="bh-c" class="bh-slider-label">{t.cyclesLabel}</label>
               <span id="bh-c-val" class="bh-slider-val">50</span>
             </div>
             <input type="range" id="bh-c" class="bh-slider" min="0" max="1000" step="1" value="50" />
@@ -54,7 +54,7 @@ const S = JSON.stringify({
 
           <div class="bh-slider-group">
             <div class="bh-slider-header">
-              <label class="bh-slider-label">{t.tempLabel}</label>
+              <label for="bh-t" class="bh-slider-label">{t.tempLabel}</label>
               <span id="bh-t-val" class="bh-slider-val">25°C</span>
             </div>
             <input type="range" id="bh-t" class="bh-slider" min="0" max="60" step="1" value="25" />

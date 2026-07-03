@@ -113,7 +113,7 @@ const t = (ui ?? {}) as ProbadorVibracionMandoUI;
 
         <div class="pv-slider-group">
           <div class="pv-slider-header">
-            <span>{t.customStrongLabel}</span>
+            <label for="pv-inp-str">{t.customStrongLabel}</label>
             <span id="pv-sl-str" class="pv-slider-val">100%</span>
           </div>
           <input type="range" class="pv-slider" id="pv-inp-str" min="0" max="1" step="0.05" value="1.0" />
@@ -121,7 +121,7 @@ const t = (ui ?? {}) as ProbadorVibracionMandoUI;
 
         <div class="pv-slider-group">
           <div class="pv-slider-header">
-            <span>{t.customWeakLabel}</span>
+            <label for="pv-inp-wk">{t.customWeakLabel}</label>
             <span id="pv-sl-wk" class="pv-slider-val">100%</span>
           </div>
           <input type="range" class="pv-slider" id="pv-inp-wk" min="0" max="1" step="0.05" value="1.0" />
@@ -129,7 +129,7 @@ const t = (ui ?? {}) as ProbadorVibracionMandoUI;
 
         <div class="pv-slider-group">
           <div class="pv-slider-header">
-            <span>{t.customDurationLabel}</span>
+            <label for="pv-inp-dur">{t.customDurationLabel}</label>
             <span id="pv-sl-dur" class="pv-slider-val">500ms</span>
           </div>
           <input type="range" class="pv-slider" id="pv-inp-dur" min="50" max="2500" step="50" value="500" />

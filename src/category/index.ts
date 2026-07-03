@@ -4,6 +4,7 @@ import { testTeclado } from '../tool/keyboardTest/index';
 import { testMando } from '../tool/gamepadTest/index';
 import { probadorVibracionMando } from '../tool/gamepadVibrationTester/index';
 import { testRaton } from '../tool/mousePollingTest/index';
+import { mouseDoubleClickTest } from '../tool/mouseDoubleClickTest/index';
 import { estimadorSaludBateria } from '../tool/batteryHealthEstimator/index';
 import { toneGenerator } from '../tool/toneGenerator/index';
 import { refreshRateDetector } from '../tool/refreshRateDetector/index';
@@ -11,7 +12,7 @@ import { spectrumCanvas } from '../tool/colorAccuracyTest/index';
 
 export const hardwareCategory: HardwareCategoryEntry = {
   icon: 'mdi:memory',
-  tools: [pixelesPantalla, testTeclado, testMando, probadorVibracionMando, testRaton, estimadorSaludBateria, toneGenerator, refreshRateDetector, spectrumCanvas],
+  tools: [pixelesPantalla, testTeclado, testMando, probadorVibracionMando, testRaton, mouseDoubleClickTest, estimadorSaludBateria, toneGenerator, refreshRateDetector, spectrumCanvas],
   i18n: {
     en: () => import('./i18n/en').then((m) => m.content),
     es: () => import('./i18n/es').then((m) => m.content),

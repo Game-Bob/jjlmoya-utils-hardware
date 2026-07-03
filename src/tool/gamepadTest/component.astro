@@ -341,11 +341,12 @@ const t = (ui ?? {}) as TestMandoUI;
       (targetBtn as HTMLElement).style.background = currentTarget.color;
       (targetBtn as HTMLElement).style.color = 'white';
       targetBtn.classList.remove('tm-target-hidden', 'tm-target-pop');
-      void targetBtn.offsetWidth;
-      targetBtn.classList.add('tm-target-pop');
       targetLabel.textContent = currentTarget.label;
       targetSub.textContent = currentTarget.type === 'axis' ? LABEL_MOVE : LABEL_PRESS;
-      setTimeout(() => targetBtn.classList.remove('tm-target-pop'), 300);
+      requestAnimationFrame(() => {
+        targetBtn?.classList.add('tm-target-pop');
+        setTimeout(() => targetBtn?.classList.remove('tm-target-pop'), 300);
+      });
     }
     function startTimer() {
       timeLeft = 30;
