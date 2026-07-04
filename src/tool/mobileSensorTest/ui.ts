@@ -1,0 +1,31 @@
+export interface MobileSensorTestUI extends Record<string, string> {
+  startButton: string;
+  permissionHint: string;
+  privacyBadge: string;
+  privacyCopy: string;
+  orientationPanel: string;
+  motionPanel: string;
+  bubblePanel: string;
+  statusReady: string;
+  statusWaiting: string;
+  statusDenied: string;
+  statusUnsupported: string;
+  statusActive: string;
+  steadyLabel: string;
+  movingLabel: string;
+  shakingLabel: string;
+  alphaLabel: string;
+  betaLabel: string;
+  gammaLabel: string;
+  accelXLabel: string;
+  accelYLabel: string;
+  accelZLabel: string;
+  rotationAlphaLabel: string;
+  rotationBetaLabel: string;
+  rotationGammaLabel: string;
+  levelOffsetLabel: string;
+  motionMagnitudeLabel: string;
+  cubeLabel: string;
+  bubbleLabel: string;
+  calibrationLabel: string;
+}

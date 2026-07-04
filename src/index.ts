@@ -35,3 +35,4 @@ export { WEB_BLUETOOTH_BLE_SCANNER_TOOL } from './tool/webBluetoothBleScanner/in
 export { KEYBOARD_CHATTER_TEST_TOOL } from './tool/keyboardChatterTest/index';
 export { WEB_USB_SERIAL_MONITOR_TOOL } from './tool/webUsbSerialMonitor/index';
 export { USB_POWER_BUDGET_CALCULATOR_TOOL } from './tool/usbPowerBudgetCalculator/index';
+export { MOBILE_SENSOR_TEST_TOOL } from './tool/mobileSensorTest/index';

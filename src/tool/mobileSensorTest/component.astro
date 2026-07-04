@@ -1,0 +1,241 @@
+---
+import type { KnownLocale } from '../../types';
+import type { MobileSensorTestUI } from './ui';
+import './mobile-sensor-test.css';
+
+interface Props {
+  locale?: KnownLocale;
+  ui?: Record<string, unknown>;
+}
+
+const { ui } = Astro.props;
+const t = (ui ?? {}) as MobileSensorTestUI;
+const strings = JSON.stringify(t);
+---
+
+<div class="mst-shell" id="mst-root" data-ui={strings} data-state="ready">
+  <div class="mst-stage">
+    <div class="mst-privacy">
+      <strong>{t.privacyBadge}</strong>
+      <span>{t.privacyCopy}</span>
+    </div>
+
+    <button class="mst-start" type="button" id="mst-start">
+      <span>{t.startButton}</span>
+      <small>{t.permissionHint}</small>
+    </button>
+
+    <div class="mst-status" id="mst-status">{t.statusReady}</div>
+
+    <div class="mst-orbit" aria-label={t.cubeLabel}>
+      <div class="mst-cube" id="mst-cube">
+        <span class="mst-face mst-face-front"></span>
+        <span class="mst-face mst-face-back"></span>
+        <span class="mst-face mst-face-right"></span>
+        <span class="mst-face mst-face-left"></span>
+        <span class="mst-face mst-face-top"></span>
+        <span class="mst-face mst-face-bottom"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="mst-panels">
+    <section class="mst-panel mst-bubble-card">
+      <div class="mst-panel-top">
+        <span>{t.bubblePanel}</span>
+        <strong id="mst-stability">{t.steadyLabel}</strong>
+      </div>
+      <div class="mst-bubble" aria-label={t.bubbleLabel}>
+        <span id="mst-bubble-dot"></span>
+        <i></i>
+        <b></b>
+      </div>
+      <div class="mst-readout">
+        <span>{t.levelOffsetLabel}</span>
+        <strong id="mst-level"></strong>
+      </div>
+    </section>
+
+    <section class="mst-panel">
+      <div class="mst-panel-top">
+        <span>{t.orientationPanel}</span>
+        <strong>{t.calibrationLabel}</strong>
+      </div>
+      <div class="mst-axis-grid">
+        <div><span>{t.alphaLabel}</span><strong id="mst-alpha"></strong></div>
+        <div><span>{t.betaLabel}</span><strong id="mst-beta"></strong></div>
+        <div><span>{t.gammaLabel}</span><strong id="mst-gamma"></strong></div>
+      </div>
+    </section>
+
+    <section class="mst-panel">
+      <div class="mst-panel-top">
+        <span>{t.motionPanel}</span>
+        <strong id="mst-motion-total"></strong>
+      </div>
+      <div class="mst-bars">
+        <label><span>{t.accelXLabel}</span><i><b id="mst-accel-x"></b></i><strong id="mst-accel-x-value"></strong></label>
+        <label><span>{t.accelYLabel}</span><i><b id="mst-accel-y"></b></i><strong id="mst-accel-y-value"></strong></label>
+        <label><span>{t.accelZLabel}</span><i><b id="mst-accel-z"></b></i><strong id="mst-accel-z-value"></strong></label>
+      </div>
+      <div class="mst-rotation-grid">
+        <div><span>{t.rotationAlphaLabel}</span><strong id="mst-rot-alpha"></strong></div>
+        <div><span>{t.rotationBetaLabel}</span><strong id="mst-rot-beta"></strong></div>
+        <div><span>{t.rotationGammaLabel}</span><strong id="mst-rot-gamma"></strong></div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    import { assessMobileSensors, clamp, safeNumber } from './logic';
+
+    const root = document.getElementById('mst-root') as HTMLElement | null;
+    const ui = JSON.parse(root?.dataset.ui ?? '{}') as Record<string, string>;
+    const startButton = document.getElementById('mst-start') as HTMLButtonElement | null;
+    const status = document.getElementById('mst-status');
+    const cube = document.getElementById('mst-cube') as HTMLElement | null;
+    const bubble = document.getElementById('mst-bubble-dot') as HTMLElement | null;
+    const stability = document.getElementById('mst-stability');
+    const fields = {
+      alpha: document.getElementById('mst-alpha'),
+      beta: document.getElementById('mst-beta'),
+      gamma: document.getElementById('mst-gamma'),
+      level: document.getElementById('mst-level'),
+      motionTotal: document.getElementById('mst-motion-total'),
+      accelX: document.getElementById('mst-accel-x') as HTMLElement | null,
+      accelY: document.getElementById('mst-accel-y') as HTMLElement | null,
+      accelZ: document.getElementById('mst-accel-z') as HTMLElement | null,
+      accelXValue: document.getElementById('mst-accel-x-value'),
+      accelYValue: document.getElementById('mst-accel-y-value'),
+      accelZValue: document.getElementById('mst-accel-z-value'),
+      rotAlpha: document.getElementById('mst-rot-alpha'),
+      rotBeta: document.getElementById('mst-rot-beta'),
+      rotGamma: document.getElementById('mst-rot-gamma'),
+    };
+
+    const snapshot = {
+      alpha: 0,
+      beta: 0,
+      gamma: 0,
+      accelerationX: 0,
+      accelerationY: 0,
+      accelerationZ: 0,
+      rotationAlpha: 0,
+      rotationBeta: 0,
+      rotationGamma: 0,
+    };
+
+    function setText(el: HTMLElement | null, value: string) {
+      if (el) el.textContent = value;
+    }
+
+    function setState(state: string, label: string) {
+      if (root) root.dataset.state = state;
+      setText(status, label);
+    }
+
+    function formatDegrees(value: number) {
+      return `${value.toFixed(1)} deg`;
+    }
+
+    function setBar(el: HTMLElement | null, value: number) {
+      if (!el) return;
+      const width = clamp(Math.abs(value) / 24 * 100, 2, 100);
+      el.style.width = `${width}%`;
+      el.style.transform = value < 0 ? 'scaleX(-1)' : 'scaleX(1)';
+    }
+
+    function render() {
+      const assessment = assessMobileSensors(snapshot);
+      const bubbleX = clamp(snapshot.gamma / 45 * 50, -42, 42);
+      const bubbleY = clamp(snapshot.beta / 45 * 50, -42, 42);
+      const stabilityText = ui[`${assessment.stability}Label`] ?? ui.steadyLabel ?? '';
+
+      setText(fields.alpha, formatDegrees(snapshot.alpha));
+      setText(fields.beta, formatDegrees(snapshot.beta));
+      setText(fields.gamma, formatDegrees(snapshot.gamma));
+      setText(fields.level, formatDegrees(assessment.levelOffset));
+      setText(fields.motionTotal, `${assessment.motionMagnitude.toFixed(1)} m/s2`);
+      setText(fields.accelXValue, snapshot.accelerationX.toFixed(1));
+      setText(fields.accelYValue, snapshot.accelerationY.toFixed(1));
+      setText(fields.accelZValue, snapshot.accelerationZ.toFixed(1));
+      setText(fields.rotAlpha, snapshot.rotationAlpha.toFixed(1));
+      setText(fields.rotBeta, snapshot.rotationBeta.toFixed(1));
+      setText(fields.rotGamma, snapshot.rotationGamma.toFixed(1));
+      setText(stability, stabilityText);
+      setBar(fields.accelX, snapshot.accelerationX);
+      setBar(fields.accelY, snapshot.accelerationY);
+      setBar(fields.accelZ, snapshot.accelerationZ);
+
+      if (bubble) bubble.style.transform = `translate(calc(-50% + ${bubbleX}px), calc(-50% + ${bubbleY}px))`;
+      if (cube) cube.style.transform = `rotateZ(${snapshot.alpha}deg) rotateX(${snapshot.beta}deg) rotateY(${snapshot.gamma}deg)`;
+    }
+
+    function onOrientation(event: DeviceOrientationEvent) {
+      snapshot.alpha = safeNumber(event.alpha);
+      snapshot.beta = safeNumber(event.beta);
+      snapshot.gamma = safeNumber(event.gamma);
+      render();
+    }
+
+    function onMotion(event: DeviceMotionEvent) {
+      snapshot.accelerationX = safeNumber(event.accelerationIncludingGravity?.x);
+      snapshot.accelerationY = safeNumber(event.accelerationIncludingGravity?.y);
+      snapshot.accelerationZ = safeNumber(event.accelerationIncludingGravity?.z);
+      snapshot.rotationAlpha = safeNumber(event.rotationRate?.alpha);
+      snapshot.rotationBeta = safeNumber(event.rotationRate?.beta);
+      snapshot.rotationGamma = safeNumber(event.rotationRate?.gamma);
+      render();
+    }
+
+    function hasSensorSupport() {
+      return 'DeviceOrientationEvent' in window || 'DeviceMotionEvent' in window;
+    }
+
+    async function requestEventPermission(eventConstructor: unknown): Promise<PermissionState> {
+      const eventWithPermission = eventConstructor as { requestPermission?: () => Promise<PermissionState> };
+      if (typeof eventWithPermission.requestPermission !== 'function') return 'granted';
+      return eventWithPermission.requestPermission();
+    }
+
+    async function requestRequiredPermissions() {
+      const orientationPermission = await requestEventPermission(window.DeviceOrientationEvent);
+      const motionPermission = await requestEventPermission(window.DeviceMotionEvent);
+
+      return orientationPermission === 'granted' && motionPermission === 'granted';
+    }
+
+    function activateSensors() {
+      window.addEventListener('deviceorientation', onOrientation);
+      window.addEventListener('devicemotion', onMotion);
+      startButton?.setAttribute('disabled', 'true');
+      setState('active', ui.statusActive ?? '');
+    }
+
+    async function requestSensorAccess() {
+      if (!hasSensorSupport()) {
+        setState('unsupported', ui.statusUnsupported ?? '');
+        return;
+      }
+
+      setState('waiting', ui.statusWaiting ?? '');
+
+      try {
+        if (!(await requestRequiredPermissions())) {
+          setState('denied', ui.statusDenied ?? '');
+          return;
+        }
+
+        activateSensors();
+      } catch {
+        setState('denied', ui.statusDenied ?? '');
+      }
+    }
+
+    startButton?.addEventListener('click', () => {
+      void requestSensorAccess();
+    });
+
+    render();
+  </script>
+</div>
