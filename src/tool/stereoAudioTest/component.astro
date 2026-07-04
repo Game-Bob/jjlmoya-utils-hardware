@@ -1,0 +1,251 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { KnownLocale } from '../../types';
+import type { StereoAudioTestUI } from './ui';
+
+interface Props {
+  locale?: KnownLocale;
+  ui?: Record<string, unknown>;
+}
+
+const { ui } = Astro.props;
+const t = (ui ?? {}) as StereoAudioTestUI;
+---
+
+<div
+  class="sat-root"
+  data-config={JSON.stringify({
+    left: t.left,
+    center: t.center,
+    right: t.right,
+    sweep: t.sweep,
+    stop: t.stop,
+    activeIdle: t.activeIdle,
+    activeLeft: t.activeLeft,
+    activeCenter: t.activeCenter,
+    activeRight: t.activeRight,
+    activeSweep: t.activeSweep,
+    secondsUnit: t.secondsUnit,
+  })}
+>
+  <section class="sat-panel">
+    <div class="sat-stage" aria-live="polite">
+      <div class="sat-speaker sat-left">
+        <span></span>
+        <strong>{t.leftSpeaker}</strong>
+      </div>
+      <div class="sat-orbit" aria-hidden="true">
+        <i data-dot></i>
+        <b>{t.centerLine}</b>
+      </div>
+      <div class="sat-speaker sat-right">
+        <span></span>
+        <strong>{t.rightSpeaker}</strong>
+      </div>
+    </div>
+
+    <div class="sat-controls">
+      <div class="sat-buttons">
+        <button type="button" data-play="left"><Icon name="mdi:play" />{t.left}</button>
+        <button type="button" data-play="center"><Icon name="mdi:play" />{t.center}</button>
+        <button type="button" data-play="right"><Icon name="mdi:play" />{t.right}</button>
+        <button type="button" data-play="sweep"><Icon name="mdi:play" />{t.sweep}</button>
+        <button type="button" data-stop>{t.stop}</button>
+      </div>
+
+      <div class="sat-sliders">
+        <label class="sat-control-row">
+          <span>{t.volume}</span>
+          <strong data-volume-label>24%</strong>
+          <input data-volume type="range" min="1" max="80" value="24" />
+        </label>
+        <label class="sat-control-row" data-duration-control>
+          <span>{t.duration}</span>
+          <strong><output data-duration-label>3</output>{t.secondsUnit}</strong>
+          <input data-duration type="range" min="1" max="8" value="3" />
+        </label>
+        <label class="sat-control-row">
+          <span>{t.tone}</span>
+          <strong><output data-frequency-label>520</output>{t.hertzUnit}</strong>
+          <input data-frequency type="range" min="220" max="1200" step="10" value="520" />
+        </label>
+      </div>
+
+      <label class="sat-loop">
+        <input data-loop type="checkbox" />
+        <span>
+          <strong>{t.infiniteMode}</strong>
+          <em>{t.infiniteModeHint}</em>
+        </span>
+      </label>
+
+      <div class="sat-readout">
+        <span>{t.balance}</span>
+        <strong data-status>{t.activeIdle}</strong>
+        <meter min="-1" max="1" low="-0.65" high="0.65" optimum="0" value="0" data-meter></meter>
+      </div>
+      <p>{t.safety}</p>
+    </div>
+  </section>
+</div>
+
+<link rel="stylesheet" href="./stereo-audio-test.css" />
+
+<script>
+  type Channel = 'left' | 'center' | 'right' | 'sweep';
+  interface Config {
+    left: string;
+    center: string;
+    right: string;
+    sweep: string;
+    stop: string;
+    activeIdle: string;
+    activeLeft: string;
+    activeCenter: string;
+    activeRight: string;
+    activeSweep: string;
+    secondsUnit: string;
+  }
+
+  const root = document.querySelector<HTMLElement>('.sat-root');
+  const config = JSON.parse(root?.dataset.config ?? '{}') as Config;
+  const audioState: {
+    context?: AudioContext;
+    oscillator?: OscillatorNode;
+    gain?: GainNode;
+    stopTimer?: number;
+    sweepTimer?: number;
+  } = {};
+  const els = {
+    dot: root?.querySelector<HTMLElement>('[data-dot]'),
+    meter: root?.querySelector<HTMLMeterElement>('[data-meter]'),
+    status: root?.querySelector<HTMLElement>('[data-status]'),
+    volume: root?.querySelector<HTMLInputElement>('[data-volume]'),
+    volumeLabel: root?.querySelector<HTMLElement>('[data-volume-label]'),
+    duration: root?.querySelector<HTMLInputElement>('[data-duration]'),
+    durationControl: root?.querySelector<HTMLElement>('[data-duration-control]'),
+    durationLabel: root?.querySelector<HTMLOutputElement>('[data-duration-label]'),
+    frequency: root?.querySelector<HTMLInputElement>('[data-frequency]'),
+    frequencyLabel: root?.querySelector<HTMLOutputElement>('[data-frequency-label]'),
+    loop: root?.querySelector<HTMLInputElement>('[data-loop]'),
+  };
+
+  function ensureContext() {
+    audioState.context ??= new AudioContext();
+    return audioState.context;
+  }
+
+  function play(channel: Channel) {
+    stop();
+    const context = ensureContext();
+    const oscillator = context.createOscillator();
+    const gain = context.createGain();
+    const panner = context.createStereoPanner();
+    const duration = readNumber(els.duration, 3);
+    const volume = readNumber(els.volume, 24) / 100;
+    const frequency = readNumber(els.frequency, 520);
+
+    oscillator.type = 'sine';
+    oscillator.frequency.value = frequency;
+    gain.gain.setValueAtTime(0.0001, context.currentTime);
+    gain.gain.exponentialRampToValueAtTime(Math.max(0.0001, volume), context.currentTime + 0.03);
+    oscillator.connect(gain).connect(panner).connect(context.destination);
+    oscillator.start();
+    audioState.oscillator = oscillator;
+    audioState.gain = gain;
+
+    const shouldLoop = Boolean(els.loop?.checked);
+    if (channel === 'sweep') {
+      runSweep(panner, duration);
+    } else {
+      setPan(panner, getPan(channel));
+    }
+    if (!shouldLoop) {
+      gain.gain.exponentialRampToValueAtTime(0.0001, context.currentTime + duration);
+      oscillator.stop(context.currentTime + duration + 0.05);
+      audioState.stopTimer = window.setTimeout(stop, (duration + 0.08) * 1000);
+    }
+    setStatus(channel);
+  }
+
+  function runSweep(panner: StereoPannerNode, duration: number) {
+    const start = performance.now();
+    const tick = (now: number) => {
+      const progress = ((now - start) % (duration * 1000)) / (duration * 1000);
+      const pan = Math.sin(progress * Math.PI * 2);
+      setPan(panner, pan);
+      audioState.sweepTimer = requestAnimationFrame(tick);
+    };
+    audioState.sweepTimer = requestAnimationFrame(tick);
+  }
+
+  function setPan(panner: StereoPannerNode, pan: number) {
+    panner.pan.value = pan;
+    root?.style.setProperty('--sat-pan', String(pan));
+    els.meter!.value = pan;
+  }
+
+  function getPan(channel: Channel) {
+    if (channel === 'left') return -1;
+    if (channel === 'right') return 1;
+    return 0;
+  }
+
+  function stop() {
+    if (audioState.stopTimer) window.clearTimeout(audioState.stopTimer);
+    if (audioState.sweepTimer) cancelAnimationFrame(audioState.sweepTimer);
+    if (audioState.oscillator) {
+      try {
+        audioState.oscillator.stop();
+      } catch {
+      }
+      audioState.oscillator = undefined;
+    }
+    audioState.gain = undefined;
+    root?.style.setProperty('--sat-pan', '0');
+    if (els.meter) els.meter.value = 0;
+    if (els.status) els.status.textContent = config.activeIdle;
+  }
+
+  function setStatus(channel: Channel) {
+    const labels = {
+      left: config.activeLeft,
+      center: config.activeCenter,
+      right: config.activeRight,
+      sweep: config.activeSweep,
+    };
+    if (els.status) els.status.textContent = labels[channel];
+  }
+
+  function readNumber(input: HTMLInputElement | null | undefined, fallback: number) {
+    return input ? Number(input.value) : fallback;
+  }
+
+  function syncLabels() {
+    if (els.volumeLabel && els.volume) els.volumeLabel.textContent = `${els.volume.value}%`;
+    if (els.durationLabel && els.duration) els.durationLabel.textContent = els.duration.value;
+    if (els.frequencyLabel && els.frequency) els.frequencyLabel.textContent = els.frequency.value;
+    syncLoopState();
+    updateActiveVolume();
+  }
+
+  function syncLoopState() {
+    const isLooping = Boolean(els.loop?.checked);
+    if (els.duration) els.duration.disabled = isLooping;
+    els.durationControl?.classList.toggle('is-disabled', isLooping);
+  }
+
+  function updateActiveVolume() {
+    if (!audioState.context || !audioState.gain || !els.volume) return;
+    const volume = Math.max(0.0001, Number(els.volume.value) / 100);
+    audioState.gain.gain.setTargetAtTime(volume, audioState.context.currentTime, 0.015);
+  }
+
+  root?.querySelectorAll<HTMLButtonElement>('[data-play]').forEach((button) => {
+    button.addEventListener('click', () => play(button.dataset.play as Channel));
+  });
+  root?.querySelector<HTMLButtonElement>('[data-stop]')?.addEventListener('click', stop);
+  [els.volume, els.duration, els.frequency].forEach((input) => input?.addEventListener('input', syncLabels));
+  els.loop?.addEventListener('change', syncLabels);
+  syncLabels();
+</script>
