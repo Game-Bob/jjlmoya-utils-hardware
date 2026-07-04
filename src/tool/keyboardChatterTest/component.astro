@@ -1,0 +1,353 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { KnownLocale } from '../../types';
+import type { KeyboardChatterTestUI } from './ui';
+
+interface Props {
+  locale?: KnownLocale;
+  ui?: Record<string, unknown>;
+}
+
+const { ui } = Astro.props;
+const t = (ui ?? {}) as KeyboardChatterTestUI;
+---
+
+<div
+  class="kct-root"
+  data-config={JSON.stringify({
+    statusIdle: t.statusIdle,
+    statusListening: t.statusListening,
+    statusChatter: t.statusChatter,
+    normal: t.normal,
+    suspect: t.suspect,
+    chatter: t.chatter,
+    waiting: t.waiting,
+    spaceKey: t.spaceKey,
+    csvHeader: t.csvHeader,
+  })}
+>
+  <section class="kct-panel" tabindex="0" aria-live="polite">
+    <div class="kct-console">
+      <div class="kct-actions">
+        <button type="button" data-clear title={t.clear} aria-label={t.clear}>
+          <Icon name="mdi:trash-can-outline" />
+        </button>
+        <button type="button" data-export title={t.exportLog} aria-label={t.exportLog}>
+          <Icon name="mdi:download" />
+        </button>
+      </div>
+
+      <div class="kct-readout">
+        <span data-status>{t.statusIdle}</span>
+        <strong data-live-key>{t.waiting}</strong>
+        <em>{t.captureNotice}</em>
+      </div>
+
+      <div class="kct-gauge" aria-hidden="true">
+        <span data-pulse></span>
+        <i>50</i>
+        <i>30</i>
+      </div>
+
+      <div class="kct-strip" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <div class="kct-keyboard" aria-label={t.keyboardAriaLabel}>
+      <kbd data-key="Escape">{t.escapeKey}</kbd>
+      <kbd data-key="Digit1">1</kbd>
+      <kbd data-key="Digit2">2</kbd>
+      <kbd data-key="Digit3">3</kbd>
+      <kbd data-key="Digit4">4</kbd>
+      <kbd data-key="Digit5">5</kbd>
+      <kbd data-key="Digit6">6</kbd>
+      <kbd data-key="Digit7">7</kbd>
+      <kbd data-key="Digit8">8</kbd>
+      <kbd data-key="Digit9">9</kbd>
+      <kbd data-key="Digit0">0</kbd>
+      <kbd data-key="Backspace" class="wide">{t.backspaceKey}</kbd>
+      <kbd data-key="Tab" class="wide">{t.tabKey}</kbd>
+      <kbd data-key="KeyQ">Q</kbd>
+      <kbd data-key="KeyW">W</kbd>
+      <kbd data-key="KeyE">E</kbd>
+      <kbd data-key="KeyR">R</kbd>
+      <kbd data-key="KeyT">T</kbd>
+      <kbd data-key="KeyY">Y</kbd>
+      <kbd data-key="KeyU">U</kbd>
+      <kbd data-key="KeyI">I</kbd>
+      <kbd data-key="KeyO">O</kbd>
+      <kbd data-key="KeyP">P</kbd>
+      <kbd data-key="Enter" class="wide">{t.enterKey}</kbd>
+      <kbd data-key="CapsLock" class="wide">{t.capsLockKey}</kbd>
+      <kbd data-key="KeyA">A</kbd>
+      <kbd data-key="KeyS">S</kbd>
+      <kbd data-key="KeyD">D</kbd>
+      <kbd data-key="KeyF">F</kbd>
+      <kbd data-key="KeyG">G</kbd>
+      <kbd data-key="KeyH">H</kbd>
+      <kbd data-key="KeyJ">J</kbd>
+      <kbd data-key="KeyK">K</kbd>
+      <kbd data-key="KeyL">L</kbd>
+      <kbd data-key="ShiftLeft" class="wide">{t.shiftKey}</kbd>
+      <kbd data-key="KeyZ">Z</kbd>
+      <kbd data-key="KeyX">X</kbd>
+      <kbd data-key="KeyC">C</kbd>
+      <kbd data-key="KeyV">V</kbd>
+      <kbd data-key="KeyB">B</kbd>
+      <kbd data-key="KeyN">N</kbd>
+      <kbd data-key="KeyM">M</kbd>
+      <kbd data-key="ShiftRight" class="wide">{t.shiftKey}</kbd>
+      <kbd data-key="ControlLeft">{t.controlKey}</kbd>
+      <kbd data-key="MetaLeft">{t.metaKey}</kbd>
+      <kbd data-key="AltLeft">{t.altKey}</kbd>
+      <kbd data-key="Space" class="space">{t.spaceKey}</kbd>
+      <kbd data-key="AltRight">{t.altKey}</kbd>
+      <kbd data-key="MetaRight">{t.metaKey}</kbd>
+      <kbd data-key="ControlRight">{t.controlKey}</kbd>
+    </div>
+
+    <div class="kct-metrics">
+      <article>
+        <span>{t.totalPresses}</span>
+        <strong data-total>0</strong>
+      </article>
+      <article>
+        <span>{t.chatterEvents}</span>
+        <strong data-chatter-count>0</strong>
+      </article>
+      <article>
+        <span>{t.worstDelta}</span>
+        <strong data-worst>--</strong>
+      </article>
+      <article>
+        <span>{t.watchWindow}</span>
+        <strong data-window>0</strong>
+      </article>
+    </div>
+
+    <div class="kct-log" role="table" aria-label={t.logAriaLabel}>
+      <div class="kct-row kct-head" role="row">
+        <span role="columnheader">{t.keyColumn}</span>
+        <span role="columnheader">{t.deltaColumn}</span>
+        <span role="columnheader">{t.verdictColumn}</span>
+        <span role="columnheader">{t.timeColumn}</span>
+      </div>
+      <div data-log></div>
+    </div>
+
+    <p class="kct-hint">{t.hint}</p>
+  </section>
+</div>
+
+<link rel="stylesheet" href="./keyboard-chatter-test.css" />
+
+<script>
+  type Severity = 'normal' | 'suspect' | 'chatter';
+  interface Config {
+    statusIdle: string;
+    statusListening: string;
+    statusChatter: string;
+    normal: string;
+    suspect: string;
+    chatter: string;
+    waiting: string;
+    spaceKey: string;
+    csvHeader: string;
+  }
+
+  interface LogItem {
+    key: string;
+    code: string;
+    delta: number | null;
+    severity: Severity;
+    time: string;
+  }
+
+  const root = document.querySelector<HTMLElement>('.kct-root');
+  const panel = root?.querySelector<HTMLElement>('.kct-panel');
+  const config = JSON.parse(root?.dataset.config ?? '{}') as Config;
+  const maxRows = 80;
+  const lastDownByCode = new Map<string, number>();
+  const logItems: LogItem[] = [];
+  const state = {
+    total: 0,
+    chatter: 0,
+    worst: Number.POSITIVE_INFINITY,
+  };
+
+  const els = {
+    status: root?.querySelector<HTMLElement>('[data-status]'),
+    liveKey: root?.querySelector<HTMLElement>('[data-live-key]'),
+    total: root?.querySelector<HTMLElement>('[data-total]'),
+    chatter: root?.querySelector<HTMLElement>('[data-chatter-count]'),
+    worst: root?.querySelector<HTMLElement>('[data-worst]'),
+    window: root?.querySelector<HTMLElement>('[data-window]'),
+    log: root?.querySelector<HTMLElement>('[data-log]'),
+    pulse: root?.querySelector<HTMLElement>('[data-pulse]'),
+    clear: root?.querySelector<HTMLButtonElement>('[data-clear]'),
+    exportButton: root?.querySelector<HTMLButtonElement>('[data-export]'),
+  };
+
+  function classify(delta: number | null): Severity {
+    if (delta === null) return 'normal';
+    if (delta < 30) return 'chatter';
+    if (delta <= 50) return 'suspect';
+    return 'normal';
+  }
+
+  function formatDelta(delta: number | null) {
+    return delta === null ? '--' : `${Math.max(0, delta).toFixed(1)} ms`;
+  }
+
+  function getLabel(severity: Severity) {
+    if (severity === 'chatter') return config.chatter;
+    if (severity === 'suspect') return config.suspect;
+    return config.normal;
+  }
+
+  function isEditableTarget(target: EventTarget | null) {
+    return target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement || target instanceof HTMLSelectElement;
+  }
+
+  function getKeyLabel(event: KeyboardEvent) {
+    if (event.key === ' ') return config.spaceKey;
+    return event.key;
+  }
+
+  function addLogItem(event: KeyboardEvent, delta: number | null, severity: Severity) {
+    logItems.unshift({
+      key: getKeyLabel(event),
+      code: event.code,
+      delta,
+      severity,
+      time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' }),
+    });
+    if (logItems.length > maxRows) logItems.length = maxRows;
+  }
+
+  function updateState(delta: number | null, severity: Severity) {
+    state.total += 1;
+    if (severity === 'chatter') state.chatter += 1;
+    if (delta !== null) state.worst = Math.min(state.worst, delta);
+  }
+
+  function handleKeydown(event: KeyboardEvent) {
+    if (event.repeat) return;
+    if (isEditableTarget(event.target)) return;
+
+    const now = event.timeStamp;
+    const previous = lastDownByCode.get(event.code);
+    const delta = previous === undefined ? null : now - previous;
+    const severity = classify(delta);
+    lastDownByCode.set(event.code, now);
+    updateState(delta, severity);
+    addLogItem(event, delta, severity);
+    lightKey(event.code, severity);
+    render(severity, event.code);
+  }
+
+  function handleKeyup(event: KeyboardEvent) {
+    root?.style.setProperty('--kct-release-x', `${Math.min(100, Math.max(0, event.key.length * 11))}%`);
+  }
+
+  function getStatusText(severity: Severity) {
+    if (severity === 'chatter') return config.statusChatter;
+    if (state.total > 0) return config.statusListening;
+    return config.statusIdle;
+  }
+
+  function renderMetrics() {
+    if (els.total) els.total.textContent = String(state.total);
+    if (els.chatter) els.chatter.textContent = String(state.chatter);
+    if (els.worst) els.worst.textContent = Number.isFinite(state.worst) ? formatDelta(state.worst) : '--';
+    if (els.window) els.window.textContent = String(logItems.length);
+  }
+
+  function restartPulse() {
+    if (els.pulse) {
+      els.pulse.style.animation = 'none';
+      window.requestAnimationFrame(() => {
+        if (els.pulse) els.pulse.style.animation = '';
+      });
+    }
+  }
+
+  function render(severity: Severity = 'normal', activeKey = config.waiting) {
+    if (root) root.dataset.severity = severity;
+    if (els.status) els.status.textContent = getStatusText(severity);
+    if (els.liveKey) els.liveKey.textContent = activeKey;
+    renderMetrics();
+    restartPulse();
+    renderRows();
+  }
+
+  function lightKey(code: string, severity: Severity) {
+    const key = root?.querySelector<HTMLElement>(`[data-key="${CSS.escape(code)}"]`);
+    if (!key) return;
+    key.classList.remove('is-normal', 'is-suspect', 'is-chatter', 'is-hit');
+    key.classList.add(`is-${severity}`);
+    window.requestAnimationFrame(() => key.classList.add('is-hit'));
+  }
+
+  function renderRows() {
+    if (!els.log) return;
+    const fragment = document.createDocumentFragment();
+    for (const item of logItems) {
+      const row = document.createElement('div');
+      row.className = `kct-row is-${item.severity}`;
+      row.setAttribute('role', 'row');
+      row.innerHTML = `
+        <span role="cell"><b>${escapeHtml(item.key)}</b><small>${escapeHtml(item.code)}</small></span>
+        <span role="cell">${formatDelta(item.delta)}</span>
+        <span role="cell"><i>${getLabel(item.severity)}</i></span>
+        <span role="cell">${item.time}</span>
+      `;
+      fragment.append(row);
+    }
+    els.log.replaceChildren(fragment);
+  }
+
+  function clearLog() {
+    lastDownByCode.clear();
+    logItems.length = 0;
+    state.total = 0;
+    state.chatter = 0;
+    state.worst = Number.POSITIVE_INFINITY;
+    render('normal', config.waiting);
+  }
+
+  function exportLog() {
+    const rows = [config.csvHeader];
+    for (const item of logItems.slice().reverse()) {
+      rows.push([item.key, item.code, item.delta?.toFixed(1) ?? '', item.severity, item.time].map(csvEscape).join(','));
+    }
+    const blob = new Blob([rows.join('\n')], { type: 'text/csv' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'keyboard-chatter-test.csv';
+    link.click();
+    URL.revokeObjectURL(url);
+  }
+
+  function csvEscape(value: string) {
+    return `"${value.replaceAll('"', '""')}"`;
+  }
+
+  function escapeHtml(value: string) {
+    return value.replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char] ?? char));
+  }
+
+  window.addEventListener('keydown', handleKeydown, { passive: true });
+  window.addEventListener('keyup', handleKeyup, { passive: true });
+  els.clear?.addEventListener('click', clearLog);
+  els.exportButton?.addEventListener('click', exportLog);
+  panel?.focus({ preventScroll: true });
+  render();
+</script>

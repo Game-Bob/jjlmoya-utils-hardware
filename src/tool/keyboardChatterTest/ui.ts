@@ -1,0 +1,34 @@
+export interface KeyboardChatterTestUI extends Record<string, string> {
+  statusIdle: string;
+  statusListening: string;
+  statusChatter: string;
+  totalPresses: string;
+  chatterEvents: string;
+  worstDelta: string;
+  watchWindow: string;
+  keyColumn: string;
+  deltaColumn: string;
+  verdictColumn: string;
+  timeColumn: string;
+  normal: string;
+  suspect: string;
+  chatter: string;
+  waiting: string;
+  clear: string;
+  exportLog: string;
+  hint: string;
+  captureNotice: string;
+  keyboardAriaLabel: string;
+  logAriaLabel: string;
+  escapeKey: string;
+  backspaceKey: string;
+  tabKey: string;
+  enterKey: string;
+  capsLockKey: string;
+  shiftKey: string;
+  controlKey: string;
+  metaKey: string;
+  altKey: string;
+  spaceKey: string;
+  csvHeader: string;
+}

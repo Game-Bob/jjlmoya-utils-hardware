@@ -12,9 +12,5 @@ export const bibliography: BibliographyEntry[] = [
   {
     name: 'Nordic Semiconductor - Bluetooth LE fundamentals',
     url: 'https://academy.nordicsemi.com/courses/bluetooth-low-energy-fundamentals/',
-  },
-  {
-    name: 'Punch Through - BLE services and characteristics explained',
-    url: 'https://punchthrough.com/ble-services-and-characteristics/',
-  },
+  }
 ];
