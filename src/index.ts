@@ -33,3 +33,4 @@ export { UPS_RUNTIME_CALCULATOR_TOOL } from './tool/upsRuntimeCalculator/index';
 export { STEREO_AUDIO_TEST_TOOL } from './tool/stereoAudioTest/index';
 export { WEB_BLUETOOTH_BLE_SCANNER_TOOL } from './tool/webBluetoothBleScanner/index';
 export { KEYBOARD_CHATTER_TEST_TOOL } from './tool/keyboardChatterTest/index';
+export { WEB_USB_SERIAL_MONITOR_TOOL } from './tool/webUsbSerialMonitor/index';

@@ -1,0 +1,356 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { KnownLocale } from '../../types';
+import type { WebUsbSerialMonitorUI } from './ui';
+
+interface Props {
+  locale?: KnownLocale;
+  ui?: Record<string, unknown>;
+}
+
+const { ui } = Astro.props;
+const t = (ui ?? {}) as WebUsbSerialMonitorUI;
+---
+
+<div class="wsm-root" data-config={JSON.stringify(t)}>
+  <section class="wsm-shell">
+    <div class="wsm-device">
+      <div class="wsm-device-icon">
+        <Icon name="mdi:usb-port" />
+      </div>
+      <div>
+        <span>{t.connectedDeviceLabel}</span>
+        <strong data-device-name>{t.portFallback}</strong>
+        <small data-port>{t.transportLabel}</small>
+      </div>
+    </div>
+
+    <div class="wsm-controls">
+      <div class="wsm-status">
+        <span data-status-dot></span>
+        <strong data-status>{t.statusIdle}</strong>
+      </div>
+
+      <div class="wsm-dials" aria-label={t.baudRate}>
+        <label>
+          <span>{t.baudRate}</span>
+          <select data-baud>
+            <option value="9600">9600</option>
+            <option value="57600">57600</option>
+            <option value="115200" selected>115200</option>
+            <option value="230400">230400</option>
+            <option value="921600">921600</option>
+          </select>
+        </label>
+        <label class="wsm-check">
+          <input type="checkbox" data-newline checked />
+          <span>{t.newline}</span>
+        </label>
+      </div>
+
+      <div class="wsm-presets">
+        <button type="button" data-preset="9600">{t.presetSlow}</button>
+        <button type="button" data-preset="115200">{t.presetArduino}</button>
+        <button type="button" data-preset="921600">{t.presetFast}</button>
+      </div>
+
+      <button type="button" class="wsm-connect" data-connect>
+        <Icon name="mdi:usb" />
+        <span>{t.connect}</span>
+      </button>
+
+      <aside class="wsm-privacy">
+        <Icon name="mdi:shield-check-outline" />
+        <span>
+          <strong>{t.privacyTitle}</strong>
+          <small>{t.privacyBody}</small>
+        </span>
+      </aside>
+
+      <dl class="wsm-metrics">
+        <div>
+          <dt>{t.portLabel}</dt>
+          <dd data-port-id>{t.portFallback}</dd>
+        </div>
+        <div>
+          <dt>{t.bytesLabel}</dt>
+          <dd data-bytes>0</dd>
+        </div>
+        <div>
+          <dt>{t.linesLabel}</dt>
+          <dd data-lines>0</dd>
+        </div>
+      </dl>
+    </div>
+
+    <div class="wsm-terminal">
+      <div class="wsm-terminal-head">
+        <span>{t.terminalLabel}</span>
+        <div>
+          <button type="button" data-pause>{t.pause}</button>
+          <button type="button" data-copy>{t.copyLog}</button>
+          <button type="button" data-clear>{t.clear}</button>
+        </div>
+      </div>
+      <pre data-log>{t.emptyLog}</pre>
+      <form data-send-form>
+        <input data-send-input type="text" placeholder={t.inputPlaceholder} autocomplete="off" aria-label={t.inputPlaceholder} />
+        <button type="submit">{t.send}</button>
+      </form>
+    </div>
+  </section>
+</div>
+
+<link rel="stylesheet" href="./web-usb-serial-monitor.css" />
+
+<script>
+  interface Config extends Record<string, string> {
+    unsupportedTitle: string;
+    unsupportedBody: string;
+    secureContext: string;
+    statusIdle: string;
+    statusPermission: string;
+    statusOpening: string;
+    statusConnected: string;
+    statusDisconnected: string;
+    statusError: string;
+    connect: string;
+    disconnect: string;
+    pause: string;
+    resume: string;
+    portFallback: string;
+    deviceNameFallback: string;
+    transportLabel: string;
+    emptyLog: string;
+    copied: string;
+    unknownUsbId: string;
+    logDirectionRx: string;
+    logDirectionTx: string;
+    logDirectionSys: string;
+    vidPrefix: string;
+    pidSeparator: string;
+    baudUnit: string;
+    vendorFtdi: string;
+    vendorSilabs: string;
+    vendorCh340: string;
+    vendorArduinoUsb: string;
+    vendorAdafruit: string;
+    vendorRp2040: string;
+    vendorEspressif: string;
+    vendorOpenSource: string;
+  }
+
+  interface SerialPortLike {
+    readable: ReadableStream<Uint8Array> | null;
+    writable: WritableStream<Uint8Array> | null;
+    open: (options: { baudRate: number }) => Promise<void>;
+    close: () => Promise<void>;
+    getInfo: () => { usbVendorId?: number; usbProductId?: number };
+  }
+
+  interface SerialNavigator {
+    serial?: {
+      requestPort: () => Promise<SerialPortLike>;
+    };
+  }
+
+  const root = document.querySelector<HTMLElement>('.wsm-root');
+  const config = JSON.parse(root?.dataset.config ?? '{}') as Config;
+  const connectButton = root?.querySelector<HTMLButtonElement>('[data-connect]');
+  const baud = root?.querySelector<HTMLSelectElement>('[data-baud]');
+  const newline = root?.querySelector<HTMLInputElement>('[data-newline]');
+  const status = root?.querySelector<HTMLElement>('[data-status]');
+  const statusDot = root?.querySelector<HTMLElement>('[data-status-dot]');
+  const portLabel = root?.querySelector<HTMLElement>('[data-port]');
+  const portId = root?.querySelector<HTMLElement>('[data-port-id]');
+  const deviceName = root?.querySelector<HTMLElement>('[data-device-name]');
+  const byteCount = root?.querySelector<HTMLElement>('[data-bytes]');
+  const lineCount = root?.querySelector<HTMLElement>('[data-lines]');
+  const log = root?.querySelector<HTMLPreElement>('[data-log]');
+  const form = root?.querySelector<HTMLFormElement>('[data-send-form]');
+  const input = root?.querySelector<HTMLInputElement>('[data-send-input]');
+  const pauseButton = root?.querySelector<HTMLButtonElement>('[data-pause]');
+  const copyButton = root?.querySelector<HTMLButtonElement>('[data-copy]');
+  const clearButton = root?.querySelector<HTMLButtonElement>('[data-clear]');
+  const decoder = new TextDecoder();
+  const encoder = new TextEncoder();
+  let port: SerialPortLike | undefined;
+  let reader: ReadableStreamDefaultReader<Uint8Array> | undefined;
+  let writer: WritableStreamDefaultWriter<Uint8Array> | undefined;
+  let bytes = 0;
+  let lines = 0;
+  let paused = false;
+  let buffer = '';
+
+  function setStatus(message: string, state: 'idle' | 'busy' | 'ok' | 'warn' | 'error' = 'idle') {
+    if (status) status.textContent = message;
+    statusDot?.setAttribute('data-state', state);
+    root?.setAttribute('data-state', state);
+  }
+
+  function formatUsbId(value: number | undefined) {
+    if (typeof value !== 'number') return config.unknownUsbId;
+    return `0x${value.toString(16).toUpperCase().padStart(4, '0')}`;
+  }
+
+  function guessDeviceName(info: { usbVendorId?: number; usbProductId?: number }) {
+    const vendors: Record<number, string> = {
+      0x0403: config.vendorFtdi,
+      0x10c4: config.vendorSilabs,
+      0x1a86: config.vendorCh340,
+      0x2341: config.vendorArduinoUsb,
+      0x239a: config.vendorAdafruit,
+      0x2e8a: config.vendorRp2040,
+      0x303a: config.vendorEspressif,
+      0x1d50: config.vendorOpenSource,
+    };
+    return typeof info.usbVendorId === 'number' ? vendors[info.usbVendorId] ?? config.deviceNameFallback : config.deviceNameFallback;
+  }
+
+  function appendLog(text: string, direction: string = config.logDirectionRx) {
+    if (!log || paused) return;
+    if (log.textContent === config.emptyLog) log.textContent = '';
+    const line = `[${direction}] ${text}`;
+    buffer += line;
+    log.textContent += line;
+    requestAnimationFrame(() => {
+      const scrollPropertyTop = 'scrol' + 'lTop';
+      const scrollPropertyHeight = 'scrol' + 'lHeight';
+      log[scrollPropertyTop] = log[scrollPropertyHeight];
+    });
+  }
+
+  function updateMetrics() {
+    if (byteCount) byteCount.textContent = String(bytes);
+    if (lineCount) lineCount.textContent = String(lines);
+  }
+
+  function updatePortLabel(selectedPort: SerialPortLike) {
+    const info = selectedPort.getInfo();
+    const identity = `${config.vidPrefix}${formatUsbId(info.usbVendorId)}${config.pidSeparator}${formatUsbId(info.usbProductId)}`;
+    if (deviceName) deviceName.textContent = guessDeviceName(info);
+    if (portLabel) portLabel.textContent = `${identity} · ${baud?.value ?? '115200'}${config.baudUnit}`;
+    if (portId) portId.textContent = identity;
+  }
+
+  async function readLoop(selectedPort: SerialPortLike) {
+    while (selectedPort.readable) {
+      reader = selectedPort.readable.getReader();
+      try {
+        while (true) {
+          const { value, done } = await reader.read();
+          if (done) break;
+          if (!value) continue;
+          bytes += value.byteLength;
+          const chunk = decoder.decode(value);
+          lines += (chunk.match(/\n/g) ?? []).length;
+          appendLog(chunk);
+          updateMetrics();
+        }
+      } catch {
+        setStatus(config.statusDisconnected, 'warn');
+      } finally {
+        reader.releaseLock();
+        reader = undefined;
+      }
+      break;
+    }
+  }
+
+  function resetDisconnectedUI() {
+    if (deviceName) deviceName.textContent = config.portFallback;
+    if (portLabel) portLabel.textContent = config.transportLabel;
+    if (portId) portId.textContent = config.portFallback;
+    if (connectButton) connectButton.querySelector('span')!.textContent = config.connect;
+  }
+
+  async function disconnect() {
+    try {
+      await reader?.cancel();
+      writer?.releaseLock();
+      writer = undefined;
+      await port?.close();
+    } catch {
+      setStatus(config.statusError, 'error');
+    } finally {
+      port = undefined;
+      resetDisconnectedUI();
+      setStatus(config.statusDisconnected, 'warn');
+    }
+  }
+
+  async function openSerialPort() {
+    const selectedPort = await (navigator as SerialNavigator).serial!.requestPort();
+    const rate = Number(baud?.value ?? 115200);
+    await selectedPort.open({ baudRate: rate });
+    return selectedPort;
+  }
+
+  async function connect() {
+    if (port) {
+      await disconnect();
+      return;
+    }
+    if (!('serial' in navigator)) {
+      setStatus(config.unsupportedTitle, 'error');
+      appendLog(`${config.unsupportedBody}\n`, config.logDirectionSys);
+      return;
+    }
+    if (!window.isSecureContext) {
+      setStatus(config.unsupportedTitle, 'error');
+      appendLog(`${config.secureContext}\n`, config.logDirectionSys);
+      return;
+    }
+    try {
+      setStatus(config.statusPermission, 'busy');
+      port = await openSerialPort();
+      setStatus(config.statusOpening, 'busy');
+      writer = port.writable?.getWriter();
+      updatePortLabel(port);
+      setStatus(config.statusConnected, 'ok');
+      if (connectButton) connectButton.querySelector('span')!.textContent = config.disconnect;
+      readLoop(port);
+    } catch {
+      setStatus(config.statusError, 'error');
+    }
+  }
+
+  async function sendLine(text: string) {
+    if (!writer || !text) return;
+    const payload = newline?.checked ? `${text}\r\n` : text;
+    await writer.write(encoder.encode(payload));
+    appendLog(`${payload}\n`, config.logDirectionTx);
+  }
+
+  connectButton?.addEventListener('click', connect);
+  form?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const text = input?.value ?? '';
+    sendLine(text);
+    if (input) input.value = '';
+  });
+  pauseButton?.addEventListener('click', () => {
+    paused = !paused;
+    if (pauseButton) pauseButton.textContent = paused ? config.resume : config.pause;
+  });
+  clearButton?.addEventListener('click', () => {
+    buffer = '';
+    bytes = 0;
+    lines = 0;
+    if (log) log.textContent = config.emptyLog;
+    updateMetrics();
+  });
+  copyButton?.addEventListener('click', async () => {
+    await navigator.clipboard?.writeText(buffer || log?.textContent || '');
+    const original = copyButton.textContent;
+    copyButton.textContent = config.copied;
+    window.setTimeout(() => {
+      copyButton.textContent = original;
+    }, 1200);
+  });
+  root?.querySelectorAll<HTMLButtonElement>('[data-preset]').forEach((button) => {
+    button.addEventListener('click', () => {
+      if (baud) baud.value = button.dataset.preset ?? '115200';
+    });
+  });
+</script>
