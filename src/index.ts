@@ -31,3 +31,4 @@ export { MONITOR_GHOSTING_TEST_TOOL } from './tool/monitorGhostingTest/index';
 export { SPECTRUM_CANVAS_TOOL } from './tool/colorAccuracyTest/index';
 export { UPS_RUNTIME_CALCULATOR_TOOL } from './tool/upsRuntimeCalculator/index';
 export { STEREO_AUDIO_TEST_TOOL } from './tool/stereoAudioTest/index';
+export { WEB_BLUETOOTH_BLE_SCANNER_TOOL } from './tool/webBluetoothBleScanner/index';

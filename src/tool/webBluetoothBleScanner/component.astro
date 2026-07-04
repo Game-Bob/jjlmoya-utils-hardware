@@ -1,0 +1,339 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { KnownLocale } from '../../types';
+import type { WebBluetoothBleScannerUI } from './ui';
+
+interface Props {
+  locale?: KnownLocale;
+  ui?: Record<string, unknown>;
+}
+
+const { ui } = Astro.props;
+const t = (ui ?? {}) as WebBluetoothBleScannerUI;
+---
+
+<div
+  class="wbb-root"
+  data-config={JSON.stringify({
+    unsupportedTitle: t.unsupportedTitle,
+    unsupportedBody: t.unsupportedBody,
+    secureContext: t.secureContext,
+    scanning: t.scanning,
+    reconnect: t.reconnect,
+    disconnect: t.disconnect,
+    deviceLabel: t.deviceLabel,
+    nameFallback: t.nameFallback,
+    idLabel: t.idLabel,
+    servicesLabel: t.servicesLabel,
+    noServices: t.noServices,
+    statusIdle: t.statusIdle,
+    statusPermission: t.statusPermission,
+    statusConnecting: t.statusConnecting,
+    statusConnected: t.statusConnected,
+    statusDisconnected: t.statusDisconnected,
+    statusCancelled: t.statusCancelled,
+    statusUnavailable: t.statusUnavailable,
+    statusError: t.statusError,
+    signalUnknown: t.signalUnknown,
+    gattUnavailable: t.gattUnavailable,
+    customServiceName: t.customServiceName,
+    serviceGenericAccess: t.serviceGenericAccess,
+    serviceGenericAttribute: t.serviceGenericAttribute,
+    serviceDeviceInformation: t.serviceDeviceInformation,
+    serviceHeartRate: t.serviceHeartRate,
+    serviceBattery: t.serviceBattery,
+    serviceHumanInterfaceDevice: t.serviceHumanInterfaceDevice,
+    serviceCyclingSpeedCadence: t.serviceCyclingSpeedCadence,
+    serviceEnvironmentalSensing: t.serviceEnvironmentalSensing,
+    serviceUserData: t.serviceUserData,
+    serviceFitnessMachine: t.serviceFitnessMachine,
+    uuidHelp: t.uuidHelp,
+    serviceCountSingular: t.serviceCountSingular,
+    serviceCountPlural: t.serviceCountPlural,
+  })}
+>
+  <section class="wbb-shell">
+    <div class="wbb-radar" aria-hidden="true">
+      <span><Icon name="mdi:bluetooth" /></span>
+      <i></i>
+      <b></b>
+      <em></em>
+    </div>
+
+    <div class="wbb-console">
+      <div class="wbb-status">
+        <span data-status-dot></span>
+        <strong data-status>{t.statusIdle}</strong>
+      </div>
+
+      <button type="button" class="wbb-scan" data-scan>
+        <Icon name="mdi:bluetooth-searching" />
+        <span>{t.scanButton}</span>
+      </button>
+
+      <aside class="wbb-privacy">
+        <Icon name="mdi:shield-lock-outline" />
+        <span>
+          <strong>{t.privacyTitle}</strong>
+          <small>{t.privacyBody}</small>
+        </span>
+      </aside>
+
+      <div class="wbb-device-list" data-device-list aria-live="polite"></div>
+
+      <p class="wbb-hint">{t.compatibilityHint}</p>
+    </div>
+  </section>
+</div>
+
+<link rel="stylesheet" href="./web-bluetooth-ble-scanner.css" />
+
+<script>
+  interface Config {
+    unsupportedTitle: string;
+    unsupportedBody: string;
+    secureContext: string;
+    scanning: string;
+    reconnect: string;
+    disconnect: string;
+    deviceLabel: string;
+    nameFallback: string;
+    idLabel: string;
+    servicesLabel: string;
+    noServices: string;
+    statusIdle: string;
+    statusPermission: string;
+    statusConnecting: string;
+    statusConnected: string;
+    statusDisconnected: string;
+    statusCancelled: string;
+    statusUnavailable: string;
+    statusError: string;
+    signalUnknown: string;
+    gattUnavailable: string;
+    customServiceName: string;
+    serviceGenericAccess: string;
+    serviceGenericAttribute: string;
+    serviceDeviceInformation: string;
+    serviceHeartRate: string;
+    serviceBattery: string;
+    serviceHumanInterfaceDevice: string;
+    serviceCyclingSpeedCadence: string;
+    serviceEnvironmentalSensing: string;
+    serviceUserData: string;
+    serviceFitnessMachine: string;
+    uuidHelp: string;
+    serviceCountSingular: string;
+    serviceCountPlural: string;
+  }
+
+  type BluetoothRequestDeviceFilter = { services?: BluetoothServiceUUID[]; name?: string; namePrefix?: string };
+  interface BluetoothRemoteGATTServiceLike {
+    uuid: string;
+  }
+  interface BluetoothRemoteGATTServerLike {
+    connected: boolean;
+    connect: () => Promise<BluetoothRemoteGATTServerLike>;
+    disconnect: () => void;
+    getPrimaryServices: () => Promise<BluetoothRemoteGATTServiceLike[]>;
+  }
+  interface BluetoothDeviceLike extends EventTarget {
+    id: string;
+    name?: string;
+    gatt?: BluetoothRemoteGATTServerLike;
+  }
+  interface BluetoothNavigator {
+    bluetooth?: {
+      getAvailability?: () => Promise<boolean>;
+      requestDevice: (options: {
+        acceptAllDevices?: boolean;
+        filters?: BluetoothRequestDeviceFilter[];
+        optionalServices?: BluetoothServiceUUID[];
+      }) => Promise<BluetoothDeviceLike>;
+    };
+  }
+
+  const root = document.querySelector<HTMLElement>('.wbb-root');
+  const config = JSON.parse(root?.dataset.config ?? '{}') as Config;
+  const button = root?.querySelector<HTMLButtonElement>('[data-scan]');
+  const status = root?.querySelector<HTMLElement>('[data-status]');
+  const statusDot = root?.querySelector<HTMLElement>('[data-status-dot]');
+  const list = root?.querySelector<HTMLElement>('[data-device-list]');
+  const optionalServices: BluetoothServiceUUID[] = [
+    'generic_access',
+    'generic_attribute',
+    'device_information',
+    'battery_service',
+    'heart_rate',
+    'human_interface_device',
+    'cycling_speed_and_cadence',
+    'environmental_sensing',
+    'user_data',
+    'fitness_machine',
+  ];
+  const serviceNames: Record<string, string> = {
+    '00001800-0000-1000-8000-00805f9b34fb': config.serviceGenericAccess,
+    '00001801-0000-1000-8000-00805f9b34fb': config.serviceGenericAttribute,
+    '0000180a-0000-1000-8000-00805f9b34fb': config.serviceDeviceInformation,
+    '0000180d-0000-1000-8000-00805f9b34fb': config.serviceHeartRate,
+    '0000180f-0000-1000-8000-00805f9b34fb': config.serviceBattery,
+    '00001812-0000-1000-8000-00805f9b34fb': config.serviceHumanInterfaceDevice,
+    '00001816-0000-1000-8000-00805f9b34fb': config.serviceCyclingSpeedCadence,
+    '0000181a-0000-1000-8000-00805f9b34fb': config.serviceEnvironmentalSensing,
+    '0000181c-0000-1000-8000-00805f9b34fb': config.serviceUserData,
+    '00001826-0000-1000-8000-00805f9b34fb': config.serviceFitnessMachine,
+  };
+  let activeDevice: BluetoothDeviceLike | undefined;
+
+  function hasBluetoothSupport() {
+    return Boolean((navigator as BluetoothNavigator).bluetooth?.requestDevice);
+  }
+
+  async function hasAvailableBluetoothAdapter() {
+    const bluetooth = (navigator as BluetoothNavigator).bluetooth;
+    if (!bluetooth?.getAvailability) return true;
+    return bluetooth.getAvailability();
+  }
+
+  function setStatus(message: string, state: 'idle' | 'busy' | 'ok' | 'warn' | 'error' = 'idle') {
+    if (status) status.textContent = message;
+    statusDot?.setAttribute('data-state', state);
+    root?.setAttribute('data-state', state);
+  }
+
+  function serviceName(uuid: string) {
+    return serviceNames[uuid.toLowerCase()] ?? config.customServiceName;
+  }
+
+  function renderSupportWarning(title: string, body: string) {
+    if (!list) return;
+    list.innerHTML = `
+      <article class="wbb-card wbb-warning">
+        <div>
+          <strong>${title}</strong>
+          <p>${body}</p>
+        </div>
+      </article>
+    `;
+  }
+
+  function renderServiceRows(services: BluetoothRemoteGATTServiceLike[]) {
+    if (services.length === 0) return `<li class="wbb-empty">${config.noServices}</li>`;
+
+    return services.map((service) => `
+      <li>
+        <span>${serviceName(service.uuid)}</span>
+        <code>${service.uuid}</code>
+      </li>
+    `).join('');
+  }
+
+  function renderDeviceCard(device: BluetoothDeviceLike, services: BluetoothRemoteGATTServiceLike[], connected: boolean) {
+    const name = device.name || config.nameFallback;
+    const countLabel = services.length === 1 ? config.serviceCountSingular : config.serviceCountPlural;
+
+    return `
+      <article class="wbb-card">
+        <div class="wbb-card-head">
+          <span>${config.deviceLabel}</span>
+          <strong>${name}</strong>
+        </div>
+        <dl>
+          <div>
+            <dt>${config.idLabel}</dt>
+            <dd><code>${device.id}</code></dd>
+          </div>
+          <div>
+            <dt>${config.servicesLabel}</dt>
+            <dd>${services.length} ${countLabel}</dd>
+          </div>
+        </dl>
+        <ul>${renderServiceRows(services)}</ul>
+        <p>${config.uuidHelp}</p>
+        <button type="button" data-disconnect>${connected ? config.disconnect : config.reconnect}</button>
+      </article>
+    `;
+  }
+
+  function renderDevice(device: BluetoothDeviceLike, services: BluetoothRemoteGATTServiceLike[], connected: boolean) {
+    if (!list) return;
+    list.innerHTML = renderDeviceCard(device, services, connected);
+
+    list.querySelector<HTMLButtonElement>('[data-disconnect]')?.addEventListener('click', () => {
+      if (activeDevice?.gatt?.connected) {
+        activeDevice.gatt.disconnect();
+        setStatus(config.statusDisconnected, 'warn');
+        renderDevice(activeDevice, services, false);
+      } else {
+        scan();
+      }
+    });
+  }
+
+  async function canStartScan() {
+    if (!hasBluetoothSupport()) {
+      setStatus(config.statusError, 'error');
+      renderSupportWarning(config.unsupportedTitle, config.unsupportedBody);
+      return false;
+    }
+    if (!window.isSecureContext) {
+      setStatus(config.statusError, 'error');
+      renderSupportWarning(config.unsupportedTitle, config.secureContext);
+      return false;
+    }
+    if (!(await hasAvailableBluetoothAdapter())) {
+      setStatus(config.statusUnavailable, 'error');
+      renderSupportWarning(config.unsupportedTitle, config.statusUnavailable);
+      return false;
+    }
+
+    return true;
+  }
+
+  async function requestSelectedDevice() {
+    setStatus(config.statusPermission, 'busy');
+    return (navigator as BluetoothNavigator).bluetooth!.requestDevice({
+      acceptAllDevices: true,
+      optionalServices,
+    });
+  }
+
+  async function connectDevice(device: BluetoothDeviceLike) {
+    activeDevice = device;
+    device.addEventListener('gattserverdisconnected', () => {
+      setStatus(config.statusDisconnected, 'warn');
+    });
+    setStatus(config.statusConnecting, 'busy');
+    const server = await device.gatt?.connect();
+    if (!server) {
+      setStatus(config.gattUnavailable, 'warn');
+      renderDevice(device, [], false);
+      return;
+    }
+    const services = await server.getPrimaryServices();
+    renderDevice(device, services, server.connected);
+    setStatus(config.statusConnected, 'ok');
+  }
+
+  function handleScanError(error: unknown) {
+    const isNotFound = error instanceof DOMException && error.name === 'NotFoundError';
+    setStatus(isNotFound ? config.statusCancelled : config.statusError, isNotFound ? 'warn' : 'error');
+  }
+
+  async function scan() {
+    if (!(await canStartScan())) return;
+    try {
+      if (button) button.disabled = true;
+      await connectDevice(await requestSelectedDevice());
+    } catch (error) {
+      handleScanError(error);
+    } finally {
+      if (button) button.disabled = false;
+    }
+  }
+
+  button?.addEventListener('click', scan);
+  if (!hasBluetoothSupport()) {
+    renderSupportWarning(config.unsupportedTitle, config.unsupportedBody);
+  }
+</script>

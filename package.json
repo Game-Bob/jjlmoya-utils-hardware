@@ -16,8 +16,9 @@
     "publishConfig": {
         "access": "public"
     },
-    "scripts": {
+        "scripts": {
         "dev": "astro dev",
+        "dev:host": "astro dev --host --port 3024",
         "start": "astro dev",
         "build": "astro build",
         "preview": "astro preview",

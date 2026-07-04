@@ -1,9 +1,7 @@
 ---
 name: create-tool
-description: Create a new tool in the forensic science utilities library (src/tool/). Use for any task involving scaffolding, creating, or adding a new forensic science tool or utility to the repository.
+description: Create a new tool in the hardware utilities library (src/tool/). Use for any task involving scaffolding, creating, or adding a new hardware tool or utility to the repository.
 ---
-
-Follow `prompts/create_tool.md` in the repository root for detailed instructions.
 
 ## Steps
 
