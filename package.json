@@ -1,6 +1,6 @@
 {
     "name": "@jjlmoya/utils-hardware",
-    "version": "1.24.0",
+    "version": "1.25.0",
     "type": "module",
     "main": "./src/index.ts",
     "types": "./src/index.ts",
@@ -16,7 +16,7 @@
     "publishConfig": {
         "access": "public"
     },
-        "scripts": {
+    "scripts": {
         "dev": "astro dev",
         "dev:host": "astro dev --host --port 3024",
         "start": "astro dev",
