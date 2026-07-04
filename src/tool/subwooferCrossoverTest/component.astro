@@ -1,0 +1,253 @@
+---
+import type { KnownLocale } from '../../types';
+import type { SubwooferCrossoverTestUI } from './ui';
+import { Icon } from 'astro-icon/components';
+import './subwoofer-crossover-test.css';
+
+interface Props {
+  locale?: KnownLocale;
+  ui?: Record<string, unknown>;
+}
+
+const { ui } = Astro.props;
+const t = (ui ?? {}) as SubwooferCrossoverTestUI;
+
+const S = JSON.stringify({
+  ready: t.statusReady,
+  running: t.statusRunning,
+  stopped: t.statusStopped,
+  start: t.start,
+  stop: t.stop,
+  safeStart: t.safeStart,
+  dropoutEmpty: t.dropoutEmpty,
+  crossoverEstimate: t.crossoverEstimate,
+});
+---
+
+<div id="sct-root" class="sct-shell" data-s={S}>
+  <section class="sct-console" aria-label={t.sweepLabel}>
+    <div class="sct-stage">
+      <div class="sct-orbit" aria-hidden="true">
+        <div class="sct-ring sct-ring-a"></div>
+        <div class="sct-ring sct-ring-b"></div>
+        <div class="sct-driver">
+          <Icon name="mdi:speaker" class="sct-speaker-icon" />
+        </div>
+      </div>
+
+      <div class="sct-frequency-panel">
+        <span id="sct-status" class="sct-status">{t.statusReady}</span>
+        <output id="sct-frequency" class="sct-frequency" aria-live="polite">200 Hz</output>
+        <div class="sct-meter" aria-hidden="true">
+          <span id="sct-meter-fill" class="sct-meter-fill"></span>
+        </div>
+        <div class="sct-readouts">
+          <span>{t.targetFrequency}: <strong>10 Hz</strong></span>
+          <span>{t.elapsed}: <strong id="sct-elapsed">0.0s</strong></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sct-controls">
+      <button id="sct-toggle" class="sct-primary" type="button">
+        <Icon name="mdi:play" class="sct-button-icon" />
+        <span>{t.start}</span>
+      </button>
+      <button id="sct-mark" class="sct-secondary" type="button" disabled>
+        <Icon name="mdi:map-marker-radius" class="sct-button-icon" />
+        <span>{t.markDropout}</span>
+      </button>
+      <button id="sct-reset" class="sct-ghost" type="button">
+        <Icon name="mdi:restart" class="sct-button-icon" />
+        <span>{t.reset}</span>
+      </button>
+    </div>
+
+    <div class="sct-tuning">
+      <label class="sct-slider-wrap" for="sct-volume">
+        <span>{t.volume}</span>
+        <input id="sct-volume" class="sct-slider" type="range" min="0" max="0.6" value="0.22" step="0.01" />
+      </label>
+      <label class="sct-slider-wrap" for="sct-duration">
+        <span>{t.duration}</span>
+        <input id="sct-duration" class="sct-slider" type="range" min="20" max="90" value="45" step="5" />
+      </label>
+    </div>
+
+    <div class="sct-result">
+      <div>
+        <span class="sct-result-label">{t.dropoutLabel}</span>
+        <strong id="sct-dropout">{t.dropoutEmpty}</strong>
+      </div>
+      <p id="sct-note">{t.safeStart}</p>
+    </div>
+
+  </section>
+
+  <script>
+    const root = document.getElementById('sct-root');
+    const strings = JSON.parse(root?.dataset?.s ?? '{}') as Record<string, string>;
+    const frequencyDisplay = document.getElementById('sct-frequency');
+    const elapsedDisplay = document.getElementById('sct-elapsed');
+    const meterFill = document.getElementById('sct-meter-fill') as HTMLSpanElement | null;
+    const statusDisplay = document.getElementById('sct-status');
+    const toggleButton = document.getElementById('sct-toggle') as HTMLButtonElement | null;
+    const markButton = document.getElementById('sct-mark') as HTMLButtonElement | null;
+    const resetButton = document.getElementById('sct-reset') as HTMLButtonElement | null;
+    const volumeInput = document.getElementById('sct-volume') as HTMLInputElement | null;
+    const durationInput = document.getElementById('sct-duration') as HTMLInputElement | null;
+    const dropoutDisplay = document.getElementById('sct-dropout');
+    const noteDisplay = document.getElementById('sct-note');
+
+    const startHz = 200;
+    const endHz = 10;
+    let audioContext: AudioContext | null = null;
+    let oscillator: OscillatorNode | null = null;
+    let gainNode: GainNode | null = null;
+    let startTime = 0;
+    let animationId = 0;
+    let running = false;
+    let currentHz = startHz;
+
+    function formatHz(value: number): string {
+      return value >= 100 ? `${Math.round(value)} Hz` : `${value.toFixed(1)} Hz`;
+    }
+
+    function sweepFrequency(elapsed: number, duration: number): number {
+      const progress = Math.min(1, Math.max(0, elapsed / duration));
+      return startHz * Math.pow(endHz / startHz, progress);
+    }
+
+    function setButtonPlaying(isPlaying: boolean): void {
+      if (!toggleButton) return;
+      const label = toggleButton.querySelector('span');
+      toggleButton.dataset.playing = isPlaying ? 'true' : 'false';
+      if (label) label.textContent = isPlaying ? strings.stop! : strings.start!;
+    }
+
+    function getAudioContext(): AudioContext | null {
+      if (audioContext) return audioContext;
+      const win = window as typeof window & { webkitAudioContext?: typeof AudioContext };
+      const Context = win.AudioContext ?? win.webkitAudioContext;
+      if (!Context) return null;
+      audioContext = new Context();
+      return audioContext;
+    }
+
+    function getElapsed(): { elapsed: number; progress: number } {
+      const duration = Number(durationInput?.value ?? 45);
+      const elapsed = running && audioContext ? audioContext.currentTime - startTime : 0;
+      currentHz = running ? sweepFrequency(elapsed, duration) : currentHz;
+      const progress = Math.min(1, Math.max(0, elapsed / duration));
+      return { elapsed, progress };
+    }
+
+    function refreshFrequencyDisplay(elapsed: number, progress: number): void {
+      if (frequencyDisplay) frequencyDisplay.textContent = formatHz(currentHz);
+      if (elapsedDisplay) elapsedDisplay.textContent = `${elapsed.toFixed(1)}s`;
+      if (meterFill) meterFill.style.transform = `scaleX(${1 - progress})`;
+    }
+
+    function updateVisuals(): void {
+      const { elapsed, progress } = getElapsed();
+      refreshFrequencyDisplay(elapsed, progress);
+      if (running && progress < 1) {
+        animationId = requestAnimationFrame(updateVisuals);
+      } else if (running) {
+        stopSweep();
+      }
+    }
+
+    function setupOscillator(context: AudioContext, duration: number, volume: number): void {
+      oscillator = context.createOscillator();
+      gainNode = context.createGain();
+      oscillator.type = 'sine';
+      oscillator.frequency.setValueAtTime(startHz, context.currentTime);
+      oscillator.frequency.exponentialRampToValueAtTime(endHz, context.currentTime + duration);
+      gainNode.gain.setValueAtTime(0.0001, context.currentTime);
+      gainNode.gain.exponentialRampToValueAtTime(Math.max(0.0001, volume), context.currentTime + 0.08);
+      gainNode.gain.setValueAtTime(Math.max(0.0001, volume), context.currentTime + duration - 0.08);
+      gainNode.gain.exponentialRampToValueAtTime(0.0001, context.currentTime + duration);
+      oscillator.connect(gainNode);
+      gainNode.connect(context.destination);
+      oscillator.start();
+      oscillator.stop(context.currentTime + duration);
+    }
+
+    function applyRunningState(): void {
+      root?.classList.add('is-running');
+      if (markButton) markButton.disabled = false;
+      if (statusDisplay) statusDisplay.textContent = strings.running!;
+    }
+
+    function startSweep(): void {
+      const context = getAudioContext();
+      if (!context) return;
+      if (context.state === 'suspended') void context.resume();
+      stopSweep(false);
+      setupOscillator(context, Number(durationInput?.value ?? 45), Number(volumeInput?.value ?? 0.22));
+      startTime = context.currentTime;
+      currentHz = startHz;
+      running = true;
+      applyRunningState();
+      setButtonPlaying(true);
+      updateVisuals();
+    }
+
+    function cleanupAudio(): void {
+      if (gainNode && audioContext) {
+        gainNode.gain.cancelScheduledValues(audioContext.currentTime);
+        gainNode.gain.setTargetAtTime(0.0001, audioContext.currentTime, 0.025);
+      }
+      if (oscillator) {
+        try { oscillator.stop(); } catch { }
+        oscillator.disconnect();
+      }
+      oscillator = null;
+      gainNode = null;
+    }
+
+    function applyStoppedState(): void {
+      root?.classList.remove('is-running');
+      if (markButton) markButton.disabled = true;
+    }
+
+    function stopSweep(resetStatus = true): void {
+      cancelAnimationFrame(animationId);
+      cleanupAudio();
+      running = false;
+      applyStoppedState();
+      if (resetStatus && statusDisplay) statusDisplay.textContent = strings.stopped!;
+      setButtonPlaying(false);
+    }
+
+    toggleButton?.addEventListener('click', () => {
+      if (running) stopSweep();
+      else startSweep();
+    });
+
+    markButton?.addEventListener('click', () => {
+      if (!dropoutDisplay) return;
+      dropoutDisplay.textContent = formatHz(currentHz);
+      if (noteDisplay) {
+        noteDisplay.textContent = `${strings.crossoverEstimate!}: ${formatHz(currentHz)}.`;
+      }
+      stopSweep();
+    });
+
+    resetButton?.addEventListener('click', () => {
+      stopSweep(false);
+      currentHz = startHz;
+      if (dropoutDisplay) dropoutDisplay.textContent = strings.dropoutEmpty!;
+      if (noteDisplay) noteDisplay.textContent = strings.safeStart!;
+      if (statusDisplay) statusDisplay.textContent = strings.ready!;
+      updateVisuals();
+    });
+
+    volumeInput?.addEventListener('input', () => {
+      if (gainNode && audioContext) {
+        gainNode.gain.setTargetAtTime(Number(volumeInput.value), audioContext.currentTime, 0.03);
+      }
+    });
+  </script>
+</div>
