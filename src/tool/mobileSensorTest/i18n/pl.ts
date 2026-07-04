@@ -3,7 +3,7 @@ import type { ToolLocaleContent } from '../../../types';
 import type { MobileSensorTestUI } from '../ui';
 import { bibliography } from '../bibliography';
 
-const slug = 'mobile-sensor-test';
+const slug = 'test-czujnikow-telefonu';
 const title = 'Test Czujników Telefonu';
 const description = 'Uruchom test online żyroskopu, akcelerometru, czujnika ruchu i poziomicy na swoim telefonie, aby sprawdzić nachylenie, obrót, dryft i problemy z kalibracją czujników.';
 

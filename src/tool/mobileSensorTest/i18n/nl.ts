@@ -3,7 +3,7 @@ import type { ToolLocaleContent } from '../../../types';
 import type { MobileSensorTestUI } from '../ui';
 import { bibliography } from '../bibliography';
 
-const slug = 'mobile-sensor-test';
+const slug = 'mobiele-sensor-test';
 const title = 'Mobiele Sensor Test';
 const description = 'Voer een online gyroscoop-, versnellingsmeter-, bewegingssensor- en waterpastest uit op je telefoon om kanteling, rotatie, drift en sensor kalibratieproblemen te controleren.';
 

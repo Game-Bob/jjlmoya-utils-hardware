@@ -3,7 +3,7 @@ import type { ToolLocaleContent } from '../../../types';
 import type { MobileSensorTestUI } from '../ui';
 import { bibliography } from '../bibliography';
 
-const slug = 'mobile-sensor-test';
+const slug = 'test-sensores-movil';
 const title = 'Test de Sensores del Móvil';
 const description = 'Ejecuta una prueba online de giroscopio, acelerómetro, sensor de movimiento y nivel de burbuja en tu teléfono para comprobar inclinación, rotación, deriva y problemas de calibración de sensores.';
 

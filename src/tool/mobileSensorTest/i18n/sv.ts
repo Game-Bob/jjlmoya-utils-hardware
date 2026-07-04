@@ -3,7 +3,7 @@ import type { ToolLocaleContent } from '../../../types';
 import type { MobileSensorTestUI } from '../ui';
 import { bibliography } from '../bibliography';
 
-const slug = 'mobile-sensor-test';
+const slug = 'mobilsensor-test';
 const title = 'Mobilsensor Test';
 const description = 'Kör ett online gyroskop-, accelerometer-, rörelsesensor- och vattenpasstest på din telefon för att kontrollera lutning, rotation, drift och sensorkalibreringsproblem.';
 

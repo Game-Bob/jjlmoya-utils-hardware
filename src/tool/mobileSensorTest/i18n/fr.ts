@@ -3,7 +3,7 @@ import type { ToolLocaleContent } from '../../../types';
 import type { MobileSensorTestUI } from '../ui';
 import { bibliography } from '../bibliography';
 
-const slug = 'mobile-sensor-test';
+const slug = 'test-capteurs-mobile';
 const title = 'Test des capteurs du mobile';
 const description = 'Exécutez un test en ligne du gyroscope, de l\'accéléromètre, du capteur de mouvement et du niveau à bulle sur votre téléphone pour vérifier l\'inclinaison, la rotation, la dérive et les problèmes de calibration des capteurs.';
 
@@ -22,7 +22,7 @@ const faqData = [
   },
   {
     question: 'Cela peut-il réparer ou calibrer une boussole défectueuse ?',
-    answer: 'Aucun outil de navigateur ne peut réparer le matériel ni forcer l\'étalonnage de la boussole du système. Ce test vous aide à identifier les symptômes : lectures bloquées, mouvement bruité, dérive, autorisation manquante ou navigateur qui n\'expose pas les capteurs.',
+    answer: 'Aucun outil de navigateur ne peut réparer le matériel ni forcer l\'étalonnage de la boussole du système. Ce test vous aide à identifier les symptômes: lectures bloquées, mouvement bruité, dérive, autorisation manquante ou navigateur qui n\'expose pas les capteurs.',
   },
 ];
 

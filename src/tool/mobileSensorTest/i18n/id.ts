@@ -3,7 +3,7 @@ import type { ToolLocaleContent } from '../../../types';
 import type { MobileSensorTestUI } from '../ui';
 import { bibliography } from '../bibliography';
 
-const slug = 'mobile-sensor-test';
+const slug = 'tes-sensor-ponsel';
 const title = 'Tes Sensor Ponsel';
 const description = 'Jalankan tes online giroskop, akselerometer, sensor gerak, dan level gelembung di ponsel Anda untuk memeriksa kemiringan, rotasi, drift, dan masalah kalibrasi sensor.';
 

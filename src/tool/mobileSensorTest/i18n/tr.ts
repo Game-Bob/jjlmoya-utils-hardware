@@ -3,7 +3,7 @@ import type { ToolLocaleContent } from '../../../types';
 import type { MobileSensorTestUI } from '../ui';
 import { bibliography } from '../bibliography';
 
-const slug = 'mobile-sensor-test';
+const slug = 'mobil-sensor-testi';
 const title = 'Mobil Sensör Testi';
 const description = 'Telefonunuzda jiroskop, ivmeölçer, hareket sensörü ve su terazisi testini çevrimiçi olarak çalıştırarak eğim, dönüş, sapma ve sensör kalibrasyon sorunlarını kontrol edin.';
 

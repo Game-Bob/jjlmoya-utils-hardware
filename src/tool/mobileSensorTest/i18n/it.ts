@@ -3,7 +3,7 @@ import type { ToolLocaleContent } from '../../../types';
 import type { MobileSensorTestUI } from '../ui';
 import { bibliography } from '../bibliography';
 
-const slug = 'mobile-sensor-test';
+const slug = 'test-sensori-cellulare';
 const title = 'Test dei Sensori del Cellulare';
 const description = 'Esegui un test online di giroscopio, accelerometro, sensore di movimento e livella a bolla sul tuo telefono per verificare inclinazione, rotazione, deriva e problemi di calibrazione dei sensori.';
 

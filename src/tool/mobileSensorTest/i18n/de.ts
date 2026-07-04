@@ -3,8 +3,8 @@ import type { ToolLocaleContent } from '../../../types';
 import type { MobileSensorTestUI } from '../ui';
 import { bibliography } from '../bibliography';
 
-const slug = 'mobile-sensor-test';
-const title = 'Handy-Sensor-Test';
+const slug = 'mobiler-sensor-test';
+const title = 'Mobiler Sensor Test';
 const description = 'Führen Sie einen Online-Test für Gyroskop, Beschleunigungssensor, Bewegungssensor und digitale Wasserwaage auf Ihrem Handy durch, um Neigung, Drehung, Drift und Sensor-Kalibrierungsprobleme zu überprüfen.';
 
 const faqData = [
@@ -128,7 +128,7 @@ export const content: ToolLocaleContent<MobileSensorTestUI> = {
     },
     {
       type: 'tip',
-      title: 'Hinweis zu iPhone- und Android-Berechtigungen',
+      title: 'Hinweis zu Berechtigungen bei iPhone und Android',
       html: 'Auf iPhone und iPad kann Safari nach einer Berührung nach Bewegungs- und Orientierungserlaubnis fragen. Unter Android stellt Chrome Bewegungssensoren in der Regel direkter bereit, aber Datenschutzeinstellungen, Browser-Flags, Energiesparmodi und eingebettete Webviews können die Sensordaten immer noch blockieren oder reduzieren.',
     },
     {
