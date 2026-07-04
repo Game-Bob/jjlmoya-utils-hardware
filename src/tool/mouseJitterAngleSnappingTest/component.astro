@@ -1,0 +1,110 @@
+---
+import type { KnownLocale } from '../../types';
+import type { MouseJitterAngleSnappingTestUI } from './ui';
+import { Icon } from 'astro-icon/components';
+import './mouse-jitter-angle-snapping-test.css';
+
+interface Props {
+  locale?: KnownLocale;
+  ui?: Record<string, unknown>;
+}
+
+const { ui } = Astro.props;
+const t = (ui ?? {}) as MouseJitterAngleSnappingTestUI;
+---
+
+<div class="mjas-root" id="mjas-root" data-config={JSON.stringify({
+  statusIdle: t.statusIdle,
+  statusHealthy: t.statusHealthy,
+  statusJitter: t.statusJitter,
+  statusSnapping: t.statusSnapping,
+  statusMixed: t.statusMixed,
+  emptyLog: t.emptyLog,
+  jitterEvent: t.jitterEvent,
+  snappingEvent: t.snappingEvent,
+  combinedEvent: t.combinedEvent,
+  cleanEvent: t.cleanEvent,
+  pxUnit: t.pxUnit,
+  percentUnit: t.percentUnit,
+})}>
+  <section class="mjas-shell">
+    <div id="mjas-stage" class="mjas-stage" role="application" aria-label={t.canvasLabel}>
+      <canvas id="mjas-canvas" class="mjas-canvas"></canvas>
+      <div class="mjas-canvas-copy">
+        <span><Icon name="mdi:mouse-move-down" /> {t.badge}</span>
+        <strong>{t.pointerPrompt}</strong>
+        <small>{t.canvasHint}</small>
+      </div>
+    </div>
+
+    <aside class="mjas-console">
+      <div class="mjas-status">
+        <span>{t.samples}</span>
+        <strong id="mjas-samples">0</strong>
+        <small id="mjas-status" data-state="idle">{t.statusIdle}</small>
+      </div>
+
+      <div class="mjas-score-grid">
+        <div>
+          <span>{t.jitterScore}</span>
+          <strong id="mjas-jitter-score">0{t.percentUnit}</strong>
+        </div>
+        <div>
+          <span>{t.snappingScore}</span>
+          <strong id="mjas-snapping-score">0{t.percentUnit}</strong>
+        </div>
+      </div>
+
+      <div class="mjas-readouts">
+        <div>
+          <span>{t.straightness}</span>
+          <strong id="mjas-straightness">0{t.percentUnit}</strong>
+        </div>
+        <div>
+          <span>{t.rawDeviation}</span>
+          <strong id="mjas-deviation">0{t.pxUnit}</strong>
+        </div>
+      </div>
+
+      <label class="mjas-sensitivity">
+        <span>{t.sensitivity}</span>
+        <b><em>{t.low}</em><strong id="mjas-sensitivity-value">50</strong><em>{t.high}</em></b>
+        <input id="mjas-sensitivity" type="range" min="20" max="90" value="50" step="1" />
+      </label>
+
+      <div class="mjas-actions">
+        <button id="mjas-reset" type="button"><Icon name="mdi:restore" /> {t.reset}</button>
+      </div>
+
+      <p class="mjas-shift">{t.holdShift}</p>
+
+      <div class="mjas-log-head">{t.traceLog}</div>
+      <ol id="mjas-log" class="mjas-log"></ol>
+    </aside>
+  </section>
+</div>
+
+<script>
+  import { MouseJitterAngleSnappingTester } from './logic';
+
+  const root = document.getElementById('mjas-root');
+  const labels = JSON.parse(root?.dataset.config ?? '{}');
+
+  new MouseJitterAngleSnappingTester(
+    {
+      stage: document.getElementById('mjas-stage'),
+      canvas: document.getElementById('mjas-canvas') as HTMLCanvasElement | null,
+      samples: document.getElementById('mjas-samples'),
+      jitterScore: document.getElementById('mjas-jitter-score'),
+      snappingScore: document.getElementById('mjas-snapping-score'),
+      straightness: document.getElementById('mjas-straightness'),
+      deviation: document.getElementById('mjas-deviation'),
+      status: document.getElementById('mjas-status'),
+      sensitivity: document.getElementById('mjas-sensitivity') as HTMLInputElement | null,
+      sensitivityValue: document.getElementById('mjas-sensitivity-value'),
+      reset: document.getElementById('mjas-reset'),
+      log: document.getElementById('mjas-log'),
+    },
+    labels,
+  );
+</script>

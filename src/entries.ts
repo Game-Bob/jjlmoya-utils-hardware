@@ -38,6 +38,8 @@ export { usbPowerBudgetCalculator } from './tool/usbPowerBudgetCalculator/entry'
 export type { UsbPowerBudgetCalculatorLocaleContent } from './tool/usbPowerBudgetCalculator/entry';
 export { mobileSensorTest } from './tool/mobileSensorTest/entry';
 export type { MobileSensorTestLocaleContent } from './tool/mobileSensorTest/entry';
+export { mouseJitterAngleSnappingTest } from './tool/mouseJitterAngleSnappingTest/entry';
+export type { MouseJitterAngleSnappingTestLocaleContent } from './tool/mouseJitterAngleSnappingTest/entry';
 export { hardwareCategory } from './category';
 import { estimadorSaludBateria } from './tool/batteryHealthEstimator/entry';
 import { pixelesPantalla } from './tool/deadPixelTest/entry';
@@ -59,4 +61,5 @@ import { keyboardChatterTest } from './tool/keyboardChatterTest/entry';
 import { webUsbSerialMonitor } from './tool/webUsbSerialMonitor/entry';
 import { usbPowerBudgetCalculator } from './tool/usbPowerBudgetCalculator/entry';
 import { mobileSensorTest } from './tool/mobileSensorTest/entry';
-export const ALL_ENTRIES = [estimadorSaludBateria, pixelesPantalla, testMando, probadorVibracionMando, testTeclado, keyboardChatterTest, testRaton, mouseDoubleClickTest, mouseScrollTest, toneGenerator, subwooferCrossoverTest, refreshRateDetector, monitorGhostingTest, spectrumCanvas, upsRuntimeCalculator, usbPowerBudgetCalculator, mobileSensorTest, stereoAudioTest, webBluetoothBleScanner, webUsbSerialMonitor];
+import { mouseJitterAngleSnappingTest } from './tool/mouseJitterAngleSnappingTest/entry';
+export const ALL_ENTRIES = [estimadorSaludBateria, pixelesPantalla, testMando, probadorVibracionMando, testTeclado, keyboardChatterTest, testRaton, mouseDoubleClickTest, mouseScrollTest, mouseJitterAngleSnappingTest, toneGenerator, subwooferCrossoverTest, refreshRateDetector, monitorGhostingTest, spectrumCanvas, upsRuntimeCalculator, usbPowerBudgetCalculator, mobileSensorTest, stereoAudioTest, webBluetoothBleScanner, webUsbSerialMonitor];

@@ -1,0 +1,29 @@
+export interface MouseJitterAngleSnappingTestUI extends Record<string, string> {
+  badge: string;
+  canvasLabel: string;
+  canvasHint: string;
+  pointerPrompt: string;
+  samples: string;
+  jitterScore: string;
+  snappingScore: string;
+  straightness: string;
+  rawDeviation: string;
+  statusIdle: string;
+  statusHealthy: string;
+  statusJitter: string;
+  statusSnapping: string;
+  statusMixed: string;
+  reset: string;
+  holdShift: string;
+  sensitivity: string;
+  low: string;
+  high: string;
+  traceLog: string;
+  emptyLog: string;
+  jitterEvent: string;
+  snappingEvent: string;
+  combinedEvent: string;
+  cleanEvent: string;
+  pxUnit: string;
+  percentUnit: string;
+}
