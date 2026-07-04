@@ -1,0 +1,266 @@
+---
+import type { KnownLocale } from '../../types';
+import type { UsbPowerBudgetCalculatorUI } from './ui';
+import { usbPowerProfiles } from './logic';
+import './usb-power-budget-calculator.css';
+
+interface Props {
+  locale?: KnownLocale;
+  ui?: Record<string, unknown>;
+}
+
+const { ui } = Astro.props;
+const t = (ui ?? {}) as UsbPowerBudgetCalculatorUI;
+const strings = JSON.stringify(t);
+const profiles = JSON.stringify(usbPowerProfiles);
+---
+
+<div class="upb-shell" id="upb-root" data-ui={strings} data-profiles={profiles} data-status="safe">
+  <div class="upb-board">
+    <div class="upb-board-top">
+      <span class="upb-eyebrow">{t.boardEyebrow}</span>
+      <div class="upb-unit-switch" role="group" aria-label="Unit system">
+        <button type="button" class="is-active" data-unit="metric">{t.metricUnits}</button>
+        <button type="button" data-unit="imperial">{t.imperialUnits}</button>
+      </div>
+    </div>
+
+    <div class="upb-hero" aria-live="polite">
+      <div class="upb-socket upb-source">
+        <span>{t.sourceSocket}</span>
+        <strong id="upb-source-power">15.0 W</strong>
+        <small id="upb-available-power">12.0 W usable</small>
+      </div>
+
+      <div class="upb-cable-stage" aria-label="Animated USB power cable">
+        <svg class="upb-cable-art" viewBox="0 0 520 210" role="img" aria-label="USB cable carrying power from source to device">
+          <defs>
+            <filter id="upb-glow" x="-20%" y="-60%" width="140%" height="220%">
+              <feGaussianBlur stdDeviation="6" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+          <path class="upb-cable-shadow" d="M58 118 C128 38 202 38 260 118 S394 198 462 118" />
+          <path class="upb-cable-body" d="M58 118 C128 38 202 38 260 118 S394 198 462 118" />
+          <path class="upb-cable-core" d="M58 118 C128 38 202 38 260 118 S394 198 462 118" />
+          <path class="upb-cable-spark" d="M58 118 C128 38 202 38 260 118 S394 198 462 118" />
+          <g class="upb-plug upb-plug-left">
+            <rect x="18" y="86" width="54" height="64" rx="14" />
+            <rect x="0" y="100" width="24" height="36" rx="7" />
+            <line x1="14" y1="109" x2="14" y2="127" />
+          </g>
+          <g class="upb-plug upb-plug-right">
+            <rect x="448" y="86" width="54" height="64" rx="14" />
+            <rect x="496" y="100" width="24" height="36" rx="7" />
+            <circle cx="506" cy="118" r="5" />
+          </g>
+        </svg>
+        <span class="upb-flow-chip" id="upb-drop-chip">0.00 V {t.cableLane}</span>
+        <span class="upb-flow-label">{t.energyFlow}</span>
+      </div>
+
+      <div class="upb-socket upb-load">
+        <span>{t.deviceSocket}</span>
+        <strong id="upb-required-power">15.0 W</strong>
+        <small id="upb-device-voltage">4.36 V</small>
+      </div>
+    </div>
+
+    <div class="upb-status-row">
+      <div class="upb-status" id="upb-status" data-status="safe">
+        <span id="upb-status-text">{t.safeStatus}</span>
+        <p id="upb-advice">{t.safeAdvice}</p>
+      </div>
+      <div class="upb-gauge">
+        <div class="upb-gauge-copy">
+          <span>{t.utilization}</span>
+          <strong id="upb-utilization">100%</strong>
+        </div>
+        <div class="upb-gauge-track"><i id="upb-utilization-bar"></i></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="upb-console">
+    <label class="upb-field upb-wide">
+      <span>{t.profileLabel}</span>
+      <select id="upb-profile">
+        {Object.entries(usbPowerProfiles).map(([key, profile]) => <option value={key}>{profile.label}</option>)}
+      </select>
+    </label>
+
+    <div class="upb-field-pair">
+      <label class="upb-field">
+        <span>{t.voltageLabel}</span>
+        <input id="upb-voltage" type="number" min="3" max="48" step="0.1" value="5" />
+      </label>
+      <label class="upb-field">
+        <span>{t.currentLabel}</span>
+        <input id="upb-current" type="number" min="0.1" max="10" step="0.1" value="3" />
+      </label>
+    </div>
+
+    <div class="upb-field-pair">
+      <label class="upb-field">
+        <span id="upb-length-label">{t.cableLengthLabel} (m)</span>
+        <input id="upb-length" type="number" min="0.1" max="10" step="0.1" value="1.5" />
+      </label>
+      <label class="upb-field">
+        <span>{t.wireGaugeLabel}</span>
+        <select id="upb-awg">
+          <option value="20">20 AWG</option>
+          <option value="22">22 AWG</option>
+          <option value="24">24 AWG</option>
+          <option value="26">26 AWG</option>
+          <option value="28" selected>28 AWG</option>
+          <option value="30">30 AWG</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="upb-field-pair">
+      <label class="upb-field">
+        <span>{t.deviceLoadLabel}</span>
+        <input id="upb-load" type="number" min="0.1" max="240" step="0.1" value="7.5" />
+      </label>
+      <label class="upb-field">
+        <span>{t.devicesLabel}</span>
+        <input id="upb-devices" type="number" min="1" max="12" step="1" value="2" />
+      </label>
+    </div>
+
+    <label class="upb-field">
+      <span>{t.headroomLabel}</span>
+      <input id="upb-headroom" type="number" min="0" max="50" step="5" value="20" />
+    </label>
+
+    <div class="upb-metrics">
+      <div><span>{t.headroom}</span><strong id="upb-headroom-watts">-3.0 W</strong></div>
+      <div><span>{t.cableDrop}</span><strong id="upb-cable-drop">0.64 V</strong></div>
+      <div><span>{t.sourcePower}</span><strong id="upb-source-power-small">15.0 W</strong></div>
+      <div><span>{t.requiredPower}</span><strong id="upb-required-power-small">15.0 W</strong></div>
+    </div>
+  </div>
+
+  <script>
+    import { calculateUsbPowerBudget, feetToMeters, metersToFeet } from './logic';
+
+    const root = document.getElementById('upb-root') as HTMLElement | null;
+    const ui = JSON.parse(root?.dataset.ui ?? '{}') as Record<string, string>;
+    const profiles = JSON.parse(root?.dataset.profiles ?? '{}') as Record<string, { voltage: number; current: number }>;
+    const profile = document.getElementById('upb-profile') as HTMLSelectElement | null;
+    const voltage = document.getElementById('upb-voltage') as HTMLInputElement | null;
+    const current = document.getElementById('upb-current') as HTMLInputElement | null;
+    const length = document.getElementById('upb-length') as HTMLInputElement | null;
+    const lengthLabel = document.getElementById('upb-length-label');
+    const awg = document.getElementById('upb-awg') as HTMLSelectElement | null;
+    const load = document.getElementById('upb-load') as HTMLInputElement | null;
+    const devices = document.getElementById('upb-devices') as HTMLInputElement | null;
+    const headroom = document.getElementById('upb-headroom') as HTMLInputElement | null;
+    const unitButtons = Array.from(document.querySelectorAll<HTMLButtonElement>('.upb-unit-switch button'));
+    let unitSystem = 'metric';
+
+    const els = {
+      sourcePower: document.getElementById('upb-source-power'),
+      requiredPower: document.getElementById('upb-required-power'),
+      dropChip: document.getElementById('upb-drop-chip'),
+      status: document.getElementById('upb-status') as HTMLElement | null,
+      statusText: document.getElementById('upb-status-text'),
+      advice: document.getElementById('upb-advice'),
+      deviceVoltage: document.getElementById('upb-device-voltage'),
+      headroomWatts: document.getElementById('upb-headroom-watts'),
+      utilization: document.getElementById('upb-utilization'),
+      cableDrop: document.getElementById('upb-cable-drop'),
+      availablePower: document.getElementById('upb-available-power'),
+      sourcePowerSmall: document.getElementById('upb-source-power-small'),
+      requiredPowerSmall: document.getElementById('upb-required-power-small'),
+      utilizationBar: document.getElementById('upb-utilization-bar') as HTMLElement | null,
+    };
+
+    function numberValue(input: HTMLInputElement | HTMLSelectElement | null, fallback: number): number {
+      const value = Number(input?.value);
+      return Number.isFinite(value) ? value : fallback;
+    }
+
+    function setLengthLabel() {
+      if (!lengthLabel) return;
+      lengthLabel.textContent = `${ui.cableLengthLabel} (${unitSystem === 'metric' ? 'm' : 'ft'})`;
+    }
+
+    function formatWatts(value: number) {
+      return `${value.toFixed(1)} W`;
+    }
+
+    function setText(el: HTMLElement | null, value: string) {
+      if (el) el.textContent = value;
+    }
+
+    function applyResult(key: string, result: ReturnType<typeof calculateUsbPowerBudget>) {
+      setText(els.statusText, ui[`${key}Status`] ?? '');
+      setText(els.advice, ui[`${key}Advice`] ?? '');
+      setText(els.sourcePower, formatWatts(result.sourceWatts));
+      setText(els.sourcePowerSmall, formatWatts(result.sourceWatts));
+      setText(els.requiredPower, formatWatts(result.requiredWatts));
+      setText(els.requiredPowerSmall, formatWatts(result.requiredWatts));
+      setText(els.availablePower, `${formatWatts(result.availableWatts)} ${ui.reservedLabel}`);
+      setText(els.dropChip, `${result.cableDropVolts.toFixed(2)} V ${ui.cableLane}`);
+      setText(els.deviceVoltage, `${result.deviceEndVoltage.toFixed(2)} V`);
+      setText(els.headroomWatts, formatWatts(result.headroomWatts));
+      setText(els.utilization, `${Math.round(result.utilizationPercent)}%`);
+      setText(els.cableDrop, `${result.cableDropVolts.toFixed(2)} V`);
+      if (els.status) els.status.dataset.status = result.status;
+      if (root) root.dataset.status = result.status;
+      if (els.utilizationBar) els.utilizationBar.style.width = `${Math.min(140, Math.max(0, result.utilizationPercent))}%`;
+    }
+
+    function update() {
+      const cableLengthMeters = unitSystem === 'metric'
+        ? numberValue(length, 1.5)
+        : feetToMeters(numberValue(length, 5));
+      const result = calculateUsbPowerBudget({
+        sourceVoltage: numberValue(voltage, 5),
+        sourceCurrent: numberValue(current, 3),
+        cableLengthMeters,
+        wireGaugeAwg: numberValue(awg, 28),
+        deviceLoadWatts: numberValue(load, 7.5),
+        devices: numberValue(devices, 2),
+        headroomPercent: numberValue(headroom, 20),
+      });
+
+      let key = 'over';
+      if (result.status === 'safe') key = 'safe';
+      else if (result.status === 'tight') key = 'tight';
+      applyResult(key, result);
+    }
+
+    profile?.addEventListener('change', () => {
+      const selected = profiles[profile.value];
+      if (!selected || !voltage || !current) return;
+      voltage.value = String(selected.voltage);
+      current.value = String(selected.current);
+      update();
+    });
+
+    unitButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const next = button.dataset.unit ?? 'metric';
+        if (next === unitSystem || !length) return;
+        const currentLength = numberValue(length, unitSystem === 'metric' ? 1.5 : 5);
+        length.value = next === 'metric'
+          ? feetToMeters(currentLength).toFixed(2)
+          : metersToFeet(currentLength).toFixed(1);
+        unitSystem = next;
+        unitButtons.forEach((item) => item.classList.toggle('is-active', item === button));
+        setLengthLabel();
+        update();
+      });
+    });
+
+    [voltage, current, length, awg, load, devices, headroom].forEach((input) => input?.addEventListener('input', update));
+    setLengthLabel();
+    update();
+  </script>
+</div>

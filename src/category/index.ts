@@ -16,10 +16,11 @@ import { stereoAudioTest } from '../tool/stereoAudioTest/index';
 import { webBluetoothBleScanner } from '../tool/webBluetoothBleScanner/index';
 import { keyboardChatterTest } from '../tool/keyboardChatterTest/index';
 import { webUsbSerialMonitor } from '../tool/webUsbSerialMonitor/index';
+import { usbPowerBudgetCalculator } from '../tool/usbPowerBudgetCalculator/index';
 
 export const hardwareCategory: HardwareCategoryEntry = {
   icon: 'mdi:memory',
-  tools: [pixelesPantalla, testTeclado, keyboardChatterTest, testMando, probadorVibracionMando, testRaton, mouseDoubleClickTest, mouseScrollTest, estimadorSaludBateria, toneGenerator, refreshRateDetector, monitorGhostingTest, spectrumCanvas, upsRuntimeCalculator, stereoAudioTest, webBluetoothBleScanner, webUsbSerialMonitor],
+  tools: [pixelesPantalla, testTeclado, keyboardChatterTest, testMando, probadorVibracionMando, testRaton, mouseDoubleClickTest, mouseScrollTest, estimadorSaludBateria, toneGenerator, refreshRateDetector, monitorGhostingTest, spectrumCanvas, upsRuntimeCalculator, usbPowerBudgetCalculator, stereoAudioTest, webBluetoothBleScanner, webUsbSerialMonitor],
   i18n: {
     en: () => import('./i18n/en').then((m) => m.content),
     es: () => import('./i18n/es').then((m) => m.content),
