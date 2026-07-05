@@ -189,7 +189,7 @@ export const content: ToolLocaleContent<TouchScreenTesterUI> = {
     { type: 'title', text: 'Test des bords, des coins et des zones du clavier', level: 3 },
     {
       type: 'paragraph',
-      html: 'De nombreuses plaintes réelles commencent dans les zones très sollicitées : la rangée inférieure du clavier, la touche retour, les gestes de navigation, le volet de notifications, les réglages rapides, les zones de pouce des jeux et les coins de tablette utilisés pour les raccourcis de dessin. Utilisez le mode plein écran avant de juger les zones supérieure et inférieure, car les commandes du navigateur peuvent autrement masquer une partie de l\'écran.',
+      html: 'De nombreuses plaintes réelles commencent dans les zones très sollicitées: la rangée inférieure du clavier, la touche retour, les gestes de navigation, le volet de notifications, les réglages rapides, les zones de pouce des jeux et les coins de tablette utilisés pour les raccourcis de dessin. Utilisez le mode plein écran avant de juger les zones supérieure et inférieure, car les commandes du navigateur peuvent autrement masquer une partie de l\'écran.',
     },
     {
       type: 'list',

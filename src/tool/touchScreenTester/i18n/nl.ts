@@ -3,7 +3,7 @@ import type { ToolLocaleContent } from '../../../types';
 import type { TouchScreenTesterUI } from '../ui';
 import { bibliography } from '../bibliography';
 
-const slug = 'touchscreen-test';
+const slug = 'aanraakscherm-test';
 const title = 'Touchscreen Tester';
 const description = 'Teken op een schermvullend canvas om dode zones, gemiste aanrakingen, randrespons, handpalmstoring en het maximale aantal gelijktijdige multi-touchpunten van je telefoon of tablet te testen.';
 
@@ -135,7 +135,7 @@ export const content: ToolLocaleContent<TouchScreenTesterUI> = {
       type: 'comparative',
       columns: 3,
       items: [
-        { title: 'Twee-vingergebaren', description: 'Nodig voor knijpzoomen, twee-vingerrotatie, kaarten, beeldbewerkers en toegankelijkheidszoom.' },
+        { title: 'Twee vingergebaren', description: 'Nodig voor knijpzoomen, twee-vingerrotatie, kaarten, beeldbewerkers en toegankelijkheidszoom.' },
         { title: 'Drie tot vijf aanrakingen', description: 'Handig voor ritmespellen, gesplitste bediening, teken-apps, pianotoetsenborden en creatieve tabletworkflows.' },
         { title: 'Tienpunts touchpanels', description: 'Gebruikelijk op moderne telefoons en tablets, maar browser- of besturingssysteemfiltering kan het aantal nog steeds verlagen.' },
       ],
@@ -147,7 +147,7 @@ export const content: ToolLocaleContent<TouchScreenTesterUI> = {
     },
     {
       type: 'proscons',
-      title: 'Online tester versus een native diagnose-app',
+      title: 'Online tester versus een native diagnose app',
       items: [
         { pro: 'Start direct zonder iets te installeren of uitgebreide apparaatmachtigingen te verlenen.', con: 'Kan alleen de touch-gebeurtenissen tonen die door de browser en het besturingssysteem worden blootgesteld.' },
         { pro: 'Makkelijk te delen met een reparatiewinkel of koper omdat het tekenpatroon zichtbaar is.', con: 'Kan geen fabriekskalibratietabellen of low-level digitizer-foutcodes lezen.' },
@@ -224,7 +224,7 @@ export const content: ToolLocaleContent<TouchScreenTesterUI> = {
     },
     {
       type: 'message',
-      title: 'Privacy-opmerking',
+      title: 'Privacy opmerking',
       html: 'De tekening en tellers worden client-side gegenereerd. De tester is ontworpen voor directe diagnose, niet voor accountgebaseerde logging, reparatie op afstand of het uploaden van gevoelige scherminteractiepatronen.',
     },
     { type: 'title', text: 'Checklist voor resultaatinterpretatie', level: 3 },

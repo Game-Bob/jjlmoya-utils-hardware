@@ -147,7 +147,7 @@ export const content: ToolLocaleContent<TouchScreenTesterUI> = {
     },
     {
       type: 'proscons',
-      title: 'Online-testare jämfört med en inbyggd diagnosapp',
+      title: 'Online testare jämfört med en inbyggd diagnosapp',
       items: [
         { pro: 'Körs direkt utan att installera något eller ge breda enhetsbehörigheter.', con: 'Den kan bara visa de pekhändelser som webbläsaren och operativsystemet exponerar.' },
         { pro: 'Lätt att dela med en reparationsverkstad eller köpare eftersom ritmönstret är synligt.', con: 'Den kan inte läsa fabrikskalibreringstabeller eller lågnivå-felkoder från digitaliseraren.' },

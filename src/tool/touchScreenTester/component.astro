@@ -62,18 +62,13 @@ const strings = JSON.stringify(t);
     let frame = 0;
     let totalCells = 1;
 
-    function setText(el: HTMLElement | null, value: string) {
-      if (el) el.textContent = value;
-    }
-
-    function getColor(id: number) {
-      const hue = Math.abs(id * 61) % 360;
-      return `hsl(${hue} 92% 52%)`;
-    }
-
-    function updateStatus(text: string, state: string) {
-      if (root) root.dataset.state = state;
-      setText(status, text);
+    function pointFromTouch(touch: Touch) {
+      const rect = canvas?.getBoundingClientRect();
+      if (!rect) return { x: 0, y: 0 };
+      return {
+        x: touch.clientX - rect.left,
+        y: touch.clientY - rect.top,
+      };
     }
 
     function resizeCanvas() {
@@ -91,6 +86,20 @@ const strings = JSON.stringify(t);
       updateMetrics();
     }
 
+    function setText(el: HTMLElement | null, value: string) {
+      if (el) el.textContent = value;
+    }
+
+    function getColor(id: number) {
+      const hue = Math.abs(id * 61) % 360;
+      return `hsl(${hue} 92% 52%)`;
+    }
+
+    function updateStatus(text: string, state: string) {
+      if (root) root.dataset.state = state;
+      setText(status, text);
+    }
+
     function updateMetrics() {
       const metrics = summarizeTouchMetrics(activeTouches.size, peakTouches, markedCells.size, totalCells);
       peakTouches = metrics.peakTouches;
@@ -101,15 +110,6 @@ const strings = JSON.stringify(t);
 
     function markCoverage(x: number, y: number) {
       markedCells.add(`${Math.floor(x / cellSize)}:${Math.floor(y / cellSize)}`);
-    }
-
-    function pointFromTouch(touch: Touch) {
-      const rect = canvas?.getBoundingClientRect();
-      if (!rect) return { x: 0, y: 0 };
-      return {
-        x: touch.clientX - rect.left,
-        y: touch.clientY - rect.top,
-      };
     }
 
     function scheduleDraw() {

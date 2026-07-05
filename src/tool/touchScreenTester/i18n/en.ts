@@ -135,9 +135,9 @@ export const content: ToolLocaleContent<TouchScreenTesterUI> = {
       type: 'comparative',
       columns: 3,
       items: [
-        { title: 'Two-touch gestures', description: 'Needed for pinch zoom, two-finger rotation, maps, image editors, and accessibility zoom.' },
+        { title: 'Two touch gestures', description: 'Needed for pinch zoom, two-finger rotation, maps, image editors, and accessibility zoom.' },
         { title: 'Three to five touches', description: 'Useful for rhythm games, split controls, drawing apps, piano keyboards, and tablet creative workflows.' },
-        { title: 'Ten-touch panels', description: 'Common on modern phones and tablets, but browser or operating system filtering can still reduce the count.' },
+        { title: 'Ten touch panels', description: 'Common on modern phones and tablets, but browser or operating system filtering can still reduce the count.' },
       ],
     },
     {

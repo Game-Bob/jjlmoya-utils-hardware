@@ -77,7 +77,7 @@ export const content: ToolLocaleContent<TouchScreenTesterUI> = {
   schemas: [faqSchema, howToSchema, appSchema],
   bibliography,
   seo: [
-    { type: 'title', text: 'Test ekranu dotykowego online — martwe strefy i wielodotyk', level: 2 },
+    { type: 'title', text: 'Test ekranu dotykowego online - martwe strefy i wielodotyk', level: 2 },
     {
       type: 'paragraph',
       html: 'Panel dotykowy może zawodzić w sposób trudny do udowodnienia podczas normalnego korzystania z aplikacji. Klawisz klawiatury może nie działać tylko przy dolnej krawędzi, aplikacja do rysowania może pomijać wąski pionowy pas, a gry mogą tracić drugi palec tylko wtedy, gdy kciuk już naciska przycisk. Ten tester zamienia całą stronę w powierzchnię do rysowania, dzięki czemu każda luka, przerwana kreska i limit jednoczesnych kontaktów staje się natychmiast widoczny.',

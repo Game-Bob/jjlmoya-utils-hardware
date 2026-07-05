@@ -4,7 +4,7 @@ import type { TouchScreenTesterUI } from '../ui';
 import { bibliography } from '../bibliography';
 
 const slug = 'touchscreen-test';
-const title = 'Touchscreen-Tester';
+const title = 'Touchscreen Tester';
 const description = 'Zeichne auf einer Vollbildfläche, um tote Zonen, verpasste Berührungen, Randverhalten, Handballenstörungen und die maximale Anzahl gleichzeitiger Multi-Touch-Punkte deines Handys oder Tablets zu prüfen.';
 
 const faqData = [
@@ -135,9 +135,9 @@ export const content: ToolLocaleContent<TouchScreenTesterUI> = {
       type: 'comparative',
       columns: 3,
       items: [
-        { title: 'Zwei-Finger-Gesten', description: 'Nötig für Pinch-Zoom, Zwei-Finger-Drehung, Karten, Bildbearbeitung und Bedienungshilfen-Zoom.' },
+        { title: 'Zwei Finger Gesten', description: 'Nötig für Pinch-Zoom, Zwei-Finger-Drehung, Karten, Bildbearbeitung und Bedienungshilfen-Zoom.' },
         { title: 'Drei bis fünf Berührungen', description: 'Nützlich für Rhythmusspiele, geteilte Steuerungen, Zeichen-Apps, Klaviertastaturen und kreative Tablet-Workflows.' },
-        { title: 'Zehn-Finger-Panels', description: 'Bei modernen Handys und Tablets üblich, aber Browser- oder Betriebssystemfilter können die erkannte Anzahl trotzdem reduzieren.' },
+        { title: 'Zehn Finger Panels', description: 'Bei modernen Handys und Tablets üblich, aber Browser- oder Betriebssystemfilter können die erkannte Anzahl trotzdem reduzieren.' },
       ],
     },
     {
@@ -147,7 +147,7 @@ export const content: ToolLocaleContent<TouchScreenTesterUI> = {
     },
     {
       type: 'proscons',
-      title: 'Online-Tester im Vergleich zu einer nativen Diagnose-App',
+      title: 'Online Tester im Vergleich zu einer nativen Diagnose App',
       items: [
         { pro: 'Startet sofort, ohne etwas zu installieren oder umfassende Geräteberechtigungen zu erteilen.', con: 'Kann nur die Touch-Ereignisse anzeigen, die Browser und Betriebssystem bereitstellen.' },
         { pro: 'Leicht mit einer Werkstatt oder einem Käufer zu teilen, da das Zeichenmuster sichtbar ist.', con: 'Kann keine werkseitigen Kalibrierungstabellen oder hardwarenahen Digitizer-Fehlercodes auslesen.' },
@@ -184,7 +184,7 @@ export const content: ToolLocaleContent<TouchScreenTesterUI> = {
       type: 'card',
       icon: 'mdi:gesture-tap-hold',
       title: 'Druck ist nicht dasselbe wie Berührungsgenauigkeit',
-      html: 'Die meisten Handy- und Tablet-Touchscreens sind kapazitiv, daher sollte stärkeres Drücken nicht nötig sein. Reagiert eine Stelle nur bei festem Druck, liegt das Problem eher an schwachem Kontakt durch eine Schutzfolie, Panelschaden, Flexkabelproblemen oder Softwarefilterung – und nicht am normalen Touchscreen-Verhalten.',
+      html: 'Die meisten Handy- und Tablet-Touchscreens sind kapazitiv, daher sollte stärkeres Drücken nicht nötig sein. Reagiert eine Stelle nur bei festem Druck, liegt das Problem eher an schwachem Kontakt durch eine Schutzfolie, Panelschaden, Flexkabelproblemen oder Softwarefilterung - und nicht am normalen Touchscreen-Verhalten.',
     },
     { type: 'title', text: 'Testen von Rändern, Ecken und Tastaturbereichen', level: 3 },
     {
