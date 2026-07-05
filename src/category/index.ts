@@ -9,6 +9,7 @@ import { mouseScrollTest } from '../tool/mouseScrollTest/index';
 import { mouseDpiAnalyzer } from '../tool/mouseDpiAnalyzer/index';
 import { estimadorSaludBateria } from '../tool/batteryHealthEstimator/index';
 import { toneGenerator } from '../tool/toneGenerator/index';
+import { waterEjector } from '../tool/waterEjector/index';
 import { subwooferCrossoverTest } from '../tool/subwooferCrossoverTest/index';
 import { refreshRateDetector } from '../tool/refreshRateDetector/index';
 import { monitorGhostingTest } from '../tool/monitorGhostingTest/index';
@@ -28,7 +29,7 @@ import { touchScreenTester } from '../tool/touchScreenTester/index';
 
 export const hardwareCategory: HardwareCategoryEntry = {
   icon: 'mdi:memory',
-  tools: [pixelesPantalla, touchScreenTester, testTeclado, keyboardChatterTest, webMidiKeyboardTester, testMando, probadorVibracionMando, testRaton, mouseDoubleClickTest, mouseScrollTest, mouseDpiAnalyzer, mouseJitterAngleSnappingTest, estimadorSaludBateria, toneGenerator, subwooferCrossoverTest, refreshRateDetector, monitorGhostingTest, backlightBleedBloomingTest, oledScreenBurnInFixer, spectrumCanvas, upsRuntimeCalculator, usbPowerBudgetCalculator, mobileSensorTest, stereoAudioTest, webBluetoothBleScanner, webUsbSerialMonitor],
+  tools: [pixelesPantalla, touchScreenTester, testTeclado, keyboardChatterTest, webMidiKeyboardTester, testMando, probadorVibracionMando, testRaton, mouseDoubleClickTest, mouseScrollTest, mouseDpiAnalyzer, mouseJitterAngleSnappingTest, estimadorSaludBateria, toneGenerator, waterEjector, subwooferCrossoverTest, refreshRateDetector, monitorGhostingTest, backlightBleedBloomingTest, oledScreenBurnInFixer, spectrumCanvas, upsRuntimeCalculator, usbPowerBudgetCalculator, mobileSensorTest, stereoAudioTest, webBluetoothBleScanner, webUsbSerialMonitor],
   i18n: {
     en: () => import('./i18n/en').then((m) => m.content),
     es: () => import('./i18n/es').then((m) => m.content),

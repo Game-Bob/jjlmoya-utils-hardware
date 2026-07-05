@@ -1,0 +1,221 @@
+---
+import type { KnownLocale } from '../../types';
+import type { WaterEjectorUI } from './ui';
+import { Icon } from 'astro-icon/components';
+import './water-ejector-speaker-cleaner.css';
+
+interface Props {
+  locale?: KnownLocale;
+  ui?: Record<string, unknown>;
+}
+
+const { ui } = Astro.props;
+const t = (ui ?? {}) as WaterEjectorUI;
+const strings = JSON.stringify({
+  idle: t.statusIdle,
+  playing: t.statusPlaying,
+  complete: t.statusComplete,
+  start: t.startButton,
+  stop: t.stopButton,
+  seconds: t.secondsShort,
+  hertz: t.hertzUnit,
+});
+---
+
+<div id="we-root" class="we-shell" data-strings={strings}>
+  <div class="we-panel">
+    <div class="we-stage" aria-live="polite">
+      <div class="we-speaker" aria-hidden="true">
+        <span class="we-drop we-drop-a"></span>
+        <span class="we-drop we-drop-b"></span>
+        <span class="we-drop we-drop-c"></span>
+        <Icon name="mdi:speaker" class="we-speaker-icon" />
+        <span class="we-wave we-wave-a"></span>
+        <span class="we-wave we-wave-b"></span>
+        <span class="we-wave we-wave-c"></span>
+      </div>
+      <div class="we-readout">
+        <span id="we-status" class="we-status">{t.statusIdle}</span>
+        <strong id="we-frequency" class="we-frequency">165 {t.hertzUnit}</strong>
+        <span id="we-timer" class="we-timer">30 {t.secondsShort}</span>
+      </div>
+    </div>
+
+    <div class="we-controls">
+      <div class="we-control we-control-wide">
+        <label for="we-freq">{t.frequencyLabel}</label>
+        <input id="we-freq" class="we-slider" type="range" min="120" max="220" value="165" step="1" />
+        <div class="we-presets" role="group" aria-label={t.frequencyLabel}>
+          <button type="button" class="we-preset" data-frequency="145">{t.presetGentle}</button>
+          <button type="button" class="we-preset" data-frequency="165" data-active="true">{t.presetStandard}</button>
+          <button type="button" class="we-preset" data-frequency="190">{t.presetDeep}</button>
+        </div>
+      </div>
+
+      <div class="we-control">
+        <label for="we-duration">{t.durationLabel}</label>
+        <input id="we-duration" class="we-slider" type="range" min="15" max="120" value="30" step="15" />
+      </div>
+
+      <div class="we-control">
+        <label for="we-volume">{t.volumeLabel}</label>
+        <input id="we-volume" class="we-slider" type="range" min="0" max="1" value="0.8" step="0.01" />
+      </div>
+    </div>
+
+    <button id="we-toggle" type="button" class="we-toggle" data-playing="false">
+      <Icon name="mdi:play" class="we-play-icon" />
+      <Icon name="mdi:stop" class="we-stop-icon" />
+      <span id="we-toggle-text">{t.startButton}</span>
+    </button>
+
+    <div class="we-notes">
+      <div class="we-note">
+        <Icon name="mdi:shield-check" class="we-note-icon" />
+        <div>
+          <strong>{t.safetyTitle}</strong>
+          <span>{t.safetyText}</span>
+        </div>
+      </div>
+      <div class="we-note">
+        <Icon name="mdi:cellphone-sound" class="we-note-icon" />
+        <div>
+          <strong>{t.bestResult}</strong>
+          <span>{t.bestResultText}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const root = document.getElementById('we-root');
+    const copy: Record<string, string> = JSON.parse(root?.dataset?.strings ?? '{}');
+    const freqInput = document.getElementById('we-freq') as HTMLInputElement | null;
+    const durationInput = document.getElementById('we-duration') as HTMLInputElement | null;
+    const volumeInput = document.getElementById('we-volume') as HTMLInputElement | null;
+    const toggleButton = document.getElementById('we-toggle') as HTMLButtonElement | null;
+    const toggleText = document.getElementById('we-toggle-text');
+    const frequencyText = document.getElementById('we-frequency');
+    const timerText = document.getElementById('we-timer');
+    const statusText = document.getElementById('we-status');
+    const presetButtons = document.querySelectorAll<HTMLButtonElement>('.we-preset');
+
+    let audioContext: AudioContext | null = null;
+    let oscillator: OscillatorNode | null = null;
+    let gain: GainNode | null = null;
+    let timerId = 0;
+    let startedAt = 0;
+    let runSeconds = 30;
+
+    function audioReady(): boolean {
+      if (audioContext) return true;
+      const W = window as typeof window & { webkitAudioContext?: typeof AudioContext };
+      const Ctor = W.AudioContext ?? W.webkitAudioContext;
+      if (!Ctor) return false;
+      audioContext = new Ctor();
+      return true;
+    }
+
+    function frequency(): number {
+      return Number(freqInput?.value ?? 165);
+    }
+
+    function duration(): number {
+      return Number(durationInput?.value ?? 30);
+    }
+
+    function volume(): number {
+      return Number(volumeInput?.value ?? 0.8);
+    }
+
+    function updateStaticReadout(): void {
+      if (frequencyText) frequencyText.textContent = `${frequency()} ${copy.hertz}`;
+      if (timerText) timerText.textContent = `${duration()} ${copy.seconds}`;
+    }
+
+    function setText(node: HTMLElement | null, value: string | undefined): void {
+      if (node && value) node.textContent = value;
+    }
+
+    function setPlaying(playing: boolean): void {
+      const state = playing ? 'true' : 'false';
+      root?.setAttribute('data-playing', state);
+      toggleButton?.setAttribute('data-playing', state);
+      setText(toggleText, playing ? copy.stop : copy.start);
+      setText(statusText, playing ? copy.playing : copy.idle);
+    }
+
+    function stop(completed = false): void {
+      window.clearInterval(timerId);
+      timerId = 0;
+      if (oscillator) {
+        oscillator.stop();
+        oscillator.disconnect();
+        oscillator = null;
+      }
+      if (gain) {
+        gain.disconnect();
+        gain = null;
+      }
+      setPlaying(false);
+      if (statusText && completed) statusText.textContent = copy.complete ?? copy.idle;
+      updateStaticReadout();
+    }
+
+    function tick(): void {
+      const elapsed = Math.floor((Date.now() - startedAt) / 1000);
+      const remaining = Math.max(0, runSeconds - elapsed);
+      if (timerText) timerText.textContent = `${remaining} ${copy.seconds}`;
+      if (remaining <= 0) stop(true);
+    }
+
+    function start(): void {
+      if (!audioReady() || !audioContext) return;
+      if (audioContext.state === 'suspended') void audioContext.resume();
+      stop();
+      oscillator = audioContext.createOscillator();
+      gain = audioContext.createGain();
+      oscillator.type = 'sine';
+      oscillator.frequency.value = frequency();
+      gain.gain.value = volume();
+      oscillator.connect(gain);
+      gain.connect(audioContext.destination);
+      oscillator.start();
+      runSeconds = duration();
+      startedAt = Date.now();
+      setPlaying(true);
+      tick();
+      timerId = window.setInterval(tick, 250);
+    }
+
+    toggleButton?.addEventListener('click', () => {
+      if (toggleButton.dataset.playing === 'true') stop();
+      else start();
+    });
+
+    freqInput?.addEventListener('input', () => {
+      if (oscillator) oscillator.frequency.value = frequency();
+      updateStaticReadout();
+    });
+
+    volumeInput?.addEventListener('input', () => {
+      if (gain) gain.gain.value = volume();
+    });
+
+    durationInput?.addEventListener('input', updateStaticReadout);
+
+    presetButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const nextFrequency = button.dataset.frequency;
+        if (!nextFrequency || !freqInput) return;
+        freqInput.value = nextFrequency;
+        presetButtons.forEach((preset) => { preset.dataset.active = 'false'; });
+        button.dataset.active = 'true';
+        if (oscillator) oscillator.frequency.value = frequency();
+        updateStaticReadout();
+      });
+    });
+
+    updateStaticReadout();
+  </script>
+</div>
