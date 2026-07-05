@@ -1,0 +1,295 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { KnownLocale } from '../../types';
+import type { SpeakerPhaseTesterUI } from './ui';
+import './speaker-phase-tester.css';
+
+interface Props {
+  locale?: KnownLocale;
+  ui?: Record<string, unknown>;
+}
+
+const { ui } = Astro.props;
+const t = (ui ?? {}) as SpeakerPhaseTesterUI;
+const strings = JSON.stringify({
+  ready: t.statusReady,
+  normal: t.statusNormal,
+  inverted: t.statusInverted,
+  polarityNormal: t.polarityNormal,
+  polarityInverted: t.polarityInverted,
+});
+---
+
+<div class="spt-root" data-strings={strings}>
+  <section class="spt-console" aria-label={t.channelLabel}>
+    <div class="spt-stage">
+      <div class="spt-field" aria-hidden="true">
+        <div class="spt-speaker spt-speaker-left">
+          <i></i>
+          <Icon name="mdi:speaker" />
+          <span aria-label={t.leftChannel}>{t.leftShort}</span>
+        </div>
+        <div class="spt-wave">
+          <div class="spt-core">
+            <b></b>
+          </div>
+          <span class="spt-wave-line spt-wave-a"></span>
+          <span class="spt-wave-line spt-wave-b"></span>
+          <strong id="spt-phase-label">{t.polarityNormal}</strong>
+        </div>
+        <div class="spt-speaker spt-speaker-right">
+          <i></i>
+          <Icon name="mdi:speaker" />
+          <span aria-label={t.rightChannel}>{t.rightShort}</span>
+        </div>
+      </div>
+
+      <div class="spt-actions">
+        <button id="spt-normal" class="spt-action spt-action-normal" type="button" aria-pressed="false">
+          <span class="spt-action-face spt-action-front">
+            <Icon name="mdi:play-circle" />
+            <span>{t.normal}</span>
+          </span>
+          <span class="spt-action-face spt-action-back">
+            <Icon name="mdi:pause-circle" />
+            <span>{t.pause}</span>
+          </span>
+        </button>
+        <button id="spt-inverted" class="spt-action spt-action-inverted" type="button" aria-pressed="false">
+          <span class="spt-action-face spt-action-front">
+            <Icon name="mdi:swap-horizontal-circle" />
+            <span>{t.inverted}</span>
+          </span>
+          <span class="spt-action-face spt-action-back">
+            <Icon name="mdi:pause-circle" />
+            <span>{t.pause}</span>
+          </span>
+        </button>
+      </div>
+
+      <div class="spt-readout">
+        <strong id="spt-status">{t.statusReady}</strong>
+        <p>{t.instruction}</p>
+      </div>
+
+      <div class="spt-settings">
+        <label class="spt-range">
+          <span>{t.volume}</span>
+          <output id="spt-volume-label">24%</output>
+          <input id="spt-volume" type="range" min="2" max="70" value="24" />
+        </label>
+        <label class="spt-range">
+          <span>{t.frequency}</span>
+          <output id="spt-frequency-label">440 Hz</output>
+          <input id="spt-frequency" type="range" min="80" max="1200" step="10" value="440" />
+        </label>
+        <fieldset class="spt-toggle">
+          <legend>{t.noiseColor}</legend>
+          <label><input type="radio" name="spt-signal" value="pink" checked />{t.pinkNoise}</label>
+          <label><input type="radio" name="spt-signal" value="sine" />{t.sineTone}</label>
+        </fieldset>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    type PhaseMode = 'normal' | 'inverted';
+    type SignalMode = 'pink' | 'sine';
+
+    const root = document.querySelector<HTMLElement>('.spt-root');
+    const strings = JSON.parse(root?.dataset.strings ?? '{}') as Record<string, string>;
+    const normalButton = document.getElementById('spt-normal') as HTMLButtonElement | null;
+    const invertedButton = document.getElementById('spt-inverted') as HTMLButtonElement | null;
+    const status = document.getElementById('spt-status');
+    const phaseLabel = document.getElementById('spt-phase-label');
+    const volume = document.getElementById('spt-volume') as HTMLInputElement | null;
+    const volumeLabel = document.getElementById('spt-volume-label');
+    const frequency = document.getElementById('spt-frequency') as HTMLInputElement | null;
+    const frequencyLabel = document.getElementById('spt-frequency-label');
+
+    let context: AudioContext | null = null;
+    let leftGain: GainNode | null = null;
+    let rightGain: GainNode | null = null;
+    let masterGain: GainNode | null = null;
+    let source: AudioBufferSourceNode | OscillatorNode | null = null;
+    let activeMode: PhaseMode | null = null;
+
+    function audioContext(): AudioContext | null {
+      if (context) return context;
+      const win = window as typeof window & { webkitAudioContext?: typeof AudioContext };
+      const Context = win.AudioContext ?? win.webkitAudioContext;
+      if (!Context) return null;
+      context = new Context();
+      return context;
+    }
+
+    function activeSignal(): SignalMode {
+      return (root?.querySelector<HTMLInputElement>('input[name="spt-signal"]:checked')?.value ?? 'pink') as SignalMode;
+    }
+
+    function pinkNoiseBuffer(ctx: AudioContext): AudioBuffer {
+      const seconds = 2;
+      const buffer = ctx.createBuffer(1, ctx.sampleRate * seconds, ctx.sampleRate);
+      const data = buffer.getChannelData(0);
+      let b0 = 0;
+      let b1 = 0;
+      let b2 = 0;
+      let b3 = 0;
+      let b4 = 0;
+      let b5 = 0;
+      let b6 = 0;
+      for (let i = 0; i < data.length; i += 1) {
+        const white = Math.random() * 2 - 1;
+        b0 = 0.99886 * b0 + white * 0.0555179;
+        b1 = 0.99332 * b1 + white * 0.0750759;
+        b2 = 0.969 * b2 + white * 0.153852;
+        b3 = 0.8665 * b3 + white * 0.3104856;
+        b4 = 0.55 * b4 + white * 0.5329522;
+        b5 = -0.7616 * b5 - white * 0.016898;
+        data[i] = (b0 + b1 + b2 + b3 + b4 + b5 + b6 + white * 0.5362) * 0.08;
+        b6 = white * 0.115926;
+      }
+      return buffer;
+    }
+
+    function createSource(ctx: AudioContext): AudioBufferSourceNode | OscillatorNode {
+      if (activeSignal() === 'sine') {
+        const oscillator = ctx.createOscillator();
+        oscillator.type = 'sine';
+        oscillator.frequency.value = Number(frequency?.value ?? 440);
+        return oscillator;
+      }
+      const noise = ctx.createBufferSource();
+      noise.buffer = pinkNoiseBuffer(ctx);
+      noise.loop = true;
+      return noise;
+    }
+
+    function stopSource(): void {
+      if (source) {
+        try { source.stop(); } catch { }
+        source.disconnect();
+      }
+      source = null;
+    }
+
+    function setIdleState(): void {
+      activeMode = null;
+      root?.classList.remove('is-normal', 'is-inverted');
+      normalButton?.setAttribute('aria-pressed', 'false');
+      invertedButton?.setAttribute('aria-pressed', 'false');
+      if (status) status.textContent = strings.ready ?? '';
+      if (phaseLabel) phaseLabel.textContent = strings.polarityNormal ?? '';
+    }
+
+    function stop(): void {
+      stopSource();
+      leftGain = null;
+      rightGain = null;
+      masterGain = null;
+      setIdleState();
+    }
+
+    function setupGraph(ctx: AudioContext, mode: PhaseMode): void {
+      const merger = ctx.createChannelMerger(2);
+      leftGain = ctx.createGain();
+      rightGain = ctx.createGain();
+      masterGain = ctx.createGain();
+      const level = Math.max(0.02, Math.min(0.7, Number(volume?.value ?? 24) / 100));
+      masterGain.gain.value = level;
+      leftGain.gain.value = 1;
+      rightGain.gain.value = mode === 'inverted' ? -1 : 1;
+      source = createSource(ctx);
+      source.connect(leftGain);
+      source.connect(rightGain);
+      leftGain.connect(merger, 0, 0);
+      rightGain.connect(merger, 0, 1);
+      merger.connect(masterGain).connect(ctx.destination);
+      source.start();
+    }
+
+    function modeText(mode: PhaseMode): string {
+      return mode === 'inverted' ? strings.inverted ?? '' : strings.normal ?? '';
+    }
+
+    function phaseText(mode: PhaseMode): string {
+      return mode === 'inverted' ? strings.polarityInverted ?? '' : strings.polarityNormal ?? '';
+    }
+
+    function pressButtons(mode: PhaseMode): void {
+      normalButton?.setAttribute('aria-pressed', mode === 'normal' ? 'true' : 'false');
+      invertedButton?.setAttribute('aria-pressed', mode === 'inverted' ? 'true' : 'false');
+    }
+
+    function setActiveClasses(mode: PhaseMode): void {
+      root?.classList.toggle('is-normal', mode === 'normal');
+      root?.classList.toggle('is-inverted', mode === 'inverted');
+    }
+
+    function setActiveState(mode: PhaseMode): void {
+      setActiveClasses(mode);
+      activeMode = mode;
+      pressButtons(mode);
+      if (status) status.textContent = modeText(mode);
+      if (phaseLabel) phaseLabel.textContent = phaseText(mode);
+    }
+
+    function play(mode: PhaseMode): void {
+      if (activeMode === mode) {
+        stop();
+        return;
+      }
+      const ctx = audioContext();
+      if (!ctx) return;
+      if (ctx.state === 'suspended') void ctx.resume();
+      stop();
+      setupGraph(ctx, mode);
+      setActiveState(mode);
+    }
+
+    function syncLabels(): void {
+      if (volumeLabel && volume) volumeLabel.textContent = `${volume.value}%`;
+      if (frequencyLabel && frequency) frequencyLabel.textContent = `${frequency.value} Hz`;
+    }
+
+    function syncFill(): void {
+      if (volume) volume.style.setProperty('--spt-fill', `${((Number(volume.value) - 2) / 68) * 100}%`);
+      if (frequency) frequency.style.setProperty('--spt-fill', `${((Number(frequency.value) - 80) / 1120) * 100}%`);
+    }
+
+    function syncFrequency(): void {
+      if (context && source instanceof OscillatorNode && frequency) {
+        source.frequency.setTargetAtTime(Number(frequency.value), context.currentTime, 0.02);
+      }
+    }
+
+    function syncMasterGain(): void {
+      if (context && masterGain && volume) {
+        const level = Math.max(0.02, Math.min(0.7, Number(volume.value) / 100));
+        masterGain.gain.setTargetAtTime(level, context.currentTime, 0.02);
+      }
+    }
+
+    function syncControls(): void {
+      syncLabels();
+      syncFill();
+      syncFrequency();
+      syncMasterGain();
+    }
+
+    normalButton?.addEventListener('click', () => play('normal'));
+    invertedButton?.addEventListener('click', () => play('inverted'));
+    volume?.addEventListener('input', () => {
+      syncControls();
+    });
+    frequency?.addEventListener('input', syncControls);
+    root?.querySelectorAll<HTMLInputElement>('input[name="spt-signal"]').forEach((input) => {
+      input.addEventListener('change', () => {
+        if (!source) return;
+        const currentMode = root?.classList.contains('is-inverted') ? 'inverted' : 'normal';
+        play(currentMode);
+      });
+    });
+    syncControls();
+  </script>
+</div>
