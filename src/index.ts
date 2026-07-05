@@ -42,3 +42,4 @@ export { WEB_USB_SERIAL_MONITOR_TOOL } from './tool/webUsbSerialMonitor/index';
 export { USB_POWER_BUDGET_CALCULATOR_TOOL } from './tool/usbPowerBudgetCalculator/index';
 export { MOBILE_SENSOR_TEST_TOOL } from './tool/mobileSensorTest/index';
 export { MOUSE_JITTER_ANGLE_SNAPPING_TEST_TOOL } from './tool/mouseJitterAngleSnappingTest/index';
+export { TOUCH_SCREEN_TESTER_TOOL } from './tool/touchScreenTester/index';

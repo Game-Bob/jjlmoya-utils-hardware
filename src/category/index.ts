@@ -24,10 +24,11 @@ import { webUsbSerialMonitor } from '../tool/webUsbSerialMonitor/index';
 import { usbPowerBudgetCalculator } from '../tool/usbPowerBudgetCalculator/index';
 import { mobileSensorTest } from '../tool/mobileSensorTest/index';
 import { mouseJitterAngleSnappingTest } from '../tool/mouseJitterAngleSnappingTest/index';
+import { touchScreenTester } from '../tool/touchScreenTester/index';
 
 export const hardwareCategory: HardwareCategoryEntry = {
   icon: 'mdi:memory',
-  tools: [pixelesPantalla, testTeclado, keyboardChatterTest, webMidiKeyboardTester, testMando, probadorVibracionMando, testRaton, mouseDoubleClickTest, mouseScrollTest, mouseDpiAnalyzer, mouseJitterAngleSnappingTest, estimadorSaludBateria, toneGenerator, subwooferCrossoverTest, refreshRateDetector, monitorGhostingTest, backlightBleedBloomingTest, oledScreenBurnInFixer, spectrumCanvas, upsRuntimeCalculator, usbPowerBudgetCalculator, mobileSensorTest, stereoAudioTest, webBluetoothBleScanner, webUsbSerialMonitor],
+  tools: [pixelesPantalla, touchScreenTester, testTeclado, keyboardChatterTest, webMidiKeyboardTester, testMando, probadorVibracionMando, testRaton, mouseDoubleClickTest, mouseScrollTest, mouseDpiAnalyzer, mouseJitterAngleSnappingTest, estimadorSaludBateria, toneGenerator, subwooferCrossoverTest, refreshRateDetector, monitorGhostingTest, backlightBleedBloomingTest, oledScreenBurnInFixer, spectrumCanvas, upsRuntimeCalculator, usbPowerBudgetCalculator, mobileSensorTest, stereoAudioTest, webBluetoothBleScanner, webUsbSerialMonitor],
   i18n: {
     en: () => import('./i18n/en').then((m) => m.content),
     es: () => import('./i18n/es').then((m) => m.content),

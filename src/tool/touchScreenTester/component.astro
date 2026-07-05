@@ -1,0 +1,222 @@
+---
+import type { KnownLocale } from '../../types';
+import type { TouchScreenTesterUI } from './ui';
+import './touch-screen-tester.css';
+
+interface Props {
+  locale?: KnownLocale;
+  ui?: Record<string, unknown>;
+}
+
+const { ui } = Astro.props;
+const t = (ui ?? {}) as TouchScreenTesterUI;
+const strings = JSON.stringify(t);
+---
+
+<div class="tst-shell" id="tst-root" data-ui={strings} data-state="ready">
+  <div class="tst-board" id="tst-board">
+    <canvas id="tst-canvas" aria-label={t.canvasLabel}></canvas>
+
+    <div class="tst-hud" aria-live="polite">
+      <div>
+        <span>{t.activeTouchesLabel}</span>
+        <strong id="tst-active">0</strong>
+      </div>
+      <div>
+        <span>{t.peakTouchesLabel}</span>
+        <strong id="tst-peak">0</strong>
+      </div>
+      <div>
+        <span>{t.coverageLabel}</span>
+        <strong id="tst-coverage">0%</strong>
+      </div>
+    </div>
+
+    <p class="tst-status" id="tst-status">{t.statusReady}</p>
+
+    <div class="tst-actions">
+      <button class="tst-action" type="button" id="tst-clear">{t.clearButton}</button>
+      <button class="tst-action" type="button" id="tst-fullscreen">{t.fullscreenButton}</button>
+    </div>
+  </div>
+
+  <script>
+    import { summarizeTouchMetrics } from './logic';
+
+    const root = document.getElementById('tst-root') as HTMLElement | null;
+    const board = document.getElementById('tst-board') as HTMLElement | null;
+    const canvas = document.getElementById('tst-canvas') as HTMLCanvasElement | null;
+    const clearButton = document.getElementById('tst-clear') as HTMLButtonElement | null;
+    const fullscreenButton = document.getElementById('tst-fullscreen') as HTMLButtonElement | null;
+    const status = document.getElementById('tst-status');
+    const activeField = document.getElementById('tst-active');
+    const peakField = document.getElementById('tst-peak');
+    const coverageField = document.getElementById('tst-coverage');
+    const ui = JSON.parse(root?.dataset.ui ?? '{}') as Record<string, string>;
+    const context = canvas?.getContext('2d', { alpha: true }) ?? null;
+    const activeTouches = new Map<number, { x: number; y: number }>();
+    const pendingSegments: Array<{ fromX: number; fromY: number; toX: number; toY: number; color: string; width: number }> = [];
+    const markedCells = new Set<string>();
+    const cellSize = 32;
+    let peakTouches = 0;
+    let frame = 0;
+    let totalCells = 1;
+
+    function setText(el: HTMLElement | null, value: string) {
+      if (el) el.textContent = value;
+    }
+
+    function getColor(id: number) {
+      const hue = Math.abs(id * 61) % 360;
+      return `hsl(${hue} 92% 52%)`;
+    }
+
+    function updateStatus(text: string, state: string) {
+      if (root) root.dataset.state = state;
+      setText(status, text);
+    }
+
+    function resizeCanvas() {
+      if (!canvas || !context || !board) return;
+      const rect = board.getBoundingClientRect();
+      const ratio = Math.max(1, Math.min(window.devicePixelRatio || 1, 3));
+      canvas.width = Math.max(1, Math.round(rect.width * ratio));
+      canvas.height = Math.max(1, Math.round(rect.height * ratio));
+      canvas.style.width = `${rect.width}px`;
+      canvas.style.height = `${rect.height}px`;
+      context.setTransform(ratio, 0, 0, ratio, 0, 0);
+      context.lineCap = 'round';
+      context.lineJoin = 'round';
+      totalCells = Math.max(1, Math.ceil(rect.width / cellSize) * Math.ceil(rect.height / cellSize));
+      updateMetrics();
+    }
+
+    function updateMetrics() {
+      const metrics = summarizeTouchMetrics(activeTouches.size, peakTouches, markedCells.size, totalCells);
+      peakTouches = metrics.peakTouches;
+      setText(activeField, String(metrics.activeTouches));
+      setText(peakField, String(metrics.peakTouches));
+      setText(coverageField, `${metrics.coveragePercent.toFixed(0)}%`);
+    }
+
+    function markCoverage(x: number, y: number) {
+      markedCells.add(`${Math.floor(x / cellSize)}:${Math.floor(y / cellSize)}`);
+    }
+
+    function pointFromTouch(touch: Touch) {
+      const rect = canvas?.getBoundingClientRect();
+      if (!rect) return { x: 0, y: 0 };
+      return {
+        x: touch.clientX - rect.left,
+        y: touch.clientY - rect.top,
+      };
+    }
+
+    function scheduleDraw() {
+      if (frame) return;
+      frame = window.requestAnimationFrame(() => {
+        frame = 0;
+        if (!context) return;
+
+        while (pendingSegments.length > 0) {
+          const segment = pendingSegments.shift();
+          if (!segment) continue;
+          context.strokeStyle = segment.color;
+          context.lineWidth = segment.width;
+          context.beginPath();
+          context.moveTo(segment.fromX, segment.fromY);
+          context.lineTo(segment.toX, segment.toY);
+          context.stroke();
+        }
+      });
+    }
+
+    function handleTouchStart(event: TouchEvent) {
+      event.preventDefault();
+      updateStatus(ui.statusDrawing ?? '', 'drawing');
+
+      for (const touch of Array.from(event.changedTouches)) {
+        const point = pointFromTouch(touch);
+        activeTouches.set(touch.identifier, point);
+        markCoverage(point.x, point.y);
+      }
+
+      updateMetrics();
+    }
+
+    function handleTouchMove(event: TouchEvent) {
+      event.preventDefault();
+
+      for (const touch of Array.from(event.changedTouches)) {
+        const next = pointFromTouch(touch);
+        const previous = activeTouches.get(touch.identifier) ?? next;
+        activeTouches.set(touch.identifier, next);
+        markCoverage(next.x, next.y);
+        pendingSegments.push({
+          fromX: previous.x,
+          fromY: previous.y,
+          toX: next.x,
+          toY: next.y,
+          color: getColor(touch.identifier),
+          width: Math.max(8, Math.min(18, activeTouches.size * 3.2)),
+        });
+      }
+
+      updateMetrics();
+      scheduleDraw();
+    }
+
+    function handleTouchEnd(event: TouchEvent) {
+      event.preventDefault();
+
+      for (const touch of Array.from(event.changedTouches)) {
+        activeTouches.delete(touch.identifier);
+      }
+
+      updateMetrics();
+      if (activeTouches.size === 0) updateStatus(ui.statusReady ?? '', 'ready');
+    }
+
+    function clearCanvas() {
+      if (!canvas || !context) return;
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      activeTouches.clear();
+      markedCells.clear();
+      peakTouches = 0;
+      pendingSegments.length = 0;
+      updateMetrics();
+      updateStatus(ui.statusCleared ?? '', 'cleared');
+    }
+
+    async function toggleFullscreen() {
+      if (!board) return;
+      if (document.fullscreenElement) {
+        await document.exitFullscreen();
+      } else if (board.requestFullscreen) {
+        await board.requestFullscreen();
+      }
+    }
+
+    function syncFullscreenLabel() {
+      const isFullscreen = Boolean(document.fullscreenElement);
+      setText(fullscreenButton, isFullscreen ? (ui.exitFullscreenButton ?? '') : (ui.fullscreenButton ?? ''));
+      requestAnimationFrame(resizeCanvas);
+    }
+
+    if (!('ontouchstart' in window)) {
+      updateStatus(ui.unsupportedTouch ?? '', 'ready');
+    }
+
+    canvas?.addEventListener('touchstart', handleTouchStart, { passive: false });
+    canvas?.addEventListener('touchmove', handleTouchMove, { passive: false });
+    canvas?.addEventListener('touchend', handleTouchEnd, { passive: false });
+    canvas?.addEventListener('touchcancel', handleTouchEnd, { passive: false });
+    clearButton?.addEventListener('click', clearCanvas);
+    fullscreenButton?.addEventListener('click', () => {
+      void toggleFullscreen();
+    });
+    document.addEventListener('fullscreenchange', syncFullscreenLabel);
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+  </script>
+</div>
