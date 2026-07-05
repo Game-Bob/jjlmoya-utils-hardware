@@ -1,0 +1,15 @@
+---
+import { SEORenderer } from '@jjlmoya/utils-shared';
+import type { KnownLocale } from '../../types';
+import { backlightBleedBloomingTest } from './index';
+
+interface Props {
+  locale?: KnownLocale;
+}
+
+const { locale = 'en' } = Astro.props;
+const content = await backlightBleedBloomingTest.i18n[locale]?.();
+if (!content) return null;
+---
+
+{content.seo?.length > 0 && <SEORenderer content={{ locale, sections: content.seo }} />}

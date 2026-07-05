@@ -29,6 +29,7 @@ export { TONE_GENERATOR_TOOL } from './tool/toneGenerator/index';
 export { SUBWOOFER_CROSSOVER_TEST_TOOL } from './tool/subwooferCrossoverTest/index';
 export { REFRESH_RATE_DETECTOR_TOOL } from './tool/refreshRateDetector/index';
 export { MONITOR_GHOSTING_TEST_TOOL } from './tool/monitorGhostingTest/index';
+export { BACKLIGHT_BLEED_BLOOMING_TEST_TOOL } from './tool/backlightBleedBloomingTest/index';
 export { SPECTRUM_CANVAS_TOOL } from './tool/colorAccuracyTest/index';
 export { UPS_RUNTIME_CALCULATOR_TOOL } from './tool/upsRuntimeCalculator/index';
 export { STEREO_AUDIO_TEST_TOOL } from './tool/stereoAudioTest/index';

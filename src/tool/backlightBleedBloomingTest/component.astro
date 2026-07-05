@@ -1,0 +1,198 @@
+---
+import type { KnownLocale } from '../../types';
+import type { BacklightBleedBloomingTestUI } from './ui';
+import './backlight-bleed-blooming-test.css';
+
+interface Props {
+  locale?: KnownLocale;
+  ui?: Record<string, unknown>;
+}
+
+const { ui } = Astro.props;
+const t = (ui ?? {}) as BacklightBleedBloomingTestUI;
+---
+
+<div class="bbt-root" data-escape-hint={t.escapeHint} data-drag-hint={t.dragHint}>
+  <div class="bbt-panel" id="bbt-panel">
+    <div class="bbt-artboard" aria-label={t.panelLabel}>
+      <span class="bbt-edge bbt-edge-left"></span>
+      <span class="bbt-edge bbt-edge-top"></span>
+      <span class="bbt-edge bbt-edge-corner"></span>
+      <span class="bbt-zone-map"></span>
+      <span class="bbt-zone-map bbt-zone-map-alt"></span>
+      <span class="bbt-bloom-ring"></span>
+      <span class="bbt-white-probe"></span>
+      <div class="bbt-prep" aria-label={t.prepTitle}>
+        <strong>{t.prepTitle}</strong>
+        <span>{t.prepBrightness}</span>
+        <span>{t.prepRoom}</span>
+        <span>{t.prepFullscreen}</span>
+      </div>
+      <div class="bbt-readouts" aria-label={t.parametersLabel}>
+        <span><strong>{t.blackLevelLabel}</strong><em>{t.blackLevelValue}</em></span>
+        <span><strong>{t.brightnessLabel}</strong><em>{t.brightnessValue}</em></span>
+        <span><strong>{t.idleLabel}</strong><em>{t.idleValue}</em></span>
+        <span><strong>{t.fullscreenLabel}</strong><em>{t.fullscreenValue}</em></span>
+      </div>
+    </div>
+
+    <div class="bbt-console">
+      <div class="bbt-actions" aria-label={t.modeControlsLabel}>
+        <button class="bbt-mode bbt-mode-bleed" id="bbt-start-bleed" type="button">
+          <span class="bbt-mode-copy">
+            <span class="bbt-mode-title">{t.bleedTitle}</span>
+            <small>{t.bleedDescription}</small>
+          </span>
+          <strong>{t.startBleed}</strong>
+        </button>
+        <button class="bbt-mode bbt-mode-blooming" id="bbt-start-blooming" type="button">
+          <span class="bbt-mode-copy">
+            <span class="bbt-mode-title">{t.bloomingTitle}</span>
+            <small>{t.bloomingDescription}</small>
+          </span>
+          <strong>{t.startBlooming}</strong>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="bbt-test" id="bbt-test" aria-hidden="true">
+    <div class="bbt-hotspot" id="bbt-hotspot"></div>
+    <div class="bbt-hint" id="bbt-hint"></div>
+  </div>
+
+  <script>
+    const root = document.querySelector('.bbt-root');
+    const panel = root?.querySelector('#bbt-panel');
+    const overlay = root?.querySelector('#bbt-test');
+    const hotspot = root?.querySelector('#bbt-hotspot');
+    const hint = root?.querySelector('#bbt-hint');
+    const startBleed = root?.querySelector('#bbt-start-bleed');
+    const startBlooming = root?.querySelector('#bbt-start-blooming');
+
+    let mode = 'idle';
+    let idleTimer = 0;
+    let dragging = false;
+    let pendingFrame = 0;
+    let targetX = 0;
+    let targetY = 0;
+
+    const centerHotspot = () => {
+      targetX = window.innerWidth / 2;
+      targetY = window.innerHeight / 2;
+      scheduleHotspot();
+    };
+
+    const scheduleHotspot = () => {
+      if (pendingFrame) return;
+      pendingFrame = requestAnimationFrame(() => {
+        pendingFrame = 0;
+        if (!hotspot) return;
+        hotspot.style.transform = `translate3d(${targetX}px, ${targetY}px, 0) translate(-50%, -50%)`;
+      });
+    };
+
+    const hideCursorSoon = () => {
+      window.clearTimeout(idleTimer);
+      if (overlay instanceof HTMLElement) overlay.classList.remove('bbt-cursor-hidden');
+      idleTimer = window.setTimeout(() => {
+        if (overlay instanceof HTMLElement && mode !== 'idle') overlay.classList.add('bbt-cursor-hidden');
+      }, 2000);
+    };
+
+    const setPageScrollLock = (locked) => {
+      document.documentElement.classList.toggle('bbt-page-locked', locked);
+      document.body?.classList.toggle('bbt-page-locked', locked);
+    };
+
+    const enterFullscreen = () => {
+      if (overlay instanceof HTMLElement) {
+        overlay.requestFullscreen?.().catch(() => {
+          document.documentElement.requestFullscreen?.().catch(() => {});
+        });
+        return;
+      }
+
+      document.documentElement.requestFullscreen?.().catch(() => {});
+    };
+
+    const showTestLayer = (nextMode) => {
+      root?.classList.add('bbt-running');
+      panel?.setAttribute('aria-hidden', 'true');
+      overlay?.setAttribute('aria-hidden', 'false');
+      overlay?.classList.toggle('bbt-blooming-active', nextMode === 'blooming');
+      overlay?.classList.remove('bbt-cursor-hidden');
+    };
+
+    const setTestHint = (nextMode) => {
+      if (!(hint instanceof HTMLElement)) return;
+
+      hint.textContent = nextMode === 'blooming' ? root?.getAttribute('data-drag-hint') || '' : root?.getAttribute('data-escape-hint') || '';
+    };
+
+    const start = (nextMode) => {
+      mode = nextMode;
+      setPageScrollLock(true);
+      showTestLayer(nextMode);
+      setTestHint(nextMode);
+      centerHotspot();
+      enterFullscreen();
+      hideCursorSoon();
+    };
+
+    const stop = () => {
+      mode = 'idle';
+      dragging = false;
+      root?.classList.remove('bbt-running');
+      setPageScrollLock(false);
+      panel?.setAttribute('aria-hidden', 'false');
+      overlay?.setAttribute('aria-hidden', 'true');
+      overlay?.classList.remove('bbt-blooming-active', 'bbt-cursor-hidden');
+      window.clearTimeout(idleTimer);
+    };
+
+    const pointerPoint = (event) => {
+      const touch = event.touches?.[0] || event.changedTouches?.[0];
+      return touch ? { x: touch.clientX, y: touch.clientY } : { x: event.clientX, y: event.clientY };
+    };
+
+    const moveHotspot = (event) => {
+      if (mode !== 'blooming' || !dragging) return;
+      event.preventDefault();
+      const point = pointerPoint(event);
+      targetX = point.x;
+      targetY = point.y;
+      scheduleHotspot();
+      hideCursorSoon();
+    };
+
+    const beginDrag = (event) => {
+      if (mode !== 'blooming') return;
+      dragging = true;
+      moveHotspot(event);
+    };
+
+    const endDrag = () => {
+      dragging = false;
+    };
+
+    startBleed?.addEventListener('click', () => start('bleed'));
+    startBlooming?.addEventListener('click', () => start('blooming'));
+    window.addEventListener('fullscreenchange', () => {
+      if (!document.fullscreenElement && mode !== 'idle') stop();
+    });
+    window.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && mode !== 'idle') stop();
+    });
+    window.addEventListener('resize', () => {
+      if (mode === 'blooming') centerHotspot();
+    });
+    overlay?.addEventListener('mousemove', hideCursorSoon);
+    overlay?.addEventListener('pointerdown', beginDrag);
+    window.addEventListener('pointermove', moveHotspot, { passive: false });
+    window.addEventListener('pointerup', endDrag);
+    overlay?.addEventListener('touchstart', beginDrag, { passive: false });
+    window.addEventListener('touchmove', moveHotspot, { passive: false });
+    window.addEventListener('touchend', endDrag);
+  </script>
+</div>
