@@ -104,7 +104,7 @@ export const content: ToolLocaleContent<WebBluetoothBleScannerUI> = {
     {
       type: 'message',
       title: 'Modelo de privacidad',
-      html: 'GameBob no almacena direcciones MAC, IDs de dispositivo, nombres, UUIDs, datos de señal ni historial de escaneos. El selector de permisos del navegador decide a qué único dispositivo puede acceder la página y los resultados permanecen en tu sesión actual del navegador.',
+      html: 'Este sitio web no almacena direcciones MAC, IDs de dispositivo, nombres, UUIDs, datos de señal ni historial de escaneos. El selector de permisos del navegador decide a qué único dispositivo puede acceder la página y los resultados permanecen en tu sesión actual del navegador.',
     },
     {
       type: 'table',
@@ -184,7 +184,7 @@ export const content: ToolLocaleContent<WebBluetoothBleScannerUI> = {
         'La página no puede recopilar silenciosamente dispositivos Bluetooth cercanos en segundo plano.',
         'El navegador puede ocultar las direcciones MAC reales y proporcionar en su lugar un ID de dispositivo con ámbito.',
         'El acceso solo comienza después de que el usuario haga clic en el botón de escanear y elija un dispositivo.',
-        'GameBob no sube ni almacena los resultados.',
+        'Este sitio web no sube ni almacena los resultados.',
         'Los dispositivos comerciales sensibles pueden requerir cifrado o un flujo de emparejamiento del fabricante que este escáner genérico no puede eludir.',
       ],
     },
@@ -198,7 +198,7 @@ export const content: ToolLocaleContent<WebBluetoothBleScannerUI> = {
     reconnect: 'Escanear de nuevo',
     disconnect: 'Desconectar',
     privacyTitle: 'Privacidad por diseño',
-    privacyBody: 'GameBob no almacena direcciones MAC, IDs de dispositivo, nombres, UUIDs ni historial de escaneos. El navegador solo expone el dispositivo que tú eliges.',
+    privacyBody: 'Este sitio web no almacena direcciones MAC, IDs de dispositivo, nombres, UUIDs ni historial de escaneos. El navegador solo expone el dispositivo que tú eliges.',
     deviceLabel: 'Dispositivo seleccionado',
     nameFallback: 'Dispositivo BLE sin nombre',
     idLabel: 'ID de dispositivo del navegador',

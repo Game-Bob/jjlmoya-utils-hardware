@@ -104,7 +104,7 @@ export const content: ToolLocaleContent<WebBluetoothBleScannerUI> = {
     {
       type: 'message',
       title: '개인정보 보호 모델',
-      html: 'GameBob은 MAC 주소, 장치 ID, 이름, UUID, 신호 데이터 또는 스캔 기록을 저장하지 않습니다. 브라우저 권한 선택기가 페이지가 액세스할 수 있는 단일 장치를 결정하며, 결과는 현재 브라우저 세션에만 유지됩니다.',
+      html: '이 웹사이트는 MAC 주소, 장치 ID, 이름, UUID, 신호 데이터 또는 스캔 기록을 저장하지 않습니다. 브라우저 권한 선택기가 페이지가 액세스할 수 있는 단일 장치를 결정하며, 결과는 현재 브라우저 세션에만 유지됩니다.',
     },
     {
       type: 'table',
@@ -184,7 +184,7 @@ export const content: ToolLocaleContent<WebBluetoothBleScannerUI> = {
         '페이지는 백그라운드에서 근처의 Bluetooth 장치를 조용히 수집할 수 없습니다.',
         '브라우저는 실제 MAC 주소를 숨기고 대신 범위가 지정된 장치 ID를 제공할 수 있습니다.',
         '사용자가 스캔 버튼을 클릭하고 장치를 선택한 후에만 액세스가 시작됩니다.',
-        '결과는 GameBob에 의해 업로드되거나 저장되지 않습니다.',
+        '결과는 이 웹사이트에 의해 업로드되거나 저장되지 않습니다.',
         '민감한 상용 장치는 이 일반 스캐너가 우회할 수 없는 암호화 또는 공급업체 페어링 흐름이 필요할 수 있습니다.',
       ],
     },
@@ -198,7 +198,7 @@ export const content: ToolLocaleContent<WebBluetoothBleScannerUI> = {
     reconnect: '다시 스캔',
     disconnect: '연결 해제',
     privacyTitle: '설계에 의한 개인정보 보호',
-    privacyBody: 'GameBob은 MAC 주소, 장치 ID, 이름, UUID 또는 스캔 기록을 저장하지 않습니다. 브라우저는 선택한 장치만 노출합니다.',
+    privacyBody: '이 웹사이트는 MAC 주소, 장치 ID, 이름, UUID 또는 스캔 기록을 저장하지 않습니다. 브라우저는 선택한 장치만 노출합니다.',
     deviceLabel: '선택된 장치',
     nameFallback: '이름 없는 BLE 장치',
     idLabel: '브라우저 장치 ID',

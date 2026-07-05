@@ -104,7 +104,7 @@ export const content: ToolLocaleContent<WebBluetoothBleScannerUI> = {
     {
       type: 'message',
       title: 'Gizlilik modeli',
-      html: 'GameBob MAC adreslerini, cihaz kimliklerini, adları, UUIDleri, sinyal verilerini veya tarama geçmişini saklamaz. Tarayıcı izin seçicisi, sayfanın hangi tek cihaza erişebileceğine karar verir ve sonuçlar mevcut tarayıcı oturumunuzda kalır.',
+      html: 'Bu web sitesi MAC adreslerini, cihaz kimliklerini, adları, UUIDleri, sinyal verilerini veya tarama geçmişini saklamaz. Tarayıcı izin seçicisi, sayfanın hangi tek cihaza erişebileceğine karar verir ve sonuçlar mevcut tarayıcı oturumunuzda kalır.',
     },
     {
       type: 'table',
@@ -184,7 +184,7 @@ export const content: ToolLocaleContent<WebBluetoothBleScannerUI> = {
         'Sayfa, arka planda yakındaki Bluetooth cihazlarını sessizce toplayamaz.',
         'Tarayıcı gerçek MAC adreslerini gizleyebilir ve bunun yerine kapsamlı bir cihaz kimliği sağlayabilir.',
         'Erişim yalnızca kullanıcı tarama düğmesine tıkladıktan ve bir cihaz seçtikten sonra başlar.',
-        'Sonuçlar GameBob tarafından yüklenmez veya saklanmaz.',
+        'Sonuçlar bu web sitesi tarafından yüklenmez veya saklanmaz.',
         'Hassas ticari cihazlar, bu genel tarayıcının atlayamayacağı şifreleme veya satıcı eşleştirme akışı gerektirebilir.',
       ],
     },
@@ -198,7 +198,7 @@ export const content: ToolLocaleContent<WebBluetoothBleScannerUI> = {
     reconnect: 'Tekrar tara',
     disconnect: 'Bağlantıyı kes',
     privacyTitle: 'Tasarım gereği gizlilik',
-    privacyBody: 'GameBob MAC adreslerini, cihaz kimliklerini, adları, UUIDleri veya tarama geçmişini saklamaz. Tarayıcı yalnızca sizin seçtiğiniz cihazı sunar.',
+    privacyBody: 'Bu web sitesi MAC adreslerini, cihaz kimliklerini, adları, UUIDleri veya tarama geçmişini saklamaz. Tarayıcı yalnızca sizin seçtiğiniz cihazı sunar.',
     deviceLabel: 'Seçilen cihaz',
     nameFallback: 'İsimsiz BLE cihazı',
     idLabel: 'Tarayıcı cihaz kimliği',

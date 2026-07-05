@@ -104,7 +104,7 @@ export const content: ToolLocaleContent<WebBluetoothBleScannerUI> = {
     {
       type: 'message',
       title: 'Privacy model',
-      html: 'GameBob slaat geen MAC-adressen, apparaat-IDs, namen, UUIDs, signaalgegevens of scangeschiedenis op. De browsertoestemmingskiezer bepaalt welk apparaat de pagina kan raadplegen en resultaten blijven in uw huidige browsersessie.',
+      html: 'Deze website slaat geen MAC-adressen, apparaat-IDs, namen, UUIDs, signaalgegevens of scangeschiedenis op. De browsertoestemmingskiezer bepaalt welk apparaat de pagina kan raadplegen en resultaten blijven in uw huidige browsersessie.',
     },
     {
       type: 'table',
@@ -184,7 +184,7 @@ export const content: ToolLocaleContent<WebBluetoothBleScannerUI> = {
         'De pagina kan niet stilzwijgend nabijgelegen Bluetooth-apparaten op de achtergrond verzamelen.',
         'De browser kan echte MAC-adressen verbergen en in plaats daarvan een gebonden apparaat-ID verstrekken.',
         'Toegang begint pas nadat de gebruiker op de scanknop klikt en een apparaat kiest.',
-        'Resultaten worden niet geüpload of opgeslagen door GameBob.',
+        'Resultaten worden niet geüpload of opgeslagen door deze website.',
         'Gevoelige commerciële apparaten kunnen versleuteling of een leverancierskoppelingsstroom vereisen die deze generieke scanner niet kan omzeilen.',
       ],
     },
@@ -198,7 +198,7 @@ export const content: ToolLocaleContent<WebBluetoothBleScannerUI> = {
     reconnect: 'Opnieuw scannen',
     disconnect: 'Verbreken',
     privacyTitle: 'Privacy door ontwerp',
-    privacyBody: 'GameBob slaat geen MAC-adressen, apparaat-IDs, namen, UUIDs of scangeschiedenis op. De browser stelt alleen het apparaat bloot dat u kiest.',
+    privacyBody: 'Deze website slaat geen MAC-adressen, apparaat-IDs, namen, UUIDs of scangeschiedenis op. De browser stelt alleen het apparaat bloot dat u kiest.',
     deviceLabel: 'Geselecteerd apparaat',
     nameFallback: 'Naamloos BLE apparaat',
     idLabel: 'Browser apparaat-ID',

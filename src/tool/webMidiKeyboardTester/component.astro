@@ -1,0 +1,320 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { KnownLocale } from '../../types';
+import type { WebMidiKeyboardTesterUI } from './ui';
+
+interface Props {
+  locale?: KnownLocale;
+  ui?: Record<string, unknown>;
+}
+
+const { ui } = Astro.props;
+const t = (ui ?? {}) as WebMidiKeyboardTesterUI;
+---
+
+<div class="wmt-root" data-config={JSON.stringify(t)}>
+  <section class="wmt-shell">
+    <div class="wmt-topline">
+      <div class="wmt-status">
+        <span data-status-dot></span>
+        <strong data-status>{t.statusIdle}</strong>
+      </div>
+      <div class="wmt-actions">
+        <button type="button" data-connect><Icon name="mdi:usb-port" /><span>{t.connectButton}</span></button>
+        <button type="button" data-refresh aria-label={t.refreshButton}><Icon name="mdi:refresh" /></button>
+        <button type="button" data-clear aria-label={t.clearButton}><Icon name="mdi:broom" /></button>
+      </div>
+    </div>
+
+    <div class="wmt-dashboard">
+      <article class="wmt-device">
+        <span>{t.detectedLabel}</span>
+        <strong data-device>{t.noDevice}</strong>
+        <small data-input>{t.inputLabel}: {t.inputIdle}</small>
+      </article>
+
+      <div class="wmt-meters">
+        <label><span>{t.velocityLabel}</span><output data-velocity>0</output><i data-velocity-meter></i></label>
+        <label><span>{t.pitchLabel}</span><output data-pitch>0</output><i data-pitch-meter></i></label>
+        <label><span>{t.modulationLabel}</span><output data-modulation>0</output><i data-mod-meter></i></label>
+      </div>
+    </div>
+
+    <div class="wmt-keyboard-wrap">
+      <div class="wmt-octaves" data-octaves>{t.octaveRangeLabel}: {t.initialRange}</div>
+      <div class="wmt-keyboard" data-keyboard aria-label={t.activeNotesTitle}></div>
+    </div>
+
+    <div class="wmt-bottom">
+      <article class="wmt-curve">
+        <h3>{t.velocityCurveTitle}</h3>
+        <canvas data-curve width="720" height="180"></canvas>
+      </article>
+      <article class="wmt-log">
+        <h3>{t.eventLogTitle}</h3>
+        <ul data-log><li>{t.emptyLog}</li></ul>
+      </article>
+    </div>
+  </section>
+</div>
+
+<link rel="stylesheet" href="./webmidi-keyboard-tester.css" />
+
+<script>
+  type Config = Record<string, string>;
+  interface MIDIMessageEventLike { data: Uint8Array; target: MIDIInputLike; }
+  interface MIDIInputLike extends EventTarget { id: string; name?: string; manufacturer?: string; state?: string; onmidimessage: ((event: MIDIMessageEventLike) => void) | null; }
+  interface MIDIAccessLike extends EventTarget { inputs: Map<string, MIDIInputLike>; onstatechange: (() => void) | null; }
+  interface MIDINavigator { requestMIDIAccess?: (options?: { sysex?: boolean }) => Promise<MIDIAccessLike>; }
+  type MidiMessageKind = 'note-on' | 'note-off' | 'modulation' | 'pitch-bend' | 'ignored';
+  type MidiMessageRule = {
+    kind: MidiMessageKind;
+    matches: (command: number, data1: number, data2: number) => boolean;
+  };
+
+  const root = document.querySelector<HTMLElement>('.wmt-root');
+  const config = JSON.parse(root?.dataset.config ?? '{}') as Config;
+  const keyboard = root?.querySelector<HTMLElement>('[data-keyboard]');
+  const statusEl = root?.querySelector<HTMLElement>('[data-status]');
+  const statusDot = root?.querySelector<HTMLElement>('[data-status-dot]');
+  const deviceEl = root?.querySelector<HTMLElement>('[data-device]');
+  const inputEl = root?.querySelector<HTMLElement>('[data-input]');
+  const octavesEl = root?.querySelector<HTMLElement>('[data-octaves]');
+  const logEl = root?.querySelector<HTMLElement>('[data-log]');
+  const velocityOut = root?.querySelector<HTMLOutputElement>('[data-velocity]');
+  const pitchOut = root?.querySelector<HTMLOutputElement>('[data-pitch]');
+  const modOut = root?.querySelector<HTMLOutputElement>('[data-modulation]');
+  const velocityMeter = root?.querySelector<HTMLElement>('[data-velocity-meter]');
+  const pitchMeter = root?.querySelector<HTMLElement>('[data-pitch-meter]');
+  const modMeter = root?.querySelector<HTMLElement>('[data-mod-meter]');
+  const curve = root?.querySelector<HTMLCanvasElement>('[data-curve]');
+  const curveContext = curve?.getContext('2d');
+  const activeNotes = new Map<number, number>();
+  const seenNotes = new Set<number>();
+  const velocities: number[] = [];
+  let midiAccess: MIDIAccessLike | undefined;
+  let range = { min: 48, max: 83 };
+
+  const noteNames = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
+  const blackNotes = new Set([1, 3, 6, 8, 10]);
+  const midiMessageRules: MidiMessageRule[] = [
+    { kind: 'note-on', matches: (command, _data1, data2) => command === 0x90 && data2 > 0 },
+    { kind: 'note-off', matches: (command, _data1, data2) => command === 0x80 || (command === 0x90 && data2 === 0) },
+    { kind: 'modulation', matches: (command, data1) => command === 0xb0 && data1 === 1 },
+    { kind: 'pitch-bend', matches: (command) => command === 0xe0 },
+  ];
+
+  function noteName(note: number) {
+    return `${noteNames[note % 12]}${Math.floor(note / 12) - 1}`;
+  }
+
+  function setStatus(message: string, state: 'idle' | 'busy' | 'ok' | 'warn' | 'error' = 'idle') {
+    if (statusEl) statusEl.textContent = message;
+    statusDot?.setAttribute('data-state', state);
+    root?.setAttribute('data-state', state);
+  }
+
+  function renderKeyboard() {
+    if (!keyboard) return;
+    keyboard.innerHTML = '';
+    const notes = Array.from({ length: range.max - range.min + 1 }, (_, index) => range.min + index);
+    const whiteCount = notes.filter((note) => !blackNotes.has(note % 12)).length;
+    keyboard.style.setProperty('--white-count', String(whiteCount));
+    let whiteIndex = 0;
+
+    notes.forEach((note) => {
+      const pitchClass = note % 12;
+      const key = document.createElement('button');
+      key.type = 'button';
+      key.className = blackNotes.has(pitchClass) ? 'wmt-key is-black' : 'wmt-key is-white';
+      key.dataset.note = String(note);
+      key.setAttribute('aria-label', noteName(note));
+      key.innerHTML = `<span>${noteName(note)}</span>`;
+      if (blackNotes.has(pitchClass)) {
+        key.style.left = `calc(((${whiteIndex} / var(--white-count)) * 100%) - (100% / var(--white-count) * .31))`;
+      } else {
+        key.style.setProperty('--key-index', String(whiteIndex));
+        whiteIndex += 1;
+      }
+      keyboard.append(key);
+    });
+    updateActiveKeys();
+    if (octavesEl) octavesEl.textContent = `${config.octaveRangeLabel}: ${noteName(range.min)}-${noteName(range.max)}`;
+  }
+
+  function updateRange() {
+    if (seenNotes.size === 0) return;
+    const min = Math.min(...seenNotes);
+    const max = Math.max(...seenNotes);
+    range = { min: Math.max(0, Math.floor(min / 12) * 12), max: Math.min(127, Math.max(Math.floor(max / 12) * 12 + 11, Math.floor(min / 12) * 12 + 23)) };
+    renderKeyboard();
+  }
+
+  function updateActiveKeys() {
+    keyboard?.querySelectorAll<HTMLElement>('[data-note]').forEach((key) => {
+      const velocity = activeNotes.get(Number(key.dataset.note)) ?? 0;
+      key.toggleAttribute('data-active', velocity > 0);
+      key.style.setProperty('--velocity', String(velocity / 127));
+    });
+  }
+
+  function drawCurve() {
+    if (!curve || !curveContext) return;
+    const width = curve.width;
+    const height = curve.height;
+    const isDark = document.documentElement.classList.contains('theme-dark') || document.body.classList.contains('theme-dark');
+    curveContext.clearRect(0, 0, width, height);
+    curveContext.fillStyle = isDark ? '#111827' : '#f8fbff';
+    curveContext.fillRect(0, 0, width, height);
+    curveContext.strokeStyle = isDark ? '#334155' : '#d7e3f2';
+    curveContext.lineWidth = 1;
+    for (let y = 30; y < height; y += 30) {
+      curveContext.beginPath();
+      curveContext.moveTo(0, y);
+      curveContext.lineTo(width, y);
+      curveContext.stroke();
+    }
+    curveContext.strokeStyle = isDark ? '#7dd3fc' : '#1d65d8';
+    curveContext.lineWidth = 4;
+    curveContext.beginPath();
+    velocities.slice(-64).forEach((velocity, index, sample) => {
+      const x = sample.length <= 1 ? 0 : (index / (sample.length - 1)) * width;
+      const y = height - (velocity / 127) * (height - 18) - 9;
+      if (index === 0) curveContext.moveTo(x, y);
+      else curveContext.lineTo(x, y);
+    });
+    curveContext.stroke();
+  }
+
+  function setMeter(element: HTMLElement | null, output: HTMLOutputElement | null, value: number, signed = false) {
+    const percent = signed ? (value + 1) / 2 : value / 127;
+    element?.style.setProperty('--value', `${Math.max(0, Math.min(1, percent)) * 100}%`);
+    if (output) output.value = signed ? String(Math.round(value * 100)) : String(Math.round(value));
+  }
+
+  function pushLog(text: string) {
+    if (!logEl) return;
+    if (logEl.children.length === 1 && logEl.textContent === config.emptyLog) logEl.innerHTML = '';
+    const item = document.createElement('li');
+    item.textContent = text;
+    logEl.prepend(item);
+    while (logEl.children.length > 9) logEl.lastElementChild?.remove();
+  }
+
+  function setInputLabel(inputName: string, channel?: number) {
+    if (deviceEl) deviceEl.textContent = inputName;
+    if (!inputEl) return;
+    inputEl.textContent = channel
+      ? `${config.inputLabel}: ${inputName} ${config.eventSeparator} ${config.channelLabel} ${channel}`
+      : `${config.inputLabel}: ${inputName}`;
+  }
+
+  function handleNoteOn(note: number, velocity: number) {
+    activeNotes.set(note, velocity);
+    seenNotes.add(note);
+    updateRange();
+    updateActiveKeys();
+    velocities.push(velocity);
+    setMeter(velocityMeter ?? null, velocityOut ?? null, velocity);
+    drawCurve();
+    pushLog(`${config.noteOn}: ${noteName(note)} ${config.eventSeparator} ${config.velocityLabel} ${velocity}`);
+  }
+
+  function handleNoteOff(note: number) {
+    activeNotes.delete(note);
+    updateActiveKeys();
+    pushLog(`${config.noteOff}: ${noteName(note)}`);
+  }
+
+  function handleModulation(value: number) {
+    setMeter(modMeter ?? null, modOut ?? null, value);
+    pushLog(`${config.controlChange}: ${config.modulationLabel} ${value}`);
+  }
+
+  function handlePitchBend(lsb: number, msb: number) {
+    const pitch = Math.max(-1, Math.min(1, (((msb << 7) + lsb) - 8192) / 8192));
+    setMeter(pitchMeter ?? null, pitchOut ?? null, pitch, true);
+    pushLog(`${config.pitchBend}: ${Math.round(pitch * 100)}`);
+  }
+
+  function midiMessageKind(command: number, data1: number, data2: number): MidiMessageKind {
+    return midiMessageRules.find((rule) => rule.matches(command, data1, data2))?.kind ?? 'ignored';
+  }
+
+  function handleKnownMessage(kind: MidiMessageKind, data1: number, data2: number) {
+    const handlers = {
+      'note-on': () => handleNoteOn(data1, data2),
+      'note-off': () => handleNoteOff(data1),
+      modulation: () => handleModulation(data2),
+      'pitch-bend': () => handlePitchBend(data1, data2),
+      ignored: () => undefined,
+    };
+    handlers[kind]();
+  }
+
+  function handleMessage(event: MIDIMessageEventLike) {
+    const [status, data1 = 0, data2 = 0] = Array.from(event.data);
+    const command = status & 0xf0;
+    const channel = (status & 0x0f) + 1;
+    const inputName = event.target.name || config.noDevice;
+    setInputLabel(inputName, channel);
+    handleKnownMessage(midiMessageKind(command, data1, data2), data1, data2);
+  }
+
+  function inputDisplayName(input?: MIDIInputLike) {
+    return input?.name || config.noDevice;
+  }
+
+  function inputStatusState(inputs: MIDIInputLike[]) {
+    return inputs.length > 0 ? 'ok' : 'warn';
+  }
+
+  function inputStatusMessage(inputs: MIDIInputLike[]) {
+    return inputs.length > 0 ? config.statusConnected : config.statusNoInputs;
+  }
+
+  function bindInputs() {
+    const inputs = Array.from(midiAccess?.inputs.values() ?? []);
+    inputs.forEach((input) => { input.onmidimessage = handleMessage; });
+    const first = inputs[0];
+    if (deviceEl) deviceEl.textContent = inputDisplayName(first);
+    if (inputEl) inputEl.textContent = `${config.inputLabel}: ${first?.name || config.inputIdle}`;
+    setStatus(inputStatusMessage(inputs), inputStatusState(inputs));
+  }
+
+  async function connectMidi() {
+    const midi = navigator as MIDINavigator;
+    if (!midi.requestMIDIAccess) {
+      setStatus(config.statusError, 'error');
+      pushLog(config.unsupportedBody);
+      return;
+    }
+    if (!window.isSecureContext) {
+      setStatus(config.statusError, 'error');
+      pushLog(config.secureContext);
+      return;
+    }
+    try {
+      setStatus(config.statusPermission, 'busy');
+      midiAccess = await midi.requestMIDIAccess({ sysex: false });
+      midiAccess.onstatechange = bindInputs;
+      bindInputs();
+    } catch {
+      setStatus(config.statusError, 'error');
+    }
+  }
+
+  root?.querySelector<HTMLButtonElement>('[data-connect]')?.addEventListener('click', connectMidi);
+  root?.querySelector<HTMLButtonElement>('[data-refresh]')?.addEventListener('click', bindInputs);
+  root?.querySelector<HTMLButtonElement>('[data-clear]')?.addEventListener('click', () => {
+    activeNotes.clear();
+    velocities.length = 0;
+    updateActiveKeys();
+    drawCurve();
+    if (logEl) logEl.innerHTML = `<li>${config.emptyLog}</li>`;
+  });
+
+  renderKeyboard();
+  drawCurve();
+  if (!(navigator as MIDINavigator).requestMIDIAccess) setStatus(config.statusError, 'error');
+</script>

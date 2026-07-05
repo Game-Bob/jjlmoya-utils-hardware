@@ -104,7 +104,7 @@ export const content: ToolLocaleContent<WebBluetoothBleScannerUI> = {
     {
       type: 'message',
       title: 'Integritetsmodell',
-      html: 'GameBob lagrar inte MAC adresser, enhets-ID, namn, UUIDer, signaldata eller skanningshistorik. Webbläsarens tillståndsväljare bestämmer vilken enskild enhet sidan kan komma åt, och resultaten stannar i din nuvarande webbläsarsession.',
+      html: 'Denna webbplats lagrar inte MAC adresser, enhets-ID, namn, UUIDer, signaldata eller skanningshistorik. Webbläsarens tillståndsväljare bestämmer vilken enskild enhet sidan kan komma åt, och resultaten stannar i din nuvarande webbläsarsession.',
     },
     {
       type: 'table',
@@ -184,7 +184,7 @@ export const content: ToolLocaleContent<WebBluetoothBleScannerUI> = {
         'Sidan kan inte tyst samla in närliggande Bluetooth enheter i bakgrunden.',
         'Webbläsaren kan dölja verkliga MAC adresser och istället tillhandahålla ett omfattat enhets-ID.',
         'Åtkomst börjar först efter att användaren klickar på skanningsknappen och väljer en enhet.',
-        'Resultaten laddas inte upp eller lagras av GameBob.',
+        'Resultaten laddas inte upp eller lagras av denna webbplats.',
         'Känsliga kommersiella enheter kan kräva kryptering eller ett leverantörsparkopplingsflöde som denna generiska skanner inte kan kringgå.',
       ],
     },
@@ -198,7 +198,7 @@ export const content: ToolLocaleContent<WebBluetoothBleScannerUI> = {
     reconnect: 'Skanna igen',
     disconnect: 'Koppla från',
     privacyTitle: 'Integritet genom design',
-    privacyBody: 'GameBob lagrar inte MAC adresser, enhets-ID, namn, UUIDer eller skanningshistorik. Webbläsaren exponerar bara den enhet du väljer.',
+    privacyBody: 'Denna webbplats lagrar inte MAC adresser, enhets-ID, namn, UUIDer eller skanningshistorik. Webbläsaren exponerar bara den enhet du väljer.',
     deviceLabel: 'Vald enhet',
     nameFallback: 'Namnlös BLE enhet',
     idLabel: 'Webbläsarens enhets-ID',

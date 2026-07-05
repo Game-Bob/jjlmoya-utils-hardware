@@ -104,7 +104,7 @@ export const content: ToolLocaleContent<WebBluetoothBleScannerUI> = {
     {
       type: 'message',
       title: '隐私模型',
-      html: 'GameBob 不会存储 MAC 地址、设备 ID、名称、UUID、信号数据或扫描历史记录。浏览器权限选择器决定页面可以访问哪个单一设备，结果保留在当前浏览器会话中。',
+      html: '本网站不会存储 MAC 地址、设备 ID、名称、UUID、信号数据或扫描历史记录。浏览器权限选择器决定页面可以访问哪个单一设备，结果保留在当前浏览器会话中。',
     },
     {
       type: 'table',
@@ -184,7 +184,7 @@ export const content: ToolLocaleContent<WebBluetoothBleScannerUI> = {
         '页面无法在后台静默收集附近的蓝牙设备。',
         '浏览器可能隐藏真实 MAC 地址，提供范围化的设备 ID。',
         '访问仅在用户点击扫描按钮并选择设备后才开始。',
-        '结果不会被 GameBob 上传或存储。',
+        '结果不会被本网站上传或存储。',
         '敏感的商用设备可能需要加密或厂商配对流程，此通用扫描器无法绕过。',
       ],
     },
@@ -198,7 +198,7 @@ export const content: ToolLocaleContent<WebBluetoothBleScannerUI> = {
     reconnect: '重新扫描',
     disconnect: '断开连接',
     privacyTitle: '设计即隐私',
-    privacyBody: 'GameBob 不会存储 MAC 地址、设备 ID、名称、UUID 或扫描历史记录。浏览器仅公开您选择的设备。',
+    privacyBody: '本网站不会存储 MAC 地址、设备 ID、名称、UUID 或扫描历史记录。浏览器仅公开您选择的设备。',
     deviceLabel: '已选设备',
     nameFallback: '未命名 BLE 设备',
     idLabel: '浏览器设备 ID',

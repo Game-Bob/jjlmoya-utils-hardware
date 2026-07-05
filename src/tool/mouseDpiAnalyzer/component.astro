@@ -1,0 +1,125 @@
+---
+import type { KnownLocale } from '../../types';
+import type { MouseDpiAnalyzerUI } from './ui';
+import { Icon } from 'astro-icon/components';
+import './mouse-dpi-analyzer.css';
+
+interface Props {
+  locale?: KnownLocale;
+  ui?: Record<string, unknown>;
+}
+
+const { ui } = Astro.props;
+const t = (ui ?? {}) as MouseDpiAnalyzerUI;
+---
+
+<div class="mda-root" id="mda-root" data-config={JSON.stringify({
+  statusReady: t.statusReady,
+  statusTracking: t.statusTracking,
+  statusDone: t.statusDone,
+  accelerationLow: t.accelerationLow,
+  accelerationMedium: t.accelerationMedium,
+  accelerationHigh: t.accelerationHigh,
+  initialAccelerationValue: t.initialAccelerationValue,
+  pixelUnit: t.pixelUnit,
+  pixelsPerInchUnit: t.pixelsPerInchUnit,
+  millimeterUnit: t.millimeterUnit,
+  inchUnit: t.inchUnit,
+})}>
+  <section class="mda-panel">
+    <div class="mda-lab">
+      <div class="mda-strip">
+        <div class="mda-badge">
+          <Icon name="mdi:mouse-move-down" class="mda-badge-icon" />
+          {t.badge}
+        </div>
+        <div class="mda-reference">
+          <span>{t.referenceLabel}</span>
+          <strong id="mda-reference-value">{t.referenceValue}</strong>
+        </div>
+        <div class="mda-presets" aria-label={t.referenceLabel}>
+          <button class="mda-preset is-active" type="button" data-distance="5">{t.ultraDpiPreset}</button>
+          <button class="mda-preset" type="button" data-distance="10">{t.highDpiPreset}</button>
+          <button class="mda-preset" type="button" data-distance="25.4">{t.inchPreset}</button>
+          <button class="mda-preset" type="button" data-distance="50">{t.balancedPreset}</button>
+          <button class="mda-preset" type="button" data-distance="85.6">{t.cardPreset}</button>
+        </div>
+        <button id="mda-reset" class="mda-reset" type="button">
+          <Icon name="mdi:restart" class="mda-reset-icon" />
+          {t.reset}
+        </button>
+      </div>
+
+      <button id="mda-capture" class="mda-capture" type="button">
+        <span class="mda-ruler-outer" aria-hidden="true">
+          <span class="mda-ruler-container" id="mda-ruler-container">
+            <span class="mda-ruler-ticks"></span>
+            <span class="mda-ruler-label-start">0</span>
+            <span class="mda-ruler-label-end" id="mda-ruler-label-end">{t.referenceValue}</span>
+          </span>
+        </span>
+        <span class="mda-capture-copy">
+          <span class="mda-indicator-ring"></span>
+          <strong>{t.holdButton}</strong>
+          <small id="mda-status">{t.statusReady}</small>
+          <em>{t.holdHint}</em>
+        </span>
+      </button>
+
+      <div class="mda-results">
+        <div class="mda-dpi">
+          <span>{t.dpiLabel}</span>
+          <strong id="mda-dpi">{t.initialDpiValue}</strong>
+        </div>
+        <div class="mda-metrics">
+          <div>
+            <span>{t.pixelsLabel}</span>
+            <strong id="mda-pixels">{t.initialPixelsValue}</strong>
+          </div>
+          <div>
+            <span>{t.distanceReadout}</span>
+            <strong id="mda-distance">{t.referenceValue}</strong>
+          </div>
+          <div>
+            <span>{t.ratioLabel}</span>
+            <strong id="mda-ratio">{t.initialRatioValue}</strong>
+          </div>
+          <div>
+            <span>{t.sampleCount}</span>
+            <strong id="mda-samples">{t.initialSamplesValue}</strong>
+          </div>
+        </div>
+        <div class="mda-accel">
+          <span>{t.accelerationTitle}</span>
+          <strong id="mda-accel">{t.initialAccelerationValue}</strong>
+          <small>{t.accelerationHint}</small>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+  import { MouseDpiAnalyzer } from './logic';
+
+  const root = document.getElementById('mda-root');
+  const labels = JSON.parse(root?.dataset.config ?? '{}');
+
+  new MouseDpiAnalyzer({
+    root,
+    capture: document.getElementById('mda-capture') as HTMLButtonElement | null,
+    presetButtons: root?.querySelectorAll<HTMLButtonElement>('.mda-preset') ?? document.querySelectorAll<HTMLButtonElement>('.mda-preset'),
+    reset: document.getElementById('mda-reset') as HTMLButtonElement | null,
+    status: document.getElementById('mda-status'),
+    referenceValue: document.getElementById('mda-reference-value'),
+    progress: null,
+    dpi: document.getElementById('mda-dpi'),
+    pixels: document.getElementById('mda-pixels'),
+    distance: document.getElementById('mda-distance'),
+    ratio: document.getElementById('mda-ratio'),
+    samples: document.getElementById('mda-samples'),
+    acceleration: document.getElementById('mda-accel'),
+    rulerContainer: document.getElementById('mda-ruler-container'),
+    rulerEndVal: document.getElementById('mda-ruler-label-end'),
+  }, labels);
+</script>

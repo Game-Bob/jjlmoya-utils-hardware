@@ -104,7 +104,7 @@ export const content: ToolLocaleContent<WebBluetoothBleScannerUI> = {
     {
       type: 'message',
       title: 'プライバシーモデル',
-      html: 'GameBobはMACアドレス、デバイスID、名前、UUID、信号データ、スキャン履歴を保存しません。ブラウザの許可選択がページがアクセスできる単一のデバイスを決定し、結果は現在のブラウザセッション内に留まります。',
+      html: 'このサイトはMACアドレス、デバイスID、名前、UUID、信号データ、スキャン履歴を保存しません。ブラウザの許可選択がページがアクセスできる単一のデバイスを決定し、結果は現在のブラウザセッション内に留まります。',
     },
     {
       type: 'table',
@@ -184,7 +184,7 @@ export const content: ToolLocaleContent<WebBluetoothBleScannerUI> = {
         'ページはバックグラウンドで近くのBluetoothデバイスを密かに収集することはできません。',
         'ブラウザは実際のMACアドレスを隠し、代わりにスコープ付きデバイスIDを提供する場合があります。',
         'アクセスはユーザーがスキャンボタンをクリックしてデバイスを選択した後にのみ開始されます。',
-        '結果はGameBobによってアップロードまたは保存されません。',
+        '結果はこのサイトによってアップロードまたは保存されません。',
         '機密性の高い商用デバイスは、この汎用スキャナーではバイパスできない暗号化またはベンダーペアリングフローを必要とする場合があります。',
       ],
     },
@@ -198,7 +198,7 @@ export const content: ToolLocaleContent<WebBluetoothBleScannerUI> = {
     reconnect: '再スキャン',
     disconnect: '切断',
     privacyTitle: '設計によるプライバシー',
-    privacyBody: 'GameBobはMACアドレス、デバイスID、名前、UUID、スキャン履歴を保存しません。ブラウザは選択したデバイスのみを公開します。',
+    privacyBody: 'このサイトはMACアドレス、デバイスID、名前、UUID、スキャン履歴を保存しません。ブラウザは選択したデバイスのみを公開します。',
     deviceLabel: '選択されたデバイス',
     nameFallback: '名前のないBLEデバイス',
     idLabel: 'ブラウザデバイスID',

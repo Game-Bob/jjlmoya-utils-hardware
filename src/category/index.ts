@@ -6,6 +6,7 @@ import { probadorVibracionMando } from '../tool/gamepadVibrationTester/index';
 import { testRaton } from '../tool/mousePollingTest/index';
 import { mouseDoubleClickTest } from '../tool/mouseDoubleClickTest/index';
 import { mouseScrollTest } from '../tool/mouseScrollTest/index';
+import { mouseDpiAnalyzer } from '../tool/mouseDpiAnalyzer/index';
 import { estimadorSaludBateria } from '../tool/batteryHealthEstimator/index';
 import { toneGenerator } from '../tool/toneGenerator/index';
 import { subwooferCrossoverTest } from '../tool/subwooferCrossoverTest/index';
@@ -16,6 +17,7 @@ import { spectrumCanvas } from '../tool/colorAccuracyTest/index';
 import { upsRuntimeCalculator } from '../tool/upsRuntimeCalculator/index';
 import { stereoAudioTest } from '../tool/stereoAudioTest/index';
 import { webBluetoothBleScanner } from '../tool/webBluetoothBleScanner/index';
+import { webMidiKeyboardTester } from '../tool/webMidiKeyboardTester/index';
 import { keyboardChatterTest } from '../tool/keyboardChatterTest/index';
 import { webUsbSerialMonitor } from '../tool/webUsbSerialMonitor/index';
 import { usbPowerBudgetCalculator } from '../tool/usbPowerBudgetCalculator/index';
@@ -24,7 +26,7 @@ import { mouseJitterAngleSnappingTest } from '../tool/mouseJitterAngleSnappingTe
 
 export const hardwareCategory: HardwareCategoryEntry = {
   icon: 'mdi:memory',
-  tools: [pixelesPantalla, testTeclado, keyboardChatterTest, testMando, probadorVibracionMando, testRaton, mouseDoubleClickTest, mouseScrollTest, mouseJitterAngleSnappingTest, estimadorSaludBateria, toneGenerator, subwooferCrossoverTest, refreshRateDetector, monitorGhostingTest, backlightBleedBloomingTest, spectrumCanvas, upsRuntimeCalculator, usbPowerBudgetCalculator, mobileSensorTest, stereoAudioTest, webBluetoothBleScanner, webUsbSerialMonitor],
+  tools: [pixelesPantalla, testTeclado, keyboardChatterTest, webMidiKeyboardTester, testMando, probadorVibracionMando, testRaton, mouseDoubleClickTest, mouseScrollTest, mouseDpiAnalyzer, mouseJitterAngleSnappingTest, estimadorSaludBateria, toneGenerator, subwooferCrossoverTest, refreshRateDetector, monitorGhostingTest, backlightBleedBloomingTest, spectrumCanvas, upsRuntimeCalculator, usbPowerBudgetCalculator, mobileSensorTest, stereoAudioTest, webBluetoothBleScanner, webUsbSerialMonitor],
   i18n: {
     en: () => import('./i18n/en').then((m) => m.content),
     es: () => import('./i18n/es').then((m) => m.content),

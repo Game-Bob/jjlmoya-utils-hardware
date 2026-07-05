@@ -1,0 +1,37 @@
+export interface WebMidiKeyboardTesterUI extends Record<string, string> {
+  connectButton: string;
+  refreshButton: string;
+  clearButton: string;
+  unsupportedTitle: string;
+  unsupportedBody: string;
+  secureContext: string;
+  statusIdle: string;
+  statusPermission: string;
+  statusReady: string;
+  statusNoInputs: string;
+  statusConnected: string;
+  statusDisconnected: string;
+  statusError: string;
+  detectedLabel: string;
+  noDevice: string;
+  inputLabel: string;
+  inputIdle: string;
+  channelLabel: string;
+  notesLabel: string;
+  velocityLabel: string;
+  pitchLabel: string;
+  modulationLabel: string;
+  lastEventLabel: string;
+  octaveRangeLabel: string;
+  velocityCurveTitle: string;
+  activeNotesTitle: string;
+  eventLogTitle: string;
+  eventSeparator: string;
+  initialRange: string;
+  emptyLog: string;
+  noteOn: string;
+  noteOff: string;
+  controlChange: string;
+  pitchBend: string;
+  allChannels: string;
+}

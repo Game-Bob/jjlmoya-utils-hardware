@@ -104,7 +104,7 @@ export const content: ToolLocaleContent<WebBluetoothBleScannerUI> = {
     {
       type: 'message',
       title: 'Modèle de confidentialité',
-      html: 'GameBob ne stocke ni les adresses MAC, ni les identifiants d\'appareil, ni les noms, ni les UUIDs, ni les données de signal, ni l\'historique des scans. Le sélecteur de permission du navigateur détermine quel appareil unique la page peut consulter et les résultats restent dans votre session de navigateur actuelle.',
+      html: 'Ce site web ne stocke ni les adresses MAC, ni les identifiants d\'appareil, ni les noms, ni les UUIDs, ni les données de signal, ni l\'historique des scans. Le sélecteur de permission du navigateur détermine quel appareil unique la page peut consulter et les résultats restent dans votre session de navigateur actuelle.',
     },
     {
       type: 'table',
@@ -184,7 +184,7 @@ export const content: ToolLocaleContent<WebBluetoothBleScannerUI> = {
         'La page ne peut pas collecter silencieusement les appareils Bluetooth à proximité en arrière-plan.',
         'Le navigateur peut masquer les adresses MAC réelles et fournir à la place un ID d\'appareil limité.',
         'L\'accès ne commence qu\'après que l\'utilisateur a cliqué sur le bouton de scan et choisi un appareil.',
-        'Les résultats ne sont ni téléchargés ni stockés par GameBob.',
+        'Les résultats ne sont ni téléchargés ni stockés par ce site web.',
         'Les appareils commerciaux sensibles peuvent nécessiter un chiffrement ou un flux d\'appairage du fabricant que ce scanner générique ne peut pas contourner.',
       ],
     },
@@ -198,7 +198,7 @@ export const content: ToolLocaleContent<WebBluetoothBleScannerUI> = {
     reconnect: 'Scanner à nouveau',
     disconnect: 'Déconnecter',
     privacyTitle: 'Confidentialité dès la conception',
-    privacyBody: 'GameBob ne stocke ni les adresses MAC, ni les identifiants d\'appareil, ni les noms, ni les UUIDs, ni l\'historique des scans. Le navigateur n\'expose que l\'appareil que vous choisissez.',
+    privacyBody: 'Ce site web ne stocke ni les adresses MAC, ni les identifiants d\'appareil, ni les noms, ni les UUIDs, ni l\'historique des scans. Le navigateur n\'expose que l\'appareil que vous choisissez.',
     deviceLabel: 'Appareil sélectionné',
     nameFallback: 'Appareil BLE sans nom',
     idLabel: 'ID appareil du navigateur',

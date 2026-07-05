@@ -104,7 +104,7 @@ export const content: ToolLocaleContent<WebBluetoothBleScannerUI> = {
     {
       type: 'message',
       title: 'Model privasi',
-      html: 'GameBob tidak menyimpan alamat MAC, ID perangkat, nama, UUID, data sinyal, atau riwayat pemindaian. Pemilih izin browser memutuskan perangkat tunggal mana yang dapat diakses halaman, dan hasil tetap berada di sesi browser Anda saat ini.',
+      html: 'Situs web ini tidak menyimpan alamat MAC, ID perangkat, nama, UUID, data sinyal, atau riwayat pemindaian. Pemilih izin browser memutuskan perangkat tunggal mana yang dapat diakses halaman, dan hasil tetap berada di sesi browser Anda saat ini.',
     },
     {
       type: 'table',
@@ -184,7 +184,7 @@ export const content: ToolLocaleContent<WebBluetoothBleScannerUI> = {
         'Halaman tidak dapat diam-diam mengumpulkan perangkat Bluetooth di sekitar di latar belakang.',
         'Browser dapat menyembunyikan alamat MAC asli dan memberikan ID perangkat terbatas sebagai gantinya.',
         'Akses hanya dimulai setelah pengguna mengklik tombol pindai dan memilih perangkat.',
-        'Hasil tidak diunggah atau disimpan oleh GameBob.',
+        'Hasil tidak diunggah atau disimpan oleh situs web ini.',
         'Perangkat komersial sensitif mungkin memerlukan enkripsi atau alur pairing vendor yang tidak dapat dilewati oleh pemindai generik ini.',
       ],
     },
@@ -198,7 +198,7 @@ export const content: ToolLocaleContent<WebBluetoothBleScannerUI> = {
     reconnect: 'Pindai lagi',
     disconnect: 'Putuskan',
     privacyTitle: 'Privasi berdasarkan desain',
-    privacyBody: 'GameBob tidak menyimpan alamat MAC, ID perangkat, nama, UUID, atau riwayat pemindaian. Browser hanya mengekspos perangkat yang Anda pilih.',
+    privacyBody: 'Situs web ini tidak menyimpan alamat MAC, ID perangkat, nama, UUID, atau riwayat pemindaian. Browser hanya mengekspos perangkat yang Anda pilih.',
     deviceLabel: 'Perangkat dipilih',
     nameFallback: 'Perangkat BLE tanpa nama',
     idLabel: 'ID perangkat browser',

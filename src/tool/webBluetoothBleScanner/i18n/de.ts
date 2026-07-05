@@ -104,7 +104,7 @@ export const content: ToolLocaleContent<WebBluetoothBleScannerUI> = {
     {
       type: 'message',
       title: 'Datenschutzmodell',
-      html: 'GameBob speichert keine MAC-Adressen, Geräte-IDs, Namen, UUIDs, Signaldaten oder Scanverläufe. Die Berechtigungsauswahl des Browsers bestimmt, auf welches einzelne Gerät die Seite zugreifen darf, und die Ergebnisse verbleiben in Ihrer aktuellen Browser-Sitzung.',
+      html: 'Diese Website speichert keine MAC-Adressen, Geräte-IDs, Namen, UUIDs, Signaldaten oder Scanverläufe. Die Berechtigungsauswahl des Browsers bestimmt, auf welches einzelne Gerät die Seite zugreifen darf, und die Ergebnisse verbleiben in Ihrer aktuellen Browser-Sitzung.',
     },
     {
       type: 'table',
@@ -184,7 +184,7 @@ export const content: ToolLocaleContent<WebBluetoothBleScannerUI> = {
         'Die Seite kann nicht stillschweigend nahegelegene Bluetooth-Geräte im Hintergrund erfassen.',
         'Der Browser kann echte MAC-Adressen verbergen und stattdessen eine sitzungsbezogene Geräte-ID bereitstellen.',
         'Der Zugriff beginnt erst, nachdem der Nutzer auf die Scan-Schaltfläche klickt und ein Gerät auswählt.',
-        'Ergebnisse werden von GameBob weder hochgeladen noch gespeichert.',
+        'Ergebnisse werden von dieser Website weder hochgeladen noch gespeichert.',
         'Sensible kommerzielle Geräte können eine Verschlüsselung oder einen Hersteller-Pairing-Ablauf erfordern, den dieser generische Scanner nicht umgehen kann.',
       ],
     },
@@ -198,7 +198,7 @@ export const content: ToolLocaleContent<WebBluetoothBleScannerUI> = {
     reconnect: 'Erneut scannen',
     disconnect: 'Trennen',
     privacyTitle: 'Datenschutz durch Design',
-    privacyBody: 'GameBob speichert keine MAC-Adressen, Geräte-IDs, Namen, UUIDs oder Scanverläufe. Der Browser legt nur das von Ihnen gewählte Gerät offen.',
+    privacyBody: 'Diese Website speichert keine MAC-Adressen, Geräte-IDs, Namen, UUIDs oder Scanverläufe. Der Browser legt nur das von Ihnen gewählte Gerät offen.',
     deviceLabel: 'Ausgewähltes Gerät',
     nameFallback: 'Unbenanntes BLE-Gerät',
     idLabel: 'Browser-Geräte-ID',

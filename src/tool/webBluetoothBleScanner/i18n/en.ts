@@ -104,7 +104,7 @@ export const content: ToolLocaleContent<WebBluetoothBleScannerUI> = {
     {
       type: 'message',
       title: 'Privacy model',
-      html: 'GameBob does not store MAC addresses, device IDs, names, UUIDs, signal data, or scan history. The browser permission chooser decides which single device the page can access, and results stay in your current browser session.',
+      html: 'This website does not store MAC addresses, device IDs, names, UUIDs, signal data, or scan history. The browser permission chooser decides which single device the page can access, and results stay in your current browser session.',
     },
     {
       type: 'table',
@@ -184,7 +184,7 @@ export const content: ToolLocaleContent<WebBluetoothBleScannerUI> = {
         'The page cannot silently collect nearby Bluetooth devices in the background.',
         'The browser may hide real MAC addresses and provide a scoped device ID instead.',
         'Access starts only after the user clicks the scan button and chooses a device.',
-        'Results are not uploaded or stored by GameBob.',
+        'Results are not uploaded or stored by this website.',
         'Sensitive commercial devices may require encryption or a vendor pairing flow that this generic scanner cannot bypass.',
       ],
     },
@@ -198,7 +198,7 @@ export const content: ToolLocaleContent<WebBluetoothBleScannerUI> = {
     reconnect: 'Scan again',
     disconnect: 'Disconnect',
     privacyTitle: 'Private by design',
-    privacyBody: 'GameBob does not store MAC addresses, device IDs, names, UUIDs, or scan history. The browser only exposes the device you choose.',
+    privacyBody: 'This website does not store MAC addresses, device IDs, names, UUIDs, or scan history. The browser only exposes the device you choose.',
     deviceLabel: 'Selected device',
     nameFallback: 'Unnamed BLE device',
     idLabel: 'Browser device ID',
