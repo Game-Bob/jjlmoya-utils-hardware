@@ -1,0 +1,113 @@
+---
+import type { KnownLocale } from '../../types';
+import type { OledScreenBurnInFixerUI } from './ui';
+import './oled-screen-burn-in-fixer.css';
+
+interface Props {
+  locale?: KnownLocale;
+  ui?: Record<string, unknown>;
+}
+
+const { ui } = Astro.props;
+const t = (ui ?? {}) as OledScreenBurnInFixerUI;
+---
+
+<div id="osf-root" class="osf-root">
+  <section class="osf-console">
+    <div class="osf-screen-shell">
+      <canvas id="osf-canvas" class="osf-canvas" aria-label={t.fullscreenHint}></canvas>
+    </div>
+
+    <div class="osf-controls" aria-label={t.controlsLabel}>
+      <div class="osf-field">
+        <span class="osf-label">{t.modeLabel}</span>
+        <input id="osf-mode" type="hidden" value="hybrid" />
+        <div class="osf-mode-grid" role="radiogroup" aria-label={t.modeLabel}>
+          <button class="osf-mode-option is-selected" type="button" data-mode="hybrid" aria-pressed="true">
+            <span class="osf-mode-preview osf-mode-preview-hybrid" aria-hidden="true"></span>
+            <strong>{t.modeHybrid}</strong>
+            <small>{t.modeHybridDescription}</small>
+          </button>
+          <button class="osf-mode-option" type="button" data-mode="cycle" aria-pressed="false">
+            <span class="osf-mode-preview osf-mode-preview-cycle" aria-hidden="true"></span>
+            <strong>{t.modeCycle}</strong>
+            <small>{t.modeCycleDescription}</small>
+          </button>
+          <button class="osf-mode-option" type="button" data-mode="noise" aria-pressed="false">
+            <span class="osf-mode-preview osf-mode-preview-noise" aria-hidden="true"></span>
+            <strong>{t.modeNoise}</strong>
+            <small>{t.modeNoiseDescription}</small>
+          </button>
+        </div>
+      </div>
+
+      <label>
+        <span>{t.speedLabel}</span>
+        <input id="osf-speed" type="range" min="4" max="32" value="18" />
+      </label>
+
+      <label>
+        <span>{t.intensityLabel}</span>
+        <input id="osf-intensity" type="range" min="0.35" max="1" step="0.05" value="1" />
+      </label>
+
+      <div class="osf-field">
+        <span class="osf-label">{t.durationLabel}</span>
+        <input id="osf-duration" type="hidden" value="10" />
+        <div class="osf-duration-grid" role="radiogroup" aria-label={t.durationLabel}>
+          <button class="osf-duration-option" type="button" data-duration="5" aria-pressed="false">
+            <strong>{t.durationShort}</strong>
+            <small>{t.durationShortDescription}</small>
+          </button>
+          <button class="osf-duration-option is-selected" type="button" data-duration="10" aria-pressed="true">
+            <strong>{t.durationStandard}</strong>
+            <small>{t.durationStandardDescription}</small>
+          </button>
+          <button class="osf-duration-option" type="button" data-duration="20" aria-pressed="false">
+            <strong>{t.durationDeep}</strong>
+            <small>{t.durationDeepDescription}</small>
+          </button>
+        </div>
+      </div>
+
+      <div class="osf-actions">
+        <button id="osf-start" type="button" disabled>{t.startRepair}</button>
+      </div>
+    </div>
+  </section>
+
+  <div id="osf-modal" class="osf-modal" role="dialog" aria-modal="true" aria-labelledby="osf-safety-title">
+    <div class="osf-dialog">
+      <span class="osf-dialog-badge">{t.warningBadge}</span>
+      <h2 id="osf-safety-title">{t.safetyTitle}</h2>
+      <p>{t.safetyBody}</p>
+      <label class="osf-confirm">
+        <input id="osf-confirm" type="checkbox" />
+        <span>{t.safetyConfirm}</span>
+      </label>
+      <button id="osf-safety-continue" class="osf-safety-continue" type="button" disabled>{t.safetyContinue}</button>
+      <small>{t.safetyChecklist}</small>
+    </div>
+  </div>
+</div>
+
+<script>
+  import { OledScreenBurnInFixer } from './logic';
+
+  const root = document.getElementById('osf-root');
+
+  new OledScreenBurnInFixer({
+    root,
+    canvas: document.getElementById('osf-canvas') as HTMLCanvasElement | null,
+    modal: document.getElementById('osf-modal'),
+    confirm: document.getElementById('osf-confirm') as HTMLInputElement | null,
+    start: document.getElementById('osf-start') as HTMLButtonElement | null,
+    safetyContinue: document.getElementById('osf-safety-continue') as HTMLButtonElement | null,
+    mode: document.getElementById('osf-mode') as HTMLInputElement | null,
+    modeOptions: Array.from(document.querySelectorAll('#osf-root .osf-mode-option')) as HTMLButtonElement[],
+    speed: document.getElementById('osf-speed') as HTMLInputElement | null,
+    duration: document.getElementById('osf-duration') as HTMLInputElement | null,
+    durationOptions: Array.from(document.querySelectorAll('#osf-root .osf-duration-option')) as HTMLButtonElement[],
+    intensity: document.getElementById('osf-intensity') as HTMLInputElement | null,
+  });
+</script>
