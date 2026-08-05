@@ -5,8 +5,9 @@ import { hardwareCategory } from '../data';
 describe('Tool Validation Suite', () => {
   describe('Library Registration', () => {
     it('should have all tools in ALL_TOOLS', () => {
-      expect(ALL_TOOLS.length).toBe(28);
+      expect(ALL_TOOLS.length).toBe(29);
     });
+
 
     it('hardwareCategory should be defined', () => {
       expect(hardwareCategory).toBeDefined();

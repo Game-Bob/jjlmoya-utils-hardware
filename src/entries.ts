@@ -54,6 +54,8 @@ export { mouseJitterAngleSnappingTest } from './tool/mouseJitterAngleSnappingTes
 export type { MouseJitterAngleSnappingTestLocaleContent } from './tool/mouseJitterAngleSnappingTest/entry';
 export { touchScreenTester } from './tool/touchScreenTester/entry';
 export type { TouchScreenTesterLocaleContent } from './tool/touchScreenTester/entry';
+export { testInputLag } from './tool/inputLagTest/entry';
+export type { InputLagTestLocaleContent } from './tool/inputLagTest/entry';
 export { hardwareCategory } from './category';
 import { estimadorSaludBateria } from './tool/batteryHealthEstimator/entry';
 import { pixelesPantalla } from './tool/deadPixelTest/entry';
@@ -83,4 +85,6 @@ import { usbPowerBudgetCalculator } from './tool/usbPowerBudgetCalculator/entry'
 import { mobileSensorTest } from './tool/mobileSensorTest/entry';
 import { mouseJitterAngleSnappingTest } from './tool/mouseJitterAngleSnappingTest/entry';
 import { touchScreenTester } from './tool/touchScreenTester/entry';
-export const ALL_ENTRIES = [estimadorSaludBateria, pixelesPantalla, touchScreenTester, testMando, probadorVibracionMando, testTeclado, keyboardChatterTest, webMidiKeyboardTester, testRaton, mouseDoubleClickTest, mouseScrollTest, mouseDpiAnalyzer, mouseJitterAngleSnappingTest, toneGenerator, waterEjector, subwooferCrossoverTest, speakerPhaseTester, refreshRateDetector, monitorGhostingTest, backlightBleedBloomingTest, oledScreenBurnInFixer, spectrumCanvas, upsRuntimeCalculator, usbPowerBudgetCalculator, mobileSensorTest, stereoAudioTest, webBluetoothBleScanner, webUsbSerialMonitor];
+import { testInputLag } from './tool/inputLagTest/entry';
+export const ALL_ENTRIES = [estimadorSaludBateria, pixelesPantalla, touchScreenTester, testMando, probadorVibracionMando, testTeclado, keyboardChatterTest, webMidiKeyboardTester, testRaton, mouseDoubleClickTest, mouseScrollTest, mouseDpiAnalyzer, mouseJitterAngleSnappingTest, toneGenerator, waterEjector, subwooferCrossoverTest, speakerPhaseTester, refreshRateDetector, monitorGhostingTest, backlightBleedBloomingTest, oledScreenBurnInFixer, spectrumCanvas, upsRuntimeCalculator, usbPowerBudgetCalculator, mobileSensorTest, stereoAudioTest, webBluetoothBleScanner, webUsbSerialMonitor, testInputLag];
+

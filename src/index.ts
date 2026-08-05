@@ -44,3 +44,5 @@ export { USB_POWER_BUDGET_CALCULATOR_TOOL } from './tool/usbPowerBudgetCalculato
 export { MOBILE_SENSOR_TEST_TOOL } from './tool/mobileSensorTest/index';
 export { MOUSE_JITTER_ANGLE_SNAPPING_TEST_TOOL } from './tool/mouseJitterAngleSnappingTest/index';
 export { TOUCH_SCREEN_TESTER_TOOL } from './tool/touchScreenTester/index';
+export { INPUT_LAG_TEST_TOOL } from './tool/inputLagTest/index';
+

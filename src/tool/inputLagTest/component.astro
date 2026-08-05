@@ -1,0 +1,201 @@
+---
+import type { KnownLocale } from '../../types';
+import type { InputLagTestUI } from './ui';
+import './input-lag-test.css';
+
+interface Props {
+  locale?: KnownLocale;
+  ui?: Record<string, unknown>;
+}
+
+const { ui } = Astro.props;
+const rawUi = (ui?.ui ?? ui ?? {}) as Record<string, string>;
+const t = rawUi as InputLagTestUI;
+---
+
+<div id="ilt-root" class="ilt-wrapper">
+  <div class="ilt-card">
+    <div class="ilt-toolbar">
+      <div class="ilt-modes">
+        <button id="ilt-mode-instant" class="ilt-mode-btn active">{t.modeInstant}</button>
+        <button id="ilt-mode-key" class="ilt-mode-btn">{t.modeKey}</button>
+        <button id="ilt-mode-visual" class="ilt-mode-btn">{t.modeVisual}</button>
+      </div>
+      <div class="ilt-actions">
+        <button id="ilt-btn-copy" class="ilt-btn-secondary">{t.btnCopyReport}</button>
+        <button id="ilt-btn-reset" class="ilt-btn-reset">{t.btnReset}</button>
+      </div>
+    </div>
+
+    <div class="ilt-visual-dashboard">
+      <div class="ilt-gauge-container">
+        <canvas id="ilt-gauge-canvas" width="220" height="170"></canvas>
+        <div id="ilt-badge" class="ilt-badge ultra-fast">{t.gradeUltraFast}</div>
+      </div>
+
+      <div id="ilt-target" class="ilt-target-area">
+        <div id="ilt-target-prompt" class="ilt-target-prompt">{t.targetClickPrompt}</div>
+      </div>
+    </div>
+
+    <div class="ilt-charts-grid">
+      <div class="ilt-chart-section">
+        <div class="ilt-section-header">
+          <h3 class="ilt-section-title">Live Sample Distribution & Refresh Rate Thresholds</h3>
+        </div>
+        <canvas id="ilt-chart-canvas" width="480" height="170" class="ilt-chart-canvas"></canvas>
+      </div>
+
+      <div class="ilt-chart-section">
+        <div class="ilt-section-header">
+          <h3 class="ilt-section-title">{t.distributionTitle}</h3>
+        </div>
+        <canvas id="ilt-dist-canvas" width="320" height="170" class="ilt-chart-canvas"></canvas>
+      </div>
+    </div>
+
+    <div class="ilt-pipeline-section">
+      <h3 class="ilt-section-title">{t.pipelineTitle}</h3>
+      <div class="ilt-pipeline-bars">
+        <div class="ilt-pipe-item">
+          <div class="ilt-pipe-head">
+            <span class="ilt-pipe-label">USB Polling</span>
+            <span id="ilt-pipe-usb-val" class="ilt-pipe-val">0.5 ms (10%)</span>
+          </div>
+          <div class="ilt-pipe-track"><div id="ilt-pipe-usb-bar" class="ilt-pipe-fill usb" style="width: 10%"></div></div>
+        </div>
+
+        <div class="ilt-pipe-item">
+          <div class="ilt-pipe-head">
+            <span class="ilt-pipe-label">OS Queue</span>
+            <span id="ilt-pipe-os-val" class="ilt-pipe-val">1.0 ms (20%)</span>
+          </div>
+          <div class="ilt-pipe-track"><div id="ilt-pipe-os-bar" class="ilt-pipe-fill os" style="width: 20%"></div></div>
+        </div>
+
+        <div class="ilt-pipe-item">
+          <div class="ilt-pipe-head">
+            <span class="ilt-pipe-label">Frame Render Window</span>
+            <span id="ilt-pipe-frame-val" class="ilt-pipe-val">8.3 ms (50%)</span>
+          </div>
+          <div class="ilt-pipe-track"><div id="ilt-pipe-frame-bar" class="ilt-pipe-fill frame" style="width: 50%"></div></div>
+        </div>
+
+        <div class="ilt-pipe-item">
+          <div class="ilt-pipe-head">
+            <span class="ilt-pipe-label">Display & Scaler</span>
+            <span id="ilt-pipe-display-val" class="ilt-pipe-val">2.5 ms (20%)</span>
+          </div>
+          <div class="ilt-pipe-track"><div id="ilt-pipe-display-bar" class="ilt-pipe-fill display" style="width: 20%"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ilt-grid">
+      <div class="ilt-metric-card">
+        <span class="ilt-metric-label">{t.labelAvgLatency}</span>
+        <span class="ilt-metric-value"><span id="ilt-avg">0</span> ms</span>
+      </div>
+      <div class="ilt-metric-card">
+        <span class="ilt-metric-label">{t.labelMinLatency}</span>
+        <span class="ilt-metric-value"><span id="ilt-min">0</span> ms</span>
+      </div>
+      <div class="ilt-metric-card">
+        <span class="ilt-metric-label">{t.labelMaxLatency}</span>
+        <span class="ilt-metric-value"><span id="ilt-max">0</span> ms</span>
+      </div>
+      <div class="ilt-metric-card">
+        <span class="ilt-metric-label">{t.labelJitter}</span>
+        <span class="ilt-metric-value"><span id="ilt-jitter">0</span> ms</span>
+      </div>
+      <div class="ilt-metric-card">
+        <span class="ilt-metric-label">{t.labelFps}</span>
+        <span class="ilt-metric-value" id="ilt-fps">0</span>
+      </div>
+      <div class="ilt-metric-card">
+        <span class="ilt-metric-label">{t.labelFrameTime}</span>
+        <span class="ilt-metric-value" id="ilt-frame-time">0</span>
+      </div>
+
+      <div class="ilt-metric-card">
+        <span class="ilt-metric-label">{t.labelSamples}</span>
+        <span class="ilt-metric-value" id="ilt-samples">0</span>
+      </div>
+    </div>
+
+    <div class="ilt-benchmark-matrix">
+      <h3 class="ilt-section-title">Industry Hardware Benchmark Standards</h3>
+      <div class="ilt-matrix-grid">
+        <div class="ilt-matrix-item">
+          <span class="ilt-matrix-tier">Esports Pro Mouse (8000Hz)</span>
+          <span class="ilt-matrix-val">0.125 ms</span>
+        </div>
+        <div class="ilt-matrix-item">
+          <span class="ilt-matrix-tier">Gaming Mouse (1000Hz)</span>
+          <span class="ilt-matrix-val">1.0 ms</span>
+        </div>
+        <div class="ilt-matrix-item">
+          <span class="ilt-matrix-tier">240Hz Gaming Display</span>
+          <span class="ilt-matrix-val">4.17 ms</span>
+        </div>
+        <div class="ilt-matrix-item">
+          <span class="ilt-matrix-tier">60Hz Standard Display</span>
+          <span class="ilt-matrix-val">16.67 ms</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ilt-history-section">
+      <h3 class="ilt-history-title">{t.historyTitle}</h3>
+      <div id="ilt-history-grid" class="ilt-history-grid"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  import { InputLagManager } from './logic/inputLagManager';
+
+  const elements = {
+    targetArea: document.getElementById('ilt-target'),
+    targetPrompt: document.getElementById('ilt-target-prompt'),
+    avgLatency: document.getElementById('ilt-avg'),
+    minLatency: document.getElementById('ilt-min'),
+    maxLatency: document.getElementById('ilt-max'),
+    jitter: document.getElementById('ilt-jitter'),
+    fps: document.getElementById('ilt-fps'),
+    frameTime: document.getElementById('ilt-frame-time'),
+    samplesCount: document.getElementById('ilt-samples'),
+    gradeBadge: document.getElementById('ilt-badge'),
+    historyContainer: document.getElementById('ilt-history-grid'),
+    btnReset: document.getElementById('ilt-btn-reset'),
+    btnCopyReport: document.getElementById('ilt-btn-copy'),
+    modeInstantBtn: document.getElementById('ilt-mode-instant'),
+    modeKeyBtn: document.getElementById('ilt-mode-key'),
+    modeVisualBtn: document.getElementById('ilt-mode-visual'),
+    gaugeCanvas: document.getElementById('ilt-gauge-canvas') as HTMLCanvasElement | null,
+    chartCanvas: document.getElementById('ilt-chart-canvas') as HTMLCanvasElement | null,
+    distCanvas: document.getElementById('ilt-dist-canvas') as HTMLCanvasElement | null,
+    pipeUsbVal: document.getElementById('ilt-pipe-usb-val'),
+    pipeOsVal: document.getElementById('ilt-pipe-os-val'),
+    pipeFrameVal: document.getElementById('ilt-pipe-frame-val'),
+    pipeDisplayVal: document.getElementById('ilt-pipe-display-val'),
+    pipeUsbBar: document.getElementById('ilt-pipe-usb-bar'),
+    pipeOsBar: document.getElementById('ilt-pipe-os-bar'),
+    pipeFrameBar: document.getElementById('ilt-pipe-frame-bar'),
+    pipeDisplayBar: document.getElementById('ilt-pipe-display-bar'),
+  };
+
+  const config = {
+    promptClick: 'Click or tap inside this box to measure input-to-render latency',
+    promptKey: 'Press any key (or Spacebar) to measure keyboard latency',
+    promptWait: 'Wait for green background...',
+    promptNow: 'CLICK NOW!',
+    gradeUltraFast: 'Ultra Fast (<10ms)',
+    gradeFast: 'Fast (10-20ms)',
+    gradeModerate: 'Moderate (20-35ms)',
+    gradeHigh: 'High (>35ms)',
+    reportCopied: 'Report Copied!',
+  };
+
+  new InputLagManager(elements, config);
+</script>
