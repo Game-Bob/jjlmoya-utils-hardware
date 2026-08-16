@@ -103,11 +103,13 @@ export const content: ToolLocaleContent<ProbadorVibracionMandoUI> = {
       type: 'paragraph',
       html: "Lors de l'achat d'une manette d'occasion, après une mise à jour des pilotes ou après une chute, tester les moteurs haptiques permet de distinguer les vraies pannes matérielles des problèmes logiciels. Compatible Xbox, PlayStation 4, PlayStation 5 (DualSense), Nintendo Switch Pro et manettes USB génériques.",
     },
-    { type: 'title', text: 'Architecture Dual-Rumble vs. Actionneurs Linéaires', level: 3 },
+    { type: 'title', text: 'Architecture Dual Rumble et actionneurs linéaires', level: 3 },
     {
       type: 'paragraph',
       html: "Les manettes classiques (Xbox, DualShock) utilisent deux micromoteurs asymétriques: le gauche génère des vibrations graves et profondes ; le droit produit des bourdonnements aigus et rapides. Les appareils avancés comme le DualSense utilisent des actionneurs linéaires qui simulent textures et résistance.",
     },
+    { type: 'title', text: 'Comparer les moteurs de la manette', level: 3 },
+    { type: 'paragraph', html: "Lancez chaque moteur séparément puis combinez les deux intensités. Une différence persistante entre les côtés indique un problème matériel ou une alimentation instable." },
   ],
   ui: {
     badge: 'Test de Vibration',
