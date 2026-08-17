@@ -1,0 +1,87 @@
+---
+import type { PsuInput } from './logic';
+import { calculatePsuRequirement, PSU_PRESETS } from './logic';
+import { renderPsuDiagram } from './dom-views';
+import type { PsuPowerRequirementUI } from './ui';
+import './psu-power-requirement-calculator.css';
+
+interface Props {
+  ui: PsuPowerRequirementUI;
+}
+
+const { ui } = Astro.props;
+const defaultInput: PsuInput = { ...PSU_PRESETS.gaming };
+const initialResult = calculatePsuRequirement(defaultInput);
+const initialDiagram = renderPsuDiagram(defaultInput, initialResult, ui);
+const componentId = 'psu-power-requirement-calculator-root';
+---
+
+<div class="psu-root" id={componentId} data-initial={JSON.stringify(defaultInput)}>
+  <section class="psu-workbench">
+    <header class="psu-workbench-header">
+      <div class="psu-scene-kicker">{ui.sceneKicker}</div>
+      <div class="psu-presets" aria-label={ui.presetsHeader}>
+        <button type="button" data-preset="office">{ui.officePreset}</button>
+        <button type="button" data-preset="gaming" class="active">{ui.gamingPreset}</button>
+        <button type="button" data-preset="highEnd">{ui.highEndPreset}</button>
+        <button type="button" data-preset="workstation">{ui.workstationPreset}</button>
+        <button type="button" data-preset="miniPc">{ui.miniPcPreset}</button>
+      </div>
+      <div class="psu-live-verdict" data-status>{ui.statusTight}</div>
+    </header>
+
+    <div class="psu-constellation" data-diagram set:html={initialDiagram}></div>
+
+    <section class="psu-control-deck" aria-label={ui.deckTitle}>
+      <div class="psu-deck-heading"><strong>{ui.deckTitle}</strong><span>{ui.deckHint}</span></div>
+      <div class="psu-channel-grid">
+        <label class="psu-channel psu-channel-cpu"><span>{ui.cpuWatts}<em>{ui.wattsUnit}</em></span><input type="number" data-key="cpuWatts" value={defaultInput.cpuWatts} min="0" max="1000" step="5" /><input type="range" data-key="cpuWatts" value={defaultInput.cpuWatts} min="0" max="1000" step="5" aria-label={ui.cpuWatts} /></label>
+        <label class="psu-channel psu-channel-gpu"><span>{ui.gpuWatts}<em>{ui.wattsUnit}</em></span><input type="number" data-key="gpuWatts" value={defaultInput.gpuWatts} min="0" max="1500" step="5" /><input type="range" data-key="gpuWatts" value={defaultInput.gpuWatts} min="0" max="1500" step="5" aria-label={ui.gpuWatts} /></label>
+        <label class="psu-channel psu-channel-psu"><span>{ui.currentPsuWatts}<em>{ui.wattsUnit}</em></span><input type="number" data-key="currentPsuWatts" value={defaultInput.currentPsuWatts} min="0" max="3000" step="50" /><input type="range" data-key="currentPsuWatts" value={defaultInput.currentPsuWatts} min="0" max="3000" step="50" aria-label={ui.currentPsuWatts} /></label>
+      </div>
+      <button type="button" class="psu-advanced-toggle" data-advanced-toggle aria-expanded="false">{ui.showAdvanced}</button>
+      <div class="psu-advanced-panel" data-advanced-panel hidden>
+        <div class="psu-advanced-grid">
+          <label class="psu-channel" data-advanced-field hidden><span>{ui.motherboardWatts}<em>{ui.wattsUnit}</em></span><input type="number" data-key="motherboardWatts" value={defaultInput.motherboardWatts} min="0" max="400" step="5" /><input type="range" data-key="motherboardWatts" value={defaultInput.motherboardWatts} min="0" max="400" step="5" aria-label={ui.motherboardWatts} /></label>
+          <label class="psu-channel" data-advanced-field hidden><span>{ui.storageWatts}<em>{ui.wattsUnit}</em></span><input type="number" data-key="storageWatts" value={defaultInput.storageWatts} min="0" max="300" step="5" /><input type="range" data-key="storageWatts" value={defaultInput.storageWatts} min="0" max="300" step="5" aria-label={ui.storageWatts} /></label>
+          <label class="psu-channel" data-advanced-field hidden><span>{ui.fansWatts}<em>{ui.wattsUnit}</em></span><input type="number" data-key="fansWatts" value={defaultInput.fansWatts} min="0" max="300" step="5" /><input type="range" data-key="fansWatts" value={defaultInput.fansWatts} min="0" max="300" step="5" aria-label={ui.fansWatts} /></label>
+          <label class="psu-channel" data-advanced-field hidden><span>{ui.peripheralsWatts}<em>{ui.wattsUnit}</em></span><input type="number" data-key="peripheralsWatts" value={defaultInput.peripheralsWatts} min="0" max="500" step="5" /><input type="range" data-key="peripheralsWatts" value={defaultInput.peripheralsWatts} min="0" max="500" step="5" aria-label={ui.peripheralsWatts} /></label>
+        </div>
+        <div class="psu-margin-deck">
+          <label><span>{ui.transientMargin}</span><input type="range" data-key="transientMarginPercent" value={defaultInput.transientMarginPercent} min="0" max="30" step="1" aria-label={ui.transientMargin} /><strong data-range-label="transientMarginPercent">{defaultInput.transientMarginPercent}%</strong></label>
+          <label><span>{ui.growthMargin}</span><input type="range" data-key="growthMarginPercent" value={defaultInput.growthMarginPercent} min="0" max="40" step="1" aria-label={ui.growthMargin} /><strong data-range-label="growthMarginPercent">{defaultInput.growthMarginPercent}%</strong></label>
+        </div>
+      </div>
+    </section>
+
+    <section class="psu-readout" aria-live="polite">
+      <div class="psu-next-move" data-output="summary">{ui.summaryPrefix}</div>
+      <div class="psu-readout-metrics">
+        <div><span>{ui.baseLoad}</span><strong><output data-output="baseLoadWatts">{initialResult.baseLoadWatts}</output> {ui.wattsUnit}</strong></div>
+        <div><span>{ui.recommendedPsu}</span><strong><output data-output="recommendedPsuWatts">{initialResult.recommendedPsuWatts}</output> {ui.wattsUnit}</strong></div>
+        <div><span>{ui.headroom}</span><strong><output data-output="headroomWatts">{initialResult.headroomWatts}</output> {ui.wattsUnit}</strong></div>
+      </div>
+    </section>
+  </section>
+</div>
+
+<script is:inline type="application/json" id="psu-power-requirement-ui" set:html={JSON.stringify(ui)}></script>
+
+<script>
+  import { PsuPowerRequirementController } from './controller';
+  import type { PsuPowerRequirementUI } from './ui';
+
+  function initPsuController() {
+    const root = document.getElementById('psu-power-requirement-calculator-root');
+    const uiElement = document.getElementById('psu-power-requirement-ui');
+    if (!root || !uiElement) return;
+    const ui = JSON.parse(uiElement.textContent || '{}') as PsuPowerRequirementUI;
+    new PsuPowerRequirementController(root, ui);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initPsuController);
+  } else {
+    initPsuController();
+  }
+</script>

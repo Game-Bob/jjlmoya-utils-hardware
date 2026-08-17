@@ -45,4 +45,4 @@ export { MOBILE_SENSOR_TEST_TOOL } from './tool/mobileSensorTest/index';
 export { MOUSE_JITTER_ANGLE_SNAPPING_TEST_TOOL } from './tool/mouseJitterAngleSnappingTest/index';
 export { TOUCH_SCREEN_TESTER_TOOL } from './tool/touchScreenTester/index';
 export { INPUT_LAG_TEST_TOOL } from './tool/inputLagTest/index';
-
+export { PSU_POWER_REQUIREMENT_CALCULATOR_TOOL } from './tool/psuPowerRequirementCalculator/index';

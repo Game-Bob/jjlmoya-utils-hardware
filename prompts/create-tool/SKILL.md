@@ -16,13 +16,13 @@ description: Create a new tool in the hardware utilities library (src/tool/). Us
 
 4. **SEO content** — El contenido SEO es LO MÁS IMPORTANTE. Es lo que posiciona la página en Google. Debe ser LARGO, DETALLADO y aportar valor REAL al usuario.
 
-   **REQUISITOS OBLIGATORIOS del contenido SEO:**
-   - **Extensión mínima**: al menos 2000 palabras de contenido sustancial (no relleno), distribuidas en  secciones
-   - **Responde preguntas reales**: cada bloque debe resolver una duda concreta que un usuario buscaría en Google (ej: "por qué mi monitor tiene ghosting", "cómo calibrar colores sin hardware", "qué significan los ms de respuesta"). Piensa en queries long-tail con intención informativa
-   - **Variedad de tipos**: usa OBLIGATORIAMENTE al menos 8 tipos distintos de los siguientes: `title`, `paragraph`, `list`, `table`, `tip`, `card`, `stats`, `glossary`, `comparative`, `diagnostic`, `proscons`, `summary`, `message`
-   - **Estructura**: organiza el contenido en secciones lógicas con `title` h2, cada una con 3-5 bloques de contenido (párrafos, listas, tablas, tips, cards, etc.)
-   - **Nada de texto vago**: prohibido escribir cosas como "esta herramienta es útil" o "muchos usuarios necesitan esto". Cada párrafo debe contener información concreta, datos, criterios, comparaciones o guías prácticas
-   - **Sin relleno editorial**: no escribas introducciones genéricas ni conclusiones vacías. Ve directo al grano con información que el usuario pueda aplicar
+   **REQUISITOS del contenido SEO:**
+   - **Extensión proporcional**: no existe una cuota fija de palabras. El contenido debe tener solo la extensión necesaria para explicar la intención de búsqueda, el uso de la TOOL, el cálculo, la interpretación y sus límites. Una herramienta sencilla no debe inflarse con texto artificial.
+   - **Responde preguntas reales**: cada bloque debe resolver una duda concreta que un usuario buscaría en Google, escogiendo solo las preguntas relacionadas con esta herramienta.
+   - **Variedad útil**: usa los tipos `title`, `paragraph`, `list`, `table`, `tip`, `card`, `stats`, `glossary`, `comparative`, `diagnostic`, `proscons`, `summary` y `message` solo cuando mejoren la comprensión. No hay una cuota obligatoria de tipos.
+   - **Estructura**: organiza el contenido en secciones lógicas y ajusta el número de bloques a la complejidad real de la TOOL.
+   - **Nada de texto vago**: cada párrafo debe contener información concreta, criterios, comparaciones o una guía práctica aplicable.
+   - **Sin relleno editorial**: no escribas introducciones genéricas ni conclusiones vacías. Ve directo al problema que la TOOL resuelve.
 
    **Tipos disponibles y cuándo usarlos:**
    - `title` (h2/h3/h4): secciones principales
