@@ -1,0 +1,131 @@
+---
+import type { ResistorColorCodeUI } from './ui';
+import type { BandCount, CalculationMode, ResistorColor } from './logic';
+import { calculateFromColors } from './logic';
+import { renderResistorScene } from './dom-views';
+import './resistor-color-code-calculator.css';
+
+interface Props {
+  ui: ResistorColorCodeUI;
+}
+
+const { ui } = Astro.props;
+const defaultState = {
+  mode: 'decode' as CalculationMode,
+  bandCount: 4 as BandCount,
+  colors: ['yellow', 'violet', 'red', 'gold'] as ResistorColor[],
+  targetOhms: 4700,
+  tolerancePercent: 5 as 1 | 2 | 5 | 10 | 20,
+  smdCode: '472',
+};
+const initialResult = calculateFromColors({ bandCount: defaultState.bandCount, colors: defaultState.colors });
+const componentId = 'resistor-color-code-calculator-root';
+---
+
+<div class="rcc-root" id={componentId} data-initial={JSON.stringify(defaultState)} data-mode="decode">
+  <section class="rcc-lab">
+    <header class="rcc-header">
+      <div>
+        <span class="rcc-kicker">{ui.sceneKicker}</span>
+        <p class="rcc-hint">{ui.hint}</p>
+      </div>
+      <div class="rcc-status" data-status>{ui.statusReady}</div>
+    </header>
+
+    <nav class="rcc-mode-tabs" aria-label={ui.selectBand}>
+      <button type="button" data-mode="decode" class="active">{ui.decodeMode}</button>
+      <button type="button" data-mode="reverse">{ui.reverseMode}</button>
+      <button type="button" data-mode="smd">{ui.smdMode}</button>
+    </nav>
+
+    <div class="rcc-stage" data-scene set:html={renderResistorScene(defaultState.colors, initialResult, ui)}></div>
+
+    <section class="rcc-controls" aria-label={ui.selectBand}>
+      <div class="rcc-control-head">
+        <span>{ui.bandCount}</span>
+        <div class="rcc-pills">
+          <button type="button" data-band-count="3">{ui.bandCount3}</button>
+          <button type="button" data-band-count="4" class="active">{ui.bandCount4}</button>
+          <button type="button" data-band-count="5">{ui.bandCount5}</button>
+          <button type="button" data-band-count="6">{ui.bandCount6}</button>
+        </div>
+      </div>
+
+      <div class="rcc-band-list" aria-label={ui.selectBand}>
+        <button type="button" data-band="0" class="rcc-band-select active"><span>1</span></button>
+        <button type="button" data-band="1" class="rcc-band-select"><span>2</span></button>
+        <button type="button" data-band="2" class="rcc-band-select"><span>3</span></button>
+        <button type="button" data-band="3" class="rcc-band-select"><span>4</span></button>
+        <button type="button" data-band="4" class="rcc-band-select"><span>5</span></button>
+        <button type="button" data-band="5" class="rcc-band-select"><span>6</span></button>
+      </div>
+
+      <div class="rcc-palette-wrap">
+        <span class="rcc-label">{ui.colorPalette}</span>
+        <div class="rcc-palette" data-palette></div>
+      </div>
+
+      <section class="rcc-mode-panel" data-panel-mode="reverse">
+        <label class="rcc-number-field">
+          <span>{ui.targetResistance}</span>
+          <input type="number" data-target value={defaultState.targetOhms} min="0.01" step="0.1" inputmode="decimal" />
+          <small>{ui.targetHint}</small>
+        </label>
+        <div class="rcc-tolerance">
+          <span>{ui.toleranceChoice}</span>
+          <div class="rcc-pills">
+            <button type="button" data-tolerance="1">{ui.tolerance1}</button>
+            <button type="button" data-tolerance="2">{ui.tolerance2}</button>
+            <button type="button" data-tolerance="5" class="active">{ui.tolerance5}</button>
+            <button type="button" data-tolerance="10">{ui.tolerance10}</button>
+            <button type="button" data-tolerance="20">{ui.tolerance20}</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="rcc-mode-panel" data-panel-mode="smd">
+        <label class="rcc-number-field">
+          <span>{ui.smdCode}</span>
+          <input type="text" data-smd value={defaultState.smdCode} maxlength="4" inputmode="text" />
+          <small>{ui.smdHint}</small>
+        </label>
+      </section>
+    </section>
+
+    <section class="rcc-readout" aria-live="polite">
+      <div class="rcc-readout-main">
+        <span>{ui.resistance}</span>
+        <strong data-value>{initialResult.valueOhms} Ω</strong>
+      </div>
+      <div class="rcc-readout-grid">
+        <div><span>{ui.tolerance}</span><strong data-tolerance-value>±{initialResult.tolerancePercent}%</strong></div>
+        <div><span>{ui.range}</span><strong data-range>4.465 kΩ - 4.935 kΩ</strong></div>
+        <div><span>{ui.temperatureCoefficient}</span><strong data-tempco>{ui.noTempco}</strong></div>
+        <div><span>{ui.requestedValue}</span><strong data-requested>-</strong></div>
+      </div>
+      <p class="rcc-note">{ui.orientationNote}</p>
+    </section>
+  </section>
+</div>
+
+<script is:inline type="application/json" id="resistor-color-code-ui" set:html={JSON.stringify(ui)}></script>
+
+<script>
+  import { ResistorColorCodeController } from './controller';
+  import type { ResistorColorCodeUI } from './ui';
+
+  function initResistorColorCodeController() {
+    const root = document.getElementById('resistor-color-code-calculator-root');
+    const uiElement = document.getElementById('resistor-color-code-ui');
+    if (!root || !uiElement) return;
+    const ui = JSON.parse(uiElement.textContent || '{}') as ResistorColorCodeUI;
+    new ResistorColorCodeController(root, ui);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initResistorColorCodeController);
+  } else {
+    initResistorColorCodeController();
+  }
+</script>
+
