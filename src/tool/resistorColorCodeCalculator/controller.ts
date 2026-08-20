@@ -1,4 +1,4 @@
-import { calculateFromColors, calculateFromSmd, calculateFromTarget, type BandCount, type CalculationMode, type ResistorColor, type ResistorResult } from './logic';
+import { allowedColorsForBand, calculateFromColors, calculateFromSmd, calculateFromTarget, defaultColorsForBandCount, type BandCount, type CalculationMode, type ResistorColor, type ResistorResult } from './logic';
 import { renderResistorScene, colorLabel } from './dom-views';
 import { evaluateResult } from './evaluator';
 import { loadResistorState, saveResistorState } from './storage';
@@ -36,7 +36,7 @@ export class ResistorColorCodeController {
   private bindBandCountEvents(): void {
     this.root.querySelectorAll<HTMLElement>('[data-band-count]').forEach((button) => button.addEventListener('click', () => {
       this.state.bandCount = Number(button.dataset.bandCount) as BandCount;
-      this.state.colors = defaultColors(this.state.bandCount);
+      this.state.colors = defaultColorsForBandCount(this.state.bandCount);
       this.activeBand = 0;
       this.render();
     }));
@@ -70,6 +70,7 @@ export class ResistorColorCodeController {
       if (!color) return;
       event.preventDefault();
       const band = this.sceneBand(event.target) ?? this.activeBand;
+      if (!this.isAllowedColor(color, band)) return;
       this.applyColor(color, band, false);
     });
   }
@@ -77,6 +78,7 @@ export class ResistorColorCodeController {
   private bindColorButton(button: HTMLElement): void {
     button.addEventListener('click', () => {
       const color = this.readColor(button.dataset.color);
+      if (color && !this.isAllowedColor(color, this.activeBand)) return;
       if (color) this.applyColor(color, this.activeBand);
     });
     button.addEventListener('dragstart', (event) => {
@@ -145,11 +147,11 @@ export class ResistorColorCodeController {
   }
 
   private updateMeasurements(result: ResistorResult): void {
-    this.setText('[data-value]', result.valid ? formatResult(result.valueOhms) : this.ui.statusInvalid);
-    this.setText('[data-range]', result.valid && result.tolerancePercent > 0 ? formatResult(result.minOhms) + ' - ' + formatResult(result.maxOhms) : this.ui.smdNote);
-    this.setText('[data-tolerance-value]', result.valid && result.tolerancePercent > 0 ? '±' + result.tolerancePercent + '%' : '-');
-    this.setText('[data-tempco]', result.tempcoPpm ? result.tempcoPpm + ' ppm/°C' : this.ui.noTempco);
-    this.setText('[data-requested]', result.requestedOhms ? formatResult(result.requestedOhms) : '-');
+    this.setText('[data-value]', valueText(result));
+    this.setText('[data-range]', rangeText(result, this.ui));
+    this.setText('[data-tolerance-value]', toleranceText(result));
+    this.setText('[data-tempco]', tempcoText(result, this.ui));
+    this.setText('[data-requested]', requestedText(result));
   }
 
   private updateStatus(result: ResistorResult): void {
@@ -174,8 +176,10 @@ export class ResistorColorCodeController {
   }
 
   private paletteButton(color: ResistorColor): string {
-    const active = color === this.state.colors[this.activeBand] ? ' active' : '';
-    return '<button type="button" draggable="true" class="color-chip color-chip-' + color + active + '" data-color="' + color + '" aria-label="' + colorLabel(color, this.ui) + '" aria-pressed="' + (active ? 'true' : 'false') + '"><span></span><strong>' + colorLabel(color, this.ui) + '</strong></button>';
+    const allowed = this.isAllowedColor(color, this.activeBand);
+    const active = allowed && color === this.state.colors[this.activeBand] ? ' active' : '';
+    const disabled = allowed ? '' : ' disabled';
+    return '<button type="button" draggable="' + (allowed ? 'true' : 'false') + '" class="color-chip color-chip-' + color + active + '" data-color="' + color + '" aria-label="' + colorLabel(color, this.ui) + '" aria-disabled="' + (!allowed) + '" aria-pressed="' + (active ? 'true' : 'false') + '"' + disabled + '><span></span><strong>' + colorLabel(color, this.ui) + '</strong></button>';
   }
 
   private renderBandButtons(colors: ResistorColor[]): void {
@@ -203,6 +207,7 @@ export class ResistorColorCodeController {
   private applyColor(color: ResistorColor, index: number, advance = true): void {
     this.state.mode = 'decode';
     this.activeBand = Math.max(0, Math.min(index, this.state.bandCount - 1));
+    if (!this.isAllowedColor(color, this.activeBand)) return;
     this.state.colors[this.activeBand] = color;
     if (advance) this.activeBand = Math.min(this.activeBand + 1, this.state.bandCount - 1);
     this.render();
@@ -218,11 +223,16 @@ export class ResistorColorCodeController {
     return this.readColor(event.dataTransfer?.getData('text/plain'));
   }
 
+  private isAllowedColor(color: ResistorColor, index: number): boolean {
+    return allowedColorsForBand(this.state.bandCount, index).includes(color);
+  }
+
   private readColor(value: string | undefined): ResistorColor | null {
     return palette.includes(value as ResistorColor) ? value as ResistorColor : null;
   }
 
   private calculate(): ResistorResult {
+    if (this.state.mode === 'decode' && !calculateFromColors({ bandCount: this.state.bandCount, colors: this.state.colors }).valid) this.state.colors = defaultColorsForBandCount(this.state.bandCount);
     if (this.state.mode === 'reverse') return calculateFromTarget({ bandCount: this.state.bandCount, targetOhms: this.state.targetOhms, tolerancePercent: this.state.tolerancePercent });
     if (this.state.mode === 'smd') return calculateFromSmd({ code: this.state.smdCode });
     return calculateFromColors({ bandCount: this.state.bandCount, colors: this.state.colors });
@@ -241,14 +251,6 @@ export class ResistorColorCodeController {
   }
 }
 
-function defaultColors(bandCount: BandCount): ResistorColor[] {
-  if (bandCount === 3) return ['yellow', 'violet', 'red'];
-  if (bandCount === 4) return ['yellow', 'violet', 'red', 'gold'];
-  const colors: ResistorColor[] = ['brown', 'black', 'black', 'red', 'brown'];
-  if (bandCount === 6) colors.push('brown');
-  return colors;
-}
-
 function formatResult(value: number): string {
   if (value >= 1_000_000_000) return trim(value / 1_000_000_000) + ' GΩ';
   if (value >= 1_000_000) return trim(value / 1_000_000) + ' MΩ';
@@ -258,4 +260,28 @@ function formatResult(value: number): string {
 
 function trim(value: number): string {
   return Number(value.toFixed(3)).toString();
+}
+
+function valueText(result: ResistorResult): string {
+  return result.valid ? formatResult(result.valueOhms) : '—';
+}
+
+function rangeText(result: ResistorResult, ui: ResistorColorCodeUI): string {
+  if (!result.valid) return '—';
+  if (result.tolerancePercent > 0) return formatResult(result.minOhms) + ' - ' + formatResult(result.maxOhms);
+  return ui.smdNote;
+}
+
+function toleranceText(result: ResistorResult): string {
+  return result.valid && result.tolerancePercent > 0 ? '±' + result.tolerancePercent + '%' : '—';
+}
+
+function tempcoText(result: ResistorResult, ui: ResistorColorCodeUI): string {
+  if (!result.valid) return '—';
+  return result.tempcoPpm ? result.tempcoPpm + ' ppm/°C' : ui.noTempco;
+}
+
+function requestedText(result: ResistorResult): string {
+  if (!result.valid) return '—';
+  return result.requestedOhms ? formatResult(result.requestedOhms) : '-';
 }

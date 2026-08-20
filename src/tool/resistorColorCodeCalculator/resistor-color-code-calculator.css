@@ -294,6 +294,12 @@
   user-select: none;
 }
 
+.color-chip:disabled {
+  cursor: not-allowed;
+  filter: saturate(0.25);
+  opacity: 0.35;
+}
+
 .color-chip:active {
   cursor: grabbing;
 }

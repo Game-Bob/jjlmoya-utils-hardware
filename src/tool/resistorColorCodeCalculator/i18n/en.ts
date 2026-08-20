@@ -113,7 +113,7 @@ export const content: ToolLocaleContent<ResistorColorCodeUI> = {
     status: 'Status',
     statusReady: 'Ready to read',
     statusCheck: 'Nearest representable value',
-    statusInvalid: 'Check the code',
+    statusInvalid: 'Invalid combination',
     orientationNote: 'Orientation clue: keep the tolerance band slightly separated and at the right. Gold and silver cannot be significant digit bands.',
     reverseNote: 'The reverse mode chooses a representable significant value and shows the code that will be produced.',
     smdNote: 'SMD markings do not encode a tolerance in this compact view.',

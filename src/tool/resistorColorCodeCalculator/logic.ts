@@ -31,6 +31,23 @@ export interface ResistorResult {
 
 export const COLOR_NAMES: ResistorColor[] = ['black', 'brown', 'red', 'orange', 'yellow', 'green', 'blue', 'violet', 'gray', 'white', 'gold', 'silver'];
 
+export function allowedColorsForBand(bandCount: BandCount, index: number): ResistorColor[] {
+  const digitCount = bandCount <= 4 ? 2 : 3;
+  if (index < digitCount) return COLOR_NAMES.slice(0, 10);
+  if (index === digitCount) return [...COLOR_NAMES];
+  if (index === digitCount + 1) return ['brown', 'red', 'green', 'blue', 'violet', 'gray', 'gold', 'silver'];
+  if (bandCount === 6 && index === 5) return ['brown', 'red', 'orange', 'yellow', 'blue', 'violet', 'gray'];
+  return [];
+}
+
+export function defaultColorsForBandCount(bandCount: BandCount): ResistorColor[] {
+  if (bandCount === 3) return ['yellow', 'violet', 'red'];
+  if (bandCount === 4) return ['yellow', 'violet', 'red', 'gold'];
+  const colors: ResistorColor[] = ['brown', 'black', 'black', 'red', 'brown'];
+  if (bandCount === 6) colors.push('brown');
+  return colors;
+}
+
 interface ReadyResultInput {
   valueOhms: number;
   tolerancePercent: number;

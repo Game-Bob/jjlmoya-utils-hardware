@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { calculateFromColors, calculateFromSmd, calculateFromTarget, formatOhms } from './logic';
+import { allowedColorsForBand, calculateFromColors, calculateFromSmd, calculateFromTarget, defaultColorsForBandCount, formatOhms } from './logic';
 
 describe('resistor color code calculations', () => {
   it('decodes a four-band resistor', () => {
@@ -36,6 +36,13 @@ describe('resistor color code calculations', () => {
     expect(formatOhms(4.7)).toBe('4.7 Ω');
     expect(formatOhms(4700)).toBe('4.7 kΩ');
     expect(formatOhms(4_700_000)).toBe('4.7 MΩ');
+  });
+
+  it('only allows colors supported by each band role', () => {
+    expect(allowedColorsForBand(6, 4)).not.toContain('yellow');
+    expect(allowedColorsForBand(6, 5)).not.toContain('white');
+    expect(allowedColorsForBand(6, 5)).toContain('yellow');
+    expect(calculateFromColors({ bandCount: 6, colors: defaultColorsForBandCount(6) }).valid).toBe(true);
   });
 });
 

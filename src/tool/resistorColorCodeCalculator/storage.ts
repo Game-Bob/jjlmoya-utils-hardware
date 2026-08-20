@@ -1,4 +1,4 @@
-import type { BandCount, CalculationMode, ResistorColor } from './logic';
+import { calculateFromColors, defaultColorsForBandCount, type BandCount, type CalculationMode, type ResistorColor } from './logic';
 
 interface ResistorStoredState {
   mode: CalculationMode;
@@ -16,10 +16,19 @@ export function loadResistorState(fallback: ResistorStoredState): ResistorStored
     const raw = window.localStorage.getItem(STORAGE_KEY);
     if (!raw) return fallback;
     const parsed = JSON.parse(raw) as Partial<ResistorStoredState>;
-    return { ...fallback, ...parsed };
+    const bandCount = validBandCount(parsed.bandCount) ? parsed.bandCount : fallback.bandCount;
+    const state = { ...fallback, ...parsed, bandCount, colors: Array.isArray(parsed.colors) ? parsed.colors : fallback.colors };
+    if (state.mode === 'decode' && !calculateFromColors({ bandCount: state.bandCount, colors: state.colors }).valid) {
+      state.colors = defaultColorsForBandCount(state.bandCount);
+    }
+    return state;
   } catch {
     return fallback;
   }
+}
+
+function validBandCount(value: unknown): value is BandCount {
+  return [3, 4, 5, 6].includes(value as BandCount);
 }
 
 export function saveResistorState(state: ResistorStoredState): void {
