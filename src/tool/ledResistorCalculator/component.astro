@@ -1,0 +1,132 @@
+---
+import type { LedResistorUI } from './ui';
+import { calculateLedResistor, defaultLedInput } from './logic';
+import { buyParts, renderCircuitScene } from './dom-views';
+import './led-resistor-calculator.css';
+
+interface Props {
+  ui: LedResistorUI;
+}
+
+const { ui } = Astro.props;
+const defaultInput = defaultLedInput();
+const initialResult = calculateLedResistor(defaultInput);
+const initialBuy = buyParts(initialResult, defaultInput);
+const componentId = 'led-resistor-calculator-root';
+---
+
+<div class="lrc-root" id={componentId} data-initial={JSON.stringify(defaultInput)} data-led={defaultInput.color} data-status={initialResult.message}>
+  <section class="lrc-bench">
+    <div class="lrc-stage" data-scene set:html={renderCircuitScene(defaultInput, initialResult, ui)}></div>
+
+    <div class="lrc-buy" aria-live="polite">
+      <div>
+        <span>{ui.buyLabel}</span>
+        <strong data-buy-ohms>{initialBuy.ohms}</strong>
+      </div>
+      <div>
+        <span>{ui.powerLabel}</span>
+        <strong data-buy-watts>{initialBuy.watts}</strong>
+      </div>
+      <div>
+        <span>{ui.seriesShort}</span>
+        <strong data-buy-series>{initialBuy.series}</strong>
+      </div>
+    </div>
+
+    <section class="lrc-controls">
+      <div class="lrc-group">
+        <span>{ui.colorHeader}</span>
+        <div class="lrc-swatches" role="list">
+          <button type="button" class="lrc-swatch lrc-swatch-infrared" data-color="infrared">{ui.colorInfrared}</button>
+          <button type="button" class="lrc-swatch lrc-swatch-red active" data-color="red">{ui.colorRed}</button>
+          <button type="button" class="lrc-swatch lrc-swatch-orange" data-color="orange">{ui.colorOrange}</button>
+          <button type="button" class="lrc-swatch lrc-swatch-yellow" data-color="yellow">{ui.colorYellow}</button>
+          <button type="button" class="lrc-swatch lrc-swatch-green" data-color="green">{ui.colorGreen}</button>
+          <button type="button" class="lrc-swatch lrc-swatch-blue" data-color="blue">{ui.colorBlue}</button>
+          <button type="button" class="lrc-swatch lrc-swatch-white" data-color="white">{ui.colorWhite}</button>
+          <button type="button" class="lrc-swatch lrc-swatch-uv" data-color="uv">{ui.colorUv}</button>
+        </div>
+      </div>
+
+      <div class="lrc-group">
+        <div class="lrc-rail-head">
+          <span>{ui.supplyHeader}</span>
+          <button type="button" class="lrc-advanced-toggle" data-advanced-toggle aria-expanded="false">{ui.showDatasheet}</button>
+        </div>
+        <div class="lrc-rails">
+          <button type="button" data-supply="3.3">{ui.supplyMcu}</button>
+          <button type="button" data-supply="5" class="active">{ui.supplyArduino}</button>
+          <button type="button" data-supply="9">{ui.supply9}</button>
+          <button type="button" data-supply="12">{ui.supply12}</button>
+          <button type="button" data-supply="24">{ui.supply24}</button>
+        </div>
+      </div>
+
+      <div class="lrc-advanced" data-advanced-panel hidden>
+        <div class="lrc-split">
+          <label class="lrc-slider">
+            <span>{ui.forwardHeader}</span>
+            <input type="range" data-key="forwardVolts" min="0.7" max="5" step="0.05" value={defaultInput.forwardVolts} aria-label={ui.forwardHeader} />
+            <input type="number" data-key="forwardVolts" min="0.7" max="5" step="0.05" value={defaultInput.forwardVolts} inputmode="decimal" />
+            <em>{ui.forwardUnit}</em>
+          </label>
+          <label class="lrc-slider">
+            <span>{ui.currentHeader}</span>
+            <input type="range" data-key="currentMilliamps" min="1" max="50" step="1" value={defaultInput.currentMilliamps} aria-label={ui.currentHeader} />
+            <input type="number" data-key="currentMilliamps" min="1" max="350" step="1" value={defaultInput.currentMilliamps} inputmode="decimal" />
+            <em>{ui.currentUnit}</em>
+          </label>
+        </div>
+        <div class="lrc-split">
+          <div class="lrc-group">
+            <span>{ui.countHeader}</span>
+            <div class="lrc-pills">
+              <button type="button" data-count="1" class="active">1</button>
+              <button type="button" data-count="2">2</button>
+              <button type="button" data-count="3">3</button>
+              <button type="button" data-count="4">4</button>
+              <button type="button" data-count="5">5</button>
+            </div>
+          </div>
+          <div class="lrc-group">
+            <span>{ui.seriesHeader}</span>
+            <div class="lrc-pills">
+              <button type="button" data-series="e12">{ui.seriesE12}</button>
+              <button type="button" data-series="e24" class="active">{ui.seriesE24}</button>
+            </div>
+          </div>
+        </div>
+        <label class="lrc-slider">
+          <span>{ui.supplyHeader}</span>
+          <input type="range" data-key="supplyVolts" min="1" max="24" step="0.1" value={defaultInput.supplyVolts} aria-label={ui.supplyHeader} />
+          <input type="number" data-key="supplyVolts" min="1" max="48" step="0.1" value={defaultInput.supplyVolts} inputmode="decimal" />
+          <em>{ui.supplyUnit}</em>
+        </label>
+      </div>
+    </section>
+
+    <p class="lrc-note">{ui.note}</p>
+  </section>
+</div>
+
+<script is:inline type="application/json" id="led-resistor-ui" set:html={JSON.stringify(ui)}></script>
+
+<script>
+  import { LedResistorController } from './controller';
+  import type { LedResistorUI } from './ui';
+
+  function initLedResistorController() {
+    const root = document.getElementById('led-resistor-calculator-root');
+    const uiElement = document.getElementById('led-resistor-ui');
+    if (!root || !uiElement) return;
+    const ui = JSON.parse(uiElement.textContent || '{}') as LedResistorUI;
+    new LedResistorController(root, ui);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initLedResistorController);
+  } else {
+    initLedResistorController();
+  }
+</script>

@@ -1,0 +1,14 @@
+---
+import { Bibliography as SharedBibliography } from '@jjlmoya/utils-shared';
+import type { KnownLocale } from '../../types';
+import { ledResistorCalculator } from './index';
+
+interface Props {
+  locale?: KnownLocale;
+}
+
+const { locale = 'en' } = Astro.props;
+const content = await ledResistorCalculator.i18n[locale]?.() ?? await ledResistorCalculator.i18n.en?.();
+---
+
+{content && content.bibliography.length > 0 && <SharedBibliography links={content.bibliography} />}

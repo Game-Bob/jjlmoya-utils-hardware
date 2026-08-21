@@ -1,0 +1,15 @@
+---
+import { SEORenderer } from '@jjlmoya/utils-shared';
+import { ledResistorCalculator } from './index';
+import type { KnownLocale } from '../../types';
+
+interface Props {
+  locale?: KnownLocale;
+}
+
+const { locale = 'en' } = Astro.props;
+const content = await ledResistorCalculator.i18n[locale]?.() ?? await ledResistorCalculator.i18n.en?.();
+if (!content) return null;
+---
+
+{content.seo?.length > 0 && <SEORenderer content={{ locale, sections: content.seo }} />}

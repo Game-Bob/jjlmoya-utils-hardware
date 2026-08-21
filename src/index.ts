@@ -46,3 +46,4 @@ export { MOUSE_JITTER_ANGLE_SNAPPING_TEST_TOOL } from './tool/mouseJitterAngleSn
 export { TOUCH_SCREEN_TESTER_TOOL } from './tool/touchScreenTester/index';
 export { INPUT_LAG_TEST_TOOL } from './tool/inputLagTest/index';
 export { PSU_POWER_REQUIREMENT_CALCULATOR_TOOL } from './tool/psuPowerRequirementCalculator/index';
+export { LED_RESISTOR_CALCULATOR_TOOL } from './tool/ledResistorCalculator/index';
