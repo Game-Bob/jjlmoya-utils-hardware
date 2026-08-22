@@ -10,22 +10,22 @@ const description = 'Verifica il ritardo audio percepito su altoparlanti, cuffie
 const faq = [
   {
     question: 'Cosa misura esattamente questo test di ritardo audio?',
-    answer: 'La modalita microfono opzionale stima l intervallo tra un impulso programmato dal browser e la sua acquisizione da parte del microfono.',
+    answer: 'La modalità microfono opzionale stima l intervallo tra un impulso programmato dal browser e la sua acquisizione da parte del microfono.',
   },
   {
     question: 'Posso testare la latenza Bluetooth senza microfono?',
-    answer: 'Si. Avvia la sequenza di impulsi, seleziona il dispositivo Bluetooth e sposta il cursore di allineamento fino a percepire la simultaneita tra flash e suono.',
+    answer: 'Sì. Avvia la sequenza di impulsi, seleziona il dispositivo Bluetooth e sposta il cursore di allineamento fino a percepire la simultaneità tra flash e suono.',
   },
   {
-    question: 'Perche la modalita microfono richiede un permesso?',
+    question: 'Perché la modalità microfono richiede un permesso?',
     answer: 'Il browser deve accedere al microfono per rilevare il segnale sonoro inviato dagli altoparlanti. L elaborazione avviene localmente.',
   },
   {
-    question: 'Perche i risultati con microfono possono variare?',
+    question: 'Perché i risultati con microfono possono variare?',
     answer: 'I riflessi dell ambiente, il trattamento del segnale nel microfono e i buffer del sistema operativo influenzano la lettura.',
   },
   {
-    question: 'Quale modalita di test dovrei scegliere?',
+    question: 'Quale modalità di test dovrei scegliere?',
     answer: 'Scegli Altoparlanti per la stanza, Cuffie via cavo per la connessione diretta, Bluetooth per i dispositivi wireless e Sincro video per la TV o i player.',
   },
   {
@@ -120,18 +120,18 @@ export const content: ToolLocaleContent<AudioDelayTestUI> = {
         'Seleziona Bluetooth e regola il volume a un livello confortevole.',
         'Avvia la sequenza di impulsi dallo stesso browser di riproduzione.',
         'Confronta il lampeggio visivo con il segnale acustico.',
-        'Regola il cursore di allineamento fino alla perfetta simultaneita.',
+        'Regola il cursore di allineamento fino alla perfetta simultaneità.',
         'Ripeti la prova se modifichi i codec o le impostazioni di sistema.',
       ],
     },
     {
       type: 'table',
-      headers: ['Modalita', 'Ideale per', 'Limitazione principale'],
+      headers: ['Modalità', 'Ideale per', 'Limitazione principale'],
       rows: [
         ['Altoparlanti', 'Ascolto in stanza e TV', 'La distanza e i riflessi della stanza influenzano la misura.'],
         ['Cuffie cavo', 'Uscita analogica diretta', 'Il microfono potrebbe non captare cuffie chiuse.'],
         ['Bluetooth', 'Cuffie e altoparlanti wireless', 'Il buffer del codec varia a seconda del dispositivo.'],
-        ['Sincro video', 'Allineamento schermo e riproduttore', 'Il riproduttore video puo introdurre un ritardo di rendering.'],
+        ['Sincro video', 'Allineamento schermo e riproduttore', 'Il riproduttore video può introdurre un ritardo di rendering.'],
       ],
     },
     {
@@ -150,7 +150,7 @@ export const content: ToolLocaleContent<AudioDelayTestUI> = {
     },
     {
       type: 'title',
-      text: 'Perche i risultati di latenza variano',
+      text: 'Perché i risultati di latenza variano',
       level: 2,
     },
     {
