@@ -1,0 +1,149 @@
+---
+import './gamepad-polling-rate-checker.css';
+import type { GamepadPollingRateCheckerUI } from './ui';
+
+interface Props {
+  ui: GamepadPollingRateCheckerUI;
+}
+
+const { ui } = Astro.props;
+const serializedUI = JSON.stringify(ui).replace(/</g, '\\u003c');
+---
+
+<div class="gpr-shell" data-gamepad-polling-root data-running="false">
+  <div class="gpr-onboarding" aria-label={ui.orbitInstruction}>
+    <span class="gpr-local-note">{ui.privacyNote}</span>
+    <ol class="gpr-steps">
+      <li><span>01</span>{ui.stepConnect}</li>
+      <li><span>02</span>{ui.stepMove}</li>
+      <li><span>03</span>{ui.stepRead}</li>
+    </ol>
+  </div>
+
+  <div class="gpr-instrument">
+    <section class="gpr-scope" aria-live="polite">
+      <div class="gpr-scope-grid" aria-hidden="true"></div>
+      <div class="gpr-orbit-copy">
+        <span class="gpr-kicker">{ui.traceLabel}</span>
+        <strong>{ui.orbitInstruction}</strong>
+      </div>
+
+      <div class="gpr-orbit" aria-hidden="true">
+        <svg viewBox="0 0 360 360" role="presentation">
+          <circle class="gpr-orbit-track" cx="180" cy="180" r="142"></circle>
+          <circle
+            class="gpr-orbit-progress"
+            data-progress-ring
+            cx="180"
+            cy="180"
+            r="142"
+            pathLength="100"
+          ></circle>
+          <circle class="gpr-orbit-inner" cx="180" cy="180" r="94"></circle>
+          <path class="gpr-crosshair" d="M180 24V336M24 180H336"></path>
+        </svg>
+        <span class="gpr-stick-dot"></span>
+        <div class="gpr-rate">
+          <span data-rate-value>{ui.emptyValue}</span>
+          <small>{ui.hertzUnit}</small>
+          <em>{ui.observedRateLabel}</em>
+        </div>
+      </div>
+
+      <div class="gpr-trace">
+        <svg viewBox="0 0 640 128" preserveAspectRatio="none" aria-hidden="true">
+          <path class="gpr-trace-baseline" d="M0 64 L640 64"></path>
+          <path class="gpr-trace-line" data-trace-path d="M0 64 L640 64"></path>
+        </svg>
+      </div>
+
+      <div
+        class="gpr-progress"
+        data-progress
+        role="progressbar"
+        aria-label={ui.progressLabel}
+        aria-valuemin="0"
+        aria-valuemax="100"
+        aria-valuenow="0"
+      >0%</div>
+    </section>
+
+    <aside class="gpr-console">
+      <div class="gpr-field" data-device-select>
+        <span class="gpr-label">{ui.deviceLabel}</span>
+        <button
+          class="gpr-device-trigger"
+          type="button"
+          data-device-trigger
+          aria-haspopup="listbox"
+          aria-expanded="false"
+        >
+          <span data-device-value>{ui.devicePlaceholder}</span>
+          <span class="gpr-chevron" aria-hidden="true"></span>
+        </button>
+        <div class="gpr-device-list" data-device-list role="listbox" hidden></div>
+      </div>
+
+      <fieldset class="gpr-fieldset">
+        <legend class="gpr-label">{ui.durationLabel}</legend>
+        <div class="gpr-durations">
+          <button type="button" data-duration="5000" aria-pressed="false">{ui.durationFive}</button>
+          <button type="button" data-duration="10000" aria-pressed="true">{ui.durationTen}</button>
+          <button type="button" data-duration="20000" aria-pressed="false">{ui.durationTwenty}</button>
+        </div>
+      </fieldset>
+
+      <div class="gpr-actions">
+        <button class="gpr-start" type="button" data-start disabled>
+          <span class="gpr-record-dot" aria-hidden="true"></span>
+          {ui.startAction}
+        </button>
+        <button class="gpr-secondary" type="button" data-stop disabled>{ui.stopAction}</button>
+        <button class="gpr-secondary" type="button" data-reset>{ui.resetAction}</button>
+      </div>
+
+      <div class="gpr-status" data-status data-tone="idle">
+        <span class="gpr-status-light" aria-hidden="true"></span>
+        <strong data-status-text>{ui.statusWaiting}</strong>
+      </div>
+
+      <dl class="gpr-readouts">
+        <div>
+          <dt>{ui.intervalLabel}</dt>
+          <dd><span data-interval-value>{ui.emptyValue}</span><small>{ui.millisecondsUnit}</small></dd>
+        </div>
+        <div>
+          <dt>{ui.jitterLabel}</dt>
+          <dd><span data-jitter-value>{ui.emptyValue}</span><small>{ui.millisecondsUnit}</small></dd>
+        </div>
+        <div>
+          <dt>{ui.samplesLabel}</dt>
+          <dd><span data-samples-value>0</span><small>{ui.reportsUnit}</small></dd>
+        </div>
+        <div>
+          <dt>{ui.confidenceLabel}</dt>
+          <dd class="gpr-confidence" data-confidence-value>{ui.confidenceLow}</dd>
+        </div>
+      </dl>
+    </aside>
+  </div>
+
+  <div class="gpr-limit">
+    <span aria-hidden="true">i</span>
+    <div>
+      <strong>{ui.limitHeading}</strong>
+      <p>{ui.limitBody}</p>
+    </div>
+  </div>
+</div>
+<script is:inline type="application/json" data-gamepad-polling-config set:html={serializedUI}></script>
+
+<script>
+  import { mountGamepadPollingRateCheckers } from './controller';
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', mountGamepadPollingRateCheckers, { once: true });
+  } else {
+    mountGamepadPollingRateCheckers();
+  }
+</script>

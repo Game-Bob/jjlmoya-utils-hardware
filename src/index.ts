@@ -20,6 +20,7 @@ export { ALL_ENTRIES, ALL_TOOLS } from './tools';
 export { PIXELES_PANTALLA_TOOL } from './tool/deadPixelTest/index';
 export { TEST_TECLADO_TOOL } from './tool/keyboardTest/index';
 export { TEST_MANDO_TOOL } from './tool/gamepadTest/index';
+export { GAMEPAD_POLLING_RATE_CHECKER_TOOL } from './tool/gamepadPollingRateChecker/index';
 export { PROBADOR_VIBRACION_MANDO_TOOL } from './tool/gamepadVibrationTester/index';
 export { TEST_RATON_TOOL } from './tool/mousePollingTest/index';
 export { MOUSE_DOUBLE_CLICK_TEST_TOOL } from './tool/mouseDoubleClickTest/index';

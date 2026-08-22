@@ -2,6 +2,7 @@ import type { HardwareCategoryEntry } from '../types';
 import { pixelesPantalla } from '../tool/deadPixelTest/entry';
 import { testTeclado } from '../tool/keyboardTest/entry';
 import { testMando } from '../tool/gamepadTest/entry';
+import { gamepadPollingRateChecker } from '../tool/gamepadPollingRateChecker/entry';
 import { probadorVibracionMando } from '../tool/gamepadVibrationTester/entry';
 import { testRaton } from '../tool/mousePollingTest/entry';
 import { mouseDoubleClickTest } from '../tool/mouseDoubleClickTest/entry';
@@ -35,7 +36,7 @@ import { audioDelayTest } from '../tool/audioDelayTest/entry';
 
 export const hardwareCategory: HardwareCategoryEntry = {
   icon: 'mdi:memory',
-  tools: [pixelesPantalla, touchScreenTester, testTeclado, keyboardChatterTest, webMidiKeyboardTester, testMando, probadorVibracionMando, testRaton, mouseDoubleClickTest, mouseScrollTest, mouseDpiAnalyzer, mouseJitterAngleSnappingTest, estimadorSaludBateria, toneGenerator, waterEjector, subwooferCrossoverTest, speakerPhaseTester, refreshRateDetector, monitorGhostingTest, backlightBleedBloomingTest, oledScreenBurnInFixer, spectrumCanvas, upsRuntimeCalculator, usbPowerBudgetCalculator, mobileSensorTest, stereoAudioTest, webBluetoothBleScanner, webUsbSerialMonitor, testInputLag, psuPowerRequirementCalculator, resistorColorCodeCalculator, ledResistorCalculator, audioDelayTest],
+  tools: [pixelesPantalla, touchScreenTester, testTeclado, keyboardChatterTest, webMidiKeyboardTester, testMando, gamepadPollingRateChecker, probadorVibracionMando, testRaton, mouseDoubleClickTest, mouseScrollTest, mouseDpiAnalyzer, mouseJitterAngleSnappingTest, estimadorSaludBateria, toneGenerator, waterEjector, subwooferCrossoverTest, speakerPhaseTester, refreshRateDetector, monitorGhostingTest, backlightBleedBloomingTest, oledScreenBurnInFixer, spectrumCanvas, upsRuntimeCalculator, usbPowerBudgetCalculator, mobileSensorTest, stereoAudioTest, webBluetoothBleScanner, webUsbSerialMonitor, testInputLag, psuPowerRequirementCalculator, resistorColorCodeCalculator, ledResistorCalculator, audioDelayTest],
 
   i18n: {
     en: () => import('./i18n/en').then((m) => m.content),
