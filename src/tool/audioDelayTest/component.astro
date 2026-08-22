@@ -17,26 +17,25 @@ const { ui } = Astro.props;
   </div>
 
   <div class="adt-orbit" data-orbit>
-    <svg viewBox="0 0 760 300" role="img" aria-label={ui.badge}>
+    <svg viewBox="0 0 760 220" role="img" aria-label={ui.badge}>
       <defs>
         <linearGradient id="adt-grid" x1="0" x2="1" y1="0" y2="1">
           <stop offset="0" stop-color="var(--adt-grid-start)" />
           <stop offset="1" stop-color="var(--adt-grid-end)" />
         </linearGradient>
       </defs>
-      <rect width="760" height="300" rx="22" fill="url(#adt-grid)" />
-      <path class="adt-grid-lines" d="M40 70H720M40 150H720M40 230H720M170 30V270M380 30V270M590 30V270" />
-      <path class="adt-route" d="M98 150C190 52 270 52 380 150S570 248 662 150" />
-      <path class="adt-waveform adt-waveform-glow" d="M144 150C160 150 160 108 176 108S192 192 208 192S224 150 240 150S256 108 272 108S288 192 304 192S320 150 336 150S352 108 368 108S384 192 400 192S416 150 432 150S448 108 464 108S480 192 496 192S512 150 528 150S544 108 560 108S576 192 592 192S608 150 624 150" />
-      <path class="adt-waveform" d="M144 150C160 150 160 108 176 108S192 192 208 192S224 150 240 150S256 108 272 108S288 192 304 192S320 150 336 150S352 108 368 108S384 192 400 192S416 150 432 150S448 108 464 108S480 192 496 192S512 150 528 150S544 108 560 108S576 192 592 192S608 150 624 150" />
-      <circle class="adt-ring" cx="380" cy="150" r="76" />
-      <circle class="adt-ring adt-ring-small" cx="380" cy="150" r="42" />
-      <circle class="adt-ball adt-visual-ball" cx="98" cy="150" r="8" />
-      <circle class="adt-ball adt-audio-ball" cx="662" cy="150" r="8" />
-      <text class="adt-lane-label" x="62" y="124">{ui.visualLane}</text>
-      <text class="adt-lane-label adt-audio-label" x="596" y="124">{ui.audioLane}</text>
-      <text class="adt-center-label" x="380" y="145">{ui.pulse}</text>
-      <text class="adt-center-value" x="380" y="169" data-alignment>0 ms</text>
+      <rect width="760" height="220" rx="22" fill="url(#adt-grid)" />
+      <line class="adt-sync-track" x1="120" y1="110" x2="640" y2="110" />
+      <line class="adt-sync-center-line" x1="380" y1="50" x2="380" y2="170" />
+      <circle class="adt-pulse-ring" cx="380" cy="110" r="48" />
+      <circle class="adt-pulse-ring-inner" cx="380" cy="110" r="28" />
+      <circle class="adt-ball adt-visual-ball" cx="120" cy="110" r="14" />
+      <circle class="adt-ball adt-audio-ball" cx="640" cy="110" r="14" />
+
+      <text class="adt-lane-label" x="120" y="76">{ui.visualLane}</text>
+      <text class="adt-lane-label adt-audio-label" x="640" y="76">{ui.audioLane}</text>
+      <text class="adt-center-label" x="380" y="104">{ui.pulse}</text>
+      <text class="adt-center-value" x="380" y="126" data-alignment>0 ms</text>
     </svg>
     <div class="adt-orbit-caption">
       <span>{ui.statusWaiting}</span>

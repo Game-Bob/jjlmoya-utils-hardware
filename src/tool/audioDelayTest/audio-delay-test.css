@@ -123,80 +123,58 @@
   min-height: 18rem;
 }
 
-.adt-grid-lines {
-  fill: none;
-  stroke: rgba(255, 255, 255, 0.1);
-  stroke-width: 1;
-}
-
-.adt-route {
-  fill: none;
-  stroke: rgba(88, 216, 208, 0.42);
-  stroke-dasharray: 5 11;
-  stroke-width: 2;
-}
-
-.adt-ring {
-  fill: none;
-  stroke: rgba(242, 184, 91, 0.52);
-  stroke-width: 1;
-}
-
-.adt-ring-small {
-  stroke: rgba(255, 255, 255, 0.25);
-  stroke-dasharray: 2 7;
-}
-
-.adt-waveform {
-  fill: none;
-  opacity: 0.72;
-  stroke: var(--adt-cyan);
+.adt-sync-track {
+  stroke: rgba(255, 255, 255, 0.15);
+  stroke-width: 4;
   stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 3;
 }
 
-.adt-waveform-glow {
-  opacity: 0.1;
-  stroke-width: 13;
+.adt-sync-center-line {
+  stroke: rgba(88, 216, 208, 0.35);
+  stroke-width: 2;
+  stroke-dasharray: 4 6;
 }
 
-.adt-orbit.is-pulsing .adt-waveform {
-  animation: adt-wave-pulse 110ms ease-out;
+.adt-pulse-ring {
+  fill: none;
+  stroke: var(--adt-cyan);
+  stroke-width: 2;
+  opacity: 0.25;
+  transition: transform 120ms ease, opacity 120ms ease, stroke 120ms ease;
 }
 
-.adt-orbit.is-pulsing .adt-waveform-glow {
-  animation: adt-wave-glow 110ms ease-out;
+.adt-pulse-ring-inner {
+  fill: none;
+  stroke: var(--adt-amber);
+  stroke-width: 2;
+  opacity: 0.3;
 }
 
-@keyframes adt-wave-pulse {
+.adt-orbit.is-pulsing .adt-pulse-ring {
+  opacity: 0.9;
+  stroke-width: 5;
+  animation: adt-sync-flash 160ms ease-out;
+}
+
+.adt-orbit.is-pulsing .adt-pulse-ring-inner {
+  opacity: 1;
+  stroke-width: 4;
+}
+
+@keyframes adt-sync-flash {
   0% {
-    opacity: 0.72;
-    stroke-width: 3;
-  }
-
-  28% {
+    r: 32px;
     opacity: 1;
-    stroke-width: 4.5;
+  }
+
+  50% {
+    r: 56px;
+    opacity: 0.8;
   }
 
   100% {
-    opacity: 0.72;
-    stroke-width: 3;
-  }
-}
-
-@keyframes adt-wave-glow {
-  0% {
-    opacity: 0.1;
-  }
-
-  28% {
-    opacity: 0.28;
-  }
-
-  100% {
-    opacity: 0.1;
+    r: 48px;
+    opacity: 0.25;
   }
 }
 
