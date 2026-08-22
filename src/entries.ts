@@ -62,6 +62,9 @@ export { resistorColorCodeCalculator } from './tool/resistorColorCodeCalculator/
 export type { ResistorColorCodeLocaleContent } from './tool/resistorColorCodeCalculator/entry';
 export { ledResistorCalculator } from './tool/ledResistorCalculator/entry';
 export type { LedResistorLocaleContent } from './tool/ledResistorCalculator/entry';
+import { audioDelayTest } from './tool/audioDelayTest/entry';
+export { audioDelayTest } from './tool/audioDelayTest/entry';
+export type { AudioDelayTestLocaleContent } from './tool/audioDelayTest/entry';
 export { hardwareCategory } from './category';
 import { estimadorSaludBateria } from './tool/batteryHealthEstimator/entry';
 import { pixelesPantalla } from './tool/deadPixelTest/entry';
@@ -95,4 +98,4 @@ import { testInputLag } from './tool/inputLagTest/entry';
 import { psuPowerRequirementCalculator } from './tool/psuPowerRequirementCalculator/entry';
 import { resistorColorCodeCalculator } from './tool/resistorColorCodeCalculator/entry';
 import { ledResistorCalculator } from './tool/ledResistorCalculator/entry';
-export const ALL_ENTRIES = [estimadorSaludBateria, pixelesPantalla, touchScreenTester, testMando, probadorVibracionMando, testTeclado, keyboardChatterTest, webMidiKeyboardTester, testRaton, mouseDoubleClickTest, mouseScrollTest, mouseDpiAnalyzer, mouseJitterAngleSnappingTest, toneGenerator, waterEjector, subwooferCrossoverTest, speakerPhaseTester, refreshRateDetector, monitorGhostingTest, backlightBleedBloomingTest, oledScreenBurnInFixer, spectrumCanvas, upsRuntimeCalculator, usbPowerBudgetCalculator, mobileSensorTest, stereoAudioTest, webBluetoothBleScanner, webUsbSerialMonitor, testInputLag, psuPowerRequirementCalculator, resistorColorCodeCalculator, ledResistorCalculator];
+export const ALL_ENTRIES = [estimadorSaludBateria, pixelesPantalla, touchScreenTester, testMando, probadorVibracionMando, testTeclado, keyboardChatterTest, webMidiKeyboardTester, testRaton, mouseDoubleClickTest, mouseScrollTest, mouseDpiAnalyzer, mouseJitterAngleSnappingTest, toneGenerator, waterEjector, subwooferCrossoverTest, speakerPhaseTester, refreshRateDetector, monitorGhostingTest, backlightBleedBloomingTest, oledScreenBurnInFixer, spectrumCanvas, upsRuntimeCalculator, usbPowerBudgetCalculator, mobileSensorTest, stereoAudioTest, webBluetoothBleScanner, webUsbSerialMonitor, testInputLag, psuPowerRequirementCalculator, resistorColorCodeCalculator, ledResistorCalculator, audioDelayTest];

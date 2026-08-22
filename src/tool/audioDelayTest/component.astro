@@ -1,0 +1,107 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { AudioDelayTestUI } from './ui';
+
+interface Props {
+  ui: AudioDelayTestUI;
+}
+
+const { ui } = Astro.props;
+---
+
+<div class="adt-shell" id="audio-delay-test" data-state="ready" data-theme="light">
+  <script is:inline type="application/json" id="audio-delay-test-ui" set:html={JSON.stringify(ui)}></script>
+  <div class="adt-signal-head">
+    <div class="adt-badge"><Icon name="mdi:radio-tower" /> <span>{ui.badge}</span></div>
+    <div class="adt-status" data-status aria-live="polite">{ui.statusReady}</div>
+  </div>
+
+  <div class="adt-orbit" data-orbit>
+    <svg viewBox="0 0 760 300" role="img" aria-label={ui.badge}>
+      <defs>
+        <linearGradient id="adt-grid" x1="0" x2="1" y1="0" y2="1">
+          <stop offset="0" stop-color="var(--adt-grid-start)" />
+          <stop offset="1" stop-color="var(--adt-grid-end)" />
+        </linearGradient>
+      </defs>
+      <rect width="760" height="300" rx="22" fill="url(#adt-grid)" />
+      <path class="adt-grid-lines" d="M40 70H720M40 150H720M40 230H720M170 30V270M380 30V270M590 30V270" />
+      <path class="adt-route" d="M98 150C190 52 270 52 380 150S570 248 662 150" />
+      <path class="adt-waveform adt-waveform-glow" d="M144 150C160 150 160 108 176 108S192 192 208 192S224 150 240 150S256 108 272 108S288 192 304 192S320 150 336 150S352 108 368 108S384 192 400 192S416 150 432 150S448 108 464 108S480 192 496 192S512 150 528 150S544 108 560 108S576 192 592 192S608 150 624 150" />
+      <path class="adt-waveform" d="M144 150C160 150 160 108 176 108S192 192 208 192S224 150 240 150S256 108 272 108S288 192 304 192S320 150 336 150S352 108 368 108S384 192 400 192S416 150 432 150S448 108 464 108S480 192 496 192S512 150 528 150S544 108 560 108S576 192 592 192S608 150 624 150" />
+      <circle class="adt-ring" cx="380" cy="150" r="76" />
+      <circle class="adt-ring adt-ring-small" cx="380" cy="150" r="42" />
+      <circle class="adt-ball adt-visual-ball" cx="98" cy="150" r="8" />
+      <circle class="adt-ball adt-audio-ball" cx="662" cy="150" r="8" />
+      <text class="adt-lane-label" x="62" y="124">{ui.visualLane}</text>
+      <text class="adt-lane-label adt-audio-label" x="596" y="124">{ui.audioLane}</text>
+      <text class="adt-center-label" x="380" y="145">{ui.pulse}</text>
+      <text class="adt-center-value" x="380" y="169" data-alignment>0 ms</text>
+    </svg>
+    <div class="adt-orbit-caption">
+      <span>{ui.statusWaiting}</span>
+      <strong data-latency>{ui.notMeasured}</strong>
+    </div>
+  </div>
+
+  <section class="adt-mode-panel" aria-labelledby="adt-mode-label">
+    <div class="adt-section-heading">
+      <span class="adt-kicker" id="adt-mode-label">{ui.modeLabel}</span>
+      <span class="adt-mode-note">{ui.calibrationHint}</span>
+    </div>
+    <div class="adt-mode-grid" role="group" aria-label={ui.modeLabel}>
+      <button type="button" data-mode="speakers"><Icon name="mdi:speaker" />{ui.modeSpeakers}</button>
+      <button type="button" data-mode="wired"><Icon name="mdi:headphones" />{ui.modeWired}</button>
+      <button type="button" data-mode="bluetooth"><Icon name="mdi:bluetooth" />{ui.modeBluetooth}</button>
+      <button type="button" data-mode="video"><Icon name="mdi:movie-open" />{ui.modeVideo}</button>
+    </div>
+  </section>
+
+  <section class="adt-control-panel">
+    <div class="adt-control-copy">
+      <span class="adt-kicker">{ui.calibrationTitle}</span>
+      <strong data-calibration-value>0 ms</strong>
+      <span>{ui.calibrationEarly} <span aria-hidden="true">·</span> {ui.calibrationLate}</span>
+    </div>
+    <input data-calibration type="range" min="-250" max="250" step="1" value="0" aria-label={ui.calibrationTitle} />
+    <div class="adt-action-row">
+      <button class="adt-primary" type="button" data-start><Icon name="mdi:play" />{ui.startTest}</button>
+      <button class="adt-secondary" type="button" data-enable-mic><Icon name="mdi:microphone" />{ui.enableMic}</button>
+      <button class="adt-quiet" type="button" data-reset><Icon name="mdi:restore" />{ui.reset}</button>
+    </div>
+  </section>
+
+  <section class="adt-results" aria-labelledby="adt-result-title">
+    <div class="adt-section-heading">
+      <span class="adt-kicker" id="adt-result-title">{ui.resultTitle}</span>
+      <button class="adt-copy" type="button" data-copy data-default-text={ui.copyReport}>{ui.copyReport}</button>
+    </div>
+    <div class="adt-metrics">
+      <div><span>{ui.latencyLabel}</span><strong data-latency>{ui.notMeasured}</strong></div>
+      <div><span>{ui.alignmentLabel}</span><strong data-alignment>0 ms</strong></div>
+      <div><span>{ui.confidenceLabel}</span><strong data-confidence>{ui.manualConfidence}</strong></div>
+      <div><span>{ui.samplesLabel}</span><strong data-samples>0</strong></div>
+    </div>
+  </section>
+
+  <aside class="adt-limitations">
+    <Icon name="mdi:information-outline" />
+    <div><strong>{ui.limitationTitle}</strong><p>{ui.limitationText}</p></div>
+  </aside>
+  <p class="adt-safety"><Icon name="mdi:volume-low" /> {ui.safety}</p>
+</div>
+
+<script>
+  import { mountAudioDelayTest } from './controller';
+
+  const root = document.querySelector<HTMLElement>('#audio-delay-test');
+  const uiNode = document.querySelector<HTMLScriptElement>('#audio-delay-test-ui');
+  if (root && uiNode) {
+    const syncTheme = () => {
+      root.dataset.theme = document.documentElement.classList.contains('theme-dark') ? 'dark' : 'light';
+    };
+    syncTheme();
+    new MutationObserver(syncTheme).observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+    mountAudioDelayTest(root, JSON.parse(uiNode.textContent || '{}'));
+  }
+</script>

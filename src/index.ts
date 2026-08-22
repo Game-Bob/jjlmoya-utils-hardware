@@ -47,3 +47,4 @@ export { TOUCH_SCREEN_TESTER_TOOL } from './tool/touchScreenTester/index';
 export { INPUT_LAG_TEST_TOOL } from './tool/inputLagTest/index';
 export { PSU_POWER_REQUIREMENT_CALCULATOR_TOOL } from './tool/psuPowerRequirementCalculator/index';
 export { LED_RESISTOR_CALCULATOR_TOOL } from './tool/ledResistorCalculator/index';
+export { AUDIO_DELAY_TEST_TOOL } from './tool/audioDelayTest/index';
