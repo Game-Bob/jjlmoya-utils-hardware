@@ -1,0 +1,96 @@
+---
+import type { OhmLawPowerCalculatorUI } from './ui';
+
+interface Props {
+  ui: OhmLawPowerCalculatorUI;
+}
+
+const { ui } = Astro.props as Props;
+const fields = [
+  { quantity: 'voltage', label: ui.voltageLabel, unit: ui.voltageUnit },
+  { quantity: 'current', label: ui.currentLabel, unit: ui.currentUnit },
+  { quantity: 'resistance', label: ui.resistanceLabel, unit: ui.resistanceUnit },
+  { quantity: 'power', label: ui.powerLabel, unit: ui.powerUnit },
+];
+---
+
+<div class="ohm-tool" data-ohm-tool>
+  <div class="ohm-intro">
+    <p>{ui.instructions}</p>
+    <span class="ohm-status" data-status data-state="empty" role="status">{ui.statusEmpty}</span>
+  </div>
+
+  <div class="ohm-layout">
+    <section class="ohm-controls" aria-labelledby="ohm-known-title">
+      <div class="ohm-section-heading">
+        <div>
+          <h2 id="ohm-known-title">{ui.knownLabel}</h2>
+          <p>{ui.resultHint}</p>
+        </div>
+      </div>
+      <div class="ohm-input-grid">
+        {fields.map((field) => (
+          <label class="ohm-input" data-input-card data-quantity={field.quantity}>
+            <span class="ohm-input-topline">
+              <span class="ohm-input-name">{field.label}</span>
+              <span class="ohm-unit">{field.unit}</span>
+            </span>
+            <span class="ohm-input-line">
+              <input data-value-input data-quantity={field.quantity} type="number" min="0" step="any" inputmode="decimal" aria-label={`${field.label} ${field.unit}`} />
+              <button type="button" class="ohm-known-toggle" data-known-toggle data-quantity={field.quantity} aria-pressed="false">{ui.useAsKnownLabel}</button>
+            </span>
+          </label>
+        ))}
+      </div>
+      <div class="ohm-presets">
+        <div class="ohm-presets-heading"><span>{ui.presetTitle}</span><button type="button" data-reset>{ui.resetLabel}</button></div>
+        <div class="ohm-preset-list">
+          <button type="button" data-preset="led">{ui.presetLed}</button>
+          <button type="button" data-preset="usb">{ui.presetUsb}</button>
+          <button type="button" data-preset="amplifier">{ui.presetAmplifier}</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="ohm-stage" aria-labelledby="ohm-orbit-title">
+      <div class="ohm-section-heading ohm-stage-heading">
+        <div>
+          <h2 id="ohm-orbit-title">{ui.resultTitle}</h2>
+          <p>{ui.orbitCaption}</p>
+        </div>
+      </div>
+      <figure class="ohm-orbit-frame" data-orbit aria-live="polite">
+        <div class="orbit-empty"><span class="orbit-empty-mark">V I R P</span><span>{ui.orbitCaption}</span></div>
+      </figure>
+      <div class="ohm-formula" data-formula>{ui.formulaHint}</div>
+    </section>
+  </div>
+
+  <section class="ohm-results" aria-labelledby="ohm-results-title">
+    <div class="ohm-section-heading ohm-results-heading">
+      <div>
+        <h2 id="ohm-results-title">{ui.formulaTitle}</h2>
+        <p>{ui.resultHint}</p>
+      </div>
+    </div>
+    <div class="ohm-result-grid">
+      {fields.map((field) => (
+        <article class="ohm-result-card" data-result-card={field.quantity} data-state="empty">
+          <div class="ohm-result-card-top"><span>{field.label}</span><span>{field.unit}</span></div>
+          <strong data-result-value>—</strong>
+          <span data-result-badge>{ui.resultHint}</span>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <script is:inline type="application/json" data-ohm-ui set:html={JSON.stringify(ui)}></script>
+</div>
+
+<script>
+  import { mountOhmController } from './controller';
+
+  const root = document.querySelector<HTMLElement>('[data-ohm-tool]');
+  const data = root?.querySelector<HTMLScriptElement>('[data-ohm-ui]');
+  if (root && data) mountOhmController(root, JSON.parse(data.textContent ?? '{}'));
+</script>

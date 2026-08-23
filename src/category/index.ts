@@ -36,10 +36,11 @@ import { audioDelayTest } from '../tool/audioDelayTest/entry';
 import { microphoneSpectrumTester } from '../tool/microphoneSpectrumTester/entry';
 import { webcamTester } from '../tool/webcamTester/entry';
 import { voltageDividerCalculator } from '../tool/voltageDividerCalculator/entry';
+import { ohmLawPowerCalculator } from '../tool/ohmLawPowerCalculator/entry';
 
 export const hardwareCategory: HardwareCategoryEntry = {
   icon: 'mdi:memory',
-  tools: [pixelesPantalla, touchScreenTester, testTeclado, keyboardChatterTest, webMidiKeyboardTester, testMando, gamepadPollingRateChecker, probadorVibracionMando, testRaton, mouseDoubleClickTest, mouseScrollTest, mouseDpiAnalyzer, mouseJitterAngleSnappingTest, estimadorSaludBateria, toneGenerator, waterEjector, subwooferCrossoverTest, speakerPhaseTester, microphoneSpectrumTester, webcamTester, refreshRateDetector, monitorGhostingTest, backlightBleedBloomingTest, oledScreenBurnInFixer, spectrumCanvas, upsRuntimeCalculator, usbPowerBudgetCalculator, mobileSensorTest, stereoAudioTest, webBluetoothBleScanner, webUsbSerialMonitor, testInputLag, psuPowerRequirementCalculator, resistorColorCodeCalculator, ledResistorCalculator, audioDelayTest, voltageDividerCalculator],
+  tools: [pixelesPantalla, touchScreenTester, testTeclado, keyboardChatterTest, webMidiKeyboardTester, testMando, gamepadPollingRateChecker, probadorVibracionMando, testRaton, mouseDoubleClickTest, mouseScrollTest, mouseDpiAnalyzer, mouseJitterAngleSnappingTest, estimadorSaludBateria, toneGenerator, waterEjector, subwooferCrossoverTest, speakerPhaseTester, microphoneSpectrumTester, webcamTester, refreshRateDetector, monitorGhostingTest, backlightBleedBloomingTest, oledScreenBurnInFixer, spectrumCanvas, upsRuntimeCalculator, usbPowerBudgetCalculator, mobileSensorTest, stereoAudioTest, webBluetoothBleScanner, webUsbSerialMonitor, testInputLag, psuPowerRequirementCalculator, resistorColorCodeCalculator, ledResistorCalculator, audioDelayTest, voltageDividerCalculator, ohmLawPowerCalculator],
 
   i18n: {
     en: () => import('./i18n/en').then((m) => m.content),
