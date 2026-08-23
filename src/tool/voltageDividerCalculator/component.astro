@@ -1,0 +1,41 @@
+---
+import type { VoltageDividerUI } from './ui';
+
+interface Props {
+  ui: VoltageDividerUI;
+}
+
+const { ui } = Astro.props;
+---
+
+<div id="voltage-divider-tool" class="voltage-divider-tool">
+  <div class="divider-controls">
+    <div class="divider-mode" role="group" aria-label={ui.modeHeader}>
+      <span class="divider-kicker">{ui.modeHeader}</span>
+      <label class="divider-mode-option"><input type="radio" name="divider-mode" value="predict" checked /><span>{ui.modePredict}</span></label>
+      <label class="divider-mode-option"><input type="radio" name="divider-mode" value="target" /><span>{ui.modeTarget}</span></label>
+    </div>
+    <div class="divider-input-panel">
+      <div class="divider-panel-heading"><span class="divider-kicker">{ui.inputHeader}</span><p data-mode-hint>{ui.hint}</p></div>
+      <label class="divider-field"><span>{ui.supplyLabel}</span><span class="divider-input-wrap"><input data-input="supply" type="number" inputmode="decimal" min="0.001" step="0.1" value="12" /><em>{ui.voltageUnit}</em></span></label>
+      <label class="divider-field"><span>{ui.topLabel}</span><span class="divider-input-wrap"><input data-input="top" type="number" inputmode="decimal" min="0.001" step="100" value="10000" /><em>{ui.resistanceUnit}</em></span></label>
+      <label class="divider-field" data-field="bottom"><span>{ui.bottomLabel}</span><span class="divider-input-wrap"><input data-input="bottom" type="number" inputmode="decimal" min="0.001" step="100" value="10000" /><em>{ui.resistanceUnit}</em></span></label>
+      <label class="divider-field" data-field="target" hidden><span>{ui.targetLabel}</span><span class="divider-input-wrap"><input data-input="target" type="number" inputmode="decimal" min="0.001" step="0.1" value="6" /><em>{ui.voltageUnit}</em></span></label>
+    </div>
+    <p class="divider-note">{ui.note}</p>
+  </div>
+  <div class="divider-scene">
+    <div class="divider-scene-head"><span class="divider-kicker">{ui.resultHeader}</span><strong data-status class="divider-status"></strong></div>
+    <div class="divider-diagram" data-diagram></div>
+    <div class="divider-output" data-output></div>
+    <div class="divider-formula"><span class="divider-kicker">{ui.formulaHeader}</span><p data-formula-predict>{ui.formulaPredict}</p><p data-formula-target hidden>{ui.formulaTarget}</p></div>
+  </div>
+</div>
+<script is:inline type="application/json" id="voltage-divider-config" set:html={JSON.stringify({ ui })}></script>
+<script>
+  import { mountVoltageDivider } from './controller';
+
+  const config = document.getElementById('voltage-divider-config');
+  const root = document.getElementById('voltage-divider-tool');
+  if (config && root) mountVoltageDivider(root, JSON.parse(config.textContent ?? '{}').ui);
+</script>

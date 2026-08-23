@@ -1,0 +1,15 @@
+---
+import { Bibliography } from '@jjlmoya/utils-shared';
+import { voltageDividerCalculator } from './index';
+import type { KnownLocale } from '../../types';
+
+interface Props {
+  locale?: KnownLocale;
+}
+
+const { locale = 'en' } = Astro.props;
+const content = await voltageDividerCalculator.i18n[locale]?.() ?? await voltageDividerCalculator.i18n.en?.();
+if (!content) return null;
+---
+
+{content.bibliography?.length > 0 && <Bibliography links={content.bibliography} />}

@@ -1,0 +1,33 @@
+export interface VoltageDividerUI extends Record<string, string> {
+  modeHeader: string;
+  modePredict: string;
+  modeTarget: string;
+  inputHeader: string;
+  supplyLabel: string;
+  topLabel: string;
+  bottomLabel: string;
+  targetLabel: string;
+  voltageUnit: string;
+  resistanceUnit: string;
+  resultHeader: string;
+  outputLabel: string;
+  currentLabel: string;
+  totalPowerLabel: string;
+  topPowerLabel: string;
+  bottomPowerLabel: string;
+  ratioLabel: string;
+  statusNominal: string;
+  statusInvalid: string;
+  statusTargetInvalid: string;
+  formulaHeader: string;
+  formulaPredict: string;
+  formulaTarget: string;
+  supplyNode: string;
+  topNode: string;
+  tapNode: string;
+  bottomNode: string;
+  groundNode: string;
+  hint: string;
+  targetHint: string;
+  note: string;
+}
