@@ -44,8 +44,9 @@
   --n-webcam-on-dark: #fff;
 }
 
-.camera-room {
+.webcam-tester {
   --webcam-frame-energy: 0;
+
   background: var(--n-webcam-deep);
   border: 1px solid var(--n-webcam-line);
   border-radius: 22px;
@@ -55,15 +56,15 @@
   padding: clamp(16px, 3vw, 28px);
 }
 
-.camera-room button {
+.webcam-tester button {
   font: inherit;
 }
 
-.camera-room [hidden] {
+.webcam-tester [hidden] {
   display: none;
 }
 
-.camera-room__privacy {
+.webcam-tester-privacy {
   align-items: center;
   color: var(--n-webcam-paper);
   display: flex;
@@ -75,8 +76,8 @@
   text-transform: uppercase;
 }
 
-.camera-room__privacy-light,
-.camera-room__live-dot {
+.webcam-tester-privacy-light,
+.webcam-tester-live-dot {
   background: var(--n-webcam-cyan-strong);
   border-radius: 50%;
   display: block;
@@ -84,7 +85,7 @@
   width: 8px;
 }
 
-.camera-room__stage {
+.webcam-tester-stage {
   background: var(--n-webcam-panel);
   border: 1px solid var(--n-webcam-line);
   border-radius: 16px;
@@ -93,13 +94,13 @@
   position: relative;
 }
 
-.camera-room[data-state='active'] .camera-room__stage,
-.camera-room[data-state='starting'] .camera-room__stage {
+.webcam-tester[data-state='active'] .webcam-tester-stage,
+.webcam-tester[data-state='starting'] .webcam-tester-stage {
   aspect-ratio: 16 / 9;
   background: var(--n-webcam-stage);
 }
 
-.camera-room__video {
+.webcam-tester-video {
   height: 100%;
   inset: 0;
   object-fit: cover;
@@ -109,15 +110,15 @@
   width: 100%;
 }
 
-.camera-room[data-mirror='true'] .camera-room__video {
+.webcam-tester[data-mirror='true'] .webcam-tester-video {
   transform: scaleX(-1);
 }
 
-.camera-room[data-state='active'] .camera-room__video {
+.webcam-tester[data-state='active'] .webcam-tester-video {
   opacity: 1;
 }
 
-.camera-room__permission {
+.webcam-tester-permission {
   align-items: center;
   display: grid;
   gap: clamp(24px, 6vw, 76px);
@@ -127,16 +128,16 @@
   position: absolute;
 }
 
-.camera-room[data-state='active'] .camera-room__permission,
-.camera-room[data-state='starting'] .camera-room__permission {
+.webcam-tester[data-state='active'] .webcam-tester-permission,
+.webcam-tester[data-state='starting'] .webcam-tester-permission {
   display: none;
 }
 
-.camera-room__permission-copy {
+.webcam-tester-permission-copy {
   max-width: 620px;
 }
 
-.camera-room__permission-kicker {
+.webcam-tester-permission-kicker {
   color: var(--n-webcam-cyan-strong);
   font-size: 0.72rem;
   font-weight: 850;
@@ -145,7 +146,7 @@
   text-transform: uppercase;
 }
 
-.camera-room__permission h2 {
+.webcam-tester-permission h2 {
   color: var(--n-webcam-paper);
   font-size: clamp(1.6rem, 4vw, 2.35rem);
   letter-spacing: -0.03em;
@@ -153,14 +154,14 @@
   margin: 0;
 }
 
-.camera-room__permission p:not(.camera-room__permission-kicker) {
+.webcam-tester-permission p:not(.webcam-tester-permission-kicker) {
   color: var(--n-webcam-muted);
   line-height: 1.55;
   margin: 12px 0 22px;
   max-width: 560px;
 }
 
-.camera-room__iris {
+.webcam-tester-iris {
   background: var(--n-webcam-panel-soft);
   border: 2px solid var(--n-webcam-line);
   border-radius: 50%;
@@ -169,14 +170,14 @@
   width: 138px;
 }
 
-.camera-room__iris-ring {
+.webcam-tester-iris-ring {
   border: 2px solid var(--n-webcam-cyan-strong);
   border-radius: 50%;
   inset: 24px;
   position: absolute;
 }
 
-.camera-room__iris-core {
+.webcam-tester-iris-core {
   background: var(--n-webcam-cyan);
   border: 9px solid var(--n-webcam-paper);
   border-radius: 50%;
@@ -188,7 +189,7 @@
   width: 36px;
 }
 
-.camera-room__start {
+.webcam-tester-start {
   background: var(--n-webcam-cyan);
   border: 2px solid var(--n-webcam-ink);
   border-radius: 10px;
@@ -200,67 +201,67 @@
   transition: box-shadow 150ms ease, transform 150ms ease;
 }
 
-.camera-room__start:hover {
+.webcam-tester-start:hover {
   box-shadow: 0 5px 0 var(--n-webcam-ink);
   transform: translateY(-2px);
 }
 
-.camera-room__start:focus-visible,
-.camera-room__stop:focus-visible,
-.camera-room__live-toggle:focus-visible,
-.camera-room__device-trigger:focus-visible,
-.camera-room__device-option:focus-visible {
+.webcam-tester-start:focus-visible,
+.webcam-tester-stop:focus-visible,
+.webcam-tester-live-toggle:focus-visible,
+.webcam-tester-device-trigger:focus-visible,
+.webcam-tester-device-option:focus-visible {
   outline: 3px solid var(--n-webcam-amber);
   outline-offset: 3px;
 }
 
-.camera-room__guide {
+.webcam-tester-guide {
   inset: 0;
   opacity: 0;
   pointer-events: none;
   position: absolute;
 }
 
-.camera-room[data-state='active'][data-guide='true'] .camera-room__guide {
+.webcam-tester[data-state='active'][data-guide='true'] .webcam-tester-guide {
   opacity: 1;
 }
 
-.camera-room__third {
+.webcam-tester-third {
   background: var(--n-webcam-white-soft);
   position: absolute;
 }
 
-.camera-room__third--vertical-one,
-.camera-room__third--vertical-two {
+.webcam-tester-third-vertical-one,
+.webcam-tester-third-vertical-two {
   bottom: 0;
   top: 0;
   width: 1px;
 }
 
-.camera-room__third--vertical-one {
+.webcam-tester-third-vertical-one {
   left: 33.333%;
 }
 
-.camera-room__third--vertical-two {
+.webcam-tester-third-vertical-two {
   left: 66.666%;
 }
 
-.camera-room__third--horizontal-one,
-.camera-room__third--horizontal-two {
+.webcam-tester-third-horizontal-one,
+.webcam-tester-third-horizontal-two {
   height: 1px;
   left: 0;
   right: 0;
 }
 
-.camera-room__third--horizontal-one {
+.webcam-tester-third-horizontal-one {
   top: 33.333%;
 }
 
-.camera-room__third--horizontal-two {
+.webcam-tester-third-horizontal-two {
   top: 66.666%;
 }
 
-.camera-room__focus-ring {
+.webcam-tester-focus-ring {
   border: 1px solid var(--n-webcam-focus);
   border-radius: 50%;
   height: clamp(90px, 14vw, 170px);
@@ -271,8 +272,8 @@
   width: clamp(90px, 14vw, 170px);
 }
 
-.camera-room__focus-ring::before,
-.camera-room__focus-ring::after {
+.webcam-tester-focus-ring::before,
+.webcam-tester-focus-ring::after {
   background: var(--n-webcam-focus);
   content: '';
   left: 50%;
@@ -281,17 +282,17 @@
   transform: translate(-50%, -50%);
 }
 
-.camera-room__focus-ring::before {
+.webcam-tester-focus-ring::before {
   height: 1px;
   width: 22px;
 }
 
-.camera-room__focus-ring::after {
+.webcam-tester-focus-ring::after {
   height: 22px;
   width: 1px;
 }
 
-.camera-room__corner {
+.webcam-tester-corner {
   border-color: var(--n-webcam-cyan);
   height: 26px;
   opacity: 0;
@@ -300,39 +301,39 @@
   width: 26px;
 }
 
-.camera-room[data-state='active'] .camera-room__corner {
+.webcam-tester[data-state='active'] .webcam-tester-corner {
   opacity: 1;
 }
 
-.camera-room__corner--top-left {
+.webcam-tester-corner-top-left {
   border-left: 2px solid;
   border-top: 2px solid;
   left: 16px;
   top: 16px;
 }
 
-.camera-room__corner--top-right {
+.webcam-tester-corner-top-right {
   border-right: 2px solid;
   border-top: 2px solid;
   right: 16px;
   top: 16px;
 }
 
-.camera-room__corner--bottom-left {
+.webcam-tester-corner-bottom-left {
   border-bottom: 2px solid;
   border-left: 2px solid;
   bottom: 56px;
   left: 16px;
 }
 
-.camera-room__corner--bottom-right {
+.webcam-tester-corner-bottom-right {
   border-bottom: 2px solid;
   border-right: 2px solid;
   bottom: 56px;
   right: 16px;
 }
 
-.camera-room__live-bar {
+.webcam-tester-live-bar {
   align-items: center;
   display: flex;
   justify-content: space-between;
@@ -344,14 +345,14 @@
   top: 14px;
 }
 
-.camera-room[data-state='active'] .camera-room__live-bar {
+.webcam-tester[data-state='active'] .webcam-tester-live-bar {
   opacity: 1;
   pointer-events: auto;
 }
 
-.camera-room__live-mark,
-.camera-room__stop,
-.camera-room__live-toggle {
+.webcam-tester-live-mark,
+.webcam-tester-stop,
+.webcam-tester-live-toggle {
   align-items: center;
   background: var(--n-webcam-black-soft);
   border: 1px solid var(--n-webcam-white-soft);
@@ -365,35 +366,35 @@
   padding: 0 12px;
 }
 
-.camera-room__live-mark {
+.webcam-tester-live-mark {
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-.camera-room__stop,
-.camera-room__live-toggle {
+.webcam-tester-stop,
+.webcam-tester-live-toggle {
   cursor: pointer;
 }
 
-.camera-room__live-toggle[data-active='true'] {
+.webcam-tester-live-toggle[data-active='true'] {
   border-color: var(--n-webcam-cyan);
   color: var(--n-webcam-cyan);
 }
 
-.camera-room__live-actions {
+.webcam-tester-live-actions {
   align-items: center;
   display: flex;
   gap: 7px;
 }
 
-.camera-room__stop-icon {
+.webcam-tester-stop-icon {
   background: var(--n-webcam-coral);
   border-radius: 2px;
   height: 9px;
   width: 9px;
 }
 
-.camera-room__status {
+.webcam-tester-status {
   align-items: center;
   background: var(--n-webcam-black-soft);
   border-top: 1px solid var(--n-webcam-white-soft);
@@ -409,24 +410,24 @@
   right: 0;
 }
 
-.camera-room[data-state='idle'] .camera-room__status,
-.camera-room[data-state='stopped'] .camera-room__status {
+.webcam-tester[data-state='idle'] .webcam-tester-status,
+.webcam-tester[data-state='stopped'] .webcam-tester-status {
   display: none;
 }
 
-.camera-room__status-wave {
+.webcam-tester-status-wave {
   background: var(--n-webcam-cyan);
   box-shadow: 5px 0 0 var(--n-webcam-cyan), 10px 0 0 var(--n-webcam-cyan);
   height: calc(4px + (8px * var(--webcam-frame-energy)));
   width: 2px;
 }
 
-.camera-room[data-state='error'] .camera-room__status-wave {
+.webcam-tester[data-state='error'] .webcam-tester-status-wave {
   background: var(--n-webcam-coral);
   box-shadow: 5px 0 0 var(--n-webcam-coral), 10px 0 0 var(--n-webcam-coral);
 }
 
-.camera-room__film {
+.webcam-tester-film {
   background: var(--n-webcam-panel);
   border: 1px solid var(--n-webcam-line);
   border-radius: 0 0 14px 14px;
@@ -436,21 +437,21 @@
   overflow: hidden;
 }
 
-.camera-room[data-state='active'] .camera-room__film {
+.webcam-tester[data-state='active'] .webcam-tester-film {
   display: grid;
 }
 
-.camera-room__metric {
+.webcam-tester-metric {
   border-right: 1px solid var(--n-webcam-line);
   min-width: 0;
   padding: 13px 16px 14px;
 }
 
-.camera-room__metric:last-child {
+.webcam-tester-metric:last-child {
   border-right: 0;
 }
 
-.camera-room__metric > span {
+.webcam-tester-metric > span {
   color: var(--n-webcam-muted);
   display: block;
   font-size: 0.66rem;
@@ -460,14 +461,14 @@
   text-transform: uppercase;
 }
 
-.camera-room__metric strong {
+.webcam-tester-metric strong {
   color: var(--n-webcam-paper);
   display: block;
   font-size: 0.95rem;
   line-height: 1.3;
 }
 
-.camera-room__metric small {
+.webcam-tester-metric small {
   color: var(--n-webcam-muted);
   display: block;
   font-size: 0.72rem;
@@ -475,23 +476,23 @@
   margin-top: 3px;
 }
 
-.camera-room[data-frame-delivery='reduced'] .camera-room__metric--delivery strong {
+.webcam-tester[data-frame-delivery='reduced'] .webcam-tester-metric-delivery strong {
   color: var(--n-webcam-amber);
 }
 
-.camera-room[data-frame-delivery='constrained'] .camera-room__metric--delivery strong {
+.webcam-tester[data-frame-delivery='constrained'] .webcam-tester-metric-delivery strong {
   color: var(--n-webcam-coral);
 }
 
-.camera-room__controls {
+.webcam-tester-controls {
   margin-top: 18px;
 }
 
-.camera-room__device {
+.webcam-tester-device {
   position: relative;
 }
 
-.camera-room__control-label {
+.webcam-tester-control-label {
   color: var(--n-webcam-paper);
   display: block;
   font-size: 0.68rem;
@@ -501,7 +502,7 @@
   text-transform: uppercase;
 }
 
-.camera-room__device-trigger {
+.webcam-tester-device-trigger {
   align-items: center;
   background: var(--n-webcam-panel);
   border: 1px solid var(--n-webcam-line);
@@ -517,7 +518,7 @@
   width: 100%;
 }
 
-.camera-room__chevron {
+.webcam-tester-chevron {
   border-bottom: 2px solid var(--n-webcam-cyan-strong);
   border-right: 2px solid var(--n-webcam-cyan-strong);
   height: 8px;
@@ -526,11 +527,11 @@
   width: 8px;
 }
 
-.camera-room__device-trigger[aria-expanded='true'] .camera-room__chevron {
+.webcam-tester-device-trigger[aria-expanded='true'] .webcam-tester-chevron {
   transform: rotate(225deg) translate(-2px, -2px);
 }
 
-.camera-room__device-options {
+.webcam-tester-device-options {
   background: var(--n-webcam-panel);
   border: 1px solid var(--n-webcam-line);
   border-radius: 10px;
@@ -545,7 +546,7 @@
   z-index: 12;
 }
 
-.camera-room__device-option {
+.webcam-tester-device-option {
   background: var(--n-webcam-clear);
   border: 0;
   border-radius: 7px;
@@ -557,27 +558,27 @@
   width: 100%;
 }
 
-.camera-room__device-option:hover,
-.camera-room__device-option[aria-selected='true'] {
+.webcam-tester-device-option:hover,
+.webcam-tester-device-option[aria-selected='true'] {
   background: var(--n-webcam-cyan-soft);
   color: var(--n-webcam-cyan-strong);
 }
 
-.camera-room__mirror-icon,
-.camera-room__guide-icon {
+.webcam-tester-mirror-icon,
+.webcam-tester-guide-icon {
   display: block;
   height: 14px;
   position: relative;
   width: 18px;
 }
 
-.camera-room__mirror-icon {
+.webcam-tester-mirror-icon {
   border-left: 2px solid currentcolor;
   border-right: 2px solid currentcolor;
 }
 
-.camera-room__mirror-icon::before,
-.camera-room__mirror-icon::after {
+.webcam-tester-mirror-icon::before,
+.webcam-tester-mirror-icon::after {
   border-bottom: 4px solid var(--n-webcam-clear);
   border-top: 4px solid var(--n-webcam-clear);
   content: '';
@@ -585,22 +586,22 @@
   top: 3px;
 }
 
-.camera-room__mirror-icon::before {
+.webcam-tester-mirror-icon::before {
   border-right: 5px solid currentcolor;
   left: 2px;
 }
 
-.camera-room__mirror-icon::after {
+.webcam-tester-mirror-icon::after {
   border-left: 5px solid currentcolor;
   right: 2px;
 }
 
-.camera-room__guide-icon {
+.webcam-tester-guide-icon {
   border: 1px solid currentcolor;
 }
 
-.camera-room__guide-icon::before,
-.camera-room__guide-icon::after {
+.webcam-tester-guide-icon::before,
+.webcam-tester-guide-icon::after {
   background: currentcolor;
   content: '';
   left: 50%;
@@ -609,17 +610,17 @@
   transform: translate(-50%, -50%);
 }
 
-.camera-room__guide-icon::before {
+.webcam-tester-guide-icon::before {
   height: 100%;
   width: 1px;
 }
 
-.camera-room__guide-icon::after {
+.webcam-tester-guide-icon::after {
   height: 1px;
   width: 100%;
 }
 
-.camera-room__limit {
+.webcam-tester-limit {
   align-items: flex-start;
   border-top: 1px solid var(--n-webcam-line);
   color: var(--n-webcam-muted);
@@ -629,101 +630,100 @@
   padding: 16px 2px 0;
 }
 
-.camera-room[data-state='active'] .camera-room__limit {
+.webcam-tester[data-state='active'] .webcam-tester-limit {
   display: flex;
 }
 
-.camera-room__limit-mark {
+.webcam-tester-limit-mark {
   align-items: center;
   border: 1px solid var(--n-webcam-amber);
   border-radius: 50%;
   color: var(--n-webcam-amber);
   display: flex;
   flex: 0 0 auto;
-  font-family: serif;
   font-style: italic;
   height: 22px;
   justify-content: center;
   width: 22px;
 }
 
-.camera-room__limit strong {
+.webcam-tester-limit strong {
   color: var(--n-webcam-paper);
   display: block;
   font-size: 0.82rem;
   margin-bottom: 3px;
 }
 
-.camera-room__limit p {
+.webcam-tester-limit p {
   font-size: 0.77rem;
   line-height: 1.5;
   margin: 0;
 }
 
 @media (max-width: 700px) {
-  .camera-room__permission {
+  .webcam-tester-permission {
     gap: 24px;
     grid-template-columns: minmax(0, 1fr) 100px;
     padding: 28px;
   }
 
-  .camera-room__iris {
+  .webcam-tester-iris {
     height: 92px;
     width: 92px;
   }
 
-  .camera-room__iris-ring {
+  .webcam-tester-iris-ring {
     inset: 16px;
   }
 
-  .camera-room__film {
+  .webcam-tester-film {
     grid-template-columns: 1fr;
   }
 
-  .camera-room__metric {
+  .webcam-tester-metric {
     border-bottom: 1px solid var(--n-webcam-line);
     border-right: 0;
   }
 
-  .camera-room__metric:last-child {
+  .webcam-tester-metric:last-child {
     border-bottom: 0;
   }
 }
 
 @media (max-width: 520px) {
-  .camera-room {
+  .webcam-tester {
     border-radius: 16px;
     padding: 12px;
   }
 
-  .camera-room__stage {
+  .webcam-tester-stage {
     min-height: 330px;
   }
 
-  .camera-room[data-state='active'] .camera-room__stage,
-  .camera-room[data-state='starting'] .camera-room__stage {
+  .webcam-tester[data-state='active'] .webcam-tester-stage,
+  .webcam-tester[data-state='starting'] .webcam-tester-stage {
     aspect-ratio: 4 / 5;
   }
 
-  .camera-room__permission {
+  .webcam-tester-permission {
     display: block;
     padding: 28px 22px;
   }
 
-  .camera-room__iris {
+  .webcam-tester-iris {
     display: none;
   }
 
-  .camera-room__live-mark span:last-child,
-  .camera-room__live-toggle span:last-child {
+  .webcam-tester-live-mark span:last-child,
+  .webcam-tester-live-toggle span:last-child {
     display: none;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .camera-room *,
-  .camera-room *::before,
-  .camera-room *::after {
+  .webcam-tester *,
+  .webcam-tester *::before,
+  .webcam-tester *::after {
     scroll-behavior: auto;
     transition-duration: 0.01ms;
   }

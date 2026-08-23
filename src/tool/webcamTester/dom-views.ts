@@ -71,7 +71,7 @@ const createDeviceOption = (
 ): HTMLButtonElement => {
   const option = document.createElement('button');
   option.type = 'button';
-  option.className = 'camera-room__device-option';
+  option.className = 'webcam-tester-device-option';
   option.dataset.cameraId = device.deviceId;
   option.setAttribute('role', 'option');
   option.setAttribute('aria-selected', String(device.deviceId === activeId));
