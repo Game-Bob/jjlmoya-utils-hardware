@@ -3,31 +3,54 @@ import type { ToolLocaleContent } from '../../../types';
 import type { InputLagTestUI } from '../ui';
 import { bibliography } from '../bibliography';
 
-const slug = 'test-latence-saisie-input-lag';
-
-const title = 'Test de Retard d Affichage et Latence de Saisie';
-const description = 'Outil en ligne de mesure de l input lag et de la latence du système par synchronisation d affichage.';
+const slug = 'test-retard-affichage-input-lag';
+const title = 'Test de Retard d Affichage (Input Lag) et Latence';
+const description = 'Outil de mesure en ligne de la latence d entrée matérielle et du retard d affichage avec précision haute performance et synchronisation d affichage.';
 
 const faqData = [
   {
-    question: 'Qu\'est-ce que l\'input lag et la latence système ?',
-    answer: 'C\'est le délai entre une action physique (clic de souris ou touche) et son affichage à l\'écran.',
+    question: 'Qu est-ce que l input lag et la latence système ?',
+    answer: 'L input lag est le délai total entre une action physique de l utilisateur (cliquer sur la souris ou appuyer sur une touche) et la mise à jour visuelle sur l écran.',
   },
-  { question: 'Quelle latence est bonne pour jouer ?', answer: 'Moins de 10 ms est très rapide. Entre 10 et 20 ms reste rapide, de 20 à 35 ms est modéré et au delà le retard devient perceptible.' },
-  { question: 'Comment réduire la latence d\'entrée ?', answer: 'Vérifiez la fréquence de l\'écran, VSync, VRR et le sondage USB, puis modifiez un seul réglage avant de mesurer à nouveau.' },
-  { question: 'La fréquence de l\'écran change-t-elle le délai ?', answer: 'Oui. Une fréquence de 60 Hz donne 16.67 ms par image, contre 4.17 ms à 240 Hz. Le rendu et la dalle ajoutent aussi un délai.' },
-  { question: 'Pourquoi le jitter est-il important ?', answer: 'Il indique la variation entre les mesures. Un résultat un peu plus élevé mais stable peut sembler meilleur qu\'une moyenne basse avec de fortes pointes.' },
+  {
+    question: 'Comment ce test mesure-t-il le retard d affichage ?',
+    answer: 'Il capture les horodatages des événements matériels via performance.now() et les corrèle avec les cycles d affichage requestAnimationFrame suivants pour calculer le délai.',
+  },
+  {
+    question: 'Quelle est une bonne valeur d input lag pour le jeu vidéo ?',
+    answer: 'Moins de 10 ms est ultra-rapide pour l esport. Entre 10 ms et 20 ms est rapide, de 20 ms à 35 ms est modéré, et au-dessus de 35 ms est un retard perceptible.',
+  },
+  {
+    question: 'Comment réduire la latence système sur PC ?',
+    answer: 'Augmentez la fréquence de rafraîchissement de votre écran, désactivez la VSync, activez G-Sync ou FreeSync, augmentez le taux de rafraîchissement USB à 1000 Hz et activez NVIDIA Reflex.',
+  },
+  {
+    question: 'La fréquence de rafraîchissement affecte-t-elle l input lag ?',
+    answer: 'Oui. Un taux de rafraîchissement plus élevé réduit la durée des images. Un écran 60 Hz a une durée d image de 16,67 ms contre 4,17 ms pour un écran 240 Hz.',
+  },
 ];
 
 const howToData = [
   {
-    name: 'Choisir le mode',
-    text: 'Sélectionnez Réponse Instantanée, Latence Clavier ou Réaction Visuelle.',
+    name: 'Choisir le mode de test',
+    text: 'Sélectionnez Réponse instantanée, Latence clavier ou Latence de réaction visuelle.',
   },
-  { name: 'Effectuer les saisies', text: 'Cliquez dans la zone de test ou appuyez sur des touches pour générer des événements.' },
-  { name: 'Lire les statistiques', text: 'Consultez la moyenne, les valeurs extrêmes et le jitter après plusieurs essais.' },
-  { name: 'Comparer une nouvelle série', text: 'Répétez la mesure après chaque changement dans les mêmes conditions.' },
-  { name: 'Interpréter les limites', text: 'Utilisez le résultat pour comparer des configurations et non comme une mesure optique absolue.' },
+  {
+    name: 'Effectuer des actions d entrée',
+    text: 'Cliquez dans la zone cible ou appuyez sur des touches pour générer des événements.',
+  },
+  {
+    name: 'Observer les métriques en temps réel',
+    text: 'Consultez la latence moyenne, minimale, maximale et la variation (jitter).',
+  },
+  {
+    name: 'Vérifier la synchronisation d affichage',
+    text: 'Surveillez le taux d images par seconde (FPS) et la durée d image.',
+  },
+  {
+    name: 'Analyser l historique des mesures',
+    text: 'Examinez l historique pour identifier les pics de latence.',
+  },
 ];
 
 const faqSchema: WithContext<FAQPage> = {
@@ -60,42 +83,42 @@ const appSchema: WithContext<SoftwareApplication> = {
   description,
   applicationCategory: 'UtilityApplication',
   operatingSystem: 'All',
-  offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
   inLanguage: 'fr',
 };
 
 const uiData: InputLagTestUI = {
   title,
   description,
-  badge: 'Latence Système',
-  modeInstant: 'Réponse Instantanée',
-  modeKey: 'Latence Clavier',
-  modeVisual: 'Réaction Visuelle',
-  targetClickPrompt: 'Cliquez ici pour mesurer la latence',
-  targetKeyPrompt: 'Appuyez sur une touche pour la latence clavier',
+  badge: 'Latence système',
+  modeInstant: 'Réponse instantanée',
+  modeKey: 'Latence clavier',
+  modeVisual: 'Latence de réaction visuelle',
+  targetClickPrompt: 'Cliquez ou appuyez dans cette zone pour mesurer la latence',
+  targetKeyPrompt: 'Appuyez sur une touche (ou Espace) pour mesurer la latence du clavier',
   targetWaitPrompt: 'Attendez le fond vert...',
   targetNowPrompt: 'CLIQUEZ MAINTENANT !',
-  labelAvgLatency: 'Latence Moyenne',
-  labelMinLatency: 'Latence Minimale',
-  labelMaxLatency: 'Latence Maximale',
-  labelJitter: 'Jitter (Écart type)',
-  labelFps: 'FPS Actuels',
-  labelFrameTime: 'Temps par Image',
+  labelAvgLatency: 'Latence moyenne',
+  labelMinLatency: 'Latence minimale',
+  labelMaxLatency: 'Latence maximale',
+  labelJitter: 'Variation (Jitter)',
+  labelFps: 'FPS actuels',
+  labelFrameTime: 'Temps d image',
   labelSamples: 'Échantillons',
-  labelGrade: 'Évaluation',
-  gradeUltraFast: 'Ultra Rapide (<10ms)',
+  labelGrade: 'Évaluation de la latence',
+  gradeUltraFast: 'Ultra rapide (<10ms)',
   gradeFast: 'Rapide (10-20ms)',
   gradeModerate: 'Modéré (20-35ms)',
   gradeHigh: 'Élevé (>35ms)',
-  btnReset: 'Réinitialiser',
-  btnCopyReport: 'Copier le Rapport',
-  reportCopied: 'Rapport Copié !',
-  historyTitle: 'Mesures Récents',
-  pipelineTitle: 'Décomposition du Pipeline Matériel',
-  distributionTitle: 'Distribution des Fréquences',
+  btnReset: 'Réinitialiser les mesures',
+  btnCopyReport: 'Copier le rapport',
+  reportCopied: 'Rapport copié !',
+  historyTitle: 'Mesures de latence récentes',
+  pipelineTitle: 'Analyse du chemin de signal matériel',
+  distributionTitle: 'Distribution des fréquences de latence',
   sampleCol: 'Échantillon',
-  typeCol: 'Type Entrée',
-  latencyCol: 'Latence Mesurée',
+  typeCol: 'Type d entrée',
+  latencyCol: 'Latence mesurée',
 };
 
 export const content: ToolLocaleContent<InputLagTestUI> = {
@@ -110,61 +133,215 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
   seo: [
     {
       type: 'title',
-      text: 'Mesure de l Input Lag et de la Latence Système',
+      text: 'Qu est-ce que l Input Lag et la Latence Système ?',
     },
     {
       type: 'paragraph',
-      html: 'Évaluez en temps réel le temps de réponse entre la saisie matérielle et le rendu visuel.',
+      html: 'L input lag (ou retard d affichage) représente le délai exact s écoulant entre le moment où l utilisateur effectue une action physique (comme cliquer sur le bouton d une souris ou appuyer sur une touche de clavier) et la réponse visuelle correspondante affichée sur l écran. Dans les jeux vidéo e-sport et compétitifs, réduire la latence système est crucial pour améliorer la précision du tir et la réactivité globale. La latence totale du système résulte de la superposition de plusieurs retards successifs: la fréquence d interrogation USB (polling rate), la gestion des événements par le système d exploitation, le temps de calcul du moteur de rendu, la file d attente des images dans la carte graphique et le temps de réponse propre aux pixels du moniteur.',
     },
-    { type: 'stats', items: [
-      { value: '< 10 ms', label: 'Objectif esport', trend: 'Repère de compétition' },
-      { value: '1000 Hz', label: 'Sondage USB courant', trend: 'Intervalle de 1 ms' },
-      { value: '240 Hz', label: 'Écran haute fréquence', trend: 'Image toutes les 4.16 ms' },
-      { value: '16.6 ms', label: 'Intervalle à 60 Hz', trend: 'Base par image' },
-    ], columns: 4 },
-    { type: 'card', title: 'Comment fonctionne la mesure dans le navigateur', html: 'Le test compare les événements pointerdown et keydown avec les mises à jour de requestAnimationFrame. Il estime ainsi le délai local entre la détection de l\'action et la peinture du document.' },
-    { type: 'title', text: 'Comment le signal de latence traverse le système' },
-    { type: 'paragraph', html: 'Le délai total s\'accumule entre le contact du périphérique et le pixel visible. Distinguer chaque étape aide à savoir si le problème vient du périphérique, du système, du rendu ou de l\'écran.' },
-    { type: 'table', headers: ['Élément', 'Plage courante', 'Goulot possible', 'Piste d optimisation'], rows: [
-      ['Interrupteur', '0.2 à 5.0 ms', 'Rebond mécanique', 'Réduire l antirebond'],
-      ['Sondage USB', '0.125 à 8.0 ms', 'Fréquence basse', 'Augmenter la fréquence si possible'],
-      ['File système', '0.5 à 3.0 ms', 'Tâches en arrière plan', 'Fermer les processus inutiles'],
-      ['Moteur graphique', '4.0 à 20.0 ms', 'Images limitées par le processeur', 'Réduire la charge de rendu'],
-      ['File GPU', '8.0 à 33.0 ms', 'VSync et buffers multiples', 'Comparer VSync et VRR'],
-      ['Traitement écran', '1.0 à 15.0 ms', 'Mise à l échelle', 'Activer le mode jeu'],
-    ] },
-    { type: 'tip', title: 'Réduire l attente de la file GPU', html: 'Une carte graphique saturée peut préparer plusieurs images en avance. Une limite d images légèrement inférieure au maximum et un nouvel essai avec Reflex ou Anti Lag peuvent réduire cette attente.' },
-    { type: 'title', text: 'Comparer les périphériques de saisie' },
-    { type: 'paragraph', html: 'Les souris, claviers et écrans tactiles ont des délais différents selon leur connexion, leur électronique et leur fréquence de balayage. Comparez les appareils avec le même écran et les mêmes réglages.' },
-    { type: 'comparative', columns: 3, items: [
-      { title: 'Souris de jeu', description: 'Connexion filaire ou sans fil à fréquence élevée.', highlight: '0.5 à 2 ms', points: ['Sondage de 1000 Hz ou plus', 'Interrupteurs optiques', 'Capteur à traitement rapide'] },
-      { title: 'Claviers mécaniques', description: 'Matrice de touches avec délai antirebond réglable.', highlight: '1 à 10 ms', points: ['Interrupteurs magnétiques', 'Balayage de matrice réglable', 'Distance d activation configurable'] },
-      { title: 'Écrans tactiles', description: 'Numériseur capacitif placé sur la dalle.', highlight: '15 à 45 ms', points: ['Fréquence de sondage tactile', 'Traitement du contrôleur', 'Filtres contre les contacts parasites'] },
-    ] },
-    { type: 'title', text: 'Mesurer le délai ajouté par la fréquence écran' },
-    { type: 'paragraph', html: 'La fréquence de rafraîchissement fixe l intervalle minimal entre deux images. Un écran à 60 Hz présente une entrée moins vite qu un écran à 240 Hz, mais le rendu et la synchronisation restent déterminants.' },
-    { type: 'list', items: ['60 Hz correspond à 16.67 ms par image', '120 Hz correspond à 8.33 ms par image', '144 Hz correspond à 6.94 ms par image', '240 Hz correspond à 4.17 ms par image', '360 Hz correspond à 2.78 ms par image', '540 Hz correspond à 1.85 ms par image'] },
-    { type: 'glossary', items: [
-      { term: 'Input lag', definition: 'Temps entre une action physique et son résultat visible.' },
-      { term: 'Jitter', definition: 'Variation des mesures qui indique la stabilité du système.' },
-      { term: 'VSync', definition: 'Synchronisation verticale qui peut réduire le déchirement mais ajouter de l attente.' },
-      { term: 'VRR', definition: 'Fréquence variable qui adapte l\'écran à la sortie de la carte graphique.' },
-      { term: 'Temps de pixel', definition: 'Durée nécessaire à un pixel pour changer de nuance.' },
-    ] },
-    { type: 'title', text: 'Avantages et limites de la mesure dans un navigateur' },
-    { type: 'paragraph', html: 'Cette mesure permet de comparer des réglages sans oscilloscope ni caméra rapide. Elle ne voit pas directement tous les délais internes du pilote, du jeu ou de l émission optique de la dalle.' },
-    { type: 'proscons', title: 'Évaluation de la mesure web', items: [
-      { pro: 'Accessible sans matériel spécialisé', con: 'Dépend de la boucle d événements du navigateur' },
-      { pro: 'Comparaison rapide entre périphériques', con: 'Ne mesure pas directement la réponse du pixel' },
-      { pro: 'Chronométrage local de haute résolution', con: 'La précision peut être réduite par le navigateur' },
-      { pro: 'Montre la régularité des mises à jour', con: 'Une fenêtre inactive peut être ralentie' },
-    ] },
-    { type: 'title', text: 'Diagnostiquer une latence élevée' },
-    { type: 'paragraph', html: 'Si la moyenne dépasse 30 ms ou si le jitter est important, refaites la série avec la fenêtre active et vérifiez VSync, l accélération graphique, la fréquence USB et les tâches du processeur.' },
-    { type: 'diagnostic', variant: 'warning', title: 'Alerte de diagnostic', html: 'Une moyenne supérieure à 35 ms sur un ordinateur de bureau justifie une vérification du mode écran et de l accélération matérielle. Ne modifiez qu un réglage à la fois.' },
-    { type: 'title', text: 'Réduire la latence étape par étape' },
-    { type: 'paragraph', html: 'Ajustez séparément le périphérique, l\'écran et le système. Après chaque changement, recueillez une nouvelle série dans les mêmes conditions pour confirmer le résultat.' },
-    { type: 'summary', title: 'Liste de contrôle pour optimiser la latence', items: ['Choisir une fréquence USB adaptée', 'Activer le mode jeu de l\'écran', 'Désactiver les filtres d\'image inutiles', 'Comparer VSync et VRR', 'Stabiliser la fréquence d\'images', 'Fermer les tâches lourdes', 'Refaire la mesure après chaque réglage'] },
-    { type: 'message', title: 'Bonne pratique de comparaison', html: 'Fermez les applications en arrière-plan, gardez la fenêtre active et recueillez au moins 15 échantillons. Consultez la médiane avec la moyenne et le jitter, car une mesure isolée peut être fortuite.' },
+    {
+      type: 'stats',
+      items: [
+        {
+          value: '< 10 ms',
+          label: 'Objectif E-sport',
+          trend: 'Valeur optimale compétitive',
+        },
+        {
+          value: '1000 Hz',
+          label: 'Taux USB standard',
+          trend: 'Intervalle de 1.0 ms entre signaux',
+        },
+        {
+          value: '240 Hz',
+          label: 'Écran haute fréquence',
+          trend: 'Durée d image de 4.16 ms',
+        },
+        {
+          value: '16.6 ms',
+          label: 'Durée d image 60Hz',
+          trend: 'Délai de base par image affichée',
+        },
+      ],
+      columns: 4,
+    },
+    {
+      type: 'card',
+      title: 'Comment fonctionne la mesure de la latence dans le navigateur ?',
+      html: 'Ce test s appuie sur des horodatages matériels haute précision obtenus directement via <code>performance.now()</code>, combinés aux écouteurs d événements DOM (<code>pointerdown</code> et <code>keydown</code>). En synchronisant l enregistrement des événements avec les cycles réels d affichage de l écran grâce à <code>requestAnimationFrame</code>, l outil calcule le délai précis entre la détection de l action et la mise à jour effective de la zone d affichage au sein de votre navigateur.',
+    },
+    {
+      type: 'title',
+      text: 'Le cheminement détaillé du signal: de la touche jusqu à l écran',
+    },
+    {
+      type: 'paragraph',
+      html: 'Pour diagnostiquer et réduire le retard d affichage de manière efficace, il est nécessaire d analyser chaque composant de la chaîne de traitement. La latence globale du système équivaut à la somme des retards du périphérique, du système d exploitation, du moteur de jeu, du pilote graphique et de la dalle d affichage.',
+    },
+    {
+      type: 'table',
+      headers: ['Composant de la chaîne', 'Délai typique', 'Cause principale du retard', 'Stratégie d optimisation'],
+      rows: [
+        ['Interrupteur périphérique', '0.2 ms - 5.0 ms', 'Rebond mécanique des contacts', 'Utiliser des interrupteurs optiques'],
+        ['Taux de rafraîchissement USB', '0.125 ms - 8.0 ms', '125 Hz contre 1000 Hz / 8000 Hz', 'Augmenter le taux USB à 1000Hz ou plus'],
+        ['File d attente du système', '0.5 ms - 3.0 ms', 'Tâches de fond et compositeur OS', 'Activer le mode jeu de Windows'],
+        ['Moteur de rendu du jeu', '4.0 ms - 20.0 ms', 'Charge processeur et synchronisation', 'Activer NVIDIA Reflex ou AMD Anti-Lag'],
+        ['Tampon de la carte graphique', '8.0 ms - 33.0 ms', 'VSync activée et double/triple tampon', 'Désactiver la VSync et utiliser la VRR'],
+        ['Traitement de l écran', '1.0 ms - 15.0 ms', 'Filtres d image TV et traitement vidéo', 'Activer le mode jeu de l écran/TV'],
+      ],
+    },
+    {
+      type: 'tip',
+      title: 'Comment réduire la latence en cas de forte charge graphique ?',
+      html: 'Lorsque la carte graphique est sollicitée à 99%, le pilote met en file d attente plusieurs images, ce qui crée un retard d affichage important (souvent 30 à 50 ms). Limitez légèrement votre taux d images par seconde ou activez NVIDIA Reflex.',
+    },
+    {
+      type: 'title',
+      text: 'Comparaison de la latence des souris, claviers et écrans tactiles',
+    },
+    {
+      type: 'paragraph',
+      html: 'Les différents périphériques d entrée présentent des caractéristiques de latence distinctes selon leur technologie.',
+    },
+    {
+      type: 'comparative',
+      columns: 3,
+      items: [
+        {
+          title: 'Souris Gamer',
+          description: 'Connexion sans fil rapide 2.4GHz ou filaire.',
+          highlight: '0.5ms - 2ms de Latence',
+          points: [
+            'Taux USB de 1000Hz à 8000Hz',
+            'Interrupteurs optiques sans rebond',
+            'Capteurs à très bas délai',
+          ],
+        },
+        {
+          title: 'Claviers Mécaniques',
+          description: 'Balayage de matrice avec anti-rebond.',
+          highlight: '1ms - 10ms de Latence',
+          points: [
+            'Interrupteurs magnétiques à effet Hall',
+            'Fréquence de balayage jusqu à 8000Hz',
+            'Point d activation réglable',
+          ],
+        },
+        {
+          title: 'Écrans Tactiles',
+          description: 'Échantillonnage capacitif sur mobile.',
+          highlight: '15ms - 45ms de Latence',
+          points: [
+            'Taux d échantillonnage (120Hz - 480Hz)',
+            'Délai de composition du système',
+            'Algorithmes de filtrage capacitif',
+          ],
+        },
+      ],
+    },
+    {
+      type: 'title',
+      text: 'Impact du taux de rafraîchissement sur le retard',
+    },
+    {
+      type: 'paragraph',
+      html: 'La fréquence de rafraîchissement définit la latence d affichage minimale possible.',
+    },
+    {
+      type: 'list',
+      items: [
+        'Écran 60 Hz: 1 image = 16.67 ms de durée (Latence moyenne: ~8.33 ms)',
+        'Écran 120 Hz: 1 image = 8.33 ms de durée (Latence moyenne: ~4.16 ms)',
+        'Écran 144 Hz: 1 image = 6.94 ms de durée (Latence moyenne: ~3.47 ms)',
+        'Écran 240 Hz: 1 image = 4.17 ms de durée (Latence moyenne: ~2.08 ms)',
+        'Écran 360 Hz: 1 image = 2.78 ms de durée (Latence moyenne: ~1.39 ms)',
+      ],
+    },
+    {
+      type: 'glossary',
+      items: [
+        {
+          term: 'Input Lag',
+          definition: 'Temps écoulé entre l action physique et l affichage du résultat à l écran.',
+        },
+        {
+          term: 'Jitter (Variation de latence)',
+          definition: 'Écart-type des mesures indiquant la régularité du système.',
+        },
+        {
+          term: 'VSync (Synchronisation verticale)',
+          definition: 'Évite les déchirements d image mais augmente nettement l input lag.',
+        },
+        {
+          term: 'Taux de rafraîchissement variable (VRR)',
+          definition: 'Technologies comme G-Sync ou FreeSync qui adaptent l écran à la carte graphique.',
+        },
+      ],
+    },
+    {
+      type: 'title',
+      text: 'Avantages et limites du test de latence en ligne',
+    },
+    {
+      type: 'paragraph',
+      html: 'Mesurer la latence dans le navigateur permet un contrôle rapide sans équipement spécialisé.',
+    },
+    {
+      type: 'proscons',
+      title: 'Évaluation du test sur navigateur',
+      items: [
+        {
+          pro: 'Aucun logiciel ou matériel spécial requis',
+          con: 'Sujet aux variations de la boucle d événements du navigateur',
+        },
+        {
+          pro: 'Précision de l horloge haute résolution performance.now',
+          con: 'Ne mesure pas directement le temps de réponse optique des pixels',
+        },
+        {
+          pro: 'Comparaison instantanée entre différents périphériques',
+          con: 'Atténuation de sécurité sur la précision des horloges navigateur',
+        },
+      ],
+    },
+    {
+      type: 'title',
+      text: 'Diagnostic en cas d input lag élevé',
+    },
+    {
+      type: 'paragraph',
+      html: 'Si vos résultats indiquent une latence élevée (>30 ms), vérifiez les réglages ci-dessous.',
+    },
+    {
+      type: 'diagnostic',
+      variant: 'warning',
+      title: 'Avertissement de latence élevée',
+      html: 'Si la latence moyenne dépasse 35 ms, vérifiez si la VSync est activée dans votre pilote graphique. Une accélération matérielle désactivée dans le navigateur peut aussi surcharger le processeur.',
+    },
+    {
+      type: 'title',
+      text: 'Étapes pour optimiser la latence du système',
+    },
+    {
+      type: 'paragraph',
+      html: 'Suivez ces étapes pour réduire le retard d affichage de votre système.',
+    },
+    {
+      type: 'summary',
+      title: 'Liste de contrôle pour l optimisation de la latence',
+      items: [
+        'Réglez le taux de rafraîchissement USB de la souris à 1000 Hz ou plus.',
+        'Activez la planification de processeur graphique à accélération matérielle dans Windows.',
+        'Activez le mode jeu sur l écran ou la TV pour éviter le traitement d image.',
+        'Désactivez la VSync globale et utilisez G-Sync ou FreeSync.',
+        'Activez NVIDIA Reflex ou AMD Anti-Lag dans les jeux compatibles.',
+        'Vérifiez que l accélération matérielle est activée dans votre navigateur.',
+      ],
+    },
+    {
+      type: 'message',
+      title: 'Bonne pratique pour des résultats fiables',
+      html: 'Pour une précision optimale, fermez les applications en arrière-plan, passez le navigateur en plein écran et effectuez au moins 15 à 20 mesures.',
+    },
   ],
 };

@@ -3,53 +3,53 @@ import type { ToolLocaleContent } from '../../../types';
 import type { AudioDelayTestUI } from '../ui';
 import { bibliography } from '../bibliography';
 
-const slug = 'ses-gecikmesi-testi';
-const title = 'Ses Gecikmesi Testi';
-const description = 'Hoparlörler, kulaklıklar, Bluetooth cihazları ve video senkronizasyonundaki algılanan ses gecikmesini tespiti edin.';
+const slug = 'ses-gecikme-testi';
+const title = 'Ses Gecikme Testi';
+const description = 'Hoparlörler, kulaklıklar, Bluetooth cihazlar ve video oynatmada algılanan ses gecikmesini tarayıcı içi lokal darbe testi ile test edin.';
 
 const faq = [
   {
-    question: 'Bu ses gecikmesi testi tam olarak neyi ölçer?',
-    answer: 'İsteğe bağlı mikrofon modu, tarayıcı tarafından zamanlanan tık sesi ile mikrofonun algıladığı an arasındaki süreyi tahmin eder.',
+    question: 'Bu ses gecikme testi tam olarak neyi ölçer?',
+    answer: 'İsteğe bağlı mikrofon modu, tarayıcı tarafından planlanan bir tık sesi ile mikrofonunuz tarafından yakalanması arasındaki süreyi tahmin eder. Manuel mod, kulakla görsel ve işitsel hizalamayı ayarlamanıza yardımcı olur. Hiçbir mod tüm donanım zincirinizin laboratuvar düzeyinde mutlak ölçümü değildir.',
   },
   {
     question: 'Mikrofon olmadan Bluetooth gecikmesini test edebilir miyim?',
-    answer: 'Evet. İmpuls dizisini başlatın, Bluetooth seçeneğini seçin ve flaş ile tık sesi aynı ana denk gelene kadar kaydırıcıyı ayarlayın.',
+    answer: 'Evet. Darbe dizisini başlatın, Bluetooth u seçin ve flaş ile tık sesi aynı anda gerçekleşiyormuş gibi görünene kadar hizalama kaydırıcısını hareket ettirin. Sonuç, kesin bir donanım gecikmesi iddiası yerine bir hizalama düzeltmesi olarak kaydedilir.',
   },
   {
-    question: 'Mikrofon modunun neden izne ihtiyacı var?',
-    answer: 'Tarayıcının, hoparlörden yayılan test sesini dinleyebilmesi için mikrofona erişmesi gerekir. İşlem yerel olarak yapılır.',
+    question: 'Mikrofon modu neden izin gerektirir?',
+    answer: 'Tarayıcının, hoparlörlerinizden veya oda akustiğinden geçtikten sonra test tık sesini duyabilmesi için mikrofon erişimine ihtiyacı vardır. Ses tamamen tarayıcıda yerel olarak işlenir ve yüklenmez.',
   },
   {
-    question: 'Mikrofon ölçüm sonucu neden değişebilir?',
-    answer: 'Oda yansımaları, mikrofon işlemesi ve işletim sistemi arabellekleri sonucu değiştirebilir.',
+    question: 'Mikrofon sonucu neden değişkenlik gösterebilir?',
+    answer: 'Oda yansımaları, mikrofon işlemesi, otomatik kazanç kontrolü ve işletim sistemi arabellekleri sonucu etkileyebilir. Sayıyı mevcut kurulumunuz için tahmini bir değer olarak değerlendirin.',
   },
   {
     question: 'Hangi test modunu seçmeliyim?',
-    answer: 'Oda için Hoparlörler, doğrudan kablolu çıkış için Kablolu Kulaklıklar ve kablosuz için Bluetooth modunu seçin.',
+    answer: 'Oda içi dinleme için Hoparlörler, doğrudan çıkış için Kablolu kulaklıklar, kablosuz cihazlar için Bluetooth ve ekran ile oynatıcı kontrolü için Video senkronizasyonunu seçin.',
   },
   {
-    question: 'Mikrofon sesim bir sunucuya gönderiliyor mu?',
-    answer: 'Hayır. Mikrofon akışı yalnızca tarayıcı belleğinde yerel olarak analiz edilir ve hiçbir ses kaydı yüklenmez.',
+    question: 'Test mikrofon sesimi bir sunucuya gönderiyor mu?',
+    answer: 'Hayır. Mikrofon akışı yalnızca tarayıcı analizörü tarafından yerel olarak okunur ve test ses kayıtlarını yüklemez.',
   },
 ];
 
 const howTo = [
   {
     name: 'Oynatma yolunu seçin',
-    text: 'Hoparlörler, kablolu kulaklıklar, Bluetooth veya video senkronizasyonunu seçin.',
+    text: 'Test ettiğiniz kurulumu tanımlamak için hoparlörler, kablolu kulaklıklar, Bluetooth veya video senkronizasyonunu seçin.',
   },
   {
-    name: 'Manuel impuls ile başlayın',
-    text: 'Testi başlat butonuna basın, tık sesini dinleyin ve kaydırıcıyı görsel sinyalle eşleşene kadar ayarlayın.',
+    name: 'Manuel darbe ile başlayın',
+    text: 'Testi başlat düğmesine basın ve turkuaz görsel darbeyi izlerken kısa tık sesini dinleyin. İkisi eşleşene kadar kaydırıcıyı kullanın.',
   },
   {
-    name: 'Gerekirse mikrofon ölçümünü etkinleştirin',
-    text: 'Mikrofonu etkinleştir butonuna tıklayın, izin verin ve mikrofonu dinleme noktasına yerleştirin.',
+    name: 'Gerekirse mikrofon ölçümünü ekleyin',
+    text: 'Mikrofonu etkinleştir düğmesine basın, izin verin, mikrofonu dinleme konumuna yerleştirin ve diziyi tekrar çalıştırın.',
   },
   {
-    name: 'Sonucu bir tahmin olarak değerlendirin',
-    text: 'Kurulumları karşılaştırmak için ortanca gecikme süresini ve güvenilirlik değerini kullanın.',
+    name: 'Sonucu bir tahmin olarak okuyun',
+    text: 'Ortanca gecikmeyi ve güven düzeyini yalnızca mevcut kurulumunuz için bir yol gösterici olarak kullanın.',
   },
 ];
 
@@ -96,17 +96,17 @@ export const content: ToolLocaleContent<AudioDelayTestUI> = {
   howTo,
   schemas: [faqSchema, howToSchema, appSchema],
   seo: [
-    { type: 'title', text: 'Bluetooth ve Video Senkronizasyonu İçin Ses Gecikmesi Testi', level: 2 },
+    { type: 'title', text: 'Bluetooth ve Video Senkronizasyonu İçin Ses Gecikme Testi', level: 2 },
     {
       type: 'paragraph',
-      html: 'Bu tarayıcı tabanlı ses gecikmesi testi, görsel sinyal ile ses arasındaki zaman farkını değerlendirmenize yardımcı olur.',
+      html: 'Bu tarayıcı tabanlı ses gecikme testi, şu anda kullandığınız cihazdaki görsel ipucu ile ses arasındaki zaman farkını kontrol etmenize yardımcı olur. Bluetooth kulaklıklar, kablosuz hoparlörler, kablolu kulaklıklar ve video senkronizasyon kontrolleri için kullanışlıdır. Araç, bir dosya indirmenize gerek kalmadan tarayıcı içinde yerel olarak kısa tık sesleri üretir.',
     },
     {
       type: 'diagnostic',
       variant: 'info',
-      title: 'Mikrofon erişimi olmadan başlayın',
+      title: 'Mikrofon erişimi olmadan başlatın',
       badge: 'Yerel ve gizli',
-      html: '<p>Manuel test mikrofon olmadan çalışır. Görsel işareti takip edin ve kaydırıcıyı ayarlayın.</p>',
+      html: '<p>Manuel darbe testi mikrofon olmadan çalışır. Görsel işaretçiyi izleyin ve ses ile flaş aynı anda gerçekleşiyormuş gibi hissedilene kadar kaydırıcıyı ayarlayın. Bu, kesin bir donanım gecikmesi iddiasında bulunmadan faydalı bir düzeltme sağlar.</p>',
     },
     {
       type: 'title',
@@ -117,21 +117,21 @@ export const content: ToolLocaleContent<AudioDelayTestUI> = {
       type: 'list',
       icon: 'mdi:check-circle',
       items: [
-        'Bluetooth modunu seçin ve rahat bir ses seviyesi ayarlayın.',
-        'İmpuls dizisini tarayıcınızdan başlatın.',
-        'Görsel flaş ile duyulabilir tık sesini karşılaştırın.',
-        'İki sinyal örtüşene kadar hizalama kaydırıcısını ayarlayın.',
-        'Kodek veya cihaz değiştirdiğinizde testi tekrarlayın.',
+        'Başlamadan önce Bluetooth u seçin ve rahat bir dinleme ses seviyesi ayarlayın.',
+        'Oynatma için kullandığınız aynı tarayıcı ve cihazdan darbe dizisini çalıştırın.',
+        'Uzun bir müzik parçasını değerlendirmek yerine görsel darbeyi doğrudan tık sesiyle karşılaştırın.',
+        'İki ipucu buluşana kadar hizalama kaydırıcısını hareket ettirin ve düzeltmeyi kaydedin.',
+        'Kodek, işletim sistemi, tarayıcı veya mesafeyi değiştirdikten sonra testi tekrarlayın.',
       ],
     },
     {
       type: 'table',
-      headers: ['Mod', 'Şunun için en iyisi', 'Ana sınırlama'],
+      headers: ['Mod', 'İçin en iyisi', 'Temel kısıtlama'],
       rows: [
-        ['Hoparlörler', 'Oda dinlemesi ve TV', 'Mesafe ve oda yansımaları ölçümü etkiler.'],
-        ['Kablolu kulaklıklar', 'Doğrudan analog çıkış', 'Mikrofon kapalı kulaklıkları algılamakta zorlanabilir.'],
-        ['Bluetooth', 'Kablosuz cihazlar', 'Kodek arabelleği cihaza göre değişir.'],
-        ['Video senkronizasyonu', 'Ekran ve oynatıcı hizalaması', 'Video oynatıcı kendi görüntü gecikmesini ekleyebilir.'],
+        ['Hoparlörler', 'Oda dinlemesi ve TV hoparlörleri', 'Oda mesafesi ve yansımalar akustik yolu etkiler.'],
+        ['Kablolu kulaklıklar', 'Doğrudan kulaklık çıkışı', 'Mikrofon, kapalı kulaklıklardan gelen sesi yakalamakta zorlanabilir.'],
+        ['Bluetooth', 'Kablosuz kulaklıklar ve hoparlörler', 'Kodek arabelleğe alması cihazlar ve uygulamalar arasında farklılık gösterir.'],
+        ['Video senkronizasyonu', 'Ekran ve oynatıcı hizalaması', 'Video oynatıcı kendi kare işleme gecikmesini ekleyebilir.'],
       ],
     },
     {
@@ -141,28 +141,28 @@ export const content: ToolLocaleContent<AudioDelayTestUI> = {
     },
     {
       type: 'paragraph',
-      html: 'Mikrofon erişimi etkinleştirildiğinde araç, sesin yayılması ile akustik tepe noktası arasındaki süreyi ölçer.',
+      html: 'Mikrofon erişimi etkinleştirildiğinde, araç her tık sesi için yerel mikrofon analizörünü izler ve planlanan ses olayından tespit edilen akustik tepe noktasına kadar geçen süreyi kaydeder. Sonuç, tek bir yansımanın tahmini bozmasını önlemek için örneklerin ortancasını kullanır.',
     },
     {
       type: 'tip',
-      title: 'Mikrofonu dinleme noktasına yerleştirin',
-      html: 'Hoparlörler için mikrofonu genellikle oturduğunuz yere yerleştirin ve sessiz bir ortam sağlayın.',
+      title: 'Mikrofonu dinlediğiniz yere yerleştirin',
+      html: 'Hoparlörler için mikrofonu oturduğunuz konuma yerleştirin ve odayı sessiz tutun. Video senkronizasyonu testlerinde alışılmış düzeninizi kullanın.',
     },
     {
       type: 'title',
-      text: 'Ses Gecikmesi Sonuçları Neden Değişir',
+      text: 'Tarayıcı Ses Gecikmesi Sonuçları Neden Değişir',
       level: 2,
     },
     {
       type: 'paragraph',
-      html: 'Ses gecikmesi tüm zincirden kaynaklanır: AudioContext saati, işletim sistemi arabellekleri ve Bluetooth kodeki.',
+      html: 'Ses gecikmesi tüm zincir boyunca oluşur: tarayıcı AudioContext saati, işletim sistemi arabellekleri, donanım kodlaması ve hoparlör sürücüleri. Mikrofon kendi yakalama yolunu ekler. Bu nedenle test, ekipmanınızın mevcut bileşimini tanımlar.',
     },
     {
       type: 'diagnostic',
       variant: 'warning',
-      title: 'Sonuçların Değerlendirilmesi',
-      badge: 'Tahmini değer',
-      html: '<p>Sonucu kurulumları karşılaştırmak için kullanın. Profesyonel laboratuvar ölçümünün yerini almaz.</p>',
+      title: 'Sonucu bir tahmin olarak değerlendirin',
+      badge: 'Yalnızca tahmin',
+      html: '<p>Sonucu kurulumları karşılaştırmak veya belirgin senkronizasyon sorunlarını gidermek için kullanın. Üretici özelliğinin veya kalibre edilmiş bir laboratuvar ölçümünün yerini almaz.</p>',
     },
   ],
   ui: {
@@ -177,33 +177,33 @@ export const content: ToolLocaleContent<AudioDelayTestUI> = {
     enableMic: 'Mikrofonu etkinleştir',
     micEnabled: 'Mikrofon hazır',
     calibrationTitle: 'Hizalama düzeltmesi',
-    calibrationHint: 'Flaş ve tık sesi eşleşene kadar kaydırıcıyı hareket ettirin',
+    calibrationHint: 'Flaş ve tık çakışana kadar kaydırıcıyı hareket ettirin',
     calibrationEarly: 'Ses önde',
     calibrationLate: 'Görsel önde',
     calibrationCenter: 'Hizalandı',
     visualLane: 'Görsel',
     audioLane: 'Ses',
     statusReady: 'Hazır',
-    statusRunning: 'İmpuls dizisi çalışıyor',
-    statusWaiting: 'İmpuls bekleniyor',
+    statusRunning: 'Darbe dizisi aktif',
+    statusWaiting: 'Darbe bekleniyor',
     resultTitle: 'Mevcut ölçüm',
     latencyLabel: 'Ölçülen gecikme',
     alignmentLabel: 'Hizalama düzeltmesi',
-    confidenceLabel: 'Güvenilirlik',
+    confidenceLabel: 'Güven düzeyi',
     samplesLabel: 'Örnekler',
     notMeasured: 'Ölçülmedi',
     manualConfidence: 'Yalnızca manuel',
-    lowConfidence: 'Düşük güvenilirlik',
-    mediumConfidence: 'Orta güvenilirlik',
-    highConfidence: 'Yüksek güvenilirlik',
+    lowConfidence: 'Düşük güven',
+    mediumConfidence: 'Orta güven',
+    highConfidence: 'Yüksek güven',
     noMic: 'Mikrofon girişi bu tarayıcıda kullanılamıyor',
     permissionDenied: 'Mikrofon izni verilmedi',
     limitationTitle: 'Sonucu bir tahmin olarak okuyun',
-    limitationText: 'Oda yansımaları ve sistem arabellekleri ölçümü değiştirir. Hiçbir ses verisi yüklenmez.',
+    limitationText: 'Oda yansımaları, mikrofon işlemesi ve arabellekler ölçülen gecikmeyi değiştirir. Hiçbir ses verisi yüklenmez.',
     copyReport: 'Raporu kopyala',
     copied: 'Kopyalandı',
     reset: 'Sıfırla',
-    safety: 'Düşük ses seviyesi ile başlayın. Seste bozulma olursa testi durdurun.',
+    safety: 'Düşük ses seviyesiyle başlayın. Ses bozulursa testi durdurun.',
     pulse: 'SENKRON',
   },
 };

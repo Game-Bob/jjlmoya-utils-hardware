@@ -4,52 +4,52 @@ import type { AudioDelayTestUI } from '../ui';
 import { bibliography } from '../bibliography';
 
 const slug = 'teste-atraso-audio';
-const title = 'Teste de atraso de áudio';
-const description = 'Teste o atraso de áudio percebido em alto-falantes, fones de ouvido, dispositivos Bluetooth e sincronização de vídeo com um teste local no navegador.';
+const title = 'Teste de Atraso de Áudio';
+const description = 'Teste o atraso de áudio percebido em alto-falantes, fones de ouvido, dispositivos Bluetooth e reprodução de vídeo com um teste de impulso local no navegador.';
 
 const faq = [
   {
-    question: 'O que mede exatamente este teste de atraso de áudio?',
-    answer: 'O modo de microfone opcional estima o intervalo entre um pulso agendado pelo navegador e sua captação pelo microfone.',
+    question: 'O que exatamente este teste de atraso de áudio mede?',
+    answer: 'O modo opcional de microfone estima o intervalo entre um clique agendado pelo navegador e sua captação pelo microfone. O modo manual ajuda a alinhar o sinal visual e sonoro de ouvido. Nenhum dos modos é uma medição laboratorial industrial de toda a cadeia do seu dispositivo.',
   },
   {
-    question: 'Posso testar a latência do Bluetooth sem microfone?',
-    answer: 'Sim. Inicie a sequência de impulsos, selecione Bluetooth e mova o deslizador de alinhamento até que o flash e o clique pareçam simultâneos.',
+    question: 'Posso testar a latência Bluetooth sem microfone?',
+    answer: 'Sim. Inicie a sequência de impulsos, escolha Bluetooth e mova o controle de alinhamento até que o piscar e o clique pareçam coincidentes. O resultado é salvo como uma correção de alinhamento em vez de fingir ser uma latência de hardware absoluta.',
   },
   {
     question: 'Por que o modo de microfone precisa de permissão?',
-    answer: 'O navegador precisa de acesso ao microfone para ouvir o clique de teste após sua propagação acústica.',
+    answer: 'O navegador precisa de acesso ao microfone para ouvir o clique de teste após ele viajar pelos alto-falantes ou pelo ambiente acústico. O áudio é processado localmente no navegador e não é enviado para servidores.',
   },
   {
-    question: 'Por que a medição pelo microfone pode variar?',
-    answer: 'Reflexões da sala, processamento do microfone e buffers do sistema operacional alteram o resultado.',
+    question: 'Por que o resultado do microfone pode variar?',
+    answer: 'Reflexões do ambiente, processamento do microfone, controle automático de ganho e buffers do sistema operacional afetam o resultado. Considere o número como uma estimativa para a configuração atual.',
   },
   {
     question: 'Qual modo de teste devo escolher?',
-    answer: 'Escolha Alto-falantes para o ambiente, Fones com fio para conexão direta, Bluetooth para sem fio e Sincronização de vídeo para players.',
+    answer: 'Escolha Alto-falantes para reprodução no ambiente, Fones com fio para saída direta, Bluetooth para dispositivos sem fio e Sincronização de vídeo ao checar telas e reprodutores.',
   },
   {
-    question: 'O áudio do meu microfone é enviado para algum servidor?',
-    answer: 'Não. O fluxo do microfone é analisado exclusivamente na memória do navegador e nenhuma gravação é enviada.',
+    question: 'O teste envia o áudio do meu microfone para um servidor?',
+    answer: 'Não. O fluxo do microfone é lido localmente pelo analisador do navegador e o teste não envia gravações de áudio.',
   },
 ];
 
 const howTo = [
   {
-    name: 'Selecione o caminho de reprodução',
-    text: 'Escolha alto-falantes, fones com fio, Bluetooth ou sincronização de vídeo.',
+    name: 'Escolher o caminho de reprodução',
+    text: 'Selecione alto-falantes, fones com fio, Bluetooth ou sincronização de vídeo para definir a configuração testada.',
   },
   {
-    name: 'Comece com o pulso manual',
-    text: 'Pressione Iniciar teste, ouça o clique e mova o deslizador até alinhar com o pulso visual.',
+    name: 'Começar com o impulso manual',
+    text: 'Clique em Iniciar teste e ouça o clique curto enquanto observa o impulso visual ciano. Ajuste o controle até parecerem simultâneos.',
   },
   {
-    name: 'Ative a medição por microfone se necessário',
-    text: 'Clique em Ativar microfone, conceda permissão e posicione o microfone no local de escuta.',
+    name: 'Adicionar medição por microfone se útil',
+    text: 'Clique em Ativar microfone, conceda a permissão, posicione o microfone onde você escuta e execute a sequência novamente.',
   },
   {
-    name: 'Leia o resultado como uma estimativa',
-    text: 'Use a latência mediana e o nível de confiança para comparar suas configurações.',
+    name: 'Ler o resultado como estimativa',
+    text: 'Use o atraso mediano e o nível de confiança como uma orientação para sua configuração atual.',
   },
 ];
 
@@ -96,80 +96,80 @@ export const content: ToolLocaleContent<AudioDelayTestUI> = {
   howTo,
   schemas: [faqSchema, howToSchema, appSchema],
   seo: [
-    { type: 'title', text: 'Teste de atraso de áudio para Bluetooth e sincronização de vídeo', level: 2 },
+    { type: 'title', text: 'Teste de Atraso de Áudio Para Bluetooth e Sincronização de Vídeo', level: 2 },
     {
       type: 'paragraph',
-      html: 'Este teste de atraso de áudio no navegador permite verificar o descompasso entre o sinal visual e o som no seu equipamento atual.',
+      html: 'Este teste de atraso de áudio no navegador ajuda você a verificar a diferença de tempo entre um sinal visual e o som no seu dispositivo atual. É útil para fones Bluetooth, caixas de som sem fio, fones com fio e checagens de sincronia de vídeo. A ferramenta gera um clique curto localmente no navegador sem exigir download de arquivos.',
     },
     {
       type: 'diagnostic',
       variant: 'info',
-      title: 'Teste inicial sem acesso ao microfone',
+      title: 'Início sem acesso ao microfone',
       badge: 'Privado e local',
-      html: '<p>O teste manual funciona sem microfone. Siga o marcador ciano e ajuste o deslizador até alinhar o som com a imagem.</p>',
+      html: '<p>O teste de impulso manual funciona sem microfone. Observe o marcador visual e ajuste o controle deslizante até sentir que o tom e o piscar coincidem. Isso fornece uma correção útil para sua configuração sem fingir medir latência física absoluta.</p>',
     },
     {
       type: 'title',
-      text: 'Como testar a latência de áudio Bluetooth',
+      text: 'Como Testar a Latência de Áudio Bluetooth',
       level: 2,
     },
     {
       type: 'list',
       icon: 'mdi:check-circle',
       items: [
-        'Selecione Bluetooth e defina um volume confortável.',
-        'Execute a sequência de pulsos no seu navegador.',
-        'Compare o flash visual com o clique audível.',
-        'Ajuste o deslizador de alinhamento até a simultaneidade.',
-        'Repita o teste ao alterar codecs ou dispositivos.',
+        'Selecione Bluetooth e defina um volume confortável antes de começar.',
+        'Execute a sequência de impulsos do mesmo navegador e dispositivo que você usa para reprodução.',
+        'Compare o impulso visual diretamente com o clique em vez de julgar uma música longa.',
+        'Mova o controle de alinhamento até que os dois sinais se encontrem e anote a correção.',
+        'Repita o teste após alterar o codec, o sistema operacional, o navegador ou a distância.',
       ],
     },
     {
       type: 'table',
       headers: ['Modo', 'Recomendado para', 'Limitação principal'],
       rows: [
-        ['Alto-falantes', 'Ambientes e TV', 'Distância e reflexões da sala afetam a medição.'],
-        ['Fones com fio', 'Saída analógica direta', 'O microfone pode ter dificuldade com fones fechados.'],
-        ['Bluetooth', 'Dispositivos sem fio', 'O buffer do codec varia conforme o dispositivo.'],
-        ['Sincronização vídeo', 'Alinhamento de tela e player', 'O reprodutor de vídeo pode adicionar seu próprio atraso.'],
+        ['Alto-falantes', 'Reprodução no ambiente e caixas de TV', 'A distância e as reflexões do ambiente afetam o caminho acústico.'],
+        ['Fones com fio', 'Saída direta de fones', 'O microfone pode ter dificuldade para captar som em fones fechados.'],
+        ['Bluetooth', 'Fones e caixas de som sem fio', 'O buffer do codec varia entre dispositivos, sistemas e aplicativos.'],
+        ['Sincronização de vídeo', 'Alinhamento de tela e reprodutor', 'O reprodutor de vídeo pode adicionar seu próprio atraso de renderização.'],
       ],
     },
     {
       type: 'title',
-      text: 'Medição opcional com microfone',
+      text: 'Medição Opcional por Microfone',
       level: 2,
     },
     {
       type: 'paragraph',
-      html: 'Com a permissão do microfone, a ferramenta mede o tempo entre o pulso e o pico acústico, calculando a mediana dos valores.',
+      html: 'Quando o acesso ao microfone é ativado, a ferramenta monitora o analisador local para cada clique e registra o tempo decorrido do evento agendado até o pico acústico detectado. O resultado usa a mediana das amostras para evitar que reflexões isoladas comprometam a estimativa.',
     },
     {
       type: 'tip',
-      title: 'Posicione o microfone no ponto de escuta',
-      html: 'Para alto-falantes, coloque o microfone no local onde você costuma sentar.',
+      title: 'Posicionar o microfone no local de escuta',
+      html: 'Para alto-falantes, coloque o microfone onde você costuma sentar e mantenha o ambiente silencioso. Em testes de sincronia de vídeo, use a disposição habitual.',
     },
     {
       type: 'title',
-      text: 'Por que os resultados de latência variam',
+      text: 'Por Que os Resultados de Atraso de Áudio Variam',
       level: 2,
     },
     {
       type: 'paragraph',
-      html: 'O atraso de áudio vem de toda a cadeia: relógio do AudioContext, buffers do sistema, codec Bluetooth e drivers.',
+      html: 'O atraso de áudio se acumula ao longo de toda a cadeia: relógio AudioContext do navegador, buffers do sistema operacional, codificação de hardware e alto-falantes. O microfone adiciona seu próprio caminho de captura. Portanto, o teste descreve a combinação atual do seu equipamento.',
     },
     {
       type: 'diagnostic',
       variant: 'warning',
-      title: 'Interpretação dos dados',
-      badge: 'Valor estimativo',
-      html: '<p>Use este número para comparar configurações. Não substitui um sistema de medição profissional.</p>',
+      title: 'Trate o resultado como uma estimativa',
+      badge: 'Apenas estimativa',
+      html: '<p>Use o resultado para comparar configurações ou resolver problemas claros de sincronia. Ele não substitui uma especificação de fabricante ou uma medição de laboratório.</p>',
     },
   ],
   ui: {
     badge: 'Observatório de latência',
     modeLabel: 'Caminho de reprodução',
     modeSpeakers: 'Alto-falantes',
-    modeWired: 'Fio',
+    modeWired: 'Com fio',
     modeBluetooth: 'Bluetooth',
     modeVideo: 'Sincronização de vídeo',
     startTest: 'Iniciar teste',
@@ -177,16 +177,16 @@ export const content: ToolLocaleContent<AudioDelayTestUI> = {
     enableMic: 'Ativar microfone',
     micEnabled: 'Microfone pronto',
     calibrationTitle: 'Correção de alinhamento',
-    calibrationHint: 'Mova o deslizador até que o flash e o clique coincidam',
+    calibrationHint: 'Mova o controle até que o piscar e o clique coincidam',
     calibrationEarly: 'Áudio adiantado',
     calibrationLate: 'Visual adiantado',
     calibrationCenter: 'Alinhado',
     visualLane: 'Visual',
     audioLane: 'Áudio',
     statusReady: 'Pronto',
-    statusRunning: 'Sequência de pulsos em andamento',
-    statusWaiting: 'Aguardando pulso',
-    resultTitle: 'Leitura atual',
+    statusRunning: 'Sequência em andamento',
+    statusWaiting: 'Aguardando impulso',
+    resultTitle: 'Medição atual',
     latencyLabel: 'Atraso medido',
     alignmentLabel: 'Correção de alinhamento',
     confidenceLabel: 'Confiança',
@@ -198,12 +198,12 @@ export const content: ToolLocaleContent<AudioDelayTestUI> = {
     highConfidence: 'Confiança alta',
     noMic: 'Entrada de microfone indisponível neste navegador',
     permissionDenied: 'Permissão de microfone não concedida',
-    limitationTitle: 'Considere o resultado como estimativa',
-    limitationText: 'Reflexões e buffers alteram a medição. Nenhum áudio é enviado online.',
+    limitationTitle: 'Leia o resultado como estimativa',
+    limitationText: 'Reflexões do ambiente, processamento do microfone e buffers alteram o atraso medido. Nenhum áudio é enviado.',
     copyReport: 'Copiar relatório',
     copied: 'Copiado',
     reset: 'Redefinir',
     safety: 'Comece com volume baixo. Pare se houver distorção.',
-    pulse: 'SINCRO',
+    pulse: 'SINCRONIA',
   },
 };

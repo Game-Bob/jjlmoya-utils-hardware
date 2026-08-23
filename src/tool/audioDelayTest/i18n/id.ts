@@ -3,53 +3,53 @@ import type { ToolLocaleContent } from '../../../types';
 import type { AudioDelayTestUI } from '../ui';
 import { bibliography } from '../bibliography';
 
-const slug = 'uji-delai-audio';
-const title = 'Uji Delai Audio';
-const description = 'Uji penundaan audio pada speaker, headphone, perangkat Bluetooth, dan sinkronisasi video dengan tes pulsa lokal di peramban.';
+const slug = 'test-penundaan-audio';
+const title = 'Uji Penundaan Audio';
+const description = 'Uji penundaan audio pada speaker, headphone, perangkat Bluetooth, dan pemutaran video dengan uji pulsa browser lokal.';
 
 const faq = [
   {
-    question: 'Apa yang diukur oleh tes penundaan audio ini?',
-    answer: 'Mode mikrofon opsional memperkirakan interval antara pulsa yang dijadwalkan peramban dan tangkapan suara oleh mikrofon.',
+    question: 'Apa yang diukur oleh uji penundaan audio ini?',
+    answer: 'Mode mikrofon opsional mengestimasi waktu antara klik yang dijadwalkan browser dan klik yang ditangkap mikrofon Anda. Mode manual membantu menyelaraskan penanda visual dan audio menggunakan pendengaran Anda. Kedua mode bertujuan memberikan estimasi praktis untuk jalur perangkat Anda.',
   },
   {
     question: 'Bisakah saya menguji latensi Bluetooth tanpa mikrofon?',
-    answer: 'Ya. Mulai urutan impuls, pilih Bluetooth, dan geser pengatur kelurusan hingga kedipan dan klik terdengar bersamaan.',
+    answer: 'Ya. Mulai urutan pulsa, pilih Bluetooth, dan geser pengatur penyelarasan hingga kilatan visual dan suara klik terasa bersamaan. Hasil disimpan sebagai koreksi penyelarasan daripada diklaim sebagai latensi perangkat keras yang presisi.',
   },
   {
     question: 'Mengapa mode mikrofon memerlukan izin akses?',
-    answer: 'Peramban memerlukan akses mikrofon untuk mendeteksi klik uji setelah merambat di dalam ruangan. Pemrosesan dilakukan lokal.',
+    answer: 'Browser memerlukan izin akses mikrofon untuk mendengarkan klik uji setelah merambat melalui speaker atau ruang akustik Anda. Audio diproses secara lokal di browser dan tidak pernah diunggah ke server.',
   },
   {
-    question: 'Mengapa hasil mikrofon bisa bervariasi?',
-    answer: 'Pantulan ruangan, pemrosesan mikrofon, kontrol penguatan otomatis, dan penyangga sistem operasi dapat mengubah hasil.',
+    question: 'Mengapa hasil mikrofon bisa bervariasi atau kurang akurat?',
+    answer: 'Pantulan ruangan, pemrosesan mikrofon, kontrol penguatan otomatis, penyangga sistem operasi, dan jarak antara speaker serta mikrofon dapat memengaruhi hasil. Gunakan angka ini sebagai estimasi untuk konfigurasi saat ini.',
   },
   {
     question: 'Mode pengujian mana yang harus saya pilih?',
-    answer: 'Pilih Speaker untuk ruangan, Headphone kabel untuk jalur langsung, Bluetooth untuk nirkabel, dan Sinkro video untuk pemutar media.',
+    answer: 'Pilih Speaker untuk pemutaran ruangan, Headphone kabel untuk jalur headphone langsung, Bluetooth untuk perangkat nirkabel, dan Sinkronisasi video saat memeriksa kombinasi layar dan pemutar media.',
   },
   {
-    question: 'Apakah rekaman suara mikrofon dikirim ke server?',
-    answer: 'Tidak. Aliran suara mikrofon dianalisis secara lokal di dalam memori peramban dan tidak ada rekaman yang diunggah.',
+    question: 'Apakah pengujian ini mengunggah audio mikrofon saya ke server?',
+    answer: 'Tidak. Aliran audio mikrofon dibaca secara lokal oleh penganalisis browser dan alat ini tidak mengunggah sampel rekaman audio.',
   },
 ];
 
 const howTo = [
   {
     name: 'Pilih jalur pemutaran',
-    text: 'Pilih speaker, headphone kabel, Bluetooth, atau sinkronisasi video.',
+    text: 'Pilih speaker, headphone kabel, Bluetooth, atau sinkronisasi video agar laporan sesuai dengan perangkat yang Anda periksa.',
   },
   {
-    name: 'Mulai dengan impuls manual',
-    text: 'Klik Mulai tes, dengarkan bunyi klik, dan amati impuls visual. Sesuaikan penggeser alignment.',
+    name: 'Mulai dengan pulsa manual',
+    text: 'Tekan Mulai uji dan dengarkan klik pendek sambil mengamati penanda visual cyan. Gunakan pengatur penyelarasan hingga keduanya terasa bersamaan.',
   },
   {
-    name: 'Aktifkan pengukuran mikrofon jika diperlukan',
-    text: 'Klik Aktifkan mikrofon, berikan izin, dan tempatkan mikrofon di posisi dengar utama.',
+    name: 'Tambahkan pengukuran mikrofon jika diperlukan',
+    text: 'Tekan Aktifkan mikrofon, berikan izin akses, letakkan mikrofon di posisi mendengarkan, dan jalankan urutan pulsa kembali.',
   },
   {
-    name: 'Baca hasil sebagai perkiraan setup',
-    text: 'Gunakan median penundaan dan nilai kepercayaan untuk membandingkan perangkat.',
+    name: 'Baca hasil sebagai estimasi pengaturan',
+    text: 'Gunakan penundaan median dan tingkat kepercayaan hanya sebagai estimasi pengaturan saat ini setelah mengubah perangkat, browser, atau jarak.',
   },
 ];
 
@@ -96,17 +96,17 @@ export const content: ToolLocaleContent<AudioDelayTestUI> = {
   howTo,
   schemas: [faqSchema, howToSchema, appSchema],
   seo: [
-    { type: 'title', text: 'Uji Penundaan Audio untuk Bluetooth dan Sinkronisasi Video', level: 2 },
+    { type: 'title', text: 'Uji Penundaan Audio Untuk Bluetooth Dan Sinkronisasi Video', level: 2 },
     {
       type: 'paragraph',
-      html: 'Uji penundaan audio berbasis peramban ini membantu Anda memeriksa selisih waktu antara sinyal visual dan suara pada perangkat Anda saat ini.',
+      html: 'Uji penundaan audio berbasis browser ini membantu Anda memeriksa selisih waktu antara isyarat visual dan suara pada perangkat yang Anda gunakan sekarang. Pengujian ini sangat berguna untuk headphone Bluetooth, speaker nirkabel, headphone kabel, dan pemeriksaan sinkronisasi video. Alat ini menghasilkan klik pendek secara lokal di browser tanpa mewajibkan Anda mengunduh berkas uji.',
     },
     {
       type: 'diagnostic',
       variant: 'info',
-      title: 'Pengujian awal tanpa akses mikrofon',
-      badge: 'Privasi terjamin',
-      html: '<p>Pengujian impuls manual dapat berjalan tanpa mikrofon. Perhatikan penanda visual cian dan sesuaikan penggeser alignment.</p>',
+      title: 'Mulai tanpa akses mikrofon',
+      badge: 'Privat dan lokal',
+      html: '<p>Uji pulsa manual dapat berjalan tanpa mikrofon. Amati penanda visual cyan dan dengarkan suara klik, lalu geser pengatur penyelarasan hingga keduanya terasa bersamaan. Ini memberikan koreksi pengaturan yang berguna tanpa berpura-pura mengukur latensi perangkat keras secara mutlak.</p>',
     },
     {
       type: 'title',
@@ -117,21 +117,21 @@ export const content: ToolLocaleContent<AudioDelayTestUI> = {
       type: 'list',
       icon: 'mdi:check-circle',
       items: [
-        'Pilih Bluetooth dan atur volume pada tingkat yang nyaman.',
-        'Jalankan urutan impuls dari peramban dan perangkat yang sama.',
-        'Bandingkan kedipan visual secara langsung dengan bunyi klik.',
-        'Geser pengatur alignment hingga kedua sinyal terasa pas.',
-        'Ulangi pengujian jika Anda mengubah kodek atau perangkat.',
+        'Pilih Bluetooth dan atur tingkat volume yang nyaman sebelum memulai pengujian.',
+        'Jalankan urutan pulsa dari browser dan perangkat yang sama dengan yang Anda gunakan untuk pemutaran.',
+        'Bandingkan pulsa visual langsung dengan suara klik daripada menilai lagu musik yang panjang.',
+        'Geser pengatur penyelarasan hingga kedua isyarat bertemu, lalu catat koreksi penyelarasan.',
+        'Ulangi pengujian setelah mengubah codec, sistem operasi, browser, atau jarak.',
       ],
     },
     {
       type: 'table',
-      headers: ['Mode', 'Sangat baik untuk', 'Keterbatasan utama'],
+      headers: ['Mode', 'Terbaik untuk', 'Keterbatasan utama'],
       rows: [
-        ['Speaker', 'Pemutaran ruang dan speaker TV', 'Jarak ruang dan pantulan mempengaruhi jalur akustik.'],
-        ['Headphone kabel', 'Keluaran headphone langsung', 'Mikrofon mungkin sulit mendengar headphone tertutup.'],
-        ['Bluetooth', 'Headphone dan speaker nirkabel', 'Penyangga kodek dapat berubah tergantung aplikasi.'],
-        ['Sinkro video', 'Penyelarasan tampilan dan pemutar', 'Pemutar video dapat menambah penundaan bingkai sendiri.'],
+        ['Speaker', 'Pemutaran ruangan dan speaker TV', 'Jarak ruangan dan pantulan suara mempengaruhi jalur akustik.'],
+        ['Headphone kabel', 'Output headphone langsung', 'Mikrofon mungkin kesulitan mendengar suara dari headphone tertutup.'],
+        ['Bluetooth', 'Headphone dan speaker nirkabel', 'Penyangga codec dapat bervariasi antar perangkat dan aplikasi.'],
+        ['Sinkronisasi video', 'Penyelarasan layar dan pemutar media', 'Pemutar video dapat menambahkan penundaan penyajian bingkai sendiri.'],
       ],
     },
     {
@@ -141,54 +141,54 @@ export const content: ToolLocaleContent<AudioDelayTestUI> = {
     },
     {
       type: 'paragraph',
-      html: 'Saat akses mikrofon diaktifkan, alat akan mencatat selisih waktu antara klik terprogram dan puncak suara akustik yang tertangkap mikrofon.',
+      html: 'Saat akses mikrofon tersedia, alat ini mengamati penganalisis mikrofon lokal untuk setiap klik dan mencatat waktu yang berlalu dari peristiwa audio yang dijadwalkan hingga puncak akustik yang terdeteksi. Hasilnya menggunakan nilai median dari sampel agar pantulan tunggal tidak merusak estimasi. Lencana tingkat kepercayaan juga mempertimbangkan sebaran data.',
     },
     {
       type: 'tip',
       title: 'Posisikan mikrofon di tempat Anda mendengarkan',
-      html: 'Untuk speaker ruangan, letakkan mikrofon di posisi duduk Anda dan pastikan ruangan dalam keadaan tenang.',
+      html: 'Untuk speaker, tempatkan mikrofon di posisi tempat Anda duduk mendengarkan dan jaga agar ruangan tetap tenang. Untuk pengujian sinkronisasi video, gunakan susunan pemutar dan layar yang sama dengan yang Anda gunakan sehari-hari.',
     },
     {
       type: 'title',
-      text: 'Mengapa Hasil Penundaan Audio Peramban Bervariasi',
+      text: 'Mengapa Hasil Penundaan Audio Browser Bervariasi',
       level: 2,
     },
     {
       type: 'paragraph',
-      html: 'Penundaan audio merupakan hasil gabungan dari peramban, penyangga sistem operasi, kodek Bluetooth, dan driver speaker.',
+      html: 'Penundaan audio terjadi di sepanjang seluruh rantai: jam AudioContext browser, penyangga sistem operasi, pengodean perangkat keras, dan penggerak speaker. Mikrofon juga menambahkan jalur penangkapan dan pemrosesannya sendiri. Oleh karena itu, pengujian ini mendeskripsikan kombinasi perangkat, browser, ruangan, dan pengaturan saat ini.',
     },
     {
       type: 'diagnostic',
       variant: 'warning',
-      title: 'Interpretasi Hasil',
-      badge: 'Hanya perkiraan',
-      html: '<p>Gunakan angka ini untuk membandingkan perangkat. Alat ini bukan pengganti alat ukur laboratorium profesional.</p>',
+      title: 'Gunakan hasil sebagai estimasi',
+      badge: 'Hanya estimasi',
+      html: '<p>Gunakan hasil ini untuk membandingkan konfigurasi atau mengatasi masalah sinkronisasi yang jelas. Hasil ini tidak menggantikan spesifikasi pabrikan atau sistem pengukuran yang terkalibrasi.</p>',
     },
   ],
   ui: {
-    badge: 'Observatorium Latensi',
-    modeLabel: 'Jalur Pemutaran',
+    badge: 'Observatorium latensi',
+    modeLabel: 'Jalur pemutaran',
     modeSpeakers: 'Speaker',
     modeWired: 'Kabel',
     modeBluetooth: 'Bluetooth',
-    modeVideo: 'Sinkro video',
-    startTest: 'Mulai tes',
-    stopTest: 'Hentikan tes',
+    modeVideo: 'Sinkronisasi video',
+    startTest: 'Mulai uji',
+    stopTest: 'Hentikan uji',
     enableMic: 'Aktifkan mikrofon',
     micEnabled: 'Mikrofon siap',
-    calibrationTitle: 'Koreksi Penyelarasan',
-    calibrationHint: 'Geser pengatur hingga kedipan dan klik bertepatan',
+    calibrationTitle: 'Koreksi penyelarasan',
+    calibrationHint: 'Geser pengatur hingga kilatan dan klik bertemu',
     calibrationEarly: 'Audio mendahului',
     calibrationLate: 'Visual mendahului',
-    calibrationCenter: 'Selaras',
+    calibrationCenter: 'Terselaraskan',
     visualLane: 'Visual',
     audioLane: 'Audio',
     statusReady: 'Siap',
-    statusRunning: 'Urutan impuls berjalan',
-    statusWaiting: 'Menunggu impuls',
-    resultTitle: 'Pembacaan Saat Ini',
+    statusRunning: 'Urutan pulsa berjalan',
+    statusWaiting: 'Menunggu pulsa',
+    resultTitle: 'Pengukuran saat ini',
     latencyLabel: 'Penundaan terukur',
-    alignmentLabel: 'Koreksi alignment',
+    alignmentLabel: 'Koreksi penyelarasan',
     confidenceLabel: 'Tingkat kepercayaan',
     samplesLabel: 'Sampel',
     notMeasured: 'Belum diukur',
@@ -196,14 +196,14 @@ export const content: ToolLocaleContent<AudioDelayTestUI> = {
     lowConfidence: 'Kepercayaan rendah',
     mediumConfidence: 'Kepercayaan sedang',
     highConfidence: 'Kepercayaan tinggi',
-    noMic: 'Input mikrofon tidak tersedia di peramban ini',
-    permissionDenied: 'Izin mikrofon tidak diberikan',
-    limitationTitle: 'Baca hasil sebagai perkiraan setup',
-    limitationText: 'Pantulan ruang dan penyangga sistem dapat mengubah hasil penundaan. Tidak ada data suara yang diunggah.',
+    noMic: 'Input mikrofon tidak tersedia di browser ini',
+    permissionDenied: 'Izin akses mikrofon tidak diberikan',
+    limitationTitle: 'Baca hasil sebagai estimasi pengaturan',
+    limitationText: 'Pantulan ruangan, pemrosesan mikrofon, dan penyangga dapat mengubah penundaan terukur. Tidak ada audio yang diunggah.',
     copyReport: 'Salin laporan',
     copied: 'Tersalin',
-    reset: 'Setel ulang',
-    safety: 'Mulai dengan volume rendah. Hentikan jika suara mengalami distorsi.',
-    pulse: 'SINKRO',
+    reset: 'Atur ulang',
+    safety: 'Mulai dengan volume rendah. Hentikan jika sinyal tidak nyaman.',
+    pulse: 'SINKRON',
   },
 };

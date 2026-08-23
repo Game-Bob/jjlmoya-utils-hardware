@@ -1,0 +1,37 @@
+export interface MicrophoneSpectrumTesterUI extends Record<string, string> {
+  journeyPermission: string;
+  journeySpeak: string;
+  journeyInspect: string;
+  startMicrophone: string;
+  stopMicrophone: string;
+  deviceLabel: string;
+  defaultDevice: string;
+  statusIdle: string;
+  statusRequesting: string;
+  statusLive: string;
+  statusUnsupported: string;
+  statusDenied: string;
+  statusError: string;
+  levelLabel: string;
+  peakLabel: string;
+  frequencyLabel: string;
+  noiseFloorLabel: string;
+  captureNoise: string;
+  capturingNoise: string;
+  noiseCaptured: string;
+  roomToneHint: string;
+  unmeasured: string;
+  noSignalLevel: string;
+  noSignalPeak: string;
+  noSignalFrequency: string;
+  silentSignal: string;
+  quietSignal: string;
+  healthySignal: string;
+  hotSignal: string;
+  clippingSignal: string;
+  dbfsUnit: string;
+  hzUnit: string;
+  spectrumAriaLabel: string;
+  limitationTitle: string;
+  limitationText: string;
+}

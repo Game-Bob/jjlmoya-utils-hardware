@@ -20,4 +20,3 @@ describe('SEO Content Length Validation', () => {
     });
   });
 });
-

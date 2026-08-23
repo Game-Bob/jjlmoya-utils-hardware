@@ -3,31 +3,54 @@ import type { ToolLocaleContent } from '../../../types';
 import type { InputLagTestUI } from '../ui';
 import { bibliography } from '../bibliography';
 
-const slug = 'input-lag-system-latens-test';
-
-const title = 'Input Lag & System Latens Test';
-const description = 'Online-verktyg for att mata input lag och skarmfordrojning med hog precision.';
+const slug = 'input-lag-test-fordrojning';
+const title = 'Input Lag & Systemfördröjningstest';
+const description = 'Onlineverktyg för mätning av hårdvaruinmatningsfördröjning och systemlatens med hög precision och bildskärmssynkronisering.';
 
 const faqData = [
   {
-    question: 'Vad ar input lag?',
-    answer: 'Det ar tidsfordrojningen mellan en fysisk knapptryckning och den visuella uppdateringen pa skarmen.',
+    question: 'Vad är input lag och systemfördröjning?',
+    answer: 'Input lag är den totala tidsfördröjningen mellan en fysisk användarhandling (att klicka på musen eller trycka på en tangent) och att den uppdaterade bilden visas på skärmen.',
   },
-  { question: 'Vilken latenstid ar bra for spel?', answer: 'Under 10 ms ar mycket snabbt. 10 till 20 ms ar snabbt, 20 till 35 ms ar mattligt och hogre varden marks.' },
-  { question: 'Hur minskar jag inmatningslatenhet?', answer: 'Kontrollera skarmens frekvens, VSync, VRR och USB polling. Andra sedan en installning och mat igen.' },
-  { question: 'Paverkar uppdateringsfrekvensen input lag?', answer: 'Ja. Vid 60 Hz tar en bild 16.67 ms och vid 240 Hz 4.17 ms. Rendering och panelen lagger ocksa till latenhet.' },
-  { question: 'Varfor ar jitter viktigt?', answer: 'Jitter visar variationen mellan matningar. Ett nagot hogre men stabilt resultat kan kannas battre an ett lagt med stora toppar.' },
+  {
+    question: 'Hur mäter detta onlinetest inmatningsfördröjningen?',
+    answer: 'Det fångar tidsstämplar från hårdvaruhändelser via performance.now() och korrelerar dem med efterföljande requestAnimationFrame-uppdateringar.',
+  },
+  {
+    question: 'Vad anses vara en bra input lag för gaming?',
+    answer: 'Under 10 ms anses vara ultrasnabbt för e-sport. 10 ms till 20 ms är snabbt, 20 ms till 35 ms är måttligt och över 35 ms är en märkbar fördröjning.',
+  },
+  {
+    question: 'Hur kan jag minska input lag på min Dator?',
+    answer: 'Öka skärmens uppdateringsfrekvens, inaktivera VSync, aktivera G-Sync eller FreeSync, höj musens USB-rapporteringsfrekvens till 1000Hz+ och aktivera NVIDIA Reflex.',
+  },
+  {
+    question: 'Påverkar skärmens uppdateringsfrekvens input lag?',
+    answer: 'Ja. Högre uppdateringsfrekvens minskar bildrutevaraktigheten. En 60Hz-skärm har en bildrutevaraktighet på 16,67 ms, medan en 240Hz-skärm har 4,17 ms.',
+  },
 ];
 
 const howToData = [
   {
-    name: 'Valj lage',
-    text: 'Valj Direkt Respons, Tangentbordslatens eller Visuell Reaktion.',
+    name: 'Välj testläge',
+    text: 'Välj Direkt respons, Tangenttryckningslatens eller Visuell reaktionslatens.',
   },
-  { name: 'Gor inmatningar', text: 'Klicka i testfältet eller tryck på tangenter för att registrera händelser.' },
-  { name: 'Kontrollera statistik', text: 'Las medelvarde, minimum, maximum och jitter efter flera forsok.' },
-  { name: 'Mat igen', text: 'Upprepa serien efter varje andring under samma villkor.' },
-  { name: 'Forsta granserna', text: 'Anvand resultatet for att jamfora konfigurationer, inte som ett absolut pixeltest.' },
+  {
+    name: 'Utför fysiska inmatningar',
+    text: 'Klicka i målrutan eller tryck på tangenter för att generera inmatningshändelser.',
+  },
+  {
+    name: 'Observera fördröjningsmått i realtid',
+    text: 'Granska beräknad genomsnittlig, lägsta, högsta fördröjning samt jitter.',
+  },
+  {
+    name: 'Kontrollera bildskärmssynkronisering',
+    text: 'Övervaka aktuell FPS och bildrutetid för att verifiera skärmstabilitet.',
+  },
+  {
+    name: 'Analysera mäthistorik',
+    text: 'Granska historikloggen för att identifiera fördröjningstoppar och avvikelser.',
+  },
 ];
 
 const faqSchema: WithContext<FAQPage> = {
@@ -60,42 +83,42 @@ const appSchema: WithContext<SoftwareApplication> = {
   description,
   applicationCategory: 'UtilityApplication',
   operatingSystem: 'All',
-  offers: { '@type': 'Offer', price: '0', priceCurrency: 'SEK' },
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
   inLanguage: 'sv',
 };
 
 const uiData: InputLagTestUI = {
   title,
   description,
-  badge: 'System Latens',
+  badge: 'Systemfördröjning',
   modeInstant: 'Direkt Respons',
-  modeKey: 'Tangentbordslatens',
-  modeVisual: 'Visuell Reaktion',
-  targetClickPrompt: 'Klicka har for att mata input lag',
-  targetKeyPrompt: 'Tryck pa valfri tangent for tangentbordslatens',
-  targetWaitPrompt: 'Vanta pa gron bakgrund...',
+  modeKey: 'Tangenttryckningslatens',
+  modeVisual: 'Visuell Reaktionslatens',
+  targetClickPrompt: 'Klicka eller tryck i denna ruta för att mäta fördröjningen',
+  targetKeyPrompt: 'Tryck på valfri tangent (eller Blanksteg) för att mäta tangentbordslatens',
+  targetWaitPrompt: 'Vänta på grön bakgrund...',
   targetNowPrompt: 'KLICKA NU!',
-  labelAvgLatency: 'Genomsnittlig Latens',
-  labelMinLatency: 'Minsta Latens',
-  labelMaxLatency: 'Maximal Latens',
-  labelJitter: 'Jitter (Standardavvikelse)',
+  labelAvgLatency: 'Genomsnittlig Fördröjning',
+  labelMinLatency: 'Minsta Fördröjning',
+  labelMaxLatency: 'Högsta Fördröjning',
+  labelJitter: 'Fördröjnings-jitter (Std. avvikelse)',
   labelFps: 'Aktuell FPS',
-  labelFrameTime: 'Bilder-tid',
-  labelSamples: 'Prover',
-  labelGrade: 'Betyg',
-  gradeUltraFast: 'Ultra Snabb (<10ms)',
+  labelFrameTime: 'Bildrutetid',
+  labelSamples: 'Mätningar',
+  labelGrade: 'Fördröjningsbetyg',
+  gradeUltraFast: 'Ultrasnabb (<10ms)',
   gradeFast: 'Snabb (10-20ms)',
   gradeModerate: 'Måttlig (20-35ms)',
   gradeHigh: 'Hög (>35ms)',
-  btnReset: 'Aterstall',
-  btnCopyReport: 'Kopiera Rapport',
+  btnReset: 'Återställ Mätningar',
+  btnCopyReport: 'Kopiera Benchmark-rapport',
   reportCopied: 'Rapport Kopierad!',
-  historyTitle: 'Senaste Matningar',
-  pipelineTitle: 'Hardware Pipeline Latens Uppdelning',
-  distributionTitle: 'Frekvensfordelning',
+  historyTitle: 'Senaste Fördröjningsmätningar',
+  pipelineTitle: 'Hårdvarusignalens Kedjeanalys',
+  distributionTitle: 'Frekvensfördelning för Fördröjning',
   sampleCol: 'Prov',
   typeCol: 'Inmatningstyp',
-  latencyCol: 'Uppmatts Latens',
+  latencyCol: 'Uppmätt Fördröjning',
 };
 
 export const content: ToolLocaleContent<InputLagTestUI> = {
@@ -110,61 +133,215 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
   seo: [
     {
       type: 'title',
-      text: 'Matning av Input Lag och Systemlatens',
+      text: 'Vad är Input Lag och Systemfördröjning vid PC-Gaming?',
     },
     {
       type: 'paragraph',
-      html: 'Utvardera din inmatningsfordrojning och skarmrespons i realtid.',
+      html: 'Input lag (eller inmatningsfördröjning) representerar den exakta tidsfördröjningen mellan att en användare utför en fysisk handling (som att klicka på en musknapp eller trycka på en tangent på tangentbordet) och att den motsvarande visuella reaktionen visas på skärmen. I e-sport och snabba spel är minskad systemlatens avgörande för precision vid sikte, snabbhet och övergripande prestatation. Den totala systemfördröjningen består av en ackumulering av fördröjningar: musens/tangentbordets USB-rapporteringsfrekvens, operativsystemets händelsehantering, spelmotorns rendering, grafikkortets bildrutebuffertar samt skärmpanelens egna pikselresponstid.',
     },
-    { type: 'stats', items: [
-      { value: '< 10 ms', label: 'Esportmal', trend: 'Konkurrensreferens' },
-      { value: '1000 Hz', label: 'Vanlig USB polling', trend: 'Inmatningsintervall 1 ms' },
-      { value: '240 Hz', label: 'Skarm med hog frekvens', trend: 'Bildintervall 4.16 ms' },
-      { value: '16.6 ms', label: 'Intervall vid 60 Hz', trend: 'Bas per bild' },
-    ], columns: 4 },
-    { type: 'card', title: 'Sa mater webblasaren latenstid', html: 'Testet jamfor pointerdown och keydown med uppdateringar fran requestAnimationFrame. Det uppskattar den lokala tiden mellan att inmatningen upptacks och sidan ritas om.' },
-    { type: 'title', text: 'Hur latenhetssignalen gar genom systemet' },
-    { type: 'paragraph', html: 'Den totala fordrojningen byggs upp fran enhetens brytare till den synliga pixeln. Genom att dela upp stegen kan du hitta orsaken i enheten, operativsystemet, renderingen eller skarmen.' },
-    { type: 'table', headers: ['Komponent', 'Vanligt intervall', 'Vanlig flaskhals', 'Mojlig atgard'], rows: [
-      ['Brytare', '0.2 till 5.0 ms', 'Mekaniskt studs', 'Korta debounce'],
-      ['USB polling', '0.125 till 8.0 ms', 'Lag frekvens', 'Hoja frekvensen om det gar'],
-      ['Systemko', '0.5 till 3.0 ms', 'Bakgrundsjobb', 'Stang onodiga processer'],
-      ['Grafikmotor', '4.0 till 20.0 ms', 'CPU begransar bilder', 'Minska renderingslasten'],
-      ['GPU ko', '8.0 till 33.0 ms', 'VSync och flera buffertar', 'Jamfor VSync med VRR'],
-      ['Skarmbehandling', '1.0 till 15.0 ms', 'Skalning och filter', 'Aktivera spellage'],
-    ] },
-    { type: 'tip', title: 'Minska GPU koens renderingsvantan', html: 'En fullt belastad GPU kan forbereda flera bilder i forvag. En grans strax under maximum och ett test med Reflex eller Anti Lag kan minska vantetiden.' },
-    { type: 'title', text: 'Jamfor olika inmatningsenheter' },
-    { type: 'paragraph', html: 'Moss, tangentbord och pekskarmar har olika latenstid beroende pa anslutning, elektronik och skanningsfrekvens. Anvand samma skarm och installningar nar du jamfor.' },
-    { type: 'comparative', columns: 3, items: [
-      { title: 'Gamingmoss', description: 'Tradlos eller tradbunden anslutning med hog frekvens.', highlight: '0.5 till 2 ms', points: ['Polling pa 1000 Hz eller mer', 'Optiska brytare', 'Sensor med snabb behandling'] },
-      { title: 'Mekaniska tangentbord', description: 'Tangentmatris med justerbar debounce.', highlight: '1 till 10 ms', points: ['Magnetiska brytare', 'Konfigurerbar matrisavsokning', 'Justerbart aktiveringsavstand'] },
-      { title: 'Pekskarmar', description: 'Kapacitiv digitaliserare ovanfor panelen.', highlight: '15 till 45 ms', points: ['Samplingsfrekvens for beroring', 'Skarmkontrollerns behandling', 'Filter mot oavsiktliga tryck'] },
-    ] },
-    { type: 'title', text: 'Forsta skarmens uppdateringsfrekvens' },
-    { type: 'paragraph', html: 'Uppdateringsfrekvensen bestammer minimiintervallet mellan bilder. En skarm pa 60 Hz visar inmatning senare an 240 Hz, men rendering och synkronisering paverkar ocksa resultatet.' },
-    { type: 'list', items: ['60 Hz ar 16.67 ms per bild', '120 Hz ar 8.33 ms per bild', '144 Hz ar 6.94 ms per bild', '240 Hz ar 4.17 ms per bild', '360 Hz ar 2.78 ms per bild', '540 Hz ar 1.85 ms per bild'] },
-    { type: 'glossary', items: [
-      { term: 'Input lag', definition: 'Tiden fran fysisk handling till synligt resultat pa skarmen.' },
-      { term: 'Jitter', definition: 'Variation mellan matningar som visar hur stabil tiden ar.' },
-      { term: 'VSync', definition: 'Vertikal synkronisering som kan minska tearing men oka vantan.' },
-      { term: 'VRR', definition: 'Variabel frekvens som anpassar skarmen till GPU utdata.' },
-      { term: 'Pixelsvarstid', definition: 'Tiden som en pixel behover for att byta nyans.' },
-    ] },
-    { type: 'title', text: 'Fordelar och granser med webblasarmatning' },
-    { type: 'paragraph', html: 'Testet jamfor installningar utan oscilloskop eller snabb kamera. Det ser inte direkt alla interna fordrojningar i drivrutin, spel eller panelens optiska utsignal.' },
-    { type: 'proscons', title: 'Bedömning av webbmatning', items: [
-      { pro: 'Kräver ingen specialutrustning', con: 'Påverkas av webbläsarens händelseförlopp' },
-      { pro: 'Jamfor enheter snabbt', con: 'Mater inte pixelsvar direkt' },
-      { pro: 'Anvander lokal timer med hog upplosning', con: 'Webblasaren kan minska timerprecisionen' },
-      { pro: 'Visar stabiliteten i uppdateringar', con: 'En inaktiv flik kan bli langsammare' },
-    ] },
-    { type: 'title', text: 'Diagnostisera hog inmatningslatenhet' },
-    { type: 'paragraph', html: 'Om medelvardet overstiger 30 ms eller jitter ar stor, upprepa serien med aktivt fonster och kontrollera VSync, grafikacceleration, USB polling och CPU belastning.' },
-    { type: 'diagnostic', variant: 'warning', title: 'Diagnosvarning for latenhet', html: 'Ett medel over 35 ms pa en stationar dator kraver kontroll av skarm lage och maskinvaruacceleration. Andra en installning i taget.' },
-    { type: 'title', text: 'Sank systemets latenhet steg for steg' },
-    { type: 'paragraph', html: 'Justera enhet, skärm och system var för sig. Samla nya mätningar under samma villkor efter varje ändring för att bekräfta en verklig förbättring.' },
-    { type: 'summary', title: 'Checklista for latenhetsoptimering', items: ['Valj passande USB polling', 'Aktivera skarmens spellage', 'Stang av onodiga bildfilter', 'Jamfor VSync och VRR', 'Hall bildfrekvensen stabil', 'Stang tunga bakgrundsjobb', 'Mat igen efter varje andring'] },
-    { type: 'message', title: 'Basta sattet att jamfora resultat', html: 'Stang bakgrundsappar, hall testfonstret aktivt och samla minst 15 prover. Titta pa median, medelvarde och jitter eftersom ett enskilt resultat kan vara slumpmassigt.' },
+    {
+      type: 'stats',
+      items: [
+        {
+          value: '< 10 ms',
+          label: 'E-sport Målvärde',
+          trend: 'Optimal tävlingsnivå',
+        },
+        {
+          value: '1000 Hz',
+          label: 'Standard USB-Polling',
+          trend: '1.0 ms intervall mellan signaler',
+        },
+        {
+          value: '240 Hz',
+          label: 'Högskärmsuppdatering',
+          trend: '4.16 ms bildrutetid per frame',
+        },
+        {
+          value: '16.6 ms',
+          label: '60Hz Bildrutetid',
+          trend: 'Grundläggande skärmfördröjning per bild',
+        },
+      ],
+      columns: 4,
+    },
+    {
+      type: 'card',
+      title: 'Hur fungerar latensmätning direkt i din webbläsare?',
+      html: 'Testet använder högprecisions tidsstämplar via <code>performance.now()</code> kombinerat med DOM-händelselyssnare (<code>pointerdown</code> och <code>keydown</code>). Genom att synkronisera registreringen av händelser med skärmens faktiska uppdatering via <code>requestAnimationFrame</code> beräknar verktyget tidsskillnaden mellan fysisk handling och bildskärmsuppdatering direkt i din webbläsare på ett mycket noggrant sätt.',
+    },
+    {
+      type: 'title',
+      text: 'Signalens kompletta väg från knapptryck till skärmvisning',
+    },
+    {
+      type: 'paragraph',
+      html: 'För att förstå, diagnostisera och minska inmatningsfördröjningen effektivt måste hela signalkedjan analyseras i detalj. Den totala systemlatensen är summan av fördröjningen i periferiutrustning, operativsystem, spelmotor, grafikkort och bildskärmsbearbetning.',
+    },
+    {
+      type: 'table',
+      headers: ['Komponent i Kedjan', 'Typisk Fördröjning', 'Huvudorsak till Fördröjning', 'Optimeringsstrategi'],
+      rows: [
+        ['Utrustningsknapp', '0.2 ms - 5.0 ms', 'Mekanisk studsfördröjning i kontakten', 'Använd optiska brytare'],
+        ['USB-Polling Rate', '0.125 ms - 8.0 ms', '125 Hz vs 1000 Hz / 8000 Hz USB', 'Öka rapporteringsfrekvensen till 1000Hz+'],
+        ['Operativsystemets Kö', '0.5 ms - 3.0 ms', 'Bakgrundsprocesser och fönsterhanterare', 'Aktivera Spelläge i Windows'],
+        ['Renderingsmotor', '4.0 ms - 20.0 ms', 'CPU-belastning och trådsynkronisering', 'Använd NVIDIA Reflex / AMD Anti-Lag'],
+        ['GPU-Bildrutebuffert', '8.0 ms - 33.0 ms', 'VSync aktiverat, dubbel/trippel buffert', 'Inaktivera VSync, använd VRR'],
+        ['Bildskärmsbearbetning', '1.0 ms - 15.0 ms', 'Bildbehandling och skalning i TV/Skärm', 'Aktivera Spelläge på skärmen/TV:n'],
+      ],
+    },
+    {
+      type: 'tip',
+      title: 'Hur minskar jag fördröjningar vid hög grafikbelastning?',
+      html: 'När grafikkortet belastas till 99% lagrar drivrutinen flera bildrutor i förväg. Detta skapar en märkbar inmatningsfördröjning (ofta 30 ms till 50 ms). Begränsa bildhastigheten något under grafikkortets maxkapacitet eller aktivera NVIDIA Reflex.',
+    },
+    {
+      type: 'title',
+      text: 'Jämförelse av fördröjning mellan möss, tangentbord och pekskärmar',
+    },
+    {
+      type: 'paragraph',
+      html: 'Olika inmatningsenheter har olika fördröjningsegenskaper beroende på teknik.',
+    },
+    {
+      type: 'comparative',
+      columns: 3,
+      items: [
+        {
+          title: 'Gamingmöss',
+          description: 'Snabb trådlös (2.4GHz) eller trådbunden anslutning.',
+          highlight: '0.5ms - 2ms Fördröjning',
+          points: [
+            '1000Hz till 8000Hz polling rate',
+            'Optiska brytare utan studsfördröjning',
+            'Sensorer med extremt låg rörelsefördröjning',
+          ],
+        },
+        {
+          title: 'Mekaniska Tangentbord',
+          description: 'Matrisskanning med studskontroll.',
+          highlight: '1ms - 10ms Fördröjning',
+          points: [
+            'Magnetiska Hall-effect-brytare (Rapid Trigger)',
+            'Skanningsfrekvens upp till 8000Hz',
+            'Justerbar aktiveringspunkt',
+          ],
+        },
+        {
+          title: 'Mobila Pekskärmar',
+          description: 'Kapacitiv avläsning på mobila enheter.',
+          highlight: '15ms - 45ms Fördröjning',
+          points: [
+            'Pekavläsningsfrekvens (120Hz - 480Hz)',
+            'Fördröjning i operativsystemets grafikhanterare',
+            'Kapacitiva filtreringsalgoritmer',
+          ],
+        },
+      ],
+    },
+    {
+      type: 'title',
+      text: 'Uppdateringsfrekvensens påverkan på skärmfördröjningen',
+    },
+    {
+      type: 'paragraph',
+      html: 'Skärmens uppdateringsfrekvens sätter den teoretiska miniminivån för bildvisningsfördröjningen.',
+    },
+    {
+      type: 'list',
+      items: [
+        '60 Hz Skärm: 1 bildruta = 16.67 ms (Genomsnittlig fördröjning: ~8.33 ms)',
+        '120 Hz Skärm: 1 bildruta = 8.33 ms (Genomsnittlig fördröjning: ~4.16 ms)',
+        '144 Hz Skärm: 1 bildruta = 6.94 ms (Genomsnittlig fördröjning: ~3.47 ms)',
+        '240 Hz Skärm: 1 bildruta = 4.17 ms (Genomsnittlig fördröjning: ~2.08 ms)',
+        '360 Hz Skärm: 1 bildruta = 2.78 ms (Genomsnittlig fördröjning: ~1.39 ms)',
+      ],
+    },
+    {
+      type: 'glossary',
+      items: [
+        {
+          term: 'Input Lag',
+          definition: 'Total tid från fysisk inmatning tills reaktionen visas på skärmen.',
+        },
+        {
+          term: 'Jitter (Fördröjningsvariation)',
+          definition: 'Standardavvikelsen för mätningarna som visar systemets stabilitet.',
+        },
+        {
+          term: 'VSync (Vertikal Synchronisering)',
+          definition: 'Förhindrar att bilden hackar/slits sönder men ökar input lag avsevärt.',
+        },
+        {
+          term: 'Variable Refresh Rate (VRR)',
+          definition: 'Tekniker som G-Sync och FreeSync som anpassar skärmens uppdatering till GPU:n.',
+        },
+      ],
+    },
+    {
+      type: 'title',
+      text: 'För- och nackdelar med webbläsarbaserad latensmätning',
+    },
+    {
+      type: 'paragraph',
+      html: 'Att mäta fördröjning i webbläsaren ger snabb tillgång utan specialutrustning.',
+    },
+    {
+      type: 'proscons',
+      title: 'Utvärdering av Webbläsarmätning',
+      items: [
+        {
+          pro: 'Ingen mjukvaruinstallation eller specialhårdvara krävs',
+          con: 'Påverkas av webbläsarens händelseslinga och operativsystemets fönsterhanterare',
+        },
+        {
+          pro: 'Hög precision tack vare mikrosekundtimer (performance.now)',
+          con: 'Kan inte mäta skärmpixelns optiska svart-till-vitt-svarstid direkt',
+        },
+        {
+          pro: 'Omedelbar jämförelse mellan olika möss och tangentbord',
+          con: 'Säkerhetsbegränsningar i webbläsarens timerprecision',
+        },
+      ],
+    },
+    {
+      type: 'title',
+      text: 'Felsökning vid hög input lag',
+    },
+    {
+      type: 'paragraph',
+      html: 'Om dina resultat visar hög fördröjning (>30 ms), kontrollera inställningarna nedan.',
+    },
+    {
+      type: 'diagnostic',
+      variant: 'warning',
+      title: 'Varning för Hög Fördröjning',
+      html: 'Om den genomsnittliga fördröjningen överstiger 35 ms, kontrollera om VSync är aktiverat i grafikkortets kontrollpanel. Inaktiverad hårdvaruacceleration i webbläsaren kan också belasta CPU:n och öka fördröjningen.',
+    },
+    {
+      type: 'title',
+      text: 'Steg för att optimera systemfördröjningen',
+    },
+    {
+      type: 'paragraph',
+      html: 'Följ dessa steg för att minska fördröjningen på ditt system.',
+    },
+    {
+      type: 'summary',
+      title: 'Checklista för Latensoptimering',
+      items: [
+        'Ställ in musens USB-rapporteringsfrekvens till 1000Hz eller högre.',
+        'Aktivera Hårdvaruaccelererad GPU-schemaläggning (HAGS) i Windows-inställningarna.',
+        'Aktivera Spelläge på TV:n eller skärmen för att kringgå bildbehandling.',
+        'Inaktivera VSync i 3D-inställningarna och använd G-Sync eller FreeSync.',
+        'Aktivera NVIDIA Reflex eller AMD Anti-Lag i spel som stöds.',
+        'Se till att Hårdvaruacceleration är aktiverat i webbläsarens inställningar.',
+      ],
+    },
+    {
+      type: 'message',
+      title: 'Bästa praxis för tillförlitliga mätningar',
+      html: 'För bästa precision, stäng bakgrundsprogram, kör webbläsaren i fullskärmsläge och gör minst 15 till 20 mätningar.',
+    },
   ],
 };

@@ -3,31 +3,54 @@ import type { ToolLocaleContent } from '../../../types';
 import type { InputLagTestUI } from '../ui';
 import { bibliography } from '../bibliography';
 
-const slug = 'input-lag-systeem-latentie-test';
-
-const title = 'Input Lag & Systeem Latentie Test';
-const description = 'Online tool voor het meten van input lag en schermvertraging via hoge precisie timing.';
+const slug = 'input-lag-test';
+const title = 'Input Lag en Systeem Latency Test';
+const description = 'Online meetgereedschap voor hardware-invoer vertraging en systeem-latency met hoge precisie en schermsynchronisatie.';
 
 const faqData = [
   {
-    question: 'Wat is input lag?',
-    answer: 'Input lag is de vertraging tussen een fysieke handeling en de visuele weergave op het scherm.',
+    question: 'Wat is input lag en systeem-latency?',
+    answer: 'Input lag is de totale tijdvertraging tussen een fysieke gebruikersactie (klikken op de muis of drukken op een toets) en de bijbehorende visuele weergave op het scherm.',
   },
-  { question: 'Welke vertraging is goed voor gamen?', answer: 'Onder 10 ms is zeer snel. 10 tot 20 ms is snel, 20 tot 35 ms is gemiddeld en hogere waarden worden merkbaar.' },
-  { question: 'Hoe verlaag ik invoervertraging?', answer: 'Controleer schermfrequentie, VSync, VRR en USB polling. Wijzig daarna één instelling en meet opnieuw.' },
-  { question: 'Heeft verversingssnelheid invloed op input lag?', answer: 'Ja. Bij 60 Hz duurt een frame 16.67 ms en bij 240 Hz 4.17 ms. Rendering en het paneel voegen ook vertraging toe.' },
-  { question: 'Waarom is jitter belangrijk?', answer: 'Jitter toont de variatie tussen metingen. Een iets hoger maar stabiel resultaat kan beter aanvoelen dan een lage gemiddelde waarde met pieken.' },
+  {
+    question: 'Hoe meet deze online test de invoervertraging?',
+    answer: 'De test legt hardware-gebeurtenistijdstempels vast via performance.now() en relateert deze aan opeenvolgende requestAnimationFrame-weergavecycli.',
+  },
+  {
+    question: 'Wat is een goede input lag voor gaming?',
+    answer: 'Minder dan 10 ms wordt beschouwd als ultrasnel voor esports. 10 ms tot 20 ms is snel, 20 ms tot 35 ms is gemiddeld en boven 35 ms is een merkbare vertraging.',
+  },
+  {
+    question: 'Hoe kan ik input lag verminderen op mijn pc?',
+    answer: 'Verhoog de verversingssnelheid van uw monitor, schakel VSync uit, schakel G-Sync of FreeSync in, verhoog de USB-reactiesnelheid van de muis naar 1000Hz+ en gebruik NVIDIA Reflex.',
+  },
+  {
+    question: 'Beïnvloedt de verversingssnelheid van het scherm de input lag?',
+    answer: 'Ja. Hogere verversingssnelheden verkorten de beeldduur. Een 60Hz scherm heeft een beeldduur van 16,67 ms, terwijl een 240Hz scherm een beeldduur van slechts 4,17 ms heeft.',
+  },
 ];
 
 const howToData = [
   {
-    name: 'Selecteer modus',
-    text: 'Kies Directe Respons, Toetsenbord Latentie of Visuele Reactie.',
+    name: 'Kies testmodus',
+    text: 'Selecteer Directe Respons, Toetsaanslag Latency of Visuele Reactie Latency.',
   },
-  { name: 'Invoer uitvoeren', text: 'Klik in het testvak of druk toetsen in om invoergebeurtenissen te registreren.' },
-  { name: 'Statistieken bekijken', text: 'Controleer gemiddelde, minimum, maximum en jitter na meerdere pogingen.' },
-  { name: 'Opnieuw meten', text: 'Herhaal de reeks na elke wijziging onder dezelfde omstandigheden.' },
-  { name: 'Grenzen begrijpen', text: 'Gebruik het resultaat om configuraties te vergelijken, niet als absolute pixelmeting.' },
+  {
+    name: 'Voer fysieke invoer uit',
+    text: 'Klik in het doelvak of druk op toetsen om invoergebeurtenissen te genereren.',
+  },
+  {
+    name: 'Bekijk realtime latency-statistieken',
+    text: 'Bekijk de berekende gemiddelde, minimale, maximale latency en jitter.',
+  },
+  {
+    name: 'Controleer scherm-timing',
+    text: 'Houd de huidige FPS en beeldtijd in de gaten ter controle van schermstabiliteit.',
+  },
+  {
+    name: 'Analyseer de meetgeschiedenis',
+    text: 'Inspecteer het geschiedenislogboek om pieken en afwijkingen te identificeren.',
+  },
 ];
 
 const faqSchema: WithContext<FAQPage> = {
@@ -60,42 +83,42 @@ const appSchema: WithContext<SoftwareApplication> = {
   description,
   applicationCategory: 'UtilityApplication',
   operatingSystem: 'All',
-  offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
   inLanguage: 'nl',
 };
 
 const uiData: InputLagTestUI = {
   title,
   description,
-  badge: 'Systeem Latentie',
+  badge: 'Systeem-Latency',
   modeInstant: 'Directe Respons',
-  modeKey: 'Toetsenbord Latentie',
-  modeVisual: 'Visuele Reactie',
-  targetClickPrompt: 'Klik in dit vak om de invoervertraging te meten',
-  targetKeyPrompt: 'Druk op een toets voor toetsenbord latentie',
-  targetWaitPrompt: 'Wacht op groen scherm...',
+  modeKey: 'Toetsaanslag Latency',
+  modeVisual: 'Visuele Reactie Latency',
+  targetClickPrompt: 'Klik of tik in dit vak om de latency te meten',
+  targetKeyPrompt: 'Druk op een willekeurige toets (of Spatiebalk) om de toetsenbordlatency te meten',
+  targetWaitPrompt: 'Wacht op de groene achtergrond...',
   targetNowPrompt: 'KLIK NU!',
-  labelAvgLatency: 'Gemiddelde Latentie',
-  labelMinLatency: 'Minimale Latentie',
-  labelMaxLatency: 'Maximale Latentie',
-  labelJitter: 'Jitter (Standaardafwijking)',
+  labelAvgLatency: 'Gemiddelde Latency',
+  labelMinLatency: 'Minimale Latency',
+  labelMaxLatency: 'Maximale Latency',
+  labelJitter: 'Latency-Jitter (Standaardafw.)',
   labelFps: 'Huidige FPS',
-  labelFrameTime: 'Frame Tijd',
+  labelFrameTime: 'Beeldtijd',
   labelSamples: 'Metingen',
-  labelGrade: 'Beoordeling',
-  gradeUltraFast: 'Ultra Snel (<10ms)',
+  labelGrade: 'Latency-Beoordeling',
+  gradeUltraFast: 'Ultrasnel (<10ms)',
   gradeFast: 'Snel (10-20ms)',
   gradeModerate: 'Gemiddeld (20-35ms)',
   gradeHigh: 'Hoog (>35ms)',
-  btnReset: 'Resetten',
-  btnCopyReport: 'Rapport Kopiëren',
+  btnReset: 'Metingen Herstellen',
+  btnCopyReport: 'Benchmark-Rapport Kopiëren',
   reportCopied: 'Rapport Gekopieerd!',
-  historyTitle: 'Recente Metingen',
-  pipelineTitle: 'Hardware Pipeline Latentie Analyse',
-  distributionTitle: 'Frequentieverdeling',
+  historyTitle: 'Recente Latency-Metingen',
+  pipelineTitle: 'Hardware Signaalpad Latency-Analyse',
+  distributionTitle: 'Latency Frequentieverdeling',
   sampleCol: 'Meting',
   typeCol: 'Invoertype',
-  latencyCol: 'Gemeten Latentie',
+  latencyCol: 'Gemeten Latency',
 };
 
 export const content: ToolLocaleContent<InputLagTestUI> = {
@@ -110,61 +133,215 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
   seo: [
     {
       type: 'title',
-      text: 'Input Lag en Systeem Latentie Meting',
+      text: 'Wat is Input Lag en Systeem-Latency bij PC Gaming?',
     },
     {
       type: 'paragraph',
-      html: 'Meet de reactiesnelheid van je invoerapparaten en scherm in real-time.',
+      html: 'Input lag (of invoervertraging) vertegenwoordigt de exacte tijdvertraging tussen een fysieke actie van de gebruiker (zoals het klikken met een muisknop of het indrukken van een toets op het toetsenbord) en de bijbehorende visuele weergave die op het beeldscherm verschijnt. In esports en snelle games is het minimaliseren van systeem-latency essentieel voor richtnauwkeurigheid, snelle reacties en algehele prestaties. De totale systeem-latency bestaat uit een opeenstapeling van vertragingen: USB-polling van het randapparaat, gebeurtenisverwerking door het besturingssysteem, de render-engine van de game, GPU-framebuffers en de eigen reactietijd van de monitorpixels.',
     },
-    { type: 'stats', items: [
-      { value: '< 10 ms', label: 'Esports doelwaarde', trend: 'Competitieve referentie' },
-      { value: '1000 Hz', label: 'Gebruikelijke USB polling', trend: 'Invoerinterval 1 ms' },
-      { value: '240 Hz', label: 'Scherm met hoge frequentie', trend: 'Frameinterval 4.16 ms' },
-      { value: '16.6 ms', label: 'Interval bij 60 Hz', trend: 'Basis per frame' },
-    ], columns: 4 },
-    { type: 'card', title: 'Hoe de browser de vertraging meet', html: 'De test vergelijkt pointerdown en keydown met updates van requestAnimationFrame. Zo wordt het lokale tijdsverschil tussen invoerherkenning en het opnieuw tekenen van de pagina geschat.' },
-    { type: 'title', text: 'Hoe het latentiesignaal door het systeem loopt' },
-    { type: 'paragraph', html: 'De totale vertraging stapelt zich op vanaf de schakelaar van het apparaat tot de zichtbare pixel. Door elke stap apart te bekijken vind je de oorzaak in het apparaat, besturingssysteem, renderproces of scherm.' },
-    { type: 'table', headers: ['Onderdeel', 'Gebruikelijk bereik', 'Belangrijk knelpunt', 'Mogelijke verbetering'], rows: [
-      ['Schakelaar', '0.2 tot 5.0 ms', 'Mechanische trilling', 'Debounce verkorten'],
-      ['USB polling', '0.125 tot 8.0 ms', 'Lage frequentie', 'Frequentie verhogen als dat kan'],
-      ['Systeemwachtrij', '0.5 tot 3.0 ms', 'Achtergrondtaken', 'Onnodige processen sluiten'],
-      ['Grafische engine', '4.0 tot 20.0 ms', 'Frames beperkt door CPU', 'Renderbelasting verlagen'],
-      ['GPU wachtrij', '8.0 tot 33.0 ms', 'VSync en meerdere buffers', 'VSync en VRR vergelijken'],
-      ['Schermverwerking', '1.0 tot 15.0 ms', 'Schalen en filters', 'Spelmodus inschakelen'],
-    ] },
-    { type: 'tip', title: 'Wachtrij van de GPU verkorten', html: 'Een volledig belaste GPU kan meerdere frames vooraf klaarzetten. Een limiet net onder het maximum en een test met Reflex of Anti Lag kunnen de wachttijd verkorten.' },
-    { type: 'title', text: 'Invoerapparaten met elkaar vergelijken' },
-    { type: 'paragraph', html: 'Muizen, toetsenborden en aanraakschermen hebben verschillende vertragingen door hun verbinding, elektronica en scansnelheid. Gebruik hetzelfde scherm en dezelfde instellingen bij een vergelijking.' },
-    { type: 'comparative', columns: 3, items: [
-      { title: 'Gamingmuizen', description: 'Bekabelde of draadloze verbinding met hoge polling.', highlight: '0.5 tot 2 ms', points: ['Polling van 1000 Hz of hoger', 'Optische schakelaars', 'Sensor met snelle verwerking'] },
-      { title: 'Mechanische toetsenborden', description: 'Toetsmatrix met instelbare debounce.', highlight: '1 tot 10 ms', points: ['Magnetische schakelaars', 'Instelbare matrixscan', 'Regelbare activeringsafstand'] },
-      { title: 'Aanraakschermen', description: 'Capacitieve digitizer boven het paneel.', highlight: '15 tot 45 ms', points: ['Aanraakfrequentie', 'Verwerking door de schermcontroller', 'Filters tegen ongewenste aanrakingen'] },
-    ] },
-    { type: 'title', text: 'Vertraging door de verversingssnelheid begrijpen' },
-    { type: 'paragraph', html: 'De verversingssnelheid bepaalt het minimale interval tussen twee beelden. Een scherm van 60 Hz toont invoer later dan een scherm van 240 Hz, maar rendering en synchronisatie tellen ook mee.' },
-    { type: 'list', items: ['60 Hz is 16.67 ms per frame', '120 Hz is 8.33 ms per frame', '144 Hz is 6.94 ms per frame', '240 Hz is 4.17 ms per frame', '360 Hz is 2.78 ms per frame', '540 Hz is 1.85 ms per frame'] },
-    { type: 'glossary', items: [
-      { term: 'Input lag', definition: 'Tijd tussen een fysieke handeling en het zichtbare resultaat.' },
-      { term: 'Jitter', definition: 'Variatie tussen metingen die de stabiliteit van de timing toont.' },
-      { term: 'VSync', definition: 'Verticale synchronisatie die tearing kan verminderen maar wachttijd kan toevoegen.' },
-      { term: 'VRR', definition: 'Variabele verversing die het scherm aanpast aan de GPU uitvoer.' },
-      { term: 'Pixelresponstijd', definition: 'Tijd die een pixel nodig heeft om van tint te veranderen.' },
-    ] },
-    { type: 'title', text: 'Voordelen en grenzen van meten in de browser' },
-    { type: 'paragraph', html: 'De test vergelijkt instellingen zonder oscilloscoop of snelle camera. Hij ziet niet rechtstreeks alle interne vertraging van driver, game of optische paneeluitvoer.' },
-    { type: 'proscons', title: 'Beoordeling van webmeting', items: [
-      { pro: 'Geen speciale apparatuur nodig', con: 'Afhankelijk van de eventloop van de browser' },
-      { pro: 'Randapparatuur snel vergelijken', con: 'Pixelrespons wordt niet direct gemeten' },
-      { pro: 'Lokale timer met hoge resolutie', con: 'De browser kan timerprecisie verlagen' },
-      { pro: 'Stabiliteit van updates zichtbaar', con: 'Een inactief tabblad kan worden vertraagd' },
-    ] },
-    { type: 'title', text: 'Hoge invoervertraging onderzoeken' },
-    { type: 'paragraph', html: 'Als het gemiddelde boven 30 ms ligt of jitter groot is, herhaal je de reeks met het venster actief en controleer je VSync, grafische versnelling, USB polling en CPU taken.' },
-    { type: 'diagnostic', variant: 'warning', title: 'Diagnosemelding voor latentie', html: 'Een gemiddelde boven 35 ms op een desktop vraagt om controle van schermmodus en hardwareversnelling. Wijzig steeds maar één instelling.' },
-    { type: 'title', text: 'Systeemlatentie stap voor stap verlagen' },
-    { type: 'paragraph', html: 'Pas apparaat, scherm en systeem afzonderlijk aan. Verzamel na elke wijziging nieuwe metingen onder dezelfde omstandigheden om een echte verbetering te bevestigen.' },
-    { type: 'summary', title: 'Controlelijst voor latentieoptimalisatie', items: ['Kies passende USB polling', 'Schakel de spelmodus van het scherm in', 'Zet onnodige beeldfilters uit', 'Vergelijk VSync en VRR', 'Houd de framesnelheid stabiel', 'Sluit zware achtergrondtaken', 'Meet opnieuw na elke wijziging'] },
-    { type: 'message', title: 'Beste manier om resultaten te vergelijken', html: 'Sluit achtergrondapps, houd het testvenster actief en verzamel minstens 15 metingen. Bekijk mediaan, gemiddelde en jitter samen, want een enkele meting kan toevallig zijn.' },
+    {
+      type: 'stats',
+      items: [
+        {
+          value: '< 10 ms',
+          label: 'Esports Doel-Latency',
+          trend: 'Optimale competitieve waarde',
+        },
+        {
+          value: '1000 Hz',
+          label: 'Standaard USB Polling',
+          trend: '1.0 ms interval tussen signalen',
+        },
+        {
+          value: '240 Hz',
+          label: 'Hoge Verversingssnelheid',
+          trend: '4.16 ms beeldtijd per frame',
+        },
+        {
+          value: '16.6 ms',
+          label: '60Hz Beeldtijd',
+          trend: 'Basisvertraging per getoond beeld',
+        },
+      ],
+      columns: 4,
+    },
+    {
+      type: 'card',
+      title: 'Hoe werkt latency meting direct in uw browser?',
+      html: 'Deze test maakt gebruik van hoge-precisie tijdstempels via <code>performance.now()</code> gecombineerd met DOM-invoergebeurtenissen (<code>pointerdown</code> en <code>keydown</code>). Door gebeurtenissen te synchroniseren met de daadwerkelijke schermververstijd via <code>requestAnimationFrame</code>, berekent de tool het tijdsverschil tussen de fysieke actie en de beeldverversing direct in uw browser op accurate wijze.',
+    },
+    {
+      type: 'title',
+      text: 'Het complete signaalpad van toetsaanslag tot schermweergave',
+    },
+    {
+      type: 'paragraph',
+      html: 'Om invoervertraging effectief te verminderen en te analyseren, moet het gehele signaalpad grondig worden geanalyseerd. De totale systeem-latency is de som van de randapparatuur, het besturingssysteem, de render-engine van het spel, de grafische kaart en de beeldschermverwerking.',
+    },
+    {
+      type: 'table',
+      headers: ['Component', 'Typische Vertraging', 'Hoofdoorzaak van Vertraging', 'Optimalisatiestrategie'],
+      rows: [
+        ['Randapparaat Schakelaar', '0.2 ms - 5.0 ms', 'Mechanische dender op de contacten', 'Optische schakelaars gebruiken'],
+        ['USB-Reactiesnelheid', '0.125 ms - 8.0 ms', '125 Hz vs 1000 Hz / 8000 Hz USB', 'Verhoog naar 1000Hz of hoger'],
+        ['Besturingssysteem Wachtrij', '0.5 ms - 3.0 ms', 'Achtergrondtaken van het besturingssysteem', 'Windows Gamemodus inschakelen'],
+        ['Render Engine van het Spel', '4.0 ms - 20.0 ms', 'CPU-belasting en draadsynchronisatie', 'NVIDIA Reflex / Anti-Lag gebruiken'],
+        ['GPU Framebuffer', '8.0 ms - 33.0 ms', 'VSync ingeschakeld, dubbele/drievoudige buffer', 'VSync uitschakelen, VRR gebruiken'],
+        ['Schermverwerking', '1.0 ms - 15.0 ms', 'TV beeldverwerking en schaalalgoritmen', 'Spelmodus inschakelen op tv/monitor'],
+      ],
+    },
+    {
+      type: 'tip',
+      title: 'Hoe verminder ik latency bij een hoge GPU belastingsgraad?',
+      html: 'Wanneer de grafische kaart voor 99% wordt belast, slaat de driver meerdere beelden van tevoren op. Dit veroorzaakt een aanzienlijke invoervertraging (vaak 30 ms tot 50 ms). Beperk de beeldsnelheid iets onder de maximale capaciteit van de GPU of gebruik NVIDIA Reflex.',
+    },
+    {
+      type: 'title',
+      text: 'Vergelijking van latency bij muizen, toetsenborden en touchscreens',
+    },
+    {
+      type: 'paragraph',
+      html: 'Verschillende invoerapparaten vertonen uiteenlopende latency-eigenschappen afhankelijk van de toegepaste technologie.',
+    },
+    {
+      type: 'comparative',
+      columns: 3,
+      items: [
+        {
+          title: 'Gaming Muizen',
+          description: 'Snelle draadloze (2.4GHz) of bekabelde verbinding.',
+          highlight: '0.5ms - 2ms Latency',
+          points: [
+            '1000Hz tot 8000Hz polling rate',
+            'Optische schakelaars zonder dendervertraging',
+            'Sensoren met zeer lage bewegingsvertraging',
+          ],
+        },
+        {
+          title: 'Mechanische Toetsenborden',
+          description: 'Matrix-scanning met dender-controle.',
+          highlight: '1ms - 10ms Latency',
+          points: [
+            'Magnetische Hall-effect schakelaars (Rapid Trigger)',
+            'Scanfrequentie tot 8000Hz',
+            'Instelbaar activatiepunt',
+          ],
+        },
+        {
+          title: 'Mobiele Touchscreens',
+          description: 'Capacitieve sampling op mobiele apparaten.',
+          highlight: '15ms - 45ms Latency',
+          points: [
+            'Touch-sampling frekwentie (120Hz - 480Hz)',
+            'Vertraging door besturingssysteem-compositor',
+            'Capacitieve filteralgoritmen',
+          ],
+        },
+      ],
+    },
+    {
+      type: 'title',
+      text: 'Invloed van verversingssnelheid op beeldschermvertraging',
+    },
+    {
+      type: 'paragraph',
+      html: 'De verversingssnelheid van het scherm bepaalt de minimale weergavevertraging.',
+    },
+    {
+      type: 'list',
+      items: [
+        '60 Hz scherm: 1 beeld = 16.67 ms beeldduur (Gemiddelde vertraging: ~8.33 ms)',
+        '120 Hz scherm: 1 beeld = 8.33 ms beeldduur (Gemiddelde vertraging: ~4.16 ms)',
+        '144 Hz scherm: 1 beeld = 6.94 ms beeldduur (Gemiddelde vertraging: ~3.47 ms)',
+        '240 Hz scherm: 1 beeld = 4.17 ms beeldduur (Gemiddelde vertraging: ~2.08 ms)',
+        '360 Hz scherm: 1 beeld = 2.78 ms beeldduur (Gemiddelde vertraging: ~1.39 ms)',
+      ],
+    },
+    {
+      type: 'glossary',
+      items: [
+        {
+          term: 'Input Lag',
+          definition: 'Totale tijd tussen de fysieke invoer en de visuele weergave op het beeldscherm.',
+        },
+        {
+          term: 'Jitter (Latency-variatie)',
+          definition: 'De standaardafwijking van metingen die de regelmatigheid van het systeem aangeeft.',
+        },
+        {
+          term: 'VSync (Verticale Synchronisatie)',
+          definition: 'Voorkomt schermscheuringen maar verhoogt de invoervertraging aanzienlijk.',
+        },
+        {
+          term: 'Variable Refresh Rate (VRR)',
+          definition: 'Technologieën zoals G-Sync en FreeSync die de verversingssnelheid afstemmen op de GPU.',
+        },
+      ],
+    },
+    {
+      type: 'title',
+      text: 'Voor- en nadelen van browsergebaseerde latency-meting',
+    },
+    {
+      type: 'paragraph',
+      html: 'Het meten van latency in de browser biedt directe toegang zonder speciale hardware.',
+    },
+    {
+      type: 'proscons',
+      title: 'Beoordeling van browsermeting',
+      items: [
+        {
+          pro: 'Geen software-installatie of speciale apparatuur nodig',
+          con: 'Afhankelijk van de event-loop van de browser en de window-manager',
+        },
+        {
+          pro: 'Hoge precisie dankzij de performance.now microseconden-timer',
+          con: 'Meet niet direct de optische reactietijd van de schermpixels',
+        },
+        {
+          pro: 'Directe vergelijkingsmeting tussen verschillende apparaten',
+          con: 'Beveiligingsbeperkingen op de precisie van de browser-timer',
+        },
+      ],
+    },
+    {
+      type: 'title',
+      text: 'Diagnose bij hoge invoervertraging',
+    },
+    {
+      type: 'paragraph',
+      html: 'Als uw resultaten een hoge latency vertonen (>30 ms), controleer dan de onderstaande instellingen.',
+    },
+    {
+      type: 'diagnostic',
+      variant: 'warning',
+      title: 'Melding Hoge Latency',
+      html: 'Als de gemiddelde latency hoger is dan 35 ms, controleer dan of VSync is ingeschakeld in het stuurprogramma van de grafische kaart. Uitgeschakelde hardware-versnelling in de browser kan ook vertragingen veroorzaken.',
+    },
+    {
+      type: 'title',
+      text: 'Stappen om de systeem-latency te optimaliseren',
+    },
+    {
+      type: 'paragraph',
+      html: 'Volg deze stappen om de vertraging op uw systeem te verminderen.',
+    },
+    {
+      type: 'summary',
+      title: 'Checklist voor Latency Optimalisatie',
+      items: [
+        'Stel de USB-reactiesnelheid van de muis in op 1000Hz of hoger.',
+        'Schakel Hardware-accelerated GPU scheduling (HAGS) in via de Windows-instellingen.',
+        'Schakel de Spelmodus op de tv of monitor in om beeldverwerking te omzeilen.',
+        'Schakel VSync uit in de 3D-instellingen en gebruik G-Sync of FreeSync.',
+        'Schakel NVIDIA Reflex of AMD Anti-Lag in bij ondersteunde games.',
+        'Zorg ervoor dat Hardware-versnelling in de browser aan staat.',
+      ],
+    },
+    {
+      type: 'message',
+      title: 'Best practice voor betrouwbare resultaten',
+      html: 'Sluit voor optimale precisie achtergrondtoepassingen, gebruik de browser in volledig scherm en voer minstens 15 tot 20 metingen uit.',
+    },
   ],
 };

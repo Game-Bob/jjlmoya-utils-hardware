@@ -1,0 +1,112 @@
+---
+import type { MicrophoneSpectrumTesterUI } from './ui';
+
+interface Props {
+  ui: MicrophoneSpectrumTesterUI;
+}
+
+const { ui } = Astro.props;
+---
+
+<section class="micas" data-mst-root data-state="idle" data-tone="silent" aria-live="polite">
+  <ol class="micas-journey" aria-label="Microphone test steps">
+    <li>{ui.journeyPermission}</li>
+    <li>{ui.journeySpeak}</li>
+    <li>{ui.journeyInspect}</li>
+  </ol>
+
+  <div class="micas-controls">
+    <button class="micas-start" type="button" data-mst-start>
+      <span class="micas-start-pulse" aria-hidden="true"></span>
+      <span>{ui.startMicrophone}</span>
+    </button>
+
+    <div class="micas-device-wrap">
+      <span class="micas-device-label">{ui.deviceLabel}</span>
+      <button
+        class="micas-device"
+        type="button"
+        data-mst-device
+        aria-haspopup="listbox"
+        aria-expanded="false"
+        disabled
+      >
+        <span data-mst-device-label>{ui.defaultDevice}</span>
+        <span class="micas-chevron" aria-hidden="true"></span>
+      </button>
+      <div class="micas-device-menu" data-mst-menu role="listbox" hidden></div>
+    </div>
+
+    <div class="micas-status">
+      <span class="micas-status-light" aria-hidden="true"></span>
+      <span data-mst-status>{ui.statusIdle}</span>
+    </div>
+  </div>
+
+  <div class="micas-observatory">
+    <canvas
+      class="micas-canvas"
+      data-mst-canvas
+      role="img"
+      aria-label={ui.spectrumAriaLabel}
+    ></canvas>
+
+    <div class="micas-frequency-scale" aria-hidden="true">
+      <span>60 Hz</span>
+      <span>250 Hz</span>
+      <span>1 kHz</span>
+      <span>4 kHz</span>
+      <span>12 kHz</span>
+    </div>
+
+    <div class="micas-core">
+      <span class="micas-core-label">{ui.levelLabel}</span>
+      <strong data-mst-level>{ui.noSignalLevel}</strong>
+      <span class="micas-signal" data-mst-signal>{ui.silentSignal}</span>
+    </div>
+
+    <div class="micas-orbit micas-orbit-peak">
+      <span>{ui.peakLabel}</span>
+      <strong data-mst-peak>{ui.noSignalPeak}</strong>
+    </div>
+    <div class="micas-orbit micas-orbit-frequency">
+      <span>{ui.frequencyLabel}</span>
+      <strong data-mst-frequency>{ui.noSignalFrequency}</strong>
+    </div>
+    <div class="micas-orbit micas-orbit-noise">
+      <span>{ui.noiseFloorLabel}</span>
+      <strong data-mst-noise>{ui.unmeasured}</strong>
+    </div>
+  </div>
+
+  <div class="micas-room-tone">
+    <div>
+      <strong>{ui.noiseFloorLabel}</strong>
+      <span>{ui.roomToneHint}</span>
+    </div>
+    <button type="button" data-mst-capture disabled>{ui.captureNoise}</button>
+  </div>
+
+  <aside class="micas-limitation">
+    <span aria-hidden="true">i</span>
+    <div>
+      <strong>{ui.limitationTitle}</strong>
+      <p>{ui.limitationText}</p>
+    </div>
+  </aside>
+
+  <script is:inline type="application/json" data-mst-config set:html={JSON.stringify(ui)}></script>
+</section>
+
+<script>
+  import { initMicrophoneSpectrumTester } from './controller';
+  import type { MicrophoneSpectrumTesterUI } from './ui';
+
+  document.querySelectorAll<HTMLElement>('[data-mst-root]').forEach((root) => {
+    if (root.dataset.initialized === 'true') return;
+    const config = root.querySelector<HTMLScriptElement>('[data-mst-config]');
+    if (!config?.textContent) return;
+    root.dataset.initialized = 'true';
+    initMicrophoneSpectrumTester(root, JSON.parse(config.textContent) as MicrophoneSpectrumTesterUI);
+  });
+</script>

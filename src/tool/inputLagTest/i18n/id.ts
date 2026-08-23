@@ -3,31 +3,54 @@ import type { ToolLocaleContent } from '../../../types';
 import type { InputLagTestUI } from '../ui';
 import { bibliography } from '../bibliography';
 
-const slug = 'uji-latensi-input-lag';
-
-const title = 'Uji Latensi Input Lag dan Sistem';
-const description = 'Alat ukur input lag dan latensi sistem secara online dengan sinkronisasi bingkai layar presisi tinggi.';
+const slug = 'uji-lag-input-latensi';
+const title = 'Uji Lag Input & Latensi Sistem';
+const description = 'Alat pengukur lag input perangkat keras dan latensi sistem secara online dengan pewaktu presisi tinggi dan sinkronisasi tampilan.';
 
 const faqData = [
   {
-    question: 'Apa itu input lag?',
-    answer: 'Waktu tunda antara tindakan fisik pengguna dan pembaruan visual pada layar.',
+    question: 'Apa itu lag input dan latensi sistem?',
+    answer: 'Lag input adalah total penundaan waktu antara tindakan fisik pengguna (mengklik tetikus atau menekan tombol) dan pembaruan visual yang muncul di layar.',
   },
-  { question: 'Berapa latensi yang baik untuk bermain?', answer: 'Di bawah 10 ms sangat cepat. 10 sampai 20 ms cepat, 20 sampai 35 ms sedang, dan nilai lebih tinggi mulai terasa.' },
-  { question: 'Bagaimana cara mengurangi latensi input?', answer: 'Periksa refresh rate layar, VSync, VRR, dan polling USB. Ubah satu pengaturan lalu ukur ulang.' },
-  { question: 'Apakah refresh rate memengaruhi input lag?', answer: 'Ya. Layar 60 Hz membutuhkan 16.67 ms per frame, sedangkan 240 Hz membutuhkan 4.17 ms. Render dan panel juga berpengaruh.' },
-  { question: 'Mengapa jitter perlu diperhatikan?', answer: 'Jitter menunjukkan perubahan antar sampel. Nilai yang sedikit lebih tinggi tetapi stabil dapat terasa lebih baik daripada rata-rata rendah dengan lonjakan besar.' },
+  {
+    question: 'Bagaimana uji latensi online ini mengukur lag input?',
+    answer: 'Alat ini menangkap stempel waktu peristiwa perangkat keras menggunakan performance.now() dan menghubungkannya dengan siklus tampilan requestAnimationFrame berikutnya.',
+  },
+  {
+    question: 'Berapa nilai lag input yang baik untuk bermain game?',
+    answer: 'Di bawah 10 ms dianggap sangat cepat untuk esports kompetitif. 10 ms hingga 20 ms tergolong cepat, 20 ms hingga 35 ms sedang, dan di atas 35 ms adalah penundaan yang terasa.',
+  },
+  {
+    question: 'Bagaimana cara mengurangi lag input pada PC saya?',
+    answer: 'Tingkatkan tingkat penyegaran monitor, nonaktifkan VSync, aktifkan G-Sync atau FreeSync, tingkatkan polling rate USB tetikus ke 1000Hz+, dan aktifkan NVIDIA Reflex.',
+  },
+  {
+    question: 'Apakah tingkat penyegaran layar memengaruhi lag input?',
+    answer: 'Ya. Tingkat penyegaran yang lebih tinggi mengurangi durasi bingkai. Layar 60Hz memiliki durasi bingkai 16.67 ms, sedangkan layar 240Hz memiliki durasi 4.17 ms.',
+  },
 ];
 
 const howToData = [
   {
-    name: 'Pilih mode',
-    text: 'Pilih Respon Instan, Latensi Keyboard, atau Reaksi Visual.',
+    name: 'Pilih mode pengujian',
+    text: 'Pilih mode Respon Serta-merta, Latensi Tombol, atau Latensi Reaksi Visual.',
   },
-  { name: 'Lakukan input', text: 'Klik area tes atau tekan tombol untuk menghasilkan event input.' },
-  { name: 'Periksa statistik', text: 'Lihat rata-rata, nilai minimum, maksimum, dan jitter setelah beberapa percobaan.' },
-  { name: 'Bandingkan seri baru', text: 'Ulangi pengukuran setelah perubahan dengan kondisi yang sama.' },
-  { name: 'Pahami batas tes', text: 'Gunakan hasil untuk membandingkan konfigurasi, bukan sebagai pengukuran optik absolut.' },
+  {
+    name: 'Lakukan input fisik',
+    text: 'Klik di dalam kotak target atau tekan tombol untuk menghasilkan peristiwa input.',
+  },
+  {
+    name: 'Amati metrik latensi real-time',
+    text: 'Tinjau rata-rata, latensi minimum, maksimum, dan variasi (jitter) yang dihitung.',
+  },
+  {
+    name: 'Periksa pewaktuan bingkai tampilan',
+    text: 'Pantau FPS saat ini dan waktu bingkai untuk memastikan stabilitas layar.',
+  },
+  {
+    name: 'Analisis riwayat pengukuran',
+    text: 'Periksa log riwayat sampel untuk mengidentifikasi lonjakan latensi.',
+  },
 ];
 
 const faqSchema: WithContext<FAQPage> = {
@@ -60,7 +83,7 @@ const appSchema: WithContext<SoftwareApplication> = {
   description,
   applicationCategory: 'UtilityApplication',
   operatingSystem: 'All',
-  offers: { '@type': 'Offer', price: '0', priceCurrency: 'IDR' },
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
   inLanguage: 'id',
 };
 
@@ -68,33 +91,33 @@ const uiData: InputLagTestUI = {
   title,
   description,
   badge: 'Latensi Sistem',
-  modeInstant: 'Respon Instan',
-  modeKey: 'Latensi Keyboard',
-  modeVisual: 'Reaksi Visual',
-  targetClickPrompt: 'Klik di sini untuk mengukur latensi input',
-  targetKeyPrompt: 'Tekan tombol apa saja untuk latensi keyboard',
-  targetWaitPrompt: 'Tunggu latar hijau...',
+  modeInstant: 'Respon Serta-merta',
+  modeKey: 'Latensi Tombol',
+  modeVisual: 'Latensi Reaksi Visual',
+  targetClickPrompt: 'Klik atau ketuk di dalam kotak ini untuk mengukur latensi',
+  targetKeyPrompt: 'Tekan tombol apa saja (atau Spasi) untuk mengukur latensi papan ketik',
+  targetWaitPrompt: 'Tunggu latar belakang hijau...',
   targetNowPrompt: 'KLIK SEKARANG!',
   labelAvgLatency: 'Rata-rata Latensi',
   labelMinLatency: 'Latensi Minimum',
   labelMaxLatency: 'Latensi Maksimum',
-  labelJitter: 'Jitter (Fluktuasi)',
+  labelJitter: 'Jitter Latensi (Deviasi Standar)',
   labelFps: 'FPS Saat Ini',
   labelFrameTime: 'Waktu Bingkai',
   labelSamples: 'Sampel',
-  labelGrade: 'Penilaian',
+  labelGrade: 'Peringkat Latensi',
   gradeUltraFast: 'Sangat Cepat (<10ms)',
   gradeFast: 'Cepat (10-20ms)',
   gradeModerate: 'Sedang (20-35ms)',
   gradeHigh: 'Tinggi (>35ms)',
-  btnReset: 'Reset',
-  btnCopyReport: 'Salin Laporan',
-  reportCopied: 'Laporan Disalin!',
-  historyTitle: 'Pengukuran Terbaru',
-  pipelineTitle: 'Analisis Pipa Perangkat Keras',
-  distributionTitle: 'Distribusi Frekuensi',
+  btnReset: 'Atur Ulang Pengukuran',
+  btnCopyReport: 'Salin Laporan Benchmark',
+  reportCopied: 'Laporan Tersalin!',
+  historyTitle: 'Pengukuran Latensi Terkini',
+  pipelineTitle: 'Analisis Jalur Sinyal Perangkat Keras',
+  distributionTitle: 'Distribus Frekuensi Latensi',
   sampleCol: 'Sampel',
-  typeCol: 'Tipe Input',
+  typeCol: 'Jenis Input',
   latencyCol: 'Latensi Terukur',
 };
 
@@ -110,61 +133,215 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
   seo: [
     {
       type: 'title',
-      text: 'Pengukuran Input Lag dan Latensi Layar',
+      text: 'Apa itu Lag Input dan Latensi Sistem pada PC Gaming?',
     },
     {
       type: 'paragraph',
-      html: 'Ukur kecepatan respon sistem dan layar komputer Anda secara real-time.',
+      html: 'Lag input (atau penundaan input) mewakili penundaan waktu yang sangat tepat antara tindakan fisik pengguna (seperti mengklik tombol tetikus atau menekan tombol papan ketik) dan respons visual yang ditampilkan secara langsung di layar monitor. Dalam esports kompetitif dan permainan berkecepatan tinggi, meminimalkan latensi sistem sangat penting untuk akurasi bidikan, reaksi cepat, dan konsistensi permainan. Latensi sistem terdiri dari akumulasi penundaan seperti polling rate USB perangkat keras, pemrosesan antrean peristiwa sistem operasi, mesin rendering game, buffer bingkai kartugrafis, dan waktu respon piksel layar.',
     },
-    { type: 'stats', items: [
-      { value: '< 10 ms', label: 'Target esports', trend: 'Patokan kompetitif' },
-      { value: '1000 Hz', label: 'Polling USB umum', trend: 'Interval input 1 ms' },
-      { value: '240 Hz', label: 'Monitor refresh tinggi', trend: 'Interval frame 4.16 ms' },
-      { value: '16.6 ms', label: 'Interval 60 Hz', trend: 'Dasar per frame' },
-    ], columns: 4 },
-    { type: 'card', title: 'Cara pengukuran latensi di browser', html: 'Tes ini membandingkan event pointerdown dan keydown dengan pembaruan requestAnimationFrame. Hasilnya memperkirakan jeda lokal antara input terdeteksi dan pembaruan tampilan.' },
-    { type: 'title', text: 'Cara sinyal latensi melewati sistem' },
-    { type: 'paragraph', html: 'Latensi total terkumpul sejak sakelar perangkat ditekan sampai piksel terlihat. Memisahkan setiap tahap membantu menemukan apakah penundaan berasal dari perangkat, sistem operasi, proses render, atau layar.' },
-    { type: 'table', headers: ['Komponen', 'Rentang umum', 'Hambatan utama', 'Langkah perbaikan'], rows: [
-      ['Sakelar perangkat', '0.2 sampai 5.0 ms', 'Pantulan mekanis', 'Kurangi waktu debounce'],
-      ['Polling USB', '0.125 sampai 8.0 ms', 'Frekuensi rendah', 'Naikkan frekuensi bila tersedia'],
-      ['Antrean sistem', '0.5 sampai 3.0 ms', 'Tugas latar belakang', 'Tutup proses yang tidak diperlukan'],
-      ['Mesin grafis', '4.0 sampai 20.0 ms', 'Frame dibatasi CPU', 'Kurangi beban render'],
-      ['Antrean GPU', '8.0 sampai 33.0 ms', 'VSync dan banyak buffer', 'Bandingkan VSync dengan VRR'],
-      ['Pemrosesan layar', '1.0 sampai 15.0 ms', 'Penskalaan gambar', 'Aktifkan mode game'],
-    ] },
-    { type: 'tip', title: 'Mengurangi antrean render GPU', html: 'GPU yang penuh dapat menyiapkan beberapa frame lebih awal. Batas frame sedikit di bawah kemampuan maksimum dan percobaan dengan Reflex atau Anti Lag dapat mengurangi waktu tunggu.' },
-    { type: 'title', text: 'Membandingkan perangkat input' },
-    { type: 'paragraph', html: 'Mouse, keyboard, dan layar sentuh memiliki karakter latensi berbeda karena koneksi, rangkaian elektronik, dan frekuensi pemindaian. Gunakan layar serta pengaturan yang sama saat membandingkan perangkat.' },
-    { type: 'comparative', columns: 3, items: [
-      { title: 'Mouse gaming', description: 'Koneksi kabel atau nirkabel dengan polling tinggi.', highlight: '0.5 sampai 2 ms', points: ['Polling 1000 Hz atau lebih', 'Sakelar optik dengan pantulan lebih kecil', 'Sensor dengan pemrosesan cepat'] },
-      { title: 'Keyboard mekanis', description: 'Matriks tombol dengan kontrol debounce.', highlight: '1 sampai 10 ms', points: ['Sakelar magnetik', 'Pemindaian matriks yang dapat diatur', 'Jarak aktuasi yang dapat dikonfigurasi'] },
-      { title: 'Layar sentuh', description: 'Digitizer kapasitif di atas panel tampilan.', highlight: '15 sampai 45 ms', points: ['Frekuensi sampling sentuh', 'Pemrosesan pengendali layar', 'Filter untuk sentuhan tidak sengaja'] },
-    ] },
-    { type: 'title', text: 'Memahami pengaruh refresh rate layar' },
-    { type: 'paragraph', html: 'Refresh rate menentukan jarak minimum antara dua pembaruan gambar. Layar 60 Hz menampilkan input lebih lambat daripada layar 240 Hz, tetapi render dan sinkronisasi tetap memengaruhi hasil.' },
-    { type: 'list', items: ['60 Hz berarti 16.67 ms per frame', '120 Hz berarti 8.33 ms per frame', '144 Hz berarti 6.94 ms per frame', '240 Hz berarti 4.17 ms per frame', '360 Hz berarti 2.78 ms per frame', '540 Hz berarti 1.85 ms per frame'] },
-    { type: 'glossary', items: [
-      { term: 'Input lag', definition: 'Waktu antara tindakan fisik dan hasil yang terlihat di layar.' },
-      { term: 'Jitter', definition: 'Perubahan antar sampel yang menunjukkan kestabilan waktu sistem.' },
-      { term: 'VSync', definition: 'Sinkronisasi vertikal yang dapat mengurangi tearing tetapi menambah tunggu.' },
-      { term: 'VRR', definition: 'Refresh rate variabel yang menyesuaikan layar dengan keluaran GPU.' },
-      { term: 'Waktu piksel', definition: 'Waktu yang diperlukan piksel untuk berpindah dari satu warna ke warna lain.' },
-    ] },
-    { type: 'title', text: 'Kelebihan dan batas pengukuran browser' },
-    { type: 'paragraph', html: 'Pengukuran ini memudahkan perbandingan tanpa osiloskop atau kamera berkecepatan tinggi. Namun, browser tidak dapat melihat langsung semua penundaan internal driver, game, atau emisi optik panel.' },
-    { type: 'proscons', title: 'Evaluasi pengukuran web', items: [
-      { pro: 'Dapat digunakan tanpa perangkat khusus', con: 'Bergantung pada event loop browser' },
-      { pro: 'Cepat membandingkan periferal', con: 'Tidak mengukur respons piksel secara langsung' },
-      { pro: 'Menggunakan timer lokal beresolusi tinggi', con: 'Presisi timer dapat dikurangi browser' },
-      { pro: 'Menunjukkan kestabilan pembaruan', con: 'Tab yang tidak aktif dapat diperlambat' },
-    ] },
-    { type: 'title', text: 'Mendiagnosis latensi yang tinggi' },
-    { type: 'paragraph', html: 'Jika rata-rata melebihi 30 ms atau jitter besar, ulangi pengukuran saat jendela aktif dan periksa VSync, akselerasi grafis, polling USB, serta tugas CPU.' },
-    { type: 'diagnostic', variant: 'warning', title: 'Peringatan diagnosis latensi', html: 'Rata-rata di atas 35 ms pada komputer desktop perlu diperiksa pada mode layar dan akselerasi hardware. Ubah satu pengaturan setiap kali agar penyebabnya jelas.' },
-    { type: 'title', text: 'Mengurangi latensi langkah demi langkah' },
-    { type: 'paragraph', html: 'Atur periferal, layar, dan sistem secara terpisah. Setelah setiap perubahan, ambil sampel baru dengan kondisi sama untuk memastikan perbaikannya nyata.' },
-    { type: 'summary', title: 'Daftar periksa optimasi latensi', items: ['Pilih polling USB yang sesuai', 'Aktifkan mode game pada layar', 'Matikan filter gambar yang tidak perlu', 'Bandingkan VSync dan VRR', 'Jaga frame rate tetap stabil', 'Tutup tugas latar belakang yang berat', 'Ulangi tes setelah setiap perubahan'] },
-    { type: 'message', title: 'Praktik terbaik membandingkan hasil', html: 'Tutup aplikasi latar belakang, pertahankan fokus pada jendela tes, dan ambil sedikitnya 15 sampel. Lihat median bersama rata-rata dan jitter karena satu sampel dapat bersifat kebetulan.' },
+    {
+      type: 'stats',
+      items: [
+        {
+          value: '< 10 ms',
+          label: 'Target Latensi Esports',
+          trend: 'Nilai teratas kompetitif',
+        },
+        {
+          value: '1000 Hz',
+          label: 'Polling Rate USB Standar',
+          trend: 'Interval 1.0 ms antar sinyal',
+        },
+        {
+          value: '240 Hz',
+          label: 'Monitor Refresh Tinggi',
+          trend: 'Interval bingkai 4.16 ms',
+        },
+        {
+          value: '16.6 ms',
+          label: 'Interval Bingkai 60Hz',
+          trend: 'Penundaan dasar tampilan',
+        },
+      ],
+      columns: 4,
+    },
+    {
+      type: 'card',
+      title: 'Bagaimana Cara Kerja Pengukuran Latensi di Browser?',
+      html: 'Uji ini memanfaatkan stempel waktu presisi tinggi dari <code>performance.now()</code> yang digabungkan dengan peristiwa DOM (<code>pointerdown</code> dan <code>keydown</code>). Dengan menyinkronkan pendaftaran peristiwa ke siklus tampilan melalui <code>requestAnimationFrame</code>, aplikasi menghitung selisih waktu antara peristiwa fisik dan pembaruan layar langsung di browser Anda secara akurat.',
+    },
+    {
+      type: 'title',
+      text: 'Jalur Sinyal Input dari Sakelar hingga Layar',
+    },
+    {
+      type: 'paragraph',
+      html: 'Untuk mendiagnosis dan mengurangi latensi input secara efektif, seluruh rantai sinyal dari sakelar fisik hingga emisi layar harus dipahami secara mendalam. Total latensi sistem adalah jumlah dari latensi perifer, pemrosesan OS, rendering GPU, dan panel layar.',
+    },
+    {
+      type: 'table',
+      headers: ['Komponen Jalur', 'Rentang Penundaan', 'Penyebab Utama Penundaan', 'Strategi Optimasi'],
+      rows: [
+        ['Sakelar Perifer', '0.2 ms - 5.0 ms', 'Algoritma debounce mekanis kontak', 'Gunakan sakelar optik presisi'],
+        ['Polling Rate USB', '0.125 ms - 8.0 ms', '125 Hz vs 1000 Hz / 8000 Hz USB', 'Tingkatkan polling rate ke 1000Hz+'],
+        ['Antrean OS', '0.5 ms - 3.0 ms', 'Tugas latar belakang sistem operasi', 'Aktifkan Game Mode Windows'],
+        ['Mesin Render Game', '4.0 ms - 20.0 ms', 'Beban kerja CPU dan sinkronisasi', 'Gunakan NVIDIA Reflex / Anti-Lag'],
+        ['Buffer Bingkai GPU', '8.0 ms - 33.0 ms', 'VSync aktif, penumpukan bingkai', 'Matikan VSync, gunakan G-Sync / FreeSync'],
+        ['Pemrosesan Layar', '1.0 ms - 15.0 ms', 'Pemrosesan gambar TV dan penSkalaan', 'Aktifkan Mode Game pada monitor/TV'],
+      ],
+    },
+    {
+      type: 'tip',
+      title: 'Cara Mengurangi Latensi Antrean GPU saat Beban Tinggi',
+      html: 'Saat GPU berjalan pada penggunaan 99%, penggerak grafis akan menumpuk beberapa bingkai sebelumnya. Ini menyebabkan lag input yang signifikan (sering kali 30ms hingga 50ms). Batasi tingkat bingkai Anda sedikit di bawah batas maksimal GPU atau aktifkan fitur seperti NVIDIA Reflex.',
+    },
+    {
+      type: 'title',
+      text: 'Perbandingan Latensi Antara Tetikus, Papan Ketik, dan Layar Sentuh',
+    },
+    {
+      type: 'paragraph',
+      html: 'Setiap perangkat input memiliki karakteristik latensi yang berbeda berdasarkan arsitektur perangkat kerasnya.',
+    },
+    {
+      type: 'comparative',
+      columns: 3,
+      items: [
+        {
+          title: 'Tetikus Gaming',
+          description: 'Koneksi nirkabel 2.4GHz atau kabel berkecepatan tinggi.',
+          highlight: 'Latensi 0.5ms - 2ms',
+          points: [
+            'Polling rate 1000Hz hingga 8000Hz',
+            'Sakelar optik tanpa penundaan debounce',
+            'Sensor dengan latensi gerak rendah',
+          ],
+        },
+        {
+          title: 'Papan Ketik Mekanis',
+          description: 'Pemindaian matriks dengan kontrol debounce.',
+          highlight: 'Latensi 1ms - 10ms',
+          points: [
+            'Sakelar magnetik efek Hall (Rapid Trigger)',
+            'Kecepatan pemindaian hingga 8000Hz',
+            'Jarak aktivasi yang dapat diatur',
+          ],
+        },
+        {
+          title: 'Layar Sentuh Seluler',
+          description: 'Pengambilan sampel digitizer kapasitif.',
+          highlight: 'Latensi 15ms - 45ms',
+          points: [
+            'Sampling sentuh (120Hz - 480Hz)',
+            'Penundaan komposisi penggerak layar',
+            'Algoritma penyaringan kapasitif',
+          ],
+        },
+      ],
+    },
+    {
+      type: 'title',
+      text: 'Pengaruh Refresh Rate Layar terhadap Latensi',
+    },
+    {
+      type: 'paragraph',
+      html: 'Tingkat penyegaran layar secara langsung mengatur batas minimal latensi tampilan yang memungkinkan.',
+    },
+    {
+      type: 'list',
+      items: [
+        'Layar 60 Hz: 1 bingkai = 16.67 ms durasi (Rata-rata latensi tampilan: ~8.33 ms)',
+        'Layar 120 Hz: 1 bingkai = 8.33 ms durasi (Rata-rata latensi tampilan: ~4.16 ms)',
+        'Layar 144 Hz: 1 bingkai = 6.94 ms durasi (Rata-rata latensi tampilan: ~3.47 ms)',
+        'Layar 240 Hz: 1 bingkai = 4.17 ms durasi (Rata-rata latensi tampilan: ~2.08 ms)',
+        'Layar 360 Hz: 1 bingkai = 2.78 ms durasi (Rata-rata latensi tampilan: ~1.39 ms)',
+      ],
+    },
+    {
+      type: 'glossary',
+      items: [
+        {
+          term: 'Lag Input',
+          definition: 'Total waktu dari tindakan fisik pengguna hingga pembaruan visual yang sesuai di layar.',
+        },
+        {
+          term: 'Jitter (Variasi Latensi)',
+          definition: 'Deviasi standar dari pengukuran latensi yang menunjukkan konsistensi pewaktuan sistem.',
+        },
+        {
+          term: 'VSync (Sinkronisasi Vertikal)',
+          definition: 'Menghilangkan robekan layar tetapi menambah lag input yang signifikan.',
+        },
+        {
+          term: 'Variable Refresh Rate (VRR)',
+          definition: 'Teknologi seperti G-Sync dan FreeSync yang mencocokkan refresh rate layar dengan GPU.',
+        },
+      ],
+    },
+    {
+      type: 'title',
+      text: 'Kelebihan dan Kekurangan Pengujian Latensi berbasis Browser',
+    },
+    {
+      type: 'paragraph',
+      html: 'Mengukur latensi di browser memberikan aksesibilitas instan tanpa memerlukan peralatan khusus.',
+    },
+    {
+      type: 'proscons',
+      title: 'Evaluasi Pengukuran Latensi Browser',
+      items: [
+        {
+          pro: 'Tidak memerlukan penginstalan perangkat lunak atau alat khusus',
+          con: 'Dipengaruhi oleh siklus pemrosesan browser dan manajer jendela OS',
+        },
+        {
+          pro: 'Pewaktu mikrodetik presisi tinggi (performance.now)',
+          con: 'Tidak dapat mengukur respon piksel optik layar secara langsung',
+        },
+        {
+          pro: 'Uji tolok ukur instan antar perangkat input berbeda',
+          con: 'Pelonggaran presisi pewaktu browser untuk alasan keamanan',
+        },
+      ],
+    },
+    {
+      type: 'title',
+      text: 'Diagnosis saat Lag Input Tinggi',
+    },
+    {
+      type: 'paragraph',
+      html: 'Jika hasil pengujian menunjukkan latensi tinggi (>30 ms), periksa pengaturan di bawah ini.',
+    },
+    {
+      type: 'diagnostic',
+      variant: 'warning',
+      title: 'Pemberitahuan Diagnosis Latensi Tinggi',
+      html: 'Jika rata-rata lag input melebihi 35ms pada PC, periksa apakah VSync aktif pada penggerak grafis. Akselerasi perangkat keras yang mati di browser juga dapat memindahkan rendering ke CPU.',
+    },
+    {
+      type: 'title',
+      text: 'Langkah-langkah Mengurangi Lag Input Sistem',
+    },
+    {
+      type: 'paragraph',
+      html: 'Ikuti langkah-langkah praktis ini untuk mengurangi latensi sistem.',
+    },
+    {
+      type: 'summary',
+      title: 'Daftar Periksa Optimasi Latensi Sistem',
+      items: [
+        'Atur polling rate USB tetikus ke 1000Hz atau lebih tinggi pada perangkat lunak bawaan.',
+        'Aktifkan Penjadwalan GPU Terakselerasi Perangkat Keras (HAGS) pada pengaturan Windows.',
+        'Aktifkan Mode Game pada pengaturan monitor untuk melewati pemrosesan gambar internal.',
+        'Matikan VSync global pada panel kontrol 3D dan aktifkan G-Sync / FreeSync.',
+        'Aktifkan NVIDIA Reflex atau AMD Anti-Lag pada game yang didukung.',
+        'Pastikan Akselerasi Perangkat Keras browser diaktifkan.',
+      ],
+    },
+    {
+      type: 'message',
+      title: 'Praktik Terbaik Pengujian',
+      html: 'Untuk hasil terbaik, tutup aplikasi latar belakang, jalankan browser dalam mode layar penuh, dan ambil setidaknya 15-20 sampel.',
+    },
   ],
 };

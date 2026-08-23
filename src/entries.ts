@@ -67,6 +67,8 @@ export type { LedResistorLocaleContent } from './tool/ledResistorCalculator/entr
 import { audioDelayTest } from './tool/audioDelayTest/entry';
 export { audioDelayTest } from './tool/audioDelayTest/entry';
 export type { AudioDelayTestLocaleContent } from './tool/audioDelayTest/entry';
+export { microphoneSpectrumTester } from './tool/microphoneSpectrumTester/entry';
+export type { MicrophoneSpectrumTesterLocaleContent } from './tool/microphoneSpectrumTester/entry';
 export { hardwareCategory } from './category';
 import { estimadorSaludBateria } from './tool/batteryHealthEstimator/entry';
 import { pixelesPantalla } from './tool/deadPixelTest/entry';
@@ -101,4 +103,5 @@ import { testInputLag } from './tool/inputLagTest/entry';
 import { psuPowerRequirementCalculator } from './tool/psuPowerRequirementCalculator/entry';
 import { resistorColorCodeCalculator } from './tool/resistorColorCodeCalculator/entry';
 import { ledResistorCalculator } from './tool/ledResistorCalculator/entry';
-export const ALL_ENTRIES = [estimadorSaludBateria, pixelesPantalla, touchScreenTester, testMando, gamepadPollingRateChecker, probadorVibracionMando, testTeclado, keyboardChatterTest, webMidiKeyboardTester, testRaton, mouseDoubleClickTest, mouseScrollTest, mouseDpiAnalyzer, mouseJitterAngleSnappingTest, toneGenerator, waterEjector, subwooferCrossoverTest, speakerPhaseTester, refreshRateDetector, monitorGhostingTest, backlightBleedBloomingTest, oledScreenBurnInFixer, spectrumCanvas, upsRuntimeCalculator, usbPowerBudgetCalculator, mobileSensorTest, stereoAudioTest, webBluetoothBleScanner, webUsbSerialMonitor, testInputLag, psuPowerRequirementCalculator, resistorColorCodeCalculator, ledResistorCalculator, audioDelayTest];
+import { microphoneSpectrumTester } from './tool/microphoneSpectrumTester/entry';
+export const ALL_ENTRIES = [estimadorSaludBateria, pixelesPantalla, touchScreenTester, testMando, gamepadPollingRateChecker, probadorVibracionMando, testTeclado, keyboardChatterTest, webMidiKeyboardTester, testRaton, mouseDoubleClickTest, mouseScrollTest, mouseDpiAnalyzer, mouseJitterAngleSnappingTest, toneGenerator, waterEjector, subwooferCrossoverTest, speakerPhaseTester, microphoneSpectrumTester, refreshRateDetector, monitorGhostingTest, backlightBleedBloomingTest, oledScreenBurnInFixer, spectrumCanvas, upsRuntimeCalculator, usbPowerBudgetCalculator, mobileSensorTest, stereoAudioTest, webBluetoothBleScanner, webUsbSerialMonitor, testInputLag, psuPowerRequirementCalculator, resistorColorCodeCalculator, ledResistorCalculator, audioDelayTest];

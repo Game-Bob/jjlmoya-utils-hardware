@@ -1,0 +1,15 @@
+---
+import { Bibliography as SharedBibliography } from '@jjlmoya/utils-shared';
+import { microphoneSpectrumTester } from './index';
+import type { KnownLocale } from '../../types';
+
+interface Props {
+  locale?: KnownLocale;
+}
+
+const { locale = 'en' } = Astro.props;
+const content = await microphoneSpectrumTester.i18n[locale]?.();
+if (!content) return null;
+---
+
+{content && content.bibliography.length > 0 && <SharedBibliography links={content.bibliography} />}

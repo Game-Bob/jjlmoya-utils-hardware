@@ -3,37 +3,54 @@ import type { ToolLocaleContent } from '../../../types';
 import type { InputLagTestUI } from '../ui';
 import { bibliography } from '../bibliography';
 
-const slug = 'input-lag-latenz-test';
-
-const title = 'Input Lag & System Latenz Test';
-const description = 'Präziser Online-Test zur Messung von Input Lag, Tastatur-Latenz und Bildschirm-Verzögerung mit hochpräzisen Timern.';
+const slug = 'input-lag-verzogerung-test';
+const title = 'Input Lag und Systemlatenz Test';
+const description = 'Online-Messwerkzeug für Hardware-Eingabeverzögerung und System-Latenz mit hochpräziser Leistungsmessung und Bildschirmsynchronisation.';
 
 const faqData = [
   {
-    question: 'Was ist Input Lag und Systemlatenz?',
-    answer: 'Input Lag ist die Zeitspanne zwischen einer physischen Eingabe (Mausklick oder Tastendruck) und der visuellen Aktualisierung auf dem Bildschirm.',
+    question: 'Was ist Input Lag und System-Latenz?',
+    answer: 'Input Lag ist die gesamte Zeitverzögerung zwischen einer physischen Benutzerinteraktion (wie dem Klicken einer Maus oder dem Drücken einer Taste) und der sichtbaren Aktualisierung des Bildes auf dem Bildschirm.',
   },
   {
-    question: 'Wie misst dieser Test die Latenz im Browser?',
-    answer: 'Er nutzt performance.now() bei Hardware-Events und berechnet die Verzögerung bis zur nächsten Frame-Synchronisation via requestAnimationFrame.',
+    question: 'Wie misst dieser Online-Latenz-Test die Eingabeverzögerung?',
+    answer: 'Er erfasst Hardware-Ereigniszeitstempel mittels performance.now() und korreliert diese mit den darauffolgenden requestAnimationFrame-Darstellungszyklen, um die Zeitspanne vom Ereignis bis zum Rendering zu berechnen.',
   },
-  { question: 'Welche Latenz ist beim Spielen gut?', answer: 'Unter 10 ms gilt als sehr schnell. 10 bis 20 ms ist schnell, 20 bis 35 ms ist moderat und darüber wird die Verzögerung spürbar.' },
-  { question: 'Wie kann ich die Eingabelatenz senken?', answer: 'Erhöhe die Bildwiederholrate, prüfe VSync und VRR, stelle eine passende USB Abfragerate ein und teste die Grafikoptionen einzeln.' },
-  { question: 'Beeinflusst die Bildwiederholrate die Latenz?', answer: 'Ja. Bei 60 Hz dauert ein Bild 16.67 ms, bei 240 Hz nur 4.17 ms. Rendering und Bildschirmverarbeitung kommen zusätzlich hinzu.' },
+  {
+    question: 'Was gilt als guter Input Lag beim Gaming?',
+    answer: 'Unter 10 ms gilt als ultraschnell für kompetitive E-Sports. 10 ms bis 20 ms sind schnell, 20 ms bis 35 ms sind moderat und über 35 ms ist eine spürbare Eingabeverzögerung.',
+  },
+  {
+    question: 'Wie kann ich den Input Lag auf meinem PC reduzieren?',
+    answer: 'Erhöhe die Bildwiederholfrequenz des Monitors, deaktiviere VSync, aktiviere G-Sync oder FreeSync, erhöhe die USB-Maus-Abtastrate auf 1000 Hz oder mehr und aktiviere Latenz-Optimierungen wie NVIDIA Reflex.',
+  },
+  {
+    question: 'Beeinflusst die Bildwiederholfrequenz des Bildschirms den Input Lag?',
+    answer: 'Ja. Höhere Bildwiederholfrequenzen verringern die Bilddauer. Ein 60-Hz-Bildschirm hat eine Bilddauer von 16,67 ms, während ein 240-Hz-Bildschirm eine Bilddauer von nur 4,17 ms aufweist.',
+  },
 ];
 
 const howToData = [
   {
     name: 'Testmodus wählen',
-    text: 'Wähle zwischen Sofortige Antwort, Tastatur-Latenz oder Visuelle Reaktion.',
+    text: 'Wähle den Modus Sofortige Reaktion, Tastendruck-Latenz oder Visuelle Reaktionslatenz.',
   },
   {
-    name: 'Eingaben durchführen',
-    text: 'Klicke in das Testfeld oder drücke Tasten, um Eingaben zu erfassen.',
+    name: 'Physische Eingaben durchführen',
+    text: 'Klicke in das Zielgelände oder drücke Tasten, um Hardware-Eingabeereignisse auszulösen.',
   },
-  { name: 'Messwerte prüfen', text: 'Vergleiche Mittelwert, Minimum, Maximum und Jitter nach mehreren Eingaben.' },
-  { name: 'Bildschirmbedingungen prüfen', text: 'Notiere FPS, Bildmodus und Bildrate, damit spätere Messreihen vergleichbar bleiben.' },
-  { name: 'Ergebnis vergleichen', text: 'Wiederhole die Messung nach einer Änderung und bewerte nicht nur einen einzelnen Ausreißer.' },
+  {
+    name: 'Echtzeit-Latenzmetriken beobachten',
+    text: 'Überprüfe die berechneten Werte für durchschnittliche, minimale und maximale Latenz sowie Jitter.',
+  },
+  {
+    name: 'Bildschirm-Timing überprüfen',
+    text: 'Überwache aktuelle FPS und Bilddauer zur Bestätigung der Bildwiederholstabilität.',
+  },
+  {
+    name: 'Messverlauf analysieren',
+    text: 'Untersuche den Verlauf, um Latenzspitzen und Abweichungen zu identifizieren.',
+  },
 ];
 
 const faqSchema: WithContext<FAQPage> = {
@@ -66,30 +83,30 @@ const appSchema: WithContext<SoftwareApplication> = {
   description,
   applicationCategory: 'UtilityApplication',
   operatingSystem: 'All',
-  offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
   inLanguage: 'de',
 };
 
 const uiData: InputLagTestUI = {
   title,
   description,
-  badge: 'Systemlatenz',
-  modeInstant: 'Sofortige Antwort',
-  modeKey: 'Tastatur-Latenz',
-  modeVisual: 'Visuelle Reaktion',
-  targetClickPrompt: 'Klicke in dieses Feld, um die Eingabelatenz zu messen',
-  targetKeyPrompt: 'Drücke eine beliebige Taste für die Tastatur-Latenz',
-  targetWaitPrompt: 'Warte auf grünen Hintergrund...',
+  badge: 'System-Latenz',
+  modeInstant: 'Sofortige Reaktion',
+  modeKey: 'Tastendruck-Latenz',
+  modeVisual: 'Visuelle Reaktionslatenz',
+  targetClickPrompt: 'Klicke oder tippe in dieses Feld, um die Latenz zu messen',
+  targetKeyPrompt: 'Drücke eine beliebige Taste (z. B. Leertaste), um die Tastaturlatenz zu messen',
+  targetWaitPrompt: 'Warte auf den grünen Hintergrund...',
   targetNowPrompt: 'JETZT KLICKEN!',
-  labelAvgLatency: 'Durchschnitt',
-  labelMinLatency: 'Minimum Latenz',
-  labelMaxLatency: 'Maximum Latenz',
-  labelJitter: 'Jitter (Standardabw.)',
+  labelAvgLatency: 'Durchschnittliche Latenz',
+  labelMinLatency: 'Minimale Latenz',
+  labelMaxLatency: 'Maximale Latenz',
+  labelJitter: 'Latenz-Jitter (Standardabw.)',
   labelFps: 'Aktuelle FPS',
-  labelFrameTime: 'Frame-Zeit',
-  labelSamples: 'Stichproben',
-  labelGrade: 'Bewertung',
-  gradeUltraFast: 'Ultra Schnelligkeit (<10ms)',
+  labelFrameTime: 'Bilddauer',
+  labelSamples: 'Messungen',
+  labelGrade: 'Latenz-Bewertung',
+  gradeUltraFast: 'Ultraschnell (<10ms)',
   gradeFast: 'Schnell (10-20ms)',
   gradeModerate: 'Moderat (20-35ms)',
   gradeHigh: 'Hoch (>35ms)',
@@ -97,9 +114,9 @@ const uiData: InputLagTestUI = {
   btnCopyReport: 'Benchmark-Bericht kopieren',
   reportCopied: 'Bericht kopiert!',
   historyTitle: 'Aktuelle Latenzmessungen',
-  pipelineTitle: 'Hardware Signal Pipeline Aufschlüsselung',
-  distributionTitle: 'Häufigkeitsverteilung (Gauß-Kurve)',
-  sampleCol: 'Probe',
+  pipelineTitle: 'Hardware-Signalpfad Latenzanalyse',
+  distributionTitle: 'Latenz-Frequenzverteilung',
+  sampleCol: 'Messung',
   typeCol: 'Eingabetyp',
   latencyCol: 'Gemessene Latenz',
 };
@@ -116,34 +133,215 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
   seo: [
     {
       type: 'title',
-      text: 'Messung von Input Lag und Systemlatenz',
+      text: 'Input Lag und Systemlatenz Test im Überblick',
     },
     {
       type: 'paragraph',
-      html: 'Ermittle die Reaktionszeit deines Systems zwischen Peripherieeingabe und Bildschirmdarstellung.',
+      html: 'Der Input Lag beschreibt die exakte Zeitverzögerung zwischen der physischen Ausführung einer Aktion durch den Benutzer (wie das Klicken einer Maustaste oder das Drücken einer Tastaturtaste) und der visuellen Darstellung auf dem Bildschirm. In kompetitiven E-Sports und schnellen Spielen ist die Minimierung der Systemlatenz entscheidend für die Reaktionsgeschwindigkeit und Zielgenauigkeit. Die Gesamtlatenz setzt sich zusammen aus der Peripherieverzögerung, der Betriebssystem-Ereignisverarbeitung, der Engine-Renderzeit, den Grafiktreiber-Puffern und der Reaktionszeit des Monitorpanels.',
     },
-    { type: 'title', text: 'Was bedeutet Eingabelatenz', level: 2 },
-    { type: 'paragraph', html: 'Die Eingabelatenz beschreibt die Zeit zwischen einer Eingabe und ihrer sichtbaren Reaktion. Ein niedriger Wert fühlt sich direkter an, muss aber immer unter gleichen Bedingungen gemessen werden.' },
-    { type: 'title', text: 'So arbeitet die Messung', level: 2 },
-    { type: 'paragraph', html: 'Der Test beobachtet Eingaben und Bildwechsel über eine Reihe von Messungen. Einzelne Ausreißer sind weniger aussagekräftig als der typische Wert und die Verteilung.' },
-    { type: 'title', text: 'Quellen zusätzlicher Verzögerung', level: 2 },
-    { type: 'paragraph', html: 'Controller, USB Verbindung, Betriebssystem, Spiel und Bildschirm können jeweils Verzögerung hinzufügen. Ändere immer nur eine Komponente, wenn du die Ursache suchst.' },
-    { type: 'title', text: 'Bildschirm und Bildrate', level: 2 },
-    { type: 'paragraph', html: 'Hohe Bildraten verkürzen den Abstand zwischen zwei sichtbaren Bildern. Ein langsamer Modus oder eine aktivierte Nachbearbeitung kann die Reaktion dagegen spürbar verzögern.' },
-    { type: 'title', text: 'Kabel gegen Funk vergleichen', level: 2 },
-    { type: 'paragraph', html: 'Führe kabelgebundene und drahtlose Messungen mit derselben Bildrate durch. Bei Funkverbindungen können Entfernung, Interferenzen und Energiesparfunktionen die Werte verändern.' },
-    { type: 'title', text: 'Jitter richtig einordnen', level: 2 },
-    { type: 'paragraph', html: 'Jitter zeigt, wie stark einzelne Messungen schwanken. Ein niedriger Durchschnitt mit großen Spitzen kann sich schlechter anfühlen als ein etwas höherer, aber stabiler Wert.' },
-    { type: 'title', text: 'Ausreichend Messungen sammeln', level: 2 },
-    { type: 'paragraph', html: 'Wiederhole den Test mehrmals und vergleiche Median, Minimum und Maximum. Eine einzelne schnelle Messung reicht nicht aus, um ein System zu bewerten.' },
-    { type: 'title', text: 'Ergebnisse dokumentieren', level: 2 },
-    { type: 'paragraph', html: 'Notiere Gerät, Verbindung, Bildschirmmodus und Bildrate zusammen mit dem Ergebnis. So kannst du spätere Änderungen nachvollziehbar vergleichen.' },
-    { type: 'title', text: 'Typische Verbesserungen', level: 2 },
-    { type: 'paragraph', html: 'Deaktiviere unnötige Nachbearbeitung, verwende einen passenden Bildschirmmodus und halte Treiber aktuell. Prüfe jede Änderung anschließend mit einer neuen Messreihe.' },
-    { type: 'title', text: 'Messergebnisse vergleichen', level: 2 },
-    { type: 'paragraph', html: 'Vergleiche nur Werte, die unter ähnlichen Bedingungen entstanden sind. Unterschiedliche Spiele oder Eingabegeräte können die Zahlen deutlich verändern.' },
-    { type: 'title', text: 'Grenzen des Tests', level: 2 },
-    { type: 'paragraph', html: 'Ein Browser kann nicht jede interne Verzögerung eines Spiels oder Treibers sichtbar machen. Nutze das Ergebnis als Vergleichshilfe und nicht als absolute Laborangabe.' },
-    { type: 'paragraph', html: 'Wiederhole die Messung nach jeder Änderung und nutze den Median als Hauptvergleich. So erkennst du echte Verbesserungen statt zufälliger Schwankungen.' },
+    {
+      type: 'stats',
+      items: [
+        {
+          value: '< 10 ms',
+          label: 'E-Sports Ziel-Latenz',
+          trend: 'Optimaler Wert',
+        },
+        {
+          value: '1000 Hz',
+          label: 'Standard USB-Abtastrate',
+          trend: '1.0 ms Intervall',
+        },
+        {
+          value: '240 Hz',
+          label: 'High-Refresh Monitor',
+          trend: '4.16 ms Bilddauer',
+        },
+        {
+          value: '16.6 ms',
+          label: '60Hz Bilddauer',
+          trend: 'Basisverzögerung pro Bild',
+        },
+      ],
+      columns: 4,
+    },
+    {
+      type: 'card',
+      title: 'Wie funktioniert die Latenzmessung im Browser?',
+      html: 'Dieser Test nutzt hochpräzise Hardware-Zeitstempel über <code>performance.now()</code> in Kombination mit DOM-Hardwareereignissen (<code>pointerdown</code> und <code>keydown</code>). Durch Synchronisation mit den Darstellungszyklen des Bildschirms über <code>requestAnimationFrame</code> berechnet die Anwendung die Zeitspanne zwischen der physischen Eingabe und der tatsächlichen Aktualisierung der Anzeige direkt in Ihrem Browser.',
+    },
+    {
+      type: 'title',
+      text: 'Der Weg des Signals vom Schalter bis zur Anzeige',
+    },
+    {
+      type: 'paragraph',
+      html: 'Um die Eingabeverzögerung effektiv zu verstehen und zu reduzieren, muss die gesamte Signalkette betrachtet werden. Die Gesamtlatenz ergibt sich aus der Summe von Peripherie-Latenz, Betriebssystem-Verarbeitung, Render-Pipeline und Monitor-Panellatenz.',
+    },
+    {
+      type: 'table',
+      headers: ['Komponente', 'Typische Verzögerung', 'Hauptursache', 'Optimierung'],
+      rows: [
+        ['Schalter der Peripherie', '0.2 ms - 5.0 ms', 'Entprellzeiten, mechanische Kontakte', 'Optische Schalter nutzen'],
+        ['USB-Abtastrate (Polling)', '0.125 ms - 8.0 ms', '125 Hz vs 1000 Hz / 8000 Hz', 'Abtastrate auf 1000Hz+ erhöhen'],
+        ['Betriebssystem-Queue', '0.5 ms - 3.0 ms', 'Hintergrundaufgaben, Compositor', 'Spielmodus aktivieren'],
+        ['Engine-Rendering', '4.0 ms - 20.0 ms', 'CPU-Limitierungen, Thread-Synchronisation', 'NVIDIA Reflex / Anti-Lag nutzen'],
+        ['GPU-Frame-Puffer', '8.0 ms - 33.0 ms', 'VSync aktiviert, Mehrfachpufferung', 'VSync deaktivieren, VRR nutzen'],
+        ['Bildschirmverarbeitung', '1.0 ms - 15.0 ms', 'Bildprozessoren, Scaler-Latenz', 'Spielemodus am TV/Monitor aktivieren'],
+      ],
+    },
+    {
+      type: 'tip',
+      title: 'Wie verringere ich Latenzen bei hoher Grafikkartenauslastung?',
+      html: 'Wenn die GPU zu 99% ausgelastet ist, puffert der Grafiktreiber oft mehrere Bilder im Voraus. Dies erzeugt spürbaren Input Lag (oft 30 ms bis 50 ms). Begrenzen Sie Ihre Bildrate leicht unterhalb der maximalen Kapazität der Grafikkarte oder nutzen Sie Technologien wie NVIDIA Reflex.',
+    },
+    {
+      type: 'title',
+      text: 'Vergleich der Latenz von Gaming-Mäusen, Tastaturen und Touchscreens',
+    },
+    {
+      type: 'paragraph',
+      html: 'Unterschiedliche Eingabegeräte weisen je nach Architektur und Übertragungsprotokoll deutliche Latenzunterschiede auf.',
+    },
+    {
+      type: 'comparative',
+      columns: 3,
+      items: [
+        {
+          title: 'Gaming Mäuse',
+          description: 'Hochfrequente kabellose (2.4GHz) oder kabelgebundene Verbindungen.',
+          highlight: '0.5ms - 2ms Latenz',
+          points: [
+            '1000Hz bis 8000Hz Abtastrate',
+            'Optische Schalter ohne Entprellverzögerung',
+            'Sensoren mit minimaler Bewegungsverzögerung',
+          ],
+        },
+        {
+          title: 'Mechanische Tastaturen',
+          description: 'Tastaturmatrix-Abtastung mit optimierter Entprellung.',
+          highlight: '1ms - 10ms Latenz',
+          points: [
+            'Hall-Effekt-Magnetschalter mit Rapid Trigger',
+            'Matrix-Abtastraten von 500Hz bis 8000Hz',
+            'Einstellbarer Auslöseweg',
+          ],
+        },
+        {
+          title: 'Touchscreens',
+          description: 'Kapazitive Abtastung auf mobilen Geräten.',
+          highlight: '15ms - 45ms Latenz',
+          points: [
+            'Touch-Abtastraten (120Hz - 480Hz)',
+            'Verzögerung durch Betriebssystem-Compositor',
+            'Kapazitive Filteralgorithmen',
+          ],
+        },
+      ],
+    },
+    {
+      type: 'title',
+      text: 'Einfluss der Bildwiederholfrequenz auf die Latenz',
+    },
+    {
+      type: 'paragraph',
+      html: 'Die Bildwiederholfrequenz bestimmt die minimal mögliche Darstellungsverzögerung auf dem Monitor.',
+    },
+    {
+      type: 'list',
+      items: [
+        '60 Hz Bildschirm: 1 Bild = 16.67 ms Bilddauer (Durchschnittliche Latenz: ~8.33 ms)',
+        '120 Hz Bildschirm: 1 Bild = 8.33 ms Bilddauer (Durchschnittliche Latenz: ~4.16 ms)',
+        '144 Hz Bildschirm: 1 Bild = 6.94 ms Bilddauer (Durchschnittliche Latenz: ~3.47 ms)',
+        '240 Hz Bildschirm: 1 Bild = 4.17 ms Bilddauer (Durchschnittliche Latenz: ~2.08 ms)',
+        '360 Hz Bildschirm: 1 Bild = 2.78 ms Bilddauer (Durchschnittliche Latenz: ~1.39 ms)',
+      ],
+    },
+    {
+      type: 'glossary',
+      items: [
+        {
+          term: 'Input Lag',
+          definition: 'Die verstreichende Zeit von der physischen Eingabe bis zur sichtbaren Reaktion auf dem Display.',
+        },
+        {
+          term: 'Jitter (Latenz-Schwankung)',
+          definition: 'Die Standardabweichung der Latenzmessungen, die die Gleichmäßigkeit des Systems angibt.',
+        },
+        {
+          term: 'VSync (Vertikale Synchronisation)',
+          definition: 'Verhindert Bildrissen (Tearing), erhöht jedoch die Eingabeverzögerung spürbar.',
+        },
+        {
+          term: 'Variable Refresh Rate (VRR)',
+          definition: 'Technologien wie G-Sync und FreeSync, die Bildwiederholfrequenz dynamisch anpassen.',
+        },
+      ],
+    },
+    {
+      type: 'title',
+      text: 'Vor- und Nachteile der browserbasierten Latenzmessung',
+    },
+    {
+      type: 'paragraph',
+      html: 'Die Latenzmessung direkt im Webbrowser ermöglicht die sofortige Überprüfung ohne Zusatzgeräte.',
+    },
+    {
+      type: 'proscons',
+      title: 'Bewertung der Browsermessung',
+      items: [
+        {
+          pro: 'Keine Softwareinstallation oder Zusatzhardware erforderlich',
+          con: 'Abhängig von der Ereignisschleife des Browsers und Fenstermanagern',
+        },
+        {
+          pro: 'Hohe Präzision durch mikrosekundengenauen Leistungstimer',
+          con: 'Optische Reaktionszeit von Bildschirm-Pixeln kann nicht direkt erfasst werden',
+        },
+        {
+          pro: 'Sofortiger Vergleichstest zwischen verschiedenen Peripheriegeräten',
+          con: 'Sicherheitseinschränkungen bei der Timer-Präzision im Browser',
+        },
+      ],
+    },
+    {
+      type: 'title',
+      text: 'Diagnose bei hoher Eingabeverzögerung',
+    },
+    {
+      type: 'paragraph',
+      html: 'Falls Ihre Ergebnisse eine hohe Latenz (>30 ms) aufweisen, überprüfen Sie die folgenden Einstellungen.',
+    },
+    {
+      type: 'diagnostic',
+      variant: 'warning',
+      title: 'Hinweis zu hoher Latenz',
+      html: 'Wenn die durchschnittliche Latenz 35 ms überschreitet, prüfen Sie, ob VSync im Grafiktreiber aktiviert ist. Eine deaktivierte Hardwarebeschleunigung im Browser kann ebenfalls erhebliche Verzögerungen verursachen.',
+    },
+    {
+      type: 'title',
+      text: 'Schritte zur Optimierung der System-Latenz',
+    },
+    {
+      type: 'paragraph',
+      html: 'Führen Sie diese Schritte aus, um die Latenz auf Ihrem System zu reduzieren.',
+    },
+    {
+      type: 'summary',
+      title: 'Checkliste zur Latenzoptimierung',
+      items: [
+        'USB-Abtastrate der Maus in der Herstellersoftware auf 1000Hz oder höher stellen.',
+        'Hardwarebeschleunigte GPU-Planung (HAGS) in den Windows-Einstellungen aktivieren.',
+        'Spielemodus am TV oder Monitor aktivieren, um Skalierungsverzögerungen zu umgehen.',
+        'VSync in den 3D-Einstellungen der Grafikkarte deaktivieren und G-Sync / FreeSync nutzen.',
+        'NVIDIA Reflex oder AMD Anti-Lag in unterstützten Spielen aktivieren.',
+        'Sicherstellen, dass die Hardwarebeschleunigung im Browser aktiviert ist.',
+      ],
+    },
+    {
+      type: 'message',
+      title: 'Best Practice für verlässliche Testergebnisse',
+      html: 'Schließen Sie für optimale Ergebnisse Hintergrundanwendungen, führen Sie den Browser im Vollbildmodus aus und führen Sie mindestens 15 bis 20 Messungen durch.',
+    },
   ],
 };

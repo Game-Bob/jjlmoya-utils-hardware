@@ -3,31 +3,54 @@ import type { ToolLocaleContent } from '../../../types';
 import type { InputLagTestUI } from '../ui';
 import { bibliography } from '../bibliography';
 
-const slug = 'input-lag-sistem-gecikmesi-testi';
-
-const title = 'Input Lag ve Sistem Gecikmesi Testi';
-const description = 'Yuksek hassasiyetli kare senkronizasyonu ile input lag ve sistem gecikmesini olcen cevrimici arac.';
+const slug = 'input-lag-gecikme-testi';
+const title = 'Input Lag & Sistem Gecikmesi Testi';
+const description = 'Yüksek hassasiyetli zamanlama ve kare senkronizasyonu kullanarak donanım girdi gecikmesi ve sistem gecikmesini ölçen çevrim içi araç.';
 
 const faqData = [
   {
-    question: 'Input lag nedir?',
-    answer: 'Fiziksel bir girdi ile ekrandaki görsel güncelleme arasında geçen gecikme süresidir.',
+    question: 'Input lag ve sistem gecikmesi nedir?',
+    answer: 'Input lag, kullanıcının fiziksel bir eylemi (fareye tıklama veya klavyede bir tuşa basma) ile ekranda güncellenmiş görsel çıktının görünmesi arasındaki toplam zaman gecikmesidir.',
   },
-  { question: 'Oyun için iyi gecikme değeri nedir?', answer: '10 ms altı çok hızlıdır. 10 ile 20 ms hızlı, 20 ile 35 ms orta düzeydedir ve daha yüksek değerler hissedilir.' },
-  { question: 'Giriş gecikmesi nasıl azaltılır?', answer: 'Ekran yenileme hızını, VSync, VRR ve USB yoklamasını kontrol edin. Tek bir ayarı değiştirip yeniden ölçün.' },
-  { question: 'Yenileme hızı input lag değerini etkiler mi?', answer: 'Evet. 60 Hz\'de bir kare 16.67 ms, 240 Hz\'de 4.17 ms sürer. Görüntü oluşturma ve panel de gecikme ekler.' },
-  { question: 'Jitter neden önemlidir?', answer: 'Ölçümler arasındaki değişimi gösterir. Biraz yüksek fakat kararlı değer, büyük sıçramalar yapan düşük ortalamadan daha iyi hissedilebilir.' },
+  {
+    question: 'Bu çevrim içi gecikme testi girdi gecikmesini nasıl ölçer?',
+    answer: 'performance.now() kullanarak donanım olay zaman damgalarını yakalar ve olaydan işlemeye kadar olan zaman farkını hesaplamak için bunları sonraki requestAnimationFrame kare döngüleriyle ilişkilendirir.',
+  },
+  {
+    question: 'Oyunlar için iyi bir input lag değeri nedir?',
+    answer: '10 ms nin altı rekabetçi e-sporlar için son derece hızlı kabul edilir. 10 ms ile 20 ms arası hızlı, 20 ms ile 35 ms arası makul ve 35 ms üzeri fark edilir bir gecikmedir.',
+  },
+  {
+    question: 'Bilgisayarımdaki input lag değerini nasıl düşürebilirim?',
+    answer: 'Monitör yenileme hızınızı artırın, VSync i kapatın, G-Sync veya FreeSync i açın, USB fare bildirim hızını 1000Hz üzerine çıkarın ve NVIDIA Reflex i etkinleştirin.',
+  },
+  {
+    question: 'Ekran yenileme hızı input lag değerini etkiler mi?',
+    answer: 'Evet. Daha yüksek yenileme hızları kare süresini kısaltır. 60Hz bir ekranın kare süresi 16,67 ms iken, 240Hz bir ekranın kare süresi yalnızca 4,17 ms dir.',
+  },
 ];
 
 const howToData = [
   {
-    name: 'Mod seçin',
-    text: 'Anında Yanıt, Klavye Gecikmesi veya Görsel Reaksiyon modunu seçin.',
+    name: 'Test modunu seçin',
+    text: 'Anında Yanıt, Tuş Basma Gecikmesi veya Görsel Tepki Gecikmesi modunu seçin.',
   },
-  { name: 'Girdi uygulayın', text: 'Test alanına tıklayın veya tuşlara basarak giriş olayları oluşturun.' },
-  { name: 'İstatistikleri inceleyin', text: 'Birkaç denemeden sonra ortalama, minimum, maksimum ve jitter değerlerini kontrol edin.' },
-  { name: 'Karşılaştırmayı tekrarlayın', text: 'Her değişiklikten sonra aynı koşullarda yeni bir ölçüm serisi alın.' },
-  { name: 'Sınırları değerlendirin', text: 'Sonucu yapılandırmaları karşılaştırmak için kullanın, kesin bir piksel ölçümü olarak değerlendirmeyin.' },
+  {
+    name: 'Fiziksel girdiler gerçekleştirin',
+    text: 'Donanım girdi olayları oluşturmak için hedef kutunun içine tıklayın veya tuşlara basın.',
+  },
+  {
+    name: 'Gerçek zamanlı gecikme ölçümlerini gözlemleyin',
+    text: 'Hesaplanan ortalama, minimum, maksimum gecikme ve sapma (jitter) değerlerini inceleyin.',
+  },
+  {
+    name: 'Ekran kare zamanlamasını kontrol edin',
+    text: 'Ekran yenileme kararlılığını doğrulamak için mevcut FPS ve kare süresini izleyin.',
+  },
+  {
+    name: 'Ölçüm geçmişini analiz edin',
+    text: 'Gecikme sıçramalarını ve sapmaları belirlemek için geçmiş günlüğünü inceleyin.',
+  },
 ];
 
 const faqSchema: WithContext<FAQPage> = {
@@ -60,7 +83,7 @@ const appSchema: WithContext<SoftwareApplication> = {
   description,
   applicationCategory: 'UtilityApplication',
   operatingSystem: 'All',
-  offers: { '@type': 'Offer', price: '0', priceCurrency: 'TRY' },
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
   inLanguage: 'tr',
 };
 
@@ -69,32 +92,32 @@ const uiData: InputLagTestUI = {
   description,
   badge: 'Sistem Gecikmesi',
   modeInstant: 'Anında Yanıt',
-  modeKey: 'Klavye Gecikmesi',
-  modeVisual: 'Görsel Reaksiyon',
-  targetClickPrompt: 'Girdi gecikmesini ölçmek için buraya tıklayın',
-  targetKeyPrompt: 'Klavye gecikmesi için herhangi bir tuşa basın',
-  targetWaitPrompt: 'Yeşil ekranı bekleyin...',
+  modeKey: 'Tuş Basma Gecikmesi',
+  modeVisual: 'Görsel Tepki Gecikmesi',
+  targetClickPrompt: 'Gecikmeyi ölçmek için bu kutunun içine tıklayın veya dokunun',
+  targetKeyPrompt: 'Klavye gecikmesini ölçmek için herhangi bir tuşa (veya Boşluk tuşuna) basın',
+  targetWaitPrompt: 'Yeşil arka planı bekleyin...',
   targetNowPrompt: 'ŞİMDİ TIKLAYIN!',
   labelAvgLatency: 'Ortalama Gecikme',
   labelMinLatency: 'Minimum Gecikme',
   labelMaxLatency: 'Maksimum Gecikme',
-  labelJitter: 'Jitter (Dalgalanma)',
+  labelJitter: 'Gecikme Sapması (Standart Sapma)',
   labelFps: 'Mevcut FPS',
   labelFrameTime: 'Kare Süresi',
   labelSamples: 'Örnekler',
-  labelGrade: 'Değerlendirme',
+  labelGrade: 'Gecikme Derecesi',
   gradeUltraFast: 'Çok Hızlı (<10ms)',
   gradeFast: 'Hızlı (10-20ms)',
-  gradeModerate: 'Orta (20-35ms)',
+  gradeModerate: 'Makul (20-35ms)',
   gradeHigh: 'Yüksek (>35ms)',
-  btnReset: 'Sıfırla',
-  btnCopyReport: 'Raporu Kopyala',
+  btnReset: 'Ölçümleri Sıfırla',
+  btnCopyReport: 'Benchmark Raporunu Kopyala',
   reportCopied: 'Rapor Kopyalandı!',
-  historyTitle: 'Son Ölçümler',
-  pipelineTitle: 'Donanım Boru Hattı Gecikme Analizi',
-  distributionTitle: 'Frekans Dağılımı',
+  historyTitle: 'Son Gecikme Ölçümleri',
+  pipelineTitle: 'Donanım Sinyal Yolu Gecikme Analizi',
+  distributionTitle: 'Gecikme Frekans Dağılımı',
   sampleCol: 'Örnek',
-  typeCol: 'Girdi Tipi',
+  typeCol: 'Girdi Türü',
   latencyCol: 'Ölçülen Gecikme',
 };
 
@@ -110,61 +133,215 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
   seo: [
     {
       type: 'title',
-      text: 'Input Lag ve Ekran Gecikmesi Ölçümü',
+      text: 'PC Oyunlarında Input Lag ve Sistem Gecikmesi Nedir?',
     },
     {
       type: 'paragraph',
-      html: 'Ekranınızın ve çevre birimlerinizin tepki süresini gerçek zamanlı olarak ölçün.',
+      html: 'Input lag (girdi gecikmesi), kullanıcının fiziksel bir eylemi gerçekleştirmesi (fare düğmesine tıklaması veya klavye tuşuna basması) ile ekranda görsel yanıtın işlenmesi arasındaki kesin zaman farkını temsil eder. Rekabetçi e-sporlarda ve hızlı oyunlarda sistem gecikmesini en aza indirmek hedefleme hassasiyeti ve tepki hızı için kritik önem taşır. Toplam sistem gecikmesi; USB bildirimi, işletim sistemi olay işleme, oyun motoru işleme, GPU kare arabellekleri ve ekran piksel tepki sürelerinin birikiminden oluşur.',
     },
-    { type: 'stats', items: [
-      { value: '< 10 ms', label: 'Espor hedefi', trend: 'Rekabetçi referans' },
-      { value: '1000 Hz', label: 'Yaygın USB yoklama', trend: '1 ms giriş aralığı' },
-      { value: '240 Hz', label: 'Yüksek yenileme ekranı', trend: '4.16 ms kare aralığı' },
-      { value: '16.6 ms', label: '60 Hz aralığı', trend: 'Kare başına temel değer' },
-    ], columns: 4 },
-    { type: 'card', title: 'Tarayıcı gecikmeyi nasıl ölçer', html: 'Test, pointerdown ve keydown olaylarını requestAnimationFrame güncellemeleriyle karşılaştırır. Böylece girişin algılanması ile sayfanın yeniden çizilmesi arasındaki yerel süreyi tahmin eder.' },
-    { type: 'title', text: 'Gecikme sinyali sistemden nasıl geçer' },
-    { type: 'paragraph', html: 'Toplam gecikme çevre biriminin anahtarından görünür piksele kadar birikir. Her adımı ayırmak, kaynağın cihaz, işletim sistemi, görüntü oluşturma veya ekran olup olmadığını anlamayı sağlar.' },
-    { type: 'table', headers: ['Bileşen', 'Yaygın aralık', 'Ana darboğaz', 'Olası iyileştirme'], rows: [
-      ['Anahtar', '0.2 ile 5.0 ms', 'Mekanik titreşim', 'Debounce süresini azaltmak'],
-      ['USB yoklama', '0.125 ile 8.0 ms', 'Düşük frekans', 'Destekleniyorsa frekansı artırmak'],
-      ['Sistem kuyruğu', '0.5 ile 3.0 ms', 'Arka plan görevleri', 'Gereksiz işlemleri kapatmak'],
-      ['Grafik motoru', '4.0 ile 20.0 ms', 'CPU ile sınırlı kareler', 'Görüntü oluşturma yükünü azaltmak'],
-      ['GPU kuyruğu', '8.0 ile 33.0 ms', 'VSync ve çoklu arabellek', 'VSync ile VRR yi karşılaştırmak'],
-      ['Ekran işlemesi', '1.0 ile 15.0 ms', 'Ölçekleme ve filtreler', 'Oyun modunu açmak'],
-    ] },
-    { type: 'tip', title: 'GPU görüntü oluşturma kuyruğunu azaltmak', html: 'GPU tamamen yüklendiğinde birkaç kareyi önceden hazırlayabilir. Maksimumun biraz altında bir kare sınırı ve Reflex veya Anti Lag denemesi beklemeyi azaltabilir.' },
-    { type: 'title', text: 'Giriş cihazlarını karşılaştırmak' },
-    { type: 'paragraph', html: 'Fare, klavye ve dokunmatik ekranların gecikmesi bağlantı, elektronik devre ve tarama frekansına göre değişir. Karşılaştırma sırasında aynı ekranı ve ayarları kullanın.' },
-    { type: 'comparative', columns: 3, items: [
-      { title: 'Oyuncu fareleri', description: 'Yüksek frekanslı kablolu veya kablosuz bağlantı.', highlight: '0.5 ile 2 ms', points: ['1000 Hz veya daha yüksek yoklama', 'Optik anahtarlar', 'Hızlı işleyen sensör'] },
-      { title: 'Mekanik klavyeler', description: 'Debounce ayarlı tuş matrisi.', highlight: '1 ile 10 ms', points: ['Manyetik anahtarlar', 'Yapılandırılabilir matris taraması', 'Ayarlanabilir çalıştırma mesafesi'] },
-      { title: 'Dokunmatik ekranlar', description: 'Panel üzerinde kapasitif sayısallaştırıcı.', highlight: '15 ile 45 ms', points: ['Dokunmatik örnekleme frekansı', 'Ekran denetleyicisi işlemesi', 'İstenmeyen dokunuş filtreleri'] },
-    ] },
-    { type: 'title', text: 'Ekran yenileme hızının eklediği gecikme' },
-    { type: 'paragraph', html: 'Yenileme hızı iki görüntü arasındaki en kısa aralığı belirler. 60 Hz ekran girişi 240 Hz ekrandan daha geç gösterir, ancak oluşturma ve senkronizasyon da sonucu etkiler.' },
-    { type: 'list', items: ['60 Hz kare başına 16.67 ms', '120 Hz kare başına 8.33 ms', '144 Hz kare başına 6.94 ms', '240 Hz kare başına 4.17 ms', '360 Hz kare başına 2.78 ms', '540 Hz kare başına 1.85 ms'] },
-    { type: 'glossary', items: [
-      { term: 'Input lag', definition: 'Fiziksel hareket ile ekrandaki görünür sonuç arasındaki süre.' },
-      { term: 'Jitter', definition: 'Zamanlamanın kararlılığını gösteren ölçüm değişimi.' },
-      { term: 'VSync', definition: 'Yırtılmayı azaltabilen ancak bekleme ekleyebilen dikey senkronizasyon.' },
-      { term: 'VRR', definition: 'Ekran hızını GPU çıkışına uyarlayan değişken yenileme.' },
-      { term: 'Piksel tepki süresi', definition: 'Bir pikselin başka bir tona geçmesi için gereken süre.' },
-    ] },
-    { type: 'title', text: 'Tarayıcı ölçümünün artıları ve sınırları' },
-    { type: 'paragraph', html: 'Test, osiloskop veya hızlı kamera olmadan ayarları karşılaştırmanızı sağlar. Sürücü, oyun ve panelin optik çıkışındaki tüm dahili gecikmeleri doğrudan göremez.' },
-    { type: 'proscons', title: 'Web ölçümünün değerlendirmesi', items: [
-      { pro: 'Özel ekipman gerektirmez', con: 'Tarayıcının olay döngüsüne bağlıdır' },
-      { pro: 'Çevre birimleri hızlı karşılaştırır', con: 'Piksel tepkisini doğrudan ölçmez' },
-      { pro: 'Yüksek çözünürlüklü yerel zamanlayıcı kullanır', con: 'Tarayıcı zamanlayıcı hassasiyetini azaltabilir' },
-      { pro: 'Güncellemelerin kararlılığını gösterir', con: 'Etkin olmayan sekme yavaşlatılabilir' },
-    ] },
-    { type: 'title', text: 'Yüksek giriş gecikmesini teşhis etmek' },
-    { type: 'paragraph', html: 'Ortalama 30 ms yi aşarsa veya jitter yüksekse pencere etkinken seriyi tekrarlayın. VSync, grafik hızlandırma, USB yoklama ve CPU görevlerini kontrol edin.' },
-    { type: 'diagnostic', variant: 'warning', title: 'Gecikme tanı bildirimi', html: 'Masaüstü bilgisayarda ortalama 35 ms yi aşarsa ekran modunu ve donanım hızlandırmayı kontrol edin. Nedeni bulmak için her seferinde tek ayar değiştirin.' },
-    { type: 'title', text: 'Sistem gecikmesini adım adım azaltmak' },
-    { type: 'paragraph', html: 'Çevre birimini, ekranı ve sistemi ayrı ayrı ayarlayın. Her değişiklikten sonra aynı koşullarda yeni örnekler toplayarak iyileşmenin gerçek olduğunu doğrulayın.' },
-    { type: 'summary', title: 'Gecikme optimizasyon kontrol listesi', items: ['Uygun USB yoklamasını seçin', 'Ekranın oyun modunu açın', 'Gereksiz görüntü filtrelerini kapatın', 'VSync ve VRR yi karşılaştırın', 'Kare hızını sabit tutun', 'Ağır arka plan görevlerini kapatın', 'Her değişiklikten sonra yeniden ölçün'] },
-    { type: 'message', title: 'Sonuçları karşılaştırmak için iyi uygulama', html: 'Arka plan uygulamalarını kapatın, test penceresini etkin tutun ve en az 15 örnek toplayın. Tek bir tesadüfi değer yerine medyanı, ortalamayı ve jitter değerini birlikte inceleyin.' },
+    {
+      type: 'stats',
+      items: [
+        {
+          value: '< 10 ms',
+          label: 'E-Spor Hedef Gecikmesi',
+          trend: 'En ideal seviye',
+        },
+        {
+          value: '1000 Hz',
+          label: 'Standart USB Bildirim Hızı',
+          trend: '1.0 ms aralık',
+        },
+        {
+          value: '240 Hz',
+          label: 'Yüksek Yenilemeli Monitör',
+          trend: '4.16 ms kare süresi',
+        },
+        {
+          value: '16.6 ms',
+          label: '60Hz Kare Süresi',
+          trend: 'Temel ekran gecikmesi',
+        },
+      ],
+      columns: 4,
+    },
+    {
+      type: 'card',
+      title: 'Tarayıcı Tabanlı Gecikme Ölçümü Nasıl Çalışır?',
+      html: 'Bu test, <code>performance.now()</code> aracılığıyla elde edilen yüksek hassasiyetli donanım zaman damgalarını DOM girdi olaylarıyla (<code>pointerdown</code> ve <code>keydown</code>) birleştirir. Olay kaydını <code>requestAnimationFrame</code> aracılığıyla ekran yenileme döngüleriyle senkronize ederek, fiziki eylemden ekran güncellenmesine kadar geçen zaman farkını doğrudan tarayıcınızda hesaplar.',
+    },
+    {
+      type: 'title',
+      text: 'Anahtardan Ekrana Donanım Sinyal Yolu',
+    },
+    {
+      type: 'paragraph',
+      html: 'Girdi gecikmesini etkili bir şekilde teşhis etmek ve azaltmak için fiziksel anahtar tetiklemesinden ekran görüntüsüne kadar olan sinyal zincirini anlamak gerekir. Toplam sistem gecikmesi; çevre birimi, işletim sistemi, işleme motoru ve ekran paneli gecikmelerinin toplamıdır.',
+    },
+    {
+      type: 'table',
+      headers: ['Zincir Bileşeni', 'Tipik Gecikme', 'Temel Darboğaz', 'Optimasyon Stratejisi'],
+      rows: [
+        ['Çevre Birimi Anahtarı', '0.2 ms - 5.0 ms', 'Mekanik sıçrama gecikmesi', 'Optik anahtarlar kullanın'],
+        ['USB Bildirim Hızı', '0.125 ms - 8.0 ms', '125 Hz vs 1000 Hz / 8000 Hz', 'Bildirim hızını 1000Hz üzerine çıkarın'],
+        ['İşletim Sistemi Kuyruğu', '0.5 ms - 3.0 ms', 'Arka plan işletim sistemi görevleri', 'Windows Oyun Modunu açın'],
+        ['Oyun İşleme Motoru', '4.0 ms - 20.0 ms', 'Yüksek CPU yükü', 'NVIDIA Reflex / AMD Anti-Lag kullanın'],
+        ['GPU Kare Arabelleği', '8.0 ms - 33.0 ms', 'VSync açık, çoklu arabellek', 'VSync i kapatın, VRR kullanın'],
+        ['Ekran Görüntü İşleme', '1.0 ms - 15.0 ms', 'TV/Monitör görüntü işlemcileri', 'TV veya monitörde Oyun Modunu açın'],
+      ],
+    },
+    {
+      type: 'tip',
+      title: 'Yüksek Ekran Kartı Yükünde İşleme Gecikmesi Nasıl Düşürülür?',
+      html: 'Ekran kartı %99 kullanım oranına ulaştığında, grafik sürücüsü kareleri önceden arabelleğe alır. Bu durum ciddi bir input lag (genellikle 30 ms ile 50 ms arası) yaratır. Kare hızınızı GPU nun maksimum kapasitesinin biraz altına sınırlayın veya NVIDIA Reflex i etkinleştirin.',
+    },
+    {
+      type: 'title',
+      text: 'Oyuncu Faresi, Klavye ve Dokunmatik Ekran Gecikme Karşılaştırması',
+    },
+    {
+      type: 'paragraph',
+      html: 'Farklı girdi cihazları, kullanılan donanım mimarisine ve iletişim protokollerine bağlı olarak belirgin gecikme farklılıkları gösterir.',
+    },
+    {
+      type: 'comparative',
+      columns: 3,
+      items: [
+        {
+          title: 'Oyuncu Fareleri',
+          description: 'Hızlı kablosuz (2.4GHz) veya kablolu bağlantı.',
+          highlight: '0.5ms - 2ms Gecikme',
+          points: [
+            '1000Hz ile 8000Hz arası bildirim hızı',
+            'Sıçrama gecikmesi olmayan optik anahtarlar',
+            'Çok düşük hareket gecikmeli sensörler',
+          ],
+        },
+        {
+          title: 'Mekanik Klavyeler',
+          description: 'Sıçrama kontrollü matris taraması.',
+          highlight: '1ms - 10ms Gecikme',
+          points: [
+            'Hızlı tetiklemeli Hall-effect manyetik anahtarlar',
+            '8000Hz e kadar matris tarama hızı',
+            'Ayarlanabilir aktivasyon mesafesi',
+          ],
+        },
+        {
+          title: 'Mobil Dokunmatik Ekranlar',
+          description: 'Mobil cihazlarda kapasitif örnekleme.',
+          highlight: '15ms - 45ms Gecikme',
+          points: [
+            'Dokunmatik örnekleme hızı (120Hz - 480Hz)',
+            'İşletim sistemi görüntü birleştirici gecikmesi',
+            'Kapasitif filtreleme algoritmaları',
+          ],
+        },
+      ],
+    },
+    {
+      type: 'title',
+      text: 'Ekran Yenileme Hızının Ekran Gecikmesine Etkisi',
+    },
+    {
+      type: 'paragraph',
+      html: 'Monitörün yenileme hızı, olası minimum görüntüleme gecikmesini doğrudan belirler.',
+    },
+    {
+      type: 'list',
+      items: [
+        '60 Hz Ekran: 1 kare = 16.67 ms kare süresi (Ortalama ekran gecikmesi: ~8.33 ms)',
+        '120 Hz Ekran: 1 kare = 8.33 ms kare süresi (Ortalama ekran gecikmesi: ~4.16 ms)',
+        '144 Hz Ekran: 1 kare = 6.94 ms kare süresi (Ortalama ekran gecikmesi: ~3.47 ms)',
+        '240 Hz Ekran: 1 kare = 4.17 ms kare süresi (Ortalama ekran gecikmesi: ~2.08 ms)',
+        '360 Hz Ekran: 1 kare = 2.78 ms kare süresi (Ortalama ekran gecikmesi: ~1.39 ms)',
+      ],
+    },
+    {
+      type: 'glossary',
+      items: [
+        {
+          term: 'Input Lag',
+          definition: 'Fiziksel girdiden ekrandaki görsel yanıta kadar geçen toplam süre.',
+        },
+        {
+          term: 'Jitter (Gecikme Sapması)',
+          definition: 'Ölçümlerin standart sapması olup sistemin zamanlama kararlılığını gösterir.',
+        },
+        {
+          term: 'VSync (Dikey Senkronizasyon)',
+          definition: 'Ekran yırtılmasını önler ancak girdi gecikmesini önemli ölçüde artırır.',
+        },
+        {
+          term: 'Variable Refresh Rate (VRR)',
+          definition: 'G-Sync ve FreeSync gibi monitör yenilemesini GPU çıktısına dinamik olarak eşleyen teknolojiler.',
+        },
+      ],
+    },
+    {
+      type: 'title',
+      text: 'Tarayıcı Tabanlı Gecikme Ölçümünün Avantajları ve Sınırları',
+    },
+    {
+      type: 'paragraph',
+      html: 'Gecikmeyi tarayıcı içinde ölçmek, özel donanım ekipmanı gerektirmeden anında erişim sağlar.',
+    },
+    {
+      type: 'proscons',
+      title: 'Tarayıcı Ölçüm Değerlendirmesi',
+      items: [
+        {
+          pro: 'Yazılım kurulumu veya özel donanım gerektirmez',
+          con: 'Tarayıcı olay döngüsünden ve işletim sistemi pencere yöneticisinden etkilenir',
+        },
+        {
+          pro: 'performance.now ile mikro saniye hassasiyetinde zamanlayıcı',
+          con: 'Ekran piksellerinin optik tepki süresini doğrudan ölçemez',
+        },
+        {
+          pro: 'Farklı çevre birimleri arasında anında karşılaştırmalı test',
+          con: 'Güvenlik nedenleriyle tarayıcı zamanlayıcı hassasiyet sınırlandırması',
+        },
+      ],
+    },
+    {
+      type: 'title',
+      text: 'Yüksek Input Lag Durumunda Teşhis',
+    },
+    {
+      type: 'paragraph',
+      html: 'Test sonuçlarınız yüksek gecikme (>30 ms) gösteriyorsa, aşağıdaki ayarları kontrol edin.',
+    },
+    {
+      type: 'diagnostic',
+      variant: 'warning',
+      title: 'Yüksek Gecikme Teşhis Bildirimi',
+      html: 'Ortalama input lag değeriniz 35ms yi aşıyorsa, ekran kartı sürücünüzde VSync in açık olup olmadığını kontrol edin. Tarayıcıda donanım hızlandırmasının kapalı olması da işlemciye ek yük bindirerek gecikmeyi artırabilir.',
+    },
+    {
+      type: 'title',
+      text: 'Sistem Gecikmesini Düşürmek İçin Adım Adım Rehber',
+    },
+    {
+      type: 'paragraph',
+      html: 'Sistem gecikmesini azaltmak için bu teknik adımları takip edin.',
+    },
+    {
+      type: 'summary',
+      title: 'Gecikme Optimizasyon Kontrol Listesi',
+      items: [
+        'Fare USB bildirim hızını kendi yazılımından 1000Hz veya üzerine ayarlayın.',
+        'Windows ayarlarından Donanım Hızlandırmalı GPU Zamanlamasını (HAGS) açın.',
+        'Görüntü işleme gecikmesini baypas etmek için TV veya monitörde Oyun Modunu etkinleştirin.',
+        'Genel VSync i kapatın ve G-Sync veya FreeSync kullanın.',
+        'Destekleyen oyunlarda NVIDIA Reflex veya AMD Anti-Lag ı açın.',
+        'Tarayıcı ayarlarında Donanım Hızlandırmasının açık olduğundan emin olun.',
+      ],
+    },
+    {
+      type: 'message',
+      title: 'Güvenilir Ölçümler İçin İpucu',
+      html: 'En doğru sonuçlar için arka plan uygulamalarını kapatın, tarayıcıyı tam ekranda çalıştırın ve en az 15-20 test örneği alın.',
+    },
   ],
 };

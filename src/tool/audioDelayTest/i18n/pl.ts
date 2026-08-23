@@ -3,53 +3,53 @@ import type { ToolLocaleContent } from '../../../types';
 import type { AudioDelayTestUI } from '../ui';
 import { bibliography } from '../bibliography';
 
-const slug = 'test-opoznienia-audio';
-const title = 'Test opóźnienia audio';
-const description = 'Przetestuj odczuwalne opóźnienie dźwięku w głośnikach, słuchawkach, urządzeniach Bluetooth i synchronizacji wideo za pomocą testu impulsowego w przeglądarce.';
+const slug = 'test-opoznienia-dzwieku';
+const title = 'Test Opóźnienia Dźwięku';
+const description = 'Przetestuj odczuwalne opóźnienie dźwięku w głośnikach, słuchawkach, urządzeniach Bluetooth i odtwarzaniu wideo za pomocą lokalnego testu impulsowego w przeglądarce.';
 
 const faq = [
   {
     question: 'Co dokładnie mierzy ten test opóźnienia dźwięku?',
-    answer: 'Opcjonalny tryb mikrofonowy szacuje czas między impuls wygenerowanym przez przeglądarkę a jego zarejestrowaniem przez mikrofon.',
+    answer: 'Opcjonalny tryb mikrofonowy szacuje czas między kliknięciem zaplanowanym przez przeglądarkę a jego wykryciem przez mikrofon. Tryb ręczny pomaga wyrównać impuls wizualny i dźwiękowy na ucho. Żaden z trybów nie jest laboratoryjnym pomiarem całego toru sprzętowego.',
   },
   {
     question: 'Czy mogę przetestować opóźnienie Bluetooth bez mikrofonu?',
-    answer: 'Tak. Uruchom sekwencję impulsów, wybierz Bluetooth i przesuwaj suwak wyrównania, aż błysk i dźwięk będą słyszalne jednocześnie.',
+    answer: 'Tak. Uruchom sekwencję impulsów, wybierz Bluetooth i przesuwaj suwak wyrównania, aż błysk i kliknięcie zaczną występować jednocześnie. Wynik zostanie zapisany jako korekta wyrównania.',
   },
   {
     question: 'Dlaczego tryb mikrofonowy wymaga uprawnień?',
-    answer: 'Przeglądarka potrzebuje dostępu do mikrofonu, aby wykryć dźwięk testowy po jego przejściu przez głośniki.',
+    answer: 'Przeglądarka potrzebuje dostępu do mikrofonu, aby usłyszeć kliknięcie testowe po jego przejściu przez głośniki lub przestrzeń akustyczną. Dźwięk jest przetwarzany lokalnie w przeglądarce i nie jest wysyłany na serwer.',
   },
   {
     question: 'Dlaczego wynik pomiaru mikrofonem może się różnić?',
-    answer: 'Odbicia w pomieszczeniu, przetwarzanie mikrofonu i buforowanie systemu operacyjnego mogą wpływać na wynik.',
+    answer: 'Odbicia w pomieszczeniu, przetwarzanie mikrofonowe, automatyczna regulacja wzmocnienia i buforowanie systemu operacyjnego wpływają na wynik. Traktuj tę liczbę jako szacunek dla bieżącej konfiguracji.',
   },
   {
-    question: 'Który tryb testowy wybrać?',
-    answer: 'Wybierz Głośniki dla odsłuchu w pokoju, Słuchawki przewodowe dla połączenia bezpośredniego i Bluetooth dla urządzeń bezprzewodowych.',
+    question: 'Jaki tryb testowy powinienem wybrać?',
+    answer: 'Wybierz Głośniki do odsłuchu w pomieszczeniu, Słuchawki przewodowe dla bezpośredniego wyjścia, Bluetooth dla urządzeń bezprzewodowych oraz Synchronizację wideo przy sprawdzaniu ekranu i odtwarzacza.',
   },
   {
-    question: 'Czy dźwięk z mikrofonu jest przesyłany na serwer?',
-    answer: 'Nie. Strumień z mikrofonu jest analizowany wyłącznie lokalnie w pamięci przeglądarki i żaden dźwięk nie jest przesyłany.',
+    question: 'Czy test wysyła dźwięk z mojego mikrofonu na serwer?',
+    answer: 'Nie. Strumień z mikrofonu jest odczytywany lokalnie przez analizator przeglądarki, a test nie przesyła próbek nagrań audio.',
   },
 ];
 
 const howTo = [
   {
     name: 'Wybierz ścieżkę odtwarzania',
-    text: 'Wybierz głośniki, słuchawki przewodowe, Bluetooth lub synchronizację wideo.',
+    text: 'Wybierz głośniki, słuchawki przewodowe, Bluetooth lub synchronizację wideo, aby zdefiniować testowaną konfigurację.',
   },
   {
     name: 'Rozpocznij od impulsu ręcznego',
-    text: 'Naciśnij Rozpocznij test, słuchaj kliknięcia i dostosuj suwak wyrównania.',
+    text: 'Kliknij Rozpocznij test i słuchaj krótkiego kliknięcia, obserwując seledynowy impuls wizualny. Użyj suwaka, aż oba sygnały się nałożą.',
   },
   {
-    name: 'Włącz pomiar mikrofonem w razie potrzeby',
-    text: 'Kliknij Włącz mikrofon, przyznaj uprawnienia i umieść mikrofon w miejscu odsłuchu.',
+    name: 'Dodaj pomiar mikrofonem w razie potrzeby',
+    text: 'Kliknij Włącz mikrofon, przyznaj uprawnienia, umieść mikrofon w miejscu odsłuchu i ponownie uruchom sekwencję.',
   },
   {
     name: 'Odczytaj wynik jako wartość szacunkową',
-    text: 'Użyj mediany opóźnienia i wskaźnika pewności do porównania konfiguracji.',
+    text: 'Używaj mediany opóźnienia i poziomu ufności jako wskazówki dla swojej konfiguracji po zmianie sprzętu lub odległości.',
   },
 ];
 
@@ -96,73 +96,73 @@ export const content: ToolLocaleContent<AudioDelayTestUI> = {
   howTo,
   schemas: [faqSchema, howToSchema, appSchema],
   seo: [
-    { type: 'title', text: 'Test opóźnienia audio dla Bluetooth i synchronizacji wideo', level: 2 },
+    { type: 'title', text: 'Test Opóźnienia Dźwięku Dla Bluetooth i Synchronizacji Wideo', level: 2 },
     {
       type: 'paragraph',
-      html: 'Ten test opóźnienia dźwięku w przeglądarce pomaga sprawdzić przesunięcie czasowe między sygnałem wizualnym a dźwiękiem.',
+      html: 'Ten test opóźnienia dźwięku w przeglądarce pomaga sprawdzić różnicę czasową między sygnałem wizualnym a dźwiękiem na Twoim urządzeniu. Jest przydatny dla słuchawek Bluetooth, głośników bezprzewodowych, słuchawek przewodowych i kontroli synchronizacji wideo. Narzędzie generuje krótkie kliknięcia lokalnie w przeglądarce bez konieczności pobierania plików testowych.',
     },
     {
       type: 'diagnostic',
       variant: 'info',
-      title: 'Start bez dostępu do mikrofonu',
+      title: 'Uruchomienie bez dostępu do mikrofonu',
       badge: 'Lokalnie i prywatnie',
-      html: '<p>Test ręczny działa bez mikrofonu. Obserwuj znacznik i dostosuj suwak wyrównania.</p>',
+      html: '<p>Ręczny test impulsowy działa bez mikrofonu. Obserwuj znacznik wizualny i dostosuj suwak, aż sygnał dźwiękowy i błysk będą odczuwalne jednocześnie. Zapewnia to przydatną korektę bez udawania pomiaru bezwzględnego opóźnienia sprzętowego.</p>',
     },
     {
       type: 'title',
-      text: 'Jak przetestować opóźnienie dźwięku Bluetooth',
+      text: 'Jak Przetestować Opóźnienie Dźwięku Bluetooth',
       level: 2,
     },
     {
       type: 'list',
       icon: 'mdi:check-circle',
       items: [
-        'Wybierz Bluetooth i ustaw odpowiedni poziom głośności.',
-        'Uruchom sekwencję impulsów w swojej przeglądarce.',
-        'Porównaj błysk wizualny z dźwiękiem kliknięcia.',
-        'Przesuwaj suwak wyrównania, aż sygnały się pokryją.',
-        'Powtórz test po zmianie kodeka lub urządzenia.',
+        'Wybierz Bluetooth i ustaw komfortową głośność przed rozpoczęciem testu.',
+        'Uruchom sekwencję impulsów z tej samej przeglądarki i urządzenia, z których korzystasz na co dzień.',
+        'Porównuj impuls wizualny bezpośrednio z kliknięciem, zamiast oceniać długi utwór muzyczny.',
+        'Przesuwaj suwak wyrównania, aż oba sygnały się spotkają, a następnie zanotuj wartość korekty.',
+        'Powtórz test po zmianie kodeka, systemu operacyjnego, przeglądarki lub odległości.',
       ],
     },
     {
       type: 'table',
-      headers: ['Tryb', 'Najlepsze do', 'Główne ograniczenie'],
+      headers: ['Tryb', 'Zalecany do', 'Główne ograniczenie'],
       rows: [
-        ['Głośniki', 'Odsłuch w pokoju i TV', 'Odległość i odbicia w pomieszczeniu wpływają na pomiar.'],
-        ['Słuchawki przewodowe', 'Bezpośrednie wyjście audio', 'Mikrofon może słabo rejestrować słuchawki zamknięte.'],
-        ['Bluetooth', 'Urządzenia bezprzewodowe', 'Buforowanie kodeka różni się w zależności od urządzenia.'],
-        ['Synchronizacja wideo', 'Wyrównanie ekranu i odtwarzacza', 'Odtwarzacz wideo może dodawać własne opóźnienie.'],
+        ['Głośniki', 'Odsłuch w pomieszczeniu i głośniki TV', 'Odległość i odbicia w pomieszczeniu wpływają na ścieżkę akustyczną.'],
+        ['Słuchawki przewodowe', 'Direct wyjście słuchawkowe', 'Mikrofon może mieć trudności z uchwyceniem dźwięku ze słuchawek zamkniętych.'],
+        ['Bluetooth', 'Bezprzewodowe słuchawki i głośniki', 'Buforowanie kodeka różni się w zależności od urządzenia i aplikacji.'],
+        ['Synchronizacja wideo', 'Wyrównanie ekranu i odtwarzacza', 'Odtwarzacz wideo może dodawać własne opóźnienie renderowania klatek.'],
       ],
     },
     {
       type: 'title',
-      text: 'Opcjonalny pomiar mikrofonem',
+      text: 'Opcjonalny Pomiar Mikrofonem',
       level: 2,
     },
     {
       type: 'paragraph',
-      html: 'Po włączeniu mikrofonu narzędzie mierzy czas od zaplanowanego impulsu do wykrytego szczytu akustycznego i oblicza medianę próbek.',
+      html: 'Gdy dostęp do mikrofonu jest włączony, narzędzie analizuje lokalny mikrofon pod kątem każdego kliknięcia i rejestruje czas od zaplanowanego zdarzenia audio do wykrytego szczytu akustycznego. Wynik wykorzystuje medianę próbek, aby zapobiec zakłóceniu szacunku przez pojedyncze odbicie.',
     },
     {
       type: 'tip',
       title: 'Umieść mikrofon w miejscu odsłuchu',
-      html: 'W przypadku głośników umieść mikrofon w miejscu, w którym zwykle siedzisz.',
+      html: 'W przypadku głośników umieść mikrofon w miejscu, w którym siedzisz, i zachowaj ciszę w pomieszczeniu. W przypadku testów synchronizacji wideo użyj zwykłej konfiguracji.',
     },
     {
       type: 'title',
-      text: 'Dlaczego wyniki opóźnienia audio się różnią',
+      text: 'Dlaczego Wyniki Opóźnienia Dźwięku Mogą Się Różnić',
       level: 2,
     },
     {
       type: 'paragraph',
-      html: 'Opóźnienie audio wynika z całego toru: zegara AudioContext, buforów systemu i kodeka Bluetooth.',
+      html: 'Opóźnienie dźwięku powstaje w całym torze: zegar AudioContext przeglądarki, bufory systemu operacyjnego, kodowanie sprzętowe i przetworniki głośnikowe. Mikrofon dodaje własną ścieżkę rejestracji. Dlatego test opisuje bieżącą kombinację Twojego sprzętu i systemu.',
     },
     {
       type: 'diagnostic',
       variant: 'warning',
-      title: 'Interpretacja wyników',
-      badge: 'Wartość szacunkowa',
-      html: '<p>Użyj wyniku do porównywania konfiguracji. Pomiar nie zastępuje profesjonalnego sprzętu laboratoryjnego.</p>',
+      title: 'Traktuj wynik jako wartość szacunkową',
+      badge: 'Tylko szacunek',
+      html: '<p>Używaj wyniku do porównywania zestawów lub rozwiązywania wyraźnych problemów z synchronizacją. Nie zastępuje on specyfikacji producenta ani profesjonalnego systemu pomiarowego.</p>',
     },
   ],
   ui: {
@@ -177,33 +177,33 @@ export const content: ToolLocaleContent<AudioDelayTestUI> = {
     enableMic: 'Włącz mikrofon',
     micEnabled: 'Mikrofon gotowy',
     calibrationTitle: 'Korekta wyrównania',
-    calibrationHint: 'Przesuwaj suwak, aż błysk i dźwięk się pokryją',
-    calibrationEarly: 'Audio wyprzedza',
-    calibrationLate: 'Wizualne wyprzedza',
-    calibrationCenter: 'Wyrównane',
-    visualLane: 'Wizualne',
+    calibrationHint: 'Przesuwaj suwak, aż błysk i kliknięcie zaczną występować jednocześnie',
+    calibrationEarly: 'Dźwięk wyprzedza',
+    calibrationLate: 'Wizualizacja wyprzedza',
+    calibrationCenter: 'Wyrównano',
+    visualLane: 'Wizualizator',
     audioLane: 'Audio',
     statusReady: 'Gotowy',
-    statusRunning: 'Sekwencja impulsów w toku',
+    statusRunning: 'Sekwencja aktywna',
     statusWaiting: 'Oczekiwanie na impuls',
-    resultTitle: 'Aktualny pomiar',
+    resultTitle: 'Bieżący pomiar',
     latencyLabel: 'Zmierzone opóźnienie',
     alignmentLabel: 'Korekta wyrównania',
-    confidenceLabel: 'Pewność pomiaru',
+    confidenceLabel: 'Poziom ufności',
     samplesLabel: 'Próbki',
     notMeasured: 'Niezmierzone',
     manualConfidence: 'Tylko ręcznie',
-    lowConfidence: 'Niska pewność',
-    mediumConfidence: 'Średnia pewność',
-    highConfidence: 'Wysoka pewność',
+    lowConfidence: 'Niska ufność',
+    mediumConfidence: 'Średnia ufność',
+    highConfidence: 'Wysoka ufność',
     noMic: 'Wejście mikrofonowe jest niedostępne w tej przeglądarce',
-    permissionDenied: 'Nie udzielono dostępu do mikrofonu',
-    limitationTitle: 'Traktuj wynik jako szacunek',
-    limitationText: 'Odbicia w pomieszczeniu i buforowanie systemu mogą zmieniać wynik. Żaden dźwięk nie jest przesyłany.',
+    permissionDenied: 'Nie przyznano uprawnień do mikrofonu',
+    limitationTitle: 'Traktuj wynik jako wartość szacunkową',
+    limitationText: 'Odbicia, przetwarzanie mikrofonowe i buforowanie zmieniają zmierzone opóźnienie. Żadne dane nie są wysyłane.',
     copyReport: 'Kopiuj raport',
     copied: 'Skopiowano',
     reset: 'Resetuj',
-    safety: 'Zacznij od niskiej głośności. Przerwij test w przypadku zniekształceń.',
+    safety: 'Zacznij od niskiej głośności. Przerwij, jeśli dźwięk ulega zniekształceniu.',
     pulse: 'SYNCHRO',
   },
 };
