@@ -1,0 +1,136 @@
+---
+import type { WebcamTesterUI } from './ui';
+import './webcam-tester.css';
+
+interface Props {
+  ui: WebcamTesterUI;
+}
+
+const { ui } = Astro.props;
+---
+
+<section
+  class="camera-room"
+  data-webcam-tester
+  data-state="idle"
+  data-mirror="true"
+  data-guide="true"
+  data-frame-delivery="pending"
+>
+  <script is:inline type="application/json" data-webcam-config set:html={JSON.stringify(ui)} />
+  <div class="camera-room__privacy">
+    <span class="camera-room__privacy-light" aria-hidden="true"></span>
+    <span>{ui.privacyNote}</span>
+  </div>
+
+  <div class="camera-room__stage" aria-label={ui.stageLabel}>
+    <video class="camera-room__video" data-camera-video muted playsinline aria-label={ui.stageLabel}></video>
+    <div class="camera-room__guide" aria-hidden="true">
+      <span class="camera-room__third camera-room__third--vertical-one"></span>
+      <span class="camera-room__third camera-room__third--vertical-two"></span>
+      <span class="camera-room__third camera-room__third--horizontal-one"></span>
+      <span class="camera-room__third camera-room__third--horizontal-two"></span>
+      <span class="camera-room__focus-ring"></span>
+    </div>
+    <div class="camera-room__corner camera-room__corner--top-left" aria-hidden="true"></div>
+    <div class="camera-room__corner camera-room__corner--top-right" aria-hidden="true"></div>
+    <div class="camera-room__corner camera-room__corner--bottom-left" aria-hidden="true"></div>
+    <div class="camera-room__corner camera-room__corner--bottom-right" aria-hidden="true"></div>
+
+    <div class="camera-room__permission">
+      <div class="camera-room__permission-copy">
+        <p class="camera-room__permission-kicker">{ui.localOnlyLabel}</p>
+        <h2>{ui.permissionHeading}</h2>
+        <p>{ui.permissionBody}</p>
+        <button class="camera-room__start" type="button" data-start-camera>
+          <span>{ui.startAction}</span>
+        </button>
+      </div>
+      <div class="camera-room__iris" aria-hidden="true">
+        <span class="camera-room__iris-ring"></span>
+        <span class="camera-room__iris-core"></span>
+      </div>
+    </div>
+
+    <div class="camera-room__live-bar">
+      <div class="camera-room__live-mark">
+        <span class="camera-room__live-dot" aria-hidden="true"></span>
+        <span>{ui.localOnlyLabel}</span>
+      </div>
+      <div class="camera-room__live-actions">
+        <button class="camera-room__live-toggle" type="button" data-toggle-mirror aria-pressed="true">
+          <span class="camera-room__mirror-icon" aria-hidden="true"></span>
+          <span>{ui.mirrorAction}</span>
+        </button>
+        <button class="camera-room__live-toggle" type="button" data-toggle-guide aria-pressed="true">
+          <span class="camera-room__guide-icon" aria-hidden="true"></span>
+          <span>{ui.guideAction}</span>
+        </button>
+        <button class="camera-room__stop" type="button" data-stop-camera>
+          <span class="camera-room__stop-icon" aria-hidden="true"></span>
+          <span>{ui.stopAction}</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="camera-room__status" role="status" aria-live="polite">
+      <span class="camera-room__status-wave" aria-hidden="true"></span>
+      <span data-status-message>{ui.statusIdle}</span>
+    </div>
+  </div>
+
+  <div class="camera-room__film" aria-label={ui.frameDeliveryLabel}>
+    <div class="camera-room__metric camera-room__metric--format">
+      <span>{ui.resolutionLabel}</span>
+      <strong data-metric="resolution">{ui.emptyValue}</strong>
+      <small><span data-metric="aspect">{ui.emptyValue}</span> · <span data-metric="orientation">{ui.emptyValue}</span></small>
+    </div>
+    <div class="camera-room__metric camera-room__metric--frames">
+      <span>{ui.configuredFpsLabel}</span>
+      <strong data-metric="configured-fps">{ui.emptyValue}</strong>
+      <small>{ui.observedFpsLabel}: <span data-metric="observed-fps">{ui.emptyValue}</span></small>
+    </div>
+    <div class="camera-room__metric camera-room__metric--delivery">
+      <span>{ui.frameDeliveryLabel}</span>
+      <strong data-metric="delivery">{ui.framePending}</strong>
+    </div>
+  </div>
+
+  <div class="camera-room__controls" data-camera-picker hidden>
+    <div class="camera-room__device">
+      <span class="camera-room__control-label">{ui.deviceLabel}</span>
+      <button
+        class="camera-room__device-trigger"
+        type="button"
+        data-camera-trigger
+        aria-haspopup="listbox"
+        aria-expanded="false"
+      >
+        <span data-camera-trigger-label>{ui.devicePlaceholder}</span>
+        <span class="camera-room__chevron" aria-hidden="true"></span>
+      </button>
+      <div class="camera-room__device-options" data-camera-options role="listbox" hidden></div>
+    </div>
+  </div>
+
+  <div class="camera-room__limit">
+    <span class="camera-room__limit-mark" aria-hidden="true">i</span>
+    <div>
+      <strong>{ui.limitHeading}</strong>
+      <p>{ui.limitBody}</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { initWebcamTester } from './controller';
+  import type { WebcamTesterUI } from './ui';
+
+  document.querySelectorAll<HTMLElement>('[data-webcam-tester]').forEach((root) => {
+    if (root.dataset.initialized === 'true') return;
+    const config = root.querySelector<HTMLScriptElement>('[data-webcam-config]');
+    if (!config?.textContent) return;
+    root.dataset.initialized = 'true';
+    initWebcamTester(root, JSON.parse(config.textContent) as WebcamTesterUI);
+  });
+</script>
