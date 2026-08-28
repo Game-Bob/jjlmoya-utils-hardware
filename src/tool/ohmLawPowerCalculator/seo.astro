@@ -1,12 +1,15 @@
 ---
 import { SEORenderer } from '@jjlmoya/utils-shared';
-import type { SEOSection } from '../../types';
+import { ohmLawPowerCalculator } from './entry';
+import type { KnownLocale } from '../../types';
 
 interface Props {
-  sections?: SEOSection[];
+  locale?: KnownLocale;
 }
 
-const { sections = [] } = Astro.props as Props;
+const { locale = 'es' } = Astro.props;
+const loader = ohmLawPowerCalculator.i18n[locale as KnownLocale] ?? ohmLawPowerCalculator.i18n.es ?? ohmLawPowerCalculator.i18n.en;
+const content = loader ? await loader() : null;
 ---
 
-<SEORenderer content={{ locale: 'en', sections }} />
+{content?.seo && content.seo.length > 0 && <SEORenderer content={{ locale, sections: content.seo }} />}

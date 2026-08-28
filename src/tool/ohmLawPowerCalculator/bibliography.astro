@@ -1,10 +1,6 @@
 ---
+import { Bibliography as SharedBibliography } from '@jjlmoya/utils-shared';
 import { bibliography } from './bibliography';
 ---
 
-<section aria-labelledby="ohm-references-title">
-  <h2 id="ohm-references-title">References</h2>
-  <ul>
-    {bibliography.map((entry) => <li><a href={entry.url} rel="noreferrer">{entry.name}</a></li>)}
-  </ul>
-</section>
+<SharedBibliography links={bibliography} />
