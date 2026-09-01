@@ -1,0 +1,58 @@
+---
+import type { PcbTraceWidthImpedanceCheckerUI } from './ui';
+
+interface Props { ui: PcbTraceWidthImpedanceCheckerUI; }
+const { ui } = Astro.props as Props;
+---
+
+<div class="pcb-tool" data-pcb-tool>
+  <div class="pcb-workbench">
+    <div class="pcb-toolbar">
+      <div class="pcb-toggle-group" role="group" aria-label="Units">
+        <button type="button" data-unit="metric" class="pcb-toggle is-active">{ui.metricLabel}</button>
+        <button type="button" data-unit="imperial" class="pcb-toggle">{ui.imperialLabel}</button>
+      </div>
+      <div class="pcb-status" data-status data-state="empty" role="status">{ui.statusEmpty}</div>
+    </div>
+    <div class="pcb-layout">
+      <div class="pcb-inputs">
+        <section class="pcb-section" aria-labelledby="pcb-current-title">
+          <div class="pcb-section-heading"><span class="pcb-step">01</span><div><h2 id="pcb-current-title">{ui.currentProfileTitle}</h2><p>{ui.sceneCaption}</p></div></div>
+          <div class="pcb-choice-row" role="group" aria-label={ui.currentProfileTitle}><button type="button" data-mode="steady" class="pcb-choice is-active">{ui.steadyLabel}</button><button type="button" data-mode="pulse" class="pcb-choice">{ui.pulseLabel}</button></div>
+          <label class="pcb-field"><span>{ui.steadyCurrentLabel}</span><span class="pcb-field-control"><input data-field="currentA" type="number" min="0" step="any" inputmode="decimal" /><b>A</b></span></label>
+          <div data-pulse-only hidden>
+            <label class="pcb-field"><span>{ui.pulseCurrentLabel}</span><span class="pcb-field-control"><input data-field="pulseCurrentA" type="number" min="0" step="any" inputmode="decimal" /><b>A peak</b></span></label>
+            <div class="pcb-field-pair"><label class="pcb-field"><span>{ui.pulseDurationLabel}</span><span class="pcb-field-control"><input data-field="pulseDurationMs" type="number" min="0" step="any" inputmode="decimal" /><b>ms</b></span></label><label class="pcb-field"><span>{ui.dutyCycleLabel}</span><span class="pcb-field-control"><input data-field="dutyCyclePercent" type="number" min="0" max="100" step="any" inputmode="decimal" /><b>%</b></span></label></div>
+          </div>
+        </section>
+        <section class="pcb-section" aria-labelledby="pcb-copper-title">
+          <div class="pcb-section-heading"><span class="pcb-step">02</span><div><h2 id="pcb-copper-title">{ui.copperPathTitle}</h2><p>{ui.modelNote}</p></div></div>
+          <span class="pcb-label">{ui.layerLabel}</span>
+          <div class="pcb-choice-row" role="group" aria-label={ui.layerLabel}><button type="button" data-layer="external" class="pcb-choice is-active">{ui.externalLabel}</button><button type="button" data-layer="internal" class="pcb-choice">{ui.internalLabel}</button></div>
+          <div class="pcb-field-pair"><label class="pcb-field"><span>{ui.copperThicknessLabel}</span><span class="pcb-field-control"><input data-field="copperThicknessUm" type="number" min="0" step="any" inputmode="decimal" /><b data-unit-label="copperThicknessUm">µm</b></span></label><label class="pcb-field"><span>{ui.temperatureRiseLabel}</span><span class="pcb-field-control"><input data-field="temperatureRiseC" type="number" min="0" max="180" step="any" inputmode="decimal" /><b data-unit-label="temperatureRiseC">°C</b></span></label></div>
+          <div class="pcb-field-pair"><label class="pcb-field"><span>{ui.lengthLabel}</span><span class="pcb-field-control"><input data-field="lengthMm" type="number" min="0" step="any" inputmode="decimal" /><b data-unit-label="lengthMm">mm</b></span></label><label class="pcb-field"><span>{ui.availableWidthLabel}</span><span class="pcb-field-control"><input data-field="availableWidthMm" type="number" min="0" step="any" inputmode="decimal" /><b data-unit-label="availableWidthMm">mm</b></span></label></div>
+        </section>
+        <section class="pcb-section pcb-signal-section" aria-labelledby="pcb-signal-title">
+          <div class="pcb-section-heading"><span class="pcb-step">03</span><div><h2 id="pcb-signal-title">{ui.signalGeometryTitle}</h2><p>{ui.impedanceBadge}</p></div></div>
+          <div class="pcb-field-pair"><label class="pcb-field"><span>{ui.targetImpedanceLabel}</span><span class="pcb-field-control"><input data-field="targetImpedanceOhm" type="number" min="0" step="any" inputmode="decimal" /><b>Ω</b></span></label><label class="pcb-field"><span>{ui.dielectricConstantLabel}</span><span class="pcb-field-control"><input data-field="dielectricConstant" type="number" min="0" step="any" inputmode="decimal" /><b>εr</b></span></label></div>
+          <label class="pcb-field"><span>{ui.dielectricHeightLabel}</span><span class="pcb-field-control"><input data-field="dielectricHeightMm" type="number" min="0" step="any" inputmode="decimal" /><b data-unit-label="dielectricHeightMm">mm</b></span></label>
+        </section>
+        <div class="pcb-presets"><div class="pcb-presets-heading"><span>{ui.presetTitle}</span><button type="button" data-reset>{ui.resetLabel}</button></div><div class="pcb-choice-row"><button type="button" data-preset="logic" class="pcb-choice">{ui.presetLogic}</button><button type="button" data-preset="signal" class="pcb-choice">{ui.presetSignal}</button><button type="button" data-preset="pulse" class="pcb-choice">{ui.presetPulse}</button></div></div>
+      </div>
+      <div class="pcb-output">
+        <figure class="pcb-scene-frame" data-trace-scene aria-live="polite"><div class="pcb-scene-empty"><span class="pcb-scene-empty-line"></span><span>{ui.sceneCaption}</span></div></figure>
+        <div class="pcb-scene-meta"><span data-model-label>{ui.externalModel}</span><span>{ui.referenceLineLabel}</span></div>
+        <div class="pcb-primary-result"><span>{ui.thermalWidthTitle}</span><strong data-result-value="thermalWidth">-</strong><span data-thermal-badge>{ui.thermalBadge}</span></div>
+        <div class="pcb-result-grid"><article class="pcb-result-card" data-result-card><span>{ui.availableWidthTitle}</span><strong data-result-value="availableWidth">-</strong></article><article class="pcb-result-card" data-result-card><span>{ui.impedanceTitle}</span><strong data-result-value="impedance">-</strong><small data-impedance-badge>{ui.impedanceBadge}</small></article><article class="pcb-result-card" data-result-card><span>{ui.voltageDropTitle}</span><strong data-result-value="drop">-</strong></article><article class="pcb-result-card" data-result-card><span>{ui.powerLossTitle}</span><strong data-result-value="loss">-</strong></article><article class="pcb-result-card" data-result-card data-pulse-result><span>{ui.pulseEnergyTitle}</span><strong data-result-value="pulseEnergy">-</strong></article></div>
+      </div>
+    </div>
+  </div>
+  <script is:inline type="application/json" data-pcb-ui set:html={JSON.stringify(ui)}></script>
+</div>
+
+<script>
+  import { mountPcbTraceController } from './controller';
+  const root = document.querySelector<HTMLElement>('[data-pcb-tool]');
+  const data = root?.querySelector<HTMLScriptElement>('[data-pcb-ui]');
+  if (root && data) mountPcbTraceController(root, JSON.parse(data.textContent ?? '{}'));
+</script>

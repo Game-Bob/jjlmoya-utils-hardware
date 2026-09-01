@@ -1,0 +1,54 @@
+export interface PcbTraceWidthImpedanceCheckerUI extends Record<
+  string,
+  string
+> {
+  metricLabel: string;
+  imperialLabel: string;
+  steadyLabel: string;
+  pulseLabel: string;
+  currentProfileTitle: string;
+  steadyCurrentLabel: string;
+  pulseCurrentLabel: string;
+  pulseDurationLabel: string;
+  dutyCycleLabel: string;
+  copperPathTitle: string;
+  layerLabel: string;
+  externalLabel: string;
+  internalLabel: string;
+  copperThicknessLabel: string;
+  temperatureRiseLabel: string;
+  lengthLabel: string;
+  availableWidthLabel: string;
+  signalGeometryTitle: string;
+  targetImpedanceLabel: string;
+  dielectricHeightLabel: string;
+  dielectricConstantLabel: string;
+  thermalWidthTitle: string;
+  availableWidthTitle: string;
+  impedanceTitle: string;
+  voltageDropTitle: string;
+  powerLossTitle: string;
+  pulseEnergyTitle: string;
+  statusEmpty: string;
+  statusInvalid: string;
+  statusReady: string;
+  externalModel: string;
+  internalModel: string;
+  thermalBadge: string;
+  impedanceBadge: string;
+  widthFits: string;
+  widthDoesNotFit: string;
+  impedanceClose: string;
+  impedanceFar: string;
+  resetLabel: string;
+  presetTitle: string;
+  presetLogic: string;
+  presetSignal: string;
+  presetPulse: string;
+  sceneLabel: string;
+  sceneCaption: string;
+  referenceLineLabel: string;
+  thermalLineLabel: string;
+  availableLineLabel: string;
+  modelNote: string;
+}
