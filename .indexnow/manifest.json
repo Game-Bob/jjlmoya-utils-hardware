@@ -1,0 +1,2406 @@
+{
+  "version": 1,
+  "generatedAt": "2026-09-04T11:05:49.411Z",
+  "pages": {
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/hardware-werkzeuge/audio-verzoggerung-test/": {
+      "hash": "5a116bf486481fb10eaf4b8808a7fa072185d8aa368011f8ed2312591fcaf28e",
+      "route": "/de/werkzeuge/kategorien/hardware-werkzeuge/audio-verzoggerung-test/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/hardware-werkzeuge/backlight-bleeding-blooming-test/": {
+      "hash": "040d4f6b439485abf8cb712a9ebc8e5a67095aa769872afe5c8e68018584c8bd",
+      "route": "/de/werkzeuge/kategorien/hardware-werkzeuge/backlight-bleeding-blooming-test/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/hardware-werkzeuge/farbgenauigkeit-test/": {
+      "hash": "d3d1bb11cf462714a50c289a3a15e56ede1b077f8f21a5120a377564ac24a40a",
+      "route": "/de/werkzeuge/kategorien/hardware-werkzeuge/farbgenauigkeit-test/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/hardware-werkzeuge/gamepad-abfragerate-tester-hertz/": {
+      "hash": "24c97d986f52da76bb3a1ee41cbebcbfac367fd213f992406d78c97f21bb5468",
+      "route": "/de/werkzeuge/kategorien/hardware-werkzeuge/gamepad-abfragerate-tester-hertz/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/hardware-werkzeuge/gamepad-test-deutsch/": {
+      "hash": "578554a5c4f96afd253dcf6788d53a83310e2e0be95a3f94609634b0c5395f45",
+      "route": "/de/werkzeuge/kategorien/hardware-werkzeuge/gamepad-test-deutsch/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/hardware-werkzeuge/gamepad-vibration-test-online/": {
+      "hash": "b8f96648c6568aae0777079e5445532c41561687d6aa2143d4728975c7fb794d",
+      "route": "/de/werkzeuge/kategorien/hardware-werkzeuge/gamepad-vibration-test-online/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/hardware-werkzeuge/": {
+      "hash": "94f88ca8feb7374e58723876adc346c543bde1936881013995d1882270132ca4",
+      "route": "/de/werkzeuge/kategorien/hardware-werkzeuge/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/hardware-werkzeuge/input-lag-verzogerung-test/": {
+      "hash": "eb4d8f1948ec1644a92e5c8c616183ae31b043c53bfbac5fec599f23d0791c2c",
+      "route": "/de/werkzeuge/kategorien/hardware-werkzeuge/input-lag-verzogerung-test/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/hardware-werkzeuge/lautsprecher-phasen-tester/": {
+      "hash": "35690783c289bc3d5b568e81af16faf6f39c6fd02b55c85479b7fee14b1aec4d",
+      "route": "/de/werkzeuge/kategorien/hardware-werkzeuge/lautsprecher-phasen-tester/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/hardware-werkzeuge/led-vorwiderstand-rechner/": {
+      "hash": "23d8516f0d043f67ec02c70823c93cb37e3d32fab20ca68a2d49686672fd04ae",
+      "route": "/de/werkzeuge/kategorien/hardware-werkzeuge/led-vorwiderstand-rechner/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/hardware-werkzeuge/leiterbahnbreite-impedanz-rechner-pcb/": {
+      "hash": "a0deea11b5a1afa0101925dbe75206e359e372c05673808880456201faf7926e",
+      "route": "/de/werkzeuge/kategorien/hardware-werkzeuge/leiterbahnbreite-impedanz-rechner-pcb/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/hardware-werkzeuge/lithium-batterie-gesundheitsrechner/": {
+      "hash": "d868473882878b886238963d03274ea9fc65c703d9f847510e8a4e54f00454f6",
+      "route": "/de/werkzeuge/kategorien/hardware-werkzeuge/lithium-batterie-gesundheitsrechner/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/hardware-werkzeuge/maus-doppelklick-test/": {
+      "hash": "49c284663858bfa74e338268bd2fe83187b3545c40ad855ac7e15295a56801a7",
+      "route": "/de/werkzeuge/kategorien/hardware-werkzeuge/maus-doppelklick-test/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/hardware-werkzeuge/maus-dpi-analyse/": {
+      "hash": "f9e0c31ec15fbe12c1fcb1f375132c15e6b56080a72327f62f1c765e49cccb1b",
+      "route": "/de/werkzeuge/kategorien/hardware-werkzeuge/maus-dpi-analyse/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/hardware-werkzeuge/maus-jitter-winkelkorrektur-test/": {
+      "hash": "f474654f64b57e93ac12918cffb42f019171fecafba092ee5e9c9080a1520a70",
+      "route": "/de/werkzeuge/kategorien/hardware-werkzeuge/maus-jitter-winkelkorrektur-test/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/hardware-werkzeuge/maus-polling-rate-test-online/": {
+      "hash": "ae1c82f076bc77d3329ea3de20881539696d78ca8974bafff2ace6831b8e1ba2",
+      "route": "/de/werkzeuge/kategorien/hardware-werkzeuge/maus-polling-rate-test-online/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/hardware-werkzeuge/mausrad-test/": {
+      "hash": "692e573b3be5a2a21cf6714d227aaf54001b0b74c66b0c1607629fe00a06ec13",
+      "route": "/de/werkzeuge/kategorien/hardware-werkzeuge/mausrad-test/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/hardware-werkzeuge/midi-keyboard-tester-online/": {
+      "hash": "e9dc97849f725a92691d9bf1c1de873d90cc4581b943dc42c23966045dc38fda",
+      "route": "/de/werkzeuge/kategorien/hardware-werkzeuge/midi-keyboard-tester-online/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/hardware-werkzeuge/mikrofon-test-spektrumanalysator/": {
+      "hash": "aced49dcbd42195e1db1479b0de51add716be772e44416ee5a1e296f6dc6529f",
+      "route": "/de/werkzeuge/kategorien/hardware-werkzeuge/mikrofon-test-spektrumanalysator/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/hardware-werkzeuge/mobiler-sensor-test/": {
+      "hash": "7f0d4f5665077a6144ef5c71de8e7c460a4579fab256cb7c287390fd4031f721",
+      "route": "/de/werkzeuge/kategorien/hardware-werkzeuge/mobiler-sensor-test/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/hardware-werkzeuge/monitor-bildwiederholfrequenz-detektor/": {
+      "hash": "afade4e3e40bae7e7e5093e20614de60b1d5042840610400865deb1d86bda088",
+      "route": "/de/werkzeuge/kategorien/hardware-werkzeuge/monitor-bildwiederholfrequenz-detektor/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/hardware-werkzeuge/monitor-ghosting-test-deutsch/": {
+      "hash": "d9cdbfbe9da5e8e60cab9eb7c77b66f7fd08e15e2dec04e999a9e5cc83337725",
+      "route": "/de/werkzeuge/kategorien/hardware-werkzeuge/monitor-ghosting-test-deutsch/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/hardware-werkzeuge/ohm-gesetz-leistungsrechner/": {
+      "hash": "9c15d3e00063f258e73bcafd16390c37db4111a0ef625573d85ec95da8b96c1a",
+      "route": "/de/werkzeuge/kategorien/hardware-werkzeuge/ohm-gesetz-leistungsrechner/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/hardware-werkzeuge/oled-einbrenn-reparatur/": {
+      "hash": "60f6d1d37297cdb102f0513aa43f3ee99d232a42c6180089f42fe364c8487b97",
+      "route": "/de/werkzeuge/kategorien/hardware-werkzeuge/oled-einbrenn-reparatur/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/hardware-werkzeuge/privater-webcam-kamera-test-online/": {
+      "hash": "646c94d2c9fd7558abdfe08a05da01eb6673c3d16520a647f69afe0491c6a37c",
+      "route": "/de/werkzeuge/kategorien/hardware-werkzeuge/privater-webcam-kamera-test-online/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/hardware-werkzeuge/psu-leistungsrechner-computer/": {
+      "hash": "2b11eb395c3e48dc400a82cd7d17d552a315d6afd3f161e5949793a8766a45e4",
+      "route": "/de/werkzeuge/kategorien/hardware-werkzeuge/psu-leistungsrechner-computer/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/hardware-werkzeuge/spannungsteiler-rechner/": {
+      "hash": "4a65dce4f50bbab4da151f82eddfdb439c0a534e6820df33ee41e76bfd62501d",
+      "route": "/de/werkzeuge/kategorien/hardware-werkzeuge/spannungsteiler-rechner/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/hardware-werkzeuge/stereo-audio-pruefung/": {
+      "hash": "f8b3ad95368be1bab0fd987f47b04c159034ec436a1de7fed6eff7d29c6bb9c8",
+      "route": "/de/werkzeuge/kategorien/hardware-werkzeuge/stereo-audio-pruefung/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/hardware-werkzeuge/subwoofer-frequenzweichen-test-online/": {
+      "hash": "cff39ec6ff4026e5a473a460eb8b7255eafd4ee6b3b6596fb6af6b614a2f17c3",
+      "route": "/de/werkzeuge/kategorien/hardware-werkzeuge/subwoofer-frequenzweichen-test-online/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/hardware-werkzeuge/tastatur-chatter-test/": {
+      "hash": "ca00a68dc6da30b68c5bc9703acc534d0286455f0dd1ab9572facf261c3ca8f0",
+      "route": "/de/werkzeuge/kategorien/hardware-werkzeuge/tastatur-chatter-test/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/hardware-werkzeuge/tastatur-test-online/": {
+      "hash": "4e01c19bf551efa9082a6dc57ee48353b152f08a327f366dd95cdc0674a5e952",
+      "route": "/de/werkzeuge/kategorien/hardware-werkzeuge/tastatur-test-online/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/hardware-werkzeuge/ton-frequenz-generator-online/": {
+      "hash": "85592d291e5e3a3026263aa74ad489e86f8964dcf9b7ee2a4a97f7ff2f17c525",
+      "route": "/de/werkzeuge/kategorien/hardware-werkzeuge/ton-frequenz-generator-online/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/hardware-werkzeuge/tote-pixel-test-monitor-reparatur/": {
+      "hash": "c12c3c588c4b269677a4479eb6f94b281ddee21e1442e0b25ff3970474457f4f",
+      "route": "/de/werkzeuge/kategorien/hardware-werkzeuge/tote-pixel-test-monitor-reparatur/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/hardware-werkzeuge/touchscreen-test/": {
+      "hash": "e26b118132e05781710cc4c7f3f1e92d54d97d52c9241b52a956efe364033290",
+      "route": "/de/werkzeuge/kategorien/hardware-werkzeuge/touchscreen-test/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/hardware-werkzeuge/usb-leistungsbudget-rechner/": {
+      "hash": "ea221098b0983273c7f6c17003b579f312bb5e6dab4c377711f7cd2c18038c19",
+      "route": "/de/werkzeuge/kategorien/hardware-werkzeuge/usb-leistungsbudget-rechner/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/hardware-werkzeuge/usv-laufzeit-rechner/": {
+      "hash": "4271c801e9015e735208561e14424c21f316fc02c332a9df50bd68279c609145",
+      "route": "/de/werkzeuge/kategorien/hardware-werkzeuge/usv-laufzeit-rechner/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/hardware-werkzeuge/wasserausstosser-lautsprecherreiniger/": {
+      "hash": "85381268ea40454da540ee25b6ab005a73b3e3caa2a3e53ccb530bd61c1fba85",
+      "route": "/de/werkzeuge/kategorien/hardware-werkzeuge/wasserausstosser-lautsprecherreiniger/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/hardware-werkzeuge/web-bluetooth-ble-suche/": {
+      "hash": "79570b5b751d2116e7910e0f15489cb6c47ca4a5a84a6fdca1774fd5070f4b9e",
+      "route": "/de/werkzeuge/kategorien/hardware-werkzeuge/web-bluetooth-ble-suche/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/hardware-werkzeuge/web-usb-serieller-monitor/": {
+      "hash": "25a8bfa1ab34d1af34e426551ee9d04a7eec8d22054cf427c3a172788ee3d554",
+      "route": "/de/werkzeuge/kategorien/hardware-werkzeuge/web-usb-serieller-monitor/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/hardware-werkzeuge/widerstandsfarbcode-rechner/": {
+      "hash": "68dc33410590f9d02eb4919ee72c8d00ae2db120afc3a4c306f76b8454cb0c0e",
+      "route": "/de/werkzeuge/kategorien/hardware-werkzeuge/widerstandsfarbcode-rechner/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/hardware-tools/audio-delay-test/": {
+      "hash": "08ba56da3809f30dd7bb89735d695ea4bb846c38dec7badd5dae5608bf8ac362",
+      "route": "/en/utilities/categories/hardware-tools/audio-delay-test/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/hardware-tools/backlight-bleed-blooming-test/": {
+      "hash": "39571337c5a43cb0e55e5b9673a4a96d5d25379ec1c2612e2e10bf86da89a7ca",
+      "route": "/en/utilities/categories/hardware-tools/backlight-bleed-blooming-test/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/hardware-tools/color-accuracy-test/": {
+      "hash": "fda9d7802d67d9dd839fac59fe04a1e6acf2a4690bcc2e0f810613cd582953e2",
+      "route": "/en/utilities/categories/hardware-tools/color-accuracy-test/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/hardware-tools/dead-pixel-tester/": {
+      "hash": "703f52d0d237dedc9e67728212ae3493c4dcf887361412422ced080303008f94",
+      "route": "/en/utilities/categories/hardware-tools/dead-pixel-tester/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/hardware-tools/gamepad-polling-rate-checker/": {
+      "hash": "5e4f1910a8160a3ce6b451bf6c2b2dd8f4be45b1e949458ec1e9909fa217b676",
+      "route": "/en/utilities/categories/hardware-tools/gamepad-polling-rate-checker/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/hardware-tools/gamepad-test/": {
+      "hash": "46df45f6f436c2187eff773c3c68f45cf087bab7a70132d28c24562df0c1ef65",
+      "route": "/en/utilities/categories/hardware-tools/gamepad-test/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/hardware-tools/gamepad-vibration-tester/": {
+      "hash": "95d1ecd65f808f0a8df75059a3d226bd86eedcba638282b0a042699ecc0676f2",
+      "route": "/en/utilities/categories/hardware-tools/gamepad-vibration-tester/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/hardware-tools/": {
+      "hash": "10deb19b37369ecd28abbdf858ba25ef4ac71fc77dd433937d5bc9ea5902bdf9",
+      "route": "/en/utilities/categories/hardware-tools/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/hardware-tools/keyboard-chatter-test/": {
+      "hash": "87e96da7a8e6a9098870d1fd54979295fa8f26857b9d24bad46ca8d8b3e9fbbc",
+      "route": "/en/utilities/categories/hardware-tools/keyboard-chatter-test/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/hardware-tools/keyboard-test/": {
+      "hash": "14b45376fc730b908ada5b2f2c4cc2b25d17848fdbb383642f4016520141581d",
+      "route": "/en/utilities/categories/hardware-tools/keyboard-test/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/hardware-tools/led-resistor-calculator/": {
+      "hash": "d257683961a61b080ec67e285392bec388aaf732fc5e89f77b4eb995cbf5a762",
+      "route": "/en/utilities/categories/hardware-tools/led-resistor-calculator/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/hardware-tools/lithium-battery-health-calculator/": {
+      "hash": "3223ab9edd4bf7522e058b9256ef66a9fe636159b1b0ffeb5420df0bebcf6faf",
+      "route": "/en/utilities/categories/hardware-tools/lithium-battery-health-calculator/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/hardware-tools/microphone-test-spectrum-analyzer/": {
+      "hash": "9bdbf86f4fccc31c3af1986387768020fa43e6a0426d8bed41f5a6aaa7a2f071",
+      "route": "/en/utilities/categories/hardware-tools/microphone-test-spectrum-analyzer/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/hardware-tools/mobile-sensor-test/": {
+      "hash": "073378bfa6aecdafa8c356fa54fc0f9870d07050ef55a83f60f4a693233d53c1",
+      "route": "/en/utilities/categories/hardware-tools/mobile-sensor-test/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/hardware-tools/monitor-ghosting-test/": {
+      "hash": "1a868fe9a74361e0a7e94f2059050352b04aa7421488f4e3405d18a251044f95",
+      "route": "/en/utilities/categories/hardware-tools/monitor-ghosting-test/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/hardware-tools/monitor-refresh-rate-detector/": {
+      "hash": "462b58c74e86901c248d6f1498e03edb3966ba8d29bf2b16ae645af0daf08bb0",
+      "route": "/en/utilities/categories/hardware-tools/monitor-refresh-rate-detector/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/hardware-tools/mouse-double-click-test/": {
+      "hash": "42fd831beffd485f4bbb286e7f09445623971269ba88e44a9324e1885e67e1b8",
+      "route": "/en/utilities/categories/hardware-tools/mouse-double-click-test/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/hardware-tools/mouse-dpi-analyzer/": {
+      "hash": "015016b1f6bea5fb98e41be45fc7f2869aaf72867446fc04aad06e9ed73fc844",
+      "route": "/en/utilities/categories/hardware-tools/mouse-dpi-analyzer/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/hardware-tools/mouse-jitter-angle-snapping-test/": {
+      "hash": "d092cb40fd5b9c94ac2ab72de4980e487c5648aa2701b2c6b4c64982072aa26e",
+      "route": "/en/utilities/categories/hardware-tools/mouse-jitter-angle-snapping-test/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/hardware-tools/mouse-polling-rate-test/": {
+      "hash": "571e1b4604f75069c73a22112628e0e3002d64e129b33e66f1476c0a42f2f13f",
+      "route": "/en/utilities/categories/hardware-tools/mouse-polling-rate-test/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/hardware-tools/mouse-scroll-test/": {
+      "hash": "462af5c98c430d05e0146ccbb019a2f3df1350d2babfc4acba796d8435cff614",
+      "route": "/en/utilities/categories/hardware-tools/mouse-scroll-test/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/hardware-tools/ohm-law-power-calculator/": {
+      "hash": "b520a428c4fba121234867b4027f2981f1d460b96f564befe8983ebc33de2739",
+      "route": "/en/utilities/categories/hardware-tools/ohm-law-power-calculator/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/hardware-tools/oled-screen-burn-in-fixer/": {
+      "hash": "93bf1f6449546a4639210fa8fc18207b3912bb487f79528861f5c5d59295f6ae",
+      "route": "/en/utilities/categories/hardware-tools/oled-screen-burn-in-fixer/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/hardware-tools/pcb-trace-width-impedance-calculator/": {
+      "hash": "6a77cbf02e3ddd358c99bd938f1632528b6248c99f1f00a843b594b666513387",
+      "route": "/en/utilities/categories/hardware-tools/pcb-trace-width-impedance-calculator/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/hardware-tools/private-webcam-camera-test-online/": {
+      "hash": "e10d22b1822e8a1c86f65ba24bc5866f466ea274d44879052230444660faf65f",
+      "route": "/en/utilities/categories/hardware-tools/private-webcam-camera-test-online/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/hardware-tools/psu-power-requirement-calculator/": {
+      "hash": "2bf422451643429b488e03f5e77aea5d20fb3d0ea091028e6ebf7d69d1ea74dc",
+      "route": "/en/utilities/categories/hardware-tools/psu-power-requirement-calculator/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/hardware-tools/resistor-color-code-calculator/": {
+      "hash": "01c6f1b781bed0325a678a229c7a1c833c0686302611108bcc426f69198b975b",
+      "route": "/en/utilities/categories/hardware-tools/resistor-color-code-calculator/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/hardware-tools/speaker-phase-tester/": {
+      "hash": "e781597153bf9eb25ef6f343a66e8c4bbe89661e72c1d580194d4386b29cb567",
+      "route": "/en/utilities/categories/hardware-tools/speaker-phase-tester/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/hardware-tools/stereo-audio-test/": {
+      "hash": "9f520c6d700dc7fb08d65df49759550fdb2704df6ae5a2bd947e788a0a0b52d6",
+      "route": "/en/utilities/categories/hardware-tools/stereo-audio-test/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/hardware-tools/subwoofer-crossover-test/": {
+      "hash": "5710038ba333b31986fa526196234d4a9a4016b1a574ed20badef221ba7fc8b3",
+      "route": "/en/utilities/categories/hardware-tools/subwoofer-crossover-test/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/hardware-tools/test-input-lag/": {
+      "hash": "fd46cafb5a375ebb74ca16c4ea741af0335223e5da72373288cf53512c2bd586",
+      "route": "/en/utilities/categories/hardware-tools/test-input-lag/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/hardware-tools/tone-frequency-generator/": {
+      "hash": "bf35989bccb4de001f3cfc7b9ca0cae62f8ec83ec6cdccba6d6d27d7b813bbfb",
+      "route": "/en/utilities/categories/hardware-tools/tone-frequency-generator/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/hardware-tools/touch-screen-tester/": {
+      "hash": "0da53ab039ee823a8db648f7918b359e75d378a304872110c942e54779a82642",
+      "route": "/en/utilities/categories/hardware-tools/touch-screen-tester/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/hardware-tools/ups-runtime-calculator/": {
+      "hash": "af8d0d9467c402196acf68c43d915dd62c325300660ec8cb32227d5cf8ecc984",
+      "route": "/en/utilities/categories/hardware-tools/ups-runtime-calculator/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/hardware-tools/usb-power-budget-calculator/": {
+      "hash": "e9ca15e231270343682daca4f1be5853508f9cf09f3df6247c42f56ceea90460",
+      "route": "/en/utilities/categories/hardware-tools/usb-power-budget-calculator/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/hardware-tools/voltage-divider-calculator/": {
+      "hash": "0d09e542951d3ae9a22aa29ad7ec3d38ac3a526ec7498878089b1703a87df750",
+      "route": "/en/utilities/categories/hardware-tools/voltage-divider-calculator/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/hardware-tools/water-ejector-speaker-cleaner/": {
+      "hash": "0dbbe8f2d0a370e2ef29d5f3f80f92d34e3c05f3d084d7bd1e2553be78f11de5",
+      "route": "/en/utilities/categories/hardware-tools/water-ejector-speaker-cleaner/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/hardware-tools/web-bluetooth-ble-scanner/": {
+      "hash": "d6fd7cddbc776e87a7d575551f4cccd4bc4be11209d346ee8fb2d409c8ac8409",
+      "route": "/en/utilities/categories/hardware-tools/web-bluetooth-ble-scanner/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/hardware-tools/web-usb-serial-monitor/": {
+      "hash": "265ea645df60f606285abe29d354f50c30f18a48ddd6af0e9f873cec0096b322",
+      "route": "/en/utilities/categories/hardware-tools/web-usb-serial-monitor/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/hardware-tools/webmidi-keyboard-tester/": {
+      "hash": "41d41230d9945fcf76f0477d403c7d32966d7556145ff4b2128cf324cfe3c49b",
+      "route": "/en/utilities/categories/hardware-tools/webmidi-keyboard-tester/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/outils-materiels/analyseur-dpi-souris/": {
+      "hash": "79267f0369d9280960a7b1fb38950cbc166b23bebf006b6834dffbc3da9e76b0",
+      "route": "/fr/utilitaires/categories/outils-materiels/analyseur-dpi-souris/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/outils-materiels/calculateur-autonomie-onduleur/": {
+      "hash": "282289219c28e5e9d17706cc57e1bd71511357571181bef35aaef41df1a030b7",
+      "route": "/fr/utilitaires/categories/outils-materiels/calculateur-autonomie-onduleur/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/outils-materiels/calculateur-budget-alimentation-usb/": {
+      "hash": "2f73a7767ccf6baa55e36dd2109c7b69b02b33784114ae36d24bebd3e2c0a4cd",
+      "route": "/fr/utilitaires/categories/outils-materiels/calculateur-budget-alimentation-usb/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/outils-materiels/calculateur-code-couleurs-resistance/": {
+      "hash": "40684f727e5cd7875b19365b99d038d4708841c0915b653dacb49e8f18285071",
+      "route": "/fr/utilitaires/categories/outils-materiels/calculateur-code-couleurs-resistance/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/outils-materiels/calculateur-diviseur-tension/": {
+      "hash": "56290ee52f5f90533329e273bfee5bdf295cc2b7536644a7fa4c03e8cc6a4445",
+      "route": "/fr/utilitaires/categories/outils-materiels/calculateur-diviseur-tension/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/outils-materiels/calculateur-largeur-impedance-piste-pcb/": {
+      "hash": "a327c289126ddf0cb842b74811dedccd956646f538997e83775eaace73eef678",
+      "route": "/fr/utilitaires/categories/outils-materiels/calculateur-largeur-impedance-piste-pcb/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/outils-materiels/calculateur-loi-ohm-puissance/": {
+      "hash": "1b8a59a2911df19d599e5521d63d97834af9ac63ffa0bb0c65bfc12ab221f7f2",
+      "route": "/fr/utilitaires/categories/outils-materiels/calculateur-loi-ohm-puissance/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/outils-materiels/calculateur-puissance-alimentation-ordinateur/": {
+      "hash": "6738fbff0ac5005faa4d1d1b08002e21995323b7937b68b672d1438baefdbb3f",
+      "route": "/fr/utilitaires/categories/outils-materiels/calculateur-puissance-alimentation-ordinateur/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/outils-materiels/calculateur-resistance-led/": {
+      "hash": "2e2b82421496d99e824999e5f61b587cf94870af9bb135e9cd0a7403c7856477",
+      "route": "/fr/utilitaires/categories/outils-materiels/calculateur-resistance-led/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/outils-materiels/calculateur-sante-batterie-lithium/": {
+      "hash": "52986451b0072887a94435cdb254421268186d5cc31bb0bc09c304e40feaee97",
+      "route": "/fr/utilitaires/categories/outils-materiels/calculateur-sante-batterie-lithium/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/outils-materiels/detecteur-taux-rafraichissement-moniteur/": {
+      "hash": "6e2ee1f7be40afa2fc21bf6938f9763d770431f61280e7e03537e9804cd8849c",
+      "route": "/fr/utilitaires/categories/outils-materiels/detecteur-taux-rafraichissement-moniteur/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/outils-materiels/ejecteur-eau-nettoyant-haut-parleur/": {
+      "hash": "4548a7b8e33bbdd983862c1a80e6692a68e224bd0f44a0608a7f1e1a7c95bbfe",
+      "route": "/fr/utilitaires/categories/outils-materiels/ejecteur-eau-nettoyant-haut-parleur/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/outils-materiels/generateur-de-frequences/": {
+      "hash": "c767438ee7a61a4f62d14b0f18daf4bc6f146d2c31ed20152448e69e56244c40",
+      "route": "/fr/utilitaires/categories/outils-materiels/generateur-de-frequences/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/outils-materiels/": {
+      "hash": "df0842ee08d54d273a12e15f682cf483ce0b700f9faf6d928b951e91a56fd090",
+      "route": "/fr/utilitaires/categories/outils-materiels/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/outils-materiels/moniteur-serie-webusb/": {
+      "hash": "150a4a947f07612a14b4fe9705b3053bede8a45c7b699d347794e8c34ccfe100",
+      "route": "/fr/utilitaires/categories/outils-materiels/moniteur-serie-webusb/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/outils-materiels/reparateur-brulure-ecran-oled/": {
+      "hash": "f0de61f49a731ffc7302e193012a2a6ce7a20b0d4eaf2f11fbce7a32f9b78066",
+      "route": "/fr/utilitaires/categories/outils-materiels/reparateur-brulure-ecran-oled/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/outils-materiels/scanner-ble-web-bluetooth/": {
+      "hash": "aebc80bc0b3f6ee07ee1477aedb12f36e2aca944f8e947b3b16f09d7a9db3bb8",
+      "route": "/fr/utilitaires/categories/outils-materiels/scanner-ble-web-bluetooth/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/outils-materiels/test-audio-stereo/": {
+      "hash": "dbe6cd574e943a18e0be764dcade7b5887b6f1dbbb257cd015a06ed1ab20da94",
+      "route": "/fr/utilitaires/categories/outils-materiels/test-audio-stereo/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/outils-materiels/test-capteurs-mobile/": {
+      "hash": "4546aed3173832a4d463f0e35684f5bdf434c9e56c3983f29fb4f54cbe608581",
+      "route": "/fr/utilitaires/categories/outils-materiels/test-capteurs-mobile/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/outils-materiels/test-clavier/": {
+      "hash": "8d60439c53aa0d9fc6a3cff362254e8bf9d12aa9d1e68d5dadb6a63ae72124dc",
+      "route": "/fr/utilitaires/categories/outils-materiels/test-clavier/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/outils-materiels/test-crossover-subwoofer-en-ligne/": {
+      "hash": "563b92b9804a7ff3ede8f56c5dbd0cc217188fe2d9695f54b5a7967e4b5ca6ce",
+      "route": "/fr/utilitaires/categories/outils-materiels/test-crossover-subwoofer-en-ligne/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/outils-materiels/test-delai-audio/": {
+      "hash": "3ecd00f26b8b64945f7899c0170d46bf6d83491682c8c9cbead145fc10235dbd",
+      "route": "/fr/utilitaires/categories/outils-materiels/test-delai-audio/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/outils-materiels/test-double-clic-souris/": {
+      "hash": "1ca56470ff88eec93f3dcf6569ce205ee0e197f8a1fb565d5c4ce057366ab4bf",
+      "route": "/fr/utilitaires/categories/outils-materiels/test-double-clic-souris/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/outils-materiels/test-fuite-retroeclairage-blooming/": {
+      "hash": "04a69e0f630a305278a5dfcea2c7908813193c661de1ffbefe3714b5a68051f2",
+      "route": "/fr/utilitaires/categories/outils-materiels/test-fuite-retroeclairage-blooming/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/outils-materiels/test-ghosting-moniteur/": {
+      "hash": "48b303727eb5f183353eed80d63128035e54c837b2e043262be7d840de686743",
+      "route": "/fr/utilitaires/categories/outils-materiels/test-ghosting-moniteur/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/outils-materiels/test-manette/": {
+      "hash": "bb17576b3f7f5bd51a31f6f29af9c39d2472dc36ee073a9a35b9df5e91dd7943",
+      "route": "/fr/utilitaires/categories/outils-materiels/test-manette/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/outils-materiels/test-microphone-analyseur-spectre/": {
+      "hash": "d868894410bf108e08cc8cccffd6f948d44a5f6927fc927e3f1e52e5cde6e52a",
+      "route": "/fr/utilitaires/categories/outils-materiels/test-microphone-analyseur-spectre/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/outils-materiels/test-molette-souris/": {
+      "hash": "277c93adba434f8c85f0f652fe80e979f30c861f6b371f1bd31c02fd745ef7e7",
+      "route": "/fr/utilitaires/categories/outils-materiels/test-molette-souris/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/outils-materiels/test-precision-couleur/": {
+      "hash": "7762870248018afffa25218f442dd4f6756017337f01b6aefd78322f92ac5ffd",
+      "route": "/fr/utilitaires/categories/outils-materiels/test-precision-couleur/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/outils-materiels/test-rebond-clavier/": {
+      "hash": "8fea34465645b33d0c9864ed0d86f23df245b40e3026ace144098224dfcd0975",
+      "route": "/fr/utilitaires/categories/outils-materiels/test-rebond-clavier/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/outils-materiels/test-retard-affichage-input-lag/": {
+      "hash": "b1f4aaaec5119409eac1b9d5692e595631a3613863c364bffc225d86776a3c0a",
+      "route": "/fr/utilitaires/categories/outils-materiels/test-retard-affichage-input-lag/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/outils-materiels/test-taux-sondage-souris/": {
+      "hash": "dbcea3421ad772d67a592c5c66ffba10a9bbbed24d12781bdb1ad14df8f5353c",
+      "route": "/fr/utilitaires/categories/outils-materiels/test-taux-sondage-souris/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/outils-materiels/test-tremblement-angle-souris/": {
+      "hash": "b62e8b8251eb4bb83c589e8c5df34a23b5f1da29d3071ab839b56423b87652ca",
+      "route": "/fr/utilitaires/categories/outils-materiels/test-tremblement-angle-souris/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/outils-materiels/test-webcam-prive-en-ligne/": {
+      "hash": "44d7f70bbd48185e6f2c3b2465a2b8fb3dca87d0998ccca827a83304abe49965",
+      "route": "/fr/utilitaires/categories/outils-materiels/test-webcam-prive-en-ligne/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/outils-materiels/testeur-clavier-midi/": {
+      "hash": "aa8578134db4b6d1aff799bbed7244ff697212e4fb3561ea218a04d06937b9f4",
+      "route": "/fr/utilitaires/categories/outils-materiels/testeur-clavier-midi/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/outils-materiels/testeur-ecran-tactile/": {
+      "hash": "b0d6e4d00d289839402c8d2154636ad721f231200fc41aa19c34afb49d60fa4d",
+      "route": "/fr/utilitaires/categories/outils-materiels/testeur-ecran-tactile/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/outils-materiels/testeur-phase-haut-parleurs/": {
+      "hash": "10f905177e0f443e9448b21da8512589eb54bdd35dc85f15cd0313e05376c271",
+      "route": "/fr/utilitaires/categories/outils-materiels/testeur-phase-haut-parleurs/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/outils-materiels/testeur-pixels-morts/": {
+      "hash": "4fba6397645eac1a1ce5792fbb65684f3d22c7a6aa415ea036e3586bb1a4719e",
+      "route": "/fr/utilitaires/categories/outils-materiels/testeur-pixels-morts/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/outils-materiels/testeur-taux-rafraichissement-manette-hertz/": {
+      "hash": "e1c500806b93f570112b89e73893a28ed17974e6d28b65915346ebead7878c8b",
+      "route": "/fr/utilitaires/categories/outils-materiels/testeur-taux-rafraichissement-manette-hertz/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/outils-materiels/testeur-vibration-manette/": {
+      "hash": "7277575821b8af9a47deebf74d07234710767ad0c9366feeb151c8e21e7c2fa3",
+      "route": "/fr/utilitaires/categories/outils-materiels/testeur-vibration-manette/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/alat-pengujian-perangkat-keras/detektor-refresh-rate-monitor/": {
+      "hash": "3ff40a53af75082f26802910cdab4d9a673249df01cd2cae55cc11793da00caa",
+      "route": "/id/utilitas/kategori/alat-pengujian-perangkat-keras/detektor-refresh-rate-monitor/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/alat-pengujian-perangkat-keras/generator-nada-frekuensi-online/": {
+      "hash": "6271e8be4969bfa597adb635d7ac2e93abca10666b5e35ba4dde40c8e5fe53b7",
+      "route": "/id/utilitas/kategori/alat-pengujian-perangkat-keras/generator-nada-frekuensi-online/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/alat-pengujian-perangkat-keras/": {
+      "hash": "14c25a94a0e6f5a587cdd3dd2f3e057bb9a14db31fc2cd2218f0c6539b0d5288",
+      "route": "/id/utilitas/kategori/alat-pengujian-perangkat-keras/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/alat-pengujian-perangkat-keras/kalkulator-anggaran-daya-usb/": {
+      "hash": "9c59eabd44658b6606b6f2f0535ac9f4deb38ebc97a013d6940e7bc45730ea23",
+      "route": "/id/utilitas/kategori/alat-pengujian-perangkat-keras/kalkulator-anggaran-daya-usb/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/alat-pengujian-perangkat-keras/kalkulator-durasi-ups/": {
+      "hash": "d93a831fd33c5a9f8d9c2a4bec7edf20cf55c986dc0c12e1d420c868e0eb0e24",
+      "route": "/id/utilitas/kategori/alat-pengujian-perangkat-keras/kalkulator-durasi-ups/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/alat-pengujian-perangkat-keras/kalkulator-hukum-ohm-daya/": {
+      "hash": "da7e72b3bfb25424b8b46bb904e21ffa3f6cc2f33c50682bb8c3f0684b064f39",
+      "route": "/id/utilitas/kategori/alat-pengujian-perangkat-keras/kalkulator-hukum-ohm-daya/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/alat-pengujian-perangkat-keras/kalkulator-kebutuhan-daya-psu/": {
+      "hash": "0c67904f2b0ee79032a775a16cc62fef86b85399a18d9612867bc46fbb81a119",
+      "route": "/id/utilitas/kategori/alat-pengujian-perangkat-keras/kalkulator-kebutuhan-daya-psu/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/alat-pengujian-perangkat-keras/kalkulator-kesehatan-baterai-lithium/": {
+      "hash": "adee88b92c899902b326134312281a2ddd0647cc638b8f0209b9399d59225d75",
+      "route": "/id/utilitas/kategori/alat-pengujian-perangkat-keras/kalkulator-kesehatan-baterai-lithium/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/alat-pengujian-perangkat-keras/kalkulator-kode-warna-resistor/": {
+      "hash": "12b036e56592cc44967c8e8c145a5e3b85b342da0dd0b764b6df280bef274742",
+      "route": "/id/utilitas/kategori/alat-pengujian-perangkat-keras/kalkulator-kode-warna-resistor/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/alat-pengujian-perangkat-keras/kalkulator-lebar-jejak-impedansi-pcb/": {
+      "hash": "3c6dd53f376596f0cd0e250c770c1a648bf33fc66de358985e3e251f50d0ad4a",
+      "route": "/id/utilitas/kategori/alat-pengujian-perangkat-keras/kalkulator-lebar-jejak-impedansi-pcb/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/alat-pengujian-perangkat-keras/kalkulator-pembagi-tegangan/": {
+      "hash": "2588710d0753246d20a9859e078c16423a2bf015e58e0d291a1ee41701795c6b",
+      "route": "/id/utilitas/kategori/alat-pengujian-perangkat-keras/kalkulator-pembagi-tegangan/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/alat-pengujian-perangkat-keras/kalkulator-resistor-led/": {
+      "hash": "ab7b283286a9af81893fa5526f3151f1f16c25e29a669601ecb8765d5a508086",
+      "route": "/id/utilitas/kategori/alat-pengujian-perangkat-keras/kalkulator-resistor-led/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/alat-pengujian-perangkat-keras/monitor-serial-webusb/": {
+      "hash": "f602e84fb9c05aeb8ddab6f97b448b6457f85d28ae832becf90ec4e370591966",
+      "route": "/id/utilitas/kategori/alat-pengujian-perangkat-keras/monitor-serial-webusb/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/alat-pengujian-perangkat-keras/pemindai-ble-web-bluetooth/": {
+      "hash": "d9d911dd8889cbfe1c510f2442ea0229cb871a2e9364a149ec13dcb59c1e1b9d",
+      "route": "/id/utilitas/kategori/alat-pengujian-perangkat-keras/pemindai-ble-web-bluetooth/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/alat-pengujian-perangkat-keras/penganalisis-dpi-mouse/": {
+      "hash": "9ea6d9a91d1005f3487bb9b8e3fe7ce43b820978c1c8879a0f3bf010b996adf3",
+      "route": "/id/utilitas/kategori/alat-pengujian-perangkat-keras/penganalisis-dpi-mouse/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/alat-pengujian-perangkat-keras/penguji-fasa-speaker/": {
+      "hash": "72055ea76a36e818b12bea46068bdfd85e9e62862d08b6a3e03b3a903bfc6b91",
+      "route": "/id/utilitas/kategori/alat-pengujian-perangkat-keras/penguji-fasa-speaker/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/alat-pengujian-perangkat-keras/penguji-keyboard-midi/": {
+      "hash": "4ded2165401b5e8fb131cd0e1cbd47aea7835aa7224caba2629e009aa601b483",
+      "route": "/id/utilitas/kategori/alat-pengujian-perangkat-keras/penguji-keyboard-midi/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/alat-pengujian-perangkat-keras/penguji-layar-sentuh/": {
+      "hash": "68eb22fb26f0f5591569d7cf037a1457b4d6f94157906cc9581828cc69826244",
+      "route": "/id/utilitas/kategori/alat-pengujian-perangkat-keras/penguji-layar-sentuh/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/alat-pengujian-perangkat-keras/penguji-polling-rate-gamepad-hertz/": {
+      "hash": "73b6394c0b80cc869999731648397f2cf1c6ff67ee8ccbdbe67bce29ee4fe35b",
+      "route": "/id/utilitas/kategori/alat-pengujian-perangkat-keras/penguji-polling-rate-gamepad-hertz/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/alat-pengujian-perangkat-keras/pengusir-air-pembersih-speaker/": {
+      "hash": "1fd656c82a51f15d9238994f33dab746e057f376c887d5c7496593816fb2e8f9",
+      "route": "/id/utilitas/kategori/alat-pengujian-perangkat-keras/pengusir-air-pembersih-speaker/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/alat-pengujian-perangkat-keras/perbaikan-burn-in-layar-oled/": {
+      "hash": "cd794283d40d284a5007dd1b126829d80719562a67dca1e2c6f92db6d5e9249b",
+      "route": "/id/utilitas/kategori/alat-pengujian-perangkat-keras/perbaikan-burn-in-layar-oled/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/alat-pengujian-perangkat-keras/tes-akurasi-warna/": {
+      "hash": "cc3e1d7fa395bf317db731fd3eb2f4bb2ebc983a387ecf03a8ef27fdbf3fbc99",
+      "route": "/id/utilitas/kategori/alat-pengujian-perangkat-keras/tes-akurasi-warna/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/alat-pengujian-perangkat-keras/tes-audio-stereo/": {
+      "hash": "98b0e2945e5ec1f9acb1dbeb988283c1ea52ce5990818bd3096ba15b506bfc60",
+      "route": "/id/utilitas/kategori/alat-pengujian-perangkat-keras/tes-audio-stereo/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/alat-pengujian-perangkat-keras/tes-chatter-keyboard/": {
+      "hash": "d90847cf6a2414d66ff30528797f9bf6fb407d4e867c859d6ebc2275d67c9d87",
+      "route": "/id/utilitas/kategori/alat-pengujian-perangkat-keras/tes-chatter-keyboard/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/alat-pengujian-perangkat-keras/tes-crossover-subwoofer-online/": {
+      "hash": "45ddf3f40087acd83735c89565856f5aec628d434d04d8c6a4f6f622c2bc21a7",
+      "route": "/id/utilitas/kategori/alat-pengujian-perangkat-keras/tes-crossover-subwoofer-online/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/alat-pengujian-perangkat-keras/tes-gamepad-online/": {
+      "hash": "9ab59c18a0b3f40d51b6c7a1da96bf778e2343bdf462f105ae867389038d6078",
+      "route": "/id/utilitas/kategori/alat-pengujian-perangkat-keras/tes-gamepad-online/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/alat-pengujian-perangkat-keras/tes-getaran-gamepad-online/": {
+      "hash": "041c96d32f9ba904eabbadae9f652eacc77dc7ed5b7bcaa09f7f76a0443361c5",
+      "route": "/id/utilitas/kategori/alat-pengujian-perangkat-keras/tes-getaran-gamepad-online/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/alat-pengujian-perangkat-keras/tes-ghosting-monitor/": {
+      "hash": "b873f39652c613592088490863f79c833e3daebe4edf4080a373a5b6202e153e",
+      "route": "/id/utilitas/kategori/alat-pengujian-perangkat-keras/tes-ghosting-monitor/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/alat-pengujian-perangkat-keras/tes-jitter-sudut-mouse/": {
+      "hash": "5b7dcd8ad6723e31840e91c9eb02e7da48592f8c49b38526b774fc3728fa97fc",
+      "route": "/id/utilitas/kategori/alat-pengujian-perangkat-keras/tes-jitter-sudut-mouse/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/alat-pengujian-perangkat-keras/tes-keyboard-online/": {
+      "hash": "4d4aeee33a7b32f5e0c5f0cd785d5564964d6b8052c7184836dfb6b1534c8410",
+      "route": "/id/utilitas/kategori/alat-pengujian-perangkat-keras/tes-keyboard-online/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/alat-pengujian-perangkat-keras/tes-klik-ganda-mouse/": {
+      "hash": "36b219245edd4e76b30993c6d3aa6003b2a11a1e43251f54ce55fe6a0658f3ff",
+      "route": "/id/utilitas/kategori/alat-pengujian-perangkat-keras/tes-klik-ganda-mouse/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/alat-pengujian-perangkat-keras/tes-mouse-polling-rate-online/": {
+      "hash": "49721b32d0e36183ca0aaaabdfbd95e9a5aa5d7dc1ba39ae001779f8706dd2b8",
+      "route": "/id/utilitas/kategori/alat-pengujian-perangkat-keras/tes-mouse-polling-rate-online/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/alat-pengujian-perangkat-keras/tes-pixel-mati-perbaikan-layar/": {
+      "hash": "d486cea48d929d376fb4ab5d19f5145fce2b5c01d0d06cb60c66d4fc5c5e4a12",
+      "route": "/id/utilitas/kategori/alat-pengujian-perangkat-keras/tes-pixel-mati-perbaikan-layar/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/alat-pengujian-perangkat-keras/tes-scroll-mouse/": {
+      "hash": "64591a706018afa1d6e84bf89b4d6a0569cc4966934b84f889f247c438536640",
+      "route": "/id/utilitas/kategori/alat-pengujian-perangkat-keras/tes-scroll-mouse/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/alat-pengujian-perangkat-keras/tes-sensor-ponsel/": {
+      "hash": "d28e304c54a4fd00738be950037d00aeca4417a20dc08e19c69eec4ff0d857be",
+      "route": "/id/utilitas/kategori/alat-pengujian-perangkat-keras/tes-sensor-ponsel/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/alat-pengujian-perangkat-keras/test-penundaan-audio/": {
+      "hash": "e505540e21c108f36034748c0ce5e10fdeeee3d6099c65fdd77377d6d44b6a39",
+      "route": "/id/utilitas/kategori/alat-pengujian-perangkat-keras/test-penundaan-audio/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/alat-pengujian-perangkat-keras/uji-backlight-bleed-blooming/": {
+      "hash": "3972e72d3cf77b6df744b99f14859da4d2be88bc6ae52aa45dd734b5f3717d79",
+      "route": "/id/utilitas/kategori/alat-pengujian-perangkat-keras/uji-backlight-bleed-blooming/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/alat-pengujian-perangkat-keras/uji-kamera-webcam-privat-online/": {
+      "hash": "f0fa4cef0bef7d16c86a5233690e866a296b1a253587a651e5d77dd519837dd6",
+      "route": "/id/utilitas/kategori/alat-pengujian-perangkat-keras/uji-kamera-webcam-privat-online/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/alat-pengujian-perangkat-keras/uji-lag-input-latensi/": {
+      "hash": "bbf57b03ece581fdae268aba36a8d388a4290842c9a93e6fa31a44751f9d6c00",
+      "route": "/id/utilitas/kategori/alat-pengujian-perangkat-keras/uji-lag-input-latensi/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/alat-pengujian-perangkat-keras/uji-mikrofon-penganalisis-spektrum/": {
+      "hash": "22e88c1a108985ba684fdcf1196d93c65d5f0692281843830f1f085a42b7b9ae",
+      "route": "/id/utilitas/kategori/alat-pengujian-perangkat-keras/uji-mikrofon-penganalisis-spektrum/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/strumenti-diagnostici-hardware/analizzatore-dpi-mouse/": {
+      "hash": "ff72d4f593739a1f27c6cd94cf7adf18923eb9ffc0a40ffca9b663760ef01f23",
+      "route": "/it/utilita/categorie/strumenti-diagnostici-hardware/analizzatore-dpi-mouse/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/strumenti-diagnostici-hardware/calcolatore-autonomia-ups/": {
+      "hash": "a611d992cb97269b5e4d5c6c093003cc4ac7ad3a54762a937119290378736633",
+      "route": "/it/utilita/categorie/strumenti-diagnostici-hardware/calcolatore-autonomia-ups/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/strumenti-diagnostici-hardware/calcolatore-budget-alimentazione-usb/": {
+      "hash": "194491d24f165ddf8cb6a45a7483b3ddf065827e69ab21b0fcc549242cebbee8",
+      "route": "/it/utilita/categorie/strumenti-diagnostici-hardware/calcolatore-budget-alimentazione-usb/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/strumenti-diagnostici-hardware/calcolatore-codice-colori-resistenze/": {
+      "hash": "4b90fcbbd25b19ff5d364b39c8f3ec302c12695d288bc2f537729bd45981c15a",
+      "route": "/it/utilita/categorie/strumenti-diagnostici-hardware/calcolatore-codice-colori-resistenze/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/strumenti-diagnostici-hardware/calcolatore-larghezza-traccia-impedenza-pcb/": {
+      "hash": "4d4521f69bfbb82af5f4e5c9d3f284c5bad38a0d8f6a23c30f3057923ed2fff5",
+      "route": "/it/utilita/categorie/strumenti-diagnostici-hardware/calcolatore-larghezza-traccia-impedenza-pcb/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/strumenti-diagnostici-hardware/calcolatore-legge-ohm-potenza/": {
+      "hash": "e905537dddede7d0078f2974d6cad9f21da46462a8548267510e199d592ac187",
+      "route": "/it/utilita/categorie/strumenti-diagnostici-hardware/calcolatore-legge-ohm-potenza/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/strumenti-diagnostici-hardware/calcolatore-partitore-tensione/": {
+      "hash": "09242dfc271aa265ef06d23e4e412a8fa57deade7be20eb8afbc3551c13da336",
+      "route": "/it/utilita/categorie/strumenti-diagnostici-hardware/calcolatore-partitore-tensione/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/strumenti-diagnostici-hardware/calcolatore-potenza-alimentatore-computer/": {
+      "hash": "bab5fa5349471e1c22a0895244b57d00fe5bee05712a291dadf2fd599d952c2b",
+      "route": "/it/utilita/categorie/strumenti-diagnostici-hardware/calcolatore-potenza-alimentatore-computer/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/strumenti-diagnostici-hardware/calcolatore-resistenza-led/": {
+      "hash": "ad4156f69ac628c1c4253eefeb8f470d06996bcaabab604f9388ea46b13ef80a",
+      "route": "/it/utilita/categorie/strumenti-diagnostici-hardware/calcolatore-resistenza-led/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/strumenti-diagnostici-hardware/calcolatore-salute-batteria-litio/": {
+      "hash": "480f43236e6dd0112b49f8a230603852251b651d17c98078112bb23ffa58b442",
+      "route": "/it/utilita/categorie/strumenti-diagnostici-hardware/calcolatore-salute-batteria-litio/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/strumenti-diagnostici-hardware/espulsore-acqua-pulitore-altoparlante/": {
+      "hash": "c3a9d62de3426de2f704f62b5ab7e025c4fd95bfc5ceeff6a8fdc9ba01e69243",
+      "route": "/it/utilita/categorie/strumenti-diagnostici-hardware/espulsore-acqua-pulitore-altoparlante/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/strumenti-diagnostici-hardware/generatore-toni-frequenza-online/": {
+      "hash": "0435ef798b408f938847a023a17f3946a593f901bc6799deddede039cfc72c60",
+      "route": "/it/utilita/categorie/strumenti-diagnostici-hardware/generatore-toni-frequenza-online/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/strumenti-diagnostici-hardware/": {
+      "hash": "495821f5d609acd97c10fba55b4f5b8a288afafff71e2f9f3e5a3ead63f5a6bb",
+      "route": "/it/utilita/categorie/strumenti-diagnostici-hardware/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/strumenti-diagnostici-hardware/monitor-seriale-webusb/": {
+      "hash": "2691137f4492e5693c57f5a612d1b1cb708fce6caecaa4e240ed07b198fa66f7",
+      "route": "/it/utilita/categorie/strumenti-diagnostici-hardware/monitor-seriale-webusb/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/strumenti-diagnostici-hardware/rilevatore-frequenza-aggiornamento-monitor/": {
+      "hash": "8b09757655d28a6688f481977b91210588f0107a56ce7809f192dec750fbbfad",
+      "route": "/it/utilita/categorie/strumenti-diagnostici-hardware/rilevatore-frequenza-aggiornamento-monitor/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/strumenti-diagnostici-hardware/riparatore-burn-in-schermo-oled/": {
+      "hash": "f0c4f46f3754176b700400f7b8203d030e8712371a994a5ff0696fa2e6c0d425",
+      "route": "/it/utilita/categorie/strumenti-diagnostici-hardware/riparatore-burn-in-schermo-oled/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/strumenti-diagnostici-hardware/scansione-ble-web-bluetooth/": {
+      "hash": "0927950b1baa05dc4203fb6b7f9abe31d0a6d5aa8ae4a8c20999b383c19480bb",
+      "route": "/it/utilita/categorie/strumenti-diagnostici-hardware/scansione-ble-web-bluetooth/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/strumenti-diagnostici-hardware/test-chatter-tastiera/": {
+      "hash": "db232c3ffea0df0b34748112ebdb451d5cf8f34573a0a24cb8598794259a1b09",
+      "route": "/it/utilita/categorie/strumenti-diagnostici-hardware/test-chatter-tastiera/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/strumenti-diagnostici-hardware/test-crossover-subwoofer-online/": {
+      "hash": "477a0545e38e1cb87dae7eb384c9428dfe39439df573fe977385d60676c7856e",
+      "route": "/it/utilita/categorie/strumenti-diagnostici-hardware/test-crossover-subwoofer-online/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/strumenti-diagnostici-hardware/test-doppio-clic-mouse/": {
+      "hash": "2828ea764ea4693e935a029f257593bc171a5de0045255d047fffd22353f06c8",
+      "route": "/it/utilita/categorie/strumenti-diagnostici-hardware/test-doppio-clic-mouse/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/strumenti-diagnostici-hardware/test-gamepad-online/": {
+      "hash": "95bcbef3126c45a30da6e25bfcda3c877bfffb6c7178f486bcf50d4b14a674c9",
+      "route": "/it/utilita/categorie/strumenti-diagnostici-hardware/test-gamepad-online/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/strumenti-diagnostici-hardware/test-ghosting-monitor-italiano/": {
+      "hash": "2a5d8d16b6819345a60aabefe70cd23a8450b839aae456cf5f647afaeff48307",
+      "route": "/it/utilita/categorie/strumenti-diagnostici-hardware/test-ghosting-monitor-italiano/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/strumenti-diagnostici-hardware/test-microfono-analizzatore-spettro/": {
+      "hash": "d0c8a3303dfa01bb88aee75d051e4538cb924535c95c9cce93cd46a412c603a0",
+      "route": "/it/utilita/categorie/strumenti-diagnostici-hardware/test-microfono-analizzatore-spettro/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/strumenti-diagnostici-hardware/test-perdita-retroilluminazione-blooming/": {
+      "hash": "3d860910834c30fe9f83b3c637332a5c13bd0f601eff7062f13e4ef8f508d237",
+      "route": "/it/utilita/categorie/strumenti-diagnostici-hardware/test-perdita-retroilluminazione-blooming/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/strumenti-diagnostici-hardware/test-pixel-morti-riparazione-schermo/": {
+      "hash": "d999233321183555ccab612d14107c13d142723b9d0e805548a1a31474360a46",
+      "route": "/it/utilita/categorie/strumenti-diagnostici-hardware/test-pixel-morti-riparazione-schermo/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/strumenti-diagnostici-hardware/test-polling-rate-gamepad-hertz/": {
+      "hash": "673c315b04ecf1b614037d0df4284eca6fd363623908994400283f7e3b7702bb",
+      "route": "/it/utilita/categorie/strumenti-diagnostici-hardware/test-polling-rate-gamepad-hertz/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/strumenti-diagnostici-hardware/test-polling-rate-mouse-online/": {
+      "hash": "5967f440f5694cb4807a40d01fd2b4a97fac268d956a68bbf2ad16095c6d103f",
+      "route": "/it/utilita/categorie/strumenti-diagnostici-hardware/test-polling-rate-mouse-online/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/strumenti-diagnostici-hardware/test-precisione-colore/": {
+      "hash": "410f95fb01cef6a6dd2b332e45fb02d6862d44ce12e868fd6c68ce599cf28ef8",
+      "route": "/it/utilita/categorie/strumenti-diagnostici-hardware/test-precisione-colore/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/strumenti-diagnostici-hardware/test-ritardo-audio/": {
+      "hash": "e9d544944138a05a9e61d4fadb7c84b974d4d214af4adc726ea7b902d0426f63",
+      "route": "/it/utilita/categorie/strumenti-diagnostici-hardware/test-ritardo-audio/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/strumenti-diagnostici-hardware/test-ritardo-input-lag/": {
+      "hash": "a44db5ff43181b2715c47c6c99f61b42553d86aed40d729724fb02f4cfb3c6b5",
+      "route": "/it/utilita/categorie/strumenti-diagnostici-hardware/test-ritardo-input-lag/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/strumenti-diagnostici-hardware/test-rotella-mouse/": {
+      "hash": "0fd464c41fe3a1676e34a9bd1992c3c618311a4d93c0fb24c3a27974a38becc8",
+      "route": "/it/utilita/categorie/strumenti-diagnostici-hardware/test-rotella-mouse/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/strumenti-diagnostici-hardware/test-sensori-cellulare/": {
+      "hash": "977deb3b1dcb1cd91ffd842dc83e0488e445bf01ffbd70ddfeab92a33f4a6b75",
+      "route": "/it/utilita/categorie/strumenti-diagnostici-hardware/test-sensori-cellulare/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/strumenti-diagnostici-hardware/test-tastiera-online/": {
+      "hash": "3d86907a3f0134f7270b7d1aef024659590892bd70a4ea1e5942a430ed9eda1f",
+      "route": "/it/utilita/categorie/strumenti-diagnostici-hardware/test-tastiera-online/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/strumenti-diagnostici-hardware/test-touch-screen/": {
+      "hash": "11bd21486e6a9deda5a5546696174d50455a956542b50c00aa0bf8dba4e28f08",
+      "route": "/it/utilita/categorie/strumenti-diagnostici-hardware/test-touch-screen/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/strumenti-diagnostici-hardware/test-tremolio-angolo-mouse/": {
+      "hash": "cd9254ec6cb1d1f5b579a130db416604a89d507a3fa65f8ad09e2d09394f9ecc",
+      "route": "/it/utilita/categorie/strumenti-diagnostici-hardware/test-tremolio-angolo-mouse/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/strumenti-diagnostici-hardware/test-vibrazione-gamepad-online/": {
+      "hash": "c74b2b0dc102fc19a8dc0c7047e448370ce347831937ab6176b76895eedddc5e",
+      "route": "/it/utilita/categorie/strumenti-diagnostici-hardware/test-vibrazione-gamepad-online/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/strumenti-diagnostici-hardware/test-webcam-privato-online/": {
+      "hash": "61a83fb8ee5be05d75a6ce6e5c3dc1651aa718703b90721d24deec0feb7eb0e9",
+      "route": "/it/utilita/categorie/strumenti-diagnostici-hardware/test-webcam-privato-online/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/strumenti-diagnostici-hardware/tester-fase-altoparlanti/": {
+      "hash": "63cb1d347ed02c45938a74610fe83a4e1cfde76737f8e23bdc1d5a61d575ff51",
+      "route": "/it/utilita/categorie/strumenti-diagnostici-hardware/tester-fase-altoparlanti/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/strumenti-diagnostici-hardware/tester-tastiera-midi/": {
+      "hash": "c83e425a4482ff349bb54bd2a7620120ac545983acefff793bc9b163546357a1",
+      "route": "/it/utilita/categorie/strumenti-diagnostici-hardware/tester-tastiera-midi/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/strumenti-diagnostici-hardware/verifica-audio-stereo/": {
+      "hash": "e393ae09e34a68558715a6626475b0daaa9601d76748a4540ca97727d218ff3c",
+      "route": "/it/utilita/categorie/strumenti-diagnostici-hardware/verifica-audio-stereo/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/hardware-tools/audio-delay-test/": {
+      "hash": "c05ff96a438b53adebbce6e4b4fb97ec74765cfb9eae8311293c0a563174cd94",
+      "route": "/ja/utilities/categories/hardware-tools/audio-delay-test/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/hardware-tools/backlight-bleed-blooming-test/": {
+      "hash": "6267e58cfe0478998b6463a63d072ac137ec204f5746efc30997543e6a5cfaed",
+      "route": "/ja/utilities/categories/hardware-tools/backlight-bleed-blooming-test/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/hardware-tools/color-accuracy-test/": {
+      "hash": "25cb65c9fe9a0341b5b55951e3b24fd033a5ada46277b8ea9214251eaf3adb66",
+      "route": "/ja/utilities/categories/hardware-tools/color-accuracy-test/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/hardware-tools/dead-pixel-tester/": {
+      "hash": "484307191e4bb29eb95970df49a4f72ca1f46374fa947a31d0f24a09d981d164",
+      "route": "/ja/utilities/categories/hardware-tools/dead-pixel-tester/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/hardware-tools/gamepad-polling-rate-checker/": {
+      "hash": "c6c42a68bc7e9f26ab979657727288129d3dad34bfab2129d967963940cdf6ea",
+      "route": "/ja/utilities/categories/hardware-tools/gamepad-polling-rate-checker/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/hardware-tools/gamepad-test/": {
+      "hash": "f33d28e28fae378259260e330efc41c1e3ce798eb3b57ef79b0b78ed104b4b60",
+      "route": "/ja/utilities/categories/hardware-tools/gamepad-test/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/hardware-tools/gamepad-vibration-tester/": {
+      "hash": "d09718caae04e06490b9deffbc5927e8b916c4ebc7f8baa0b57a0e3cd98916f4",
+      "route": "/ja/utilities/categories/hardware-tools/gamepad-vibration-tester/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/hardware-tools/": {
+      "hash": "638c5d7aa1aa597ff56459e0d7bd5a485775249340a415faae2e913b364328b0",
+      "route": "/ja/utilities/categories/hardware-tools/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/hardware-tools/keyboard-chatter-test/": {
+      "hash": "ea8942c67b14d0b5426d38307e00b6c5388fbe2e6d1fa4fb47feceb9a2cdc98a",
+      "route": "/ja/utilities/categories/hardware-tools/keyboard-chatter-test/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/hardware-tools/keyboard-test/": {
+      "hash": "7ddb892a66d85283a021656db845d4334a58eef81d06651911ae08ad27d828d1",
+      "route": "/ja/utilities/categories/hardware-tools/keyboard-test/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/hardware-tools/led-resistor-calculator/": {
+      "hash": "4985dc77738a2f6682eccddb1dd171704f1d08787a660fd29f9c50596fa4a338",
+      "route": "/ja/utilities/categories/hardware-tools/led-resistor-calculator/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/hardware-tools/lithium-battery-health-calculator/": {
+      "hash": "819e121a6b7a9164861b3e55a49417e740316b652b3ca53f34a64fcdcb95bbac",
+      "route": "/ja/utilities/categories/hardware-tools/lithium-battery-health-calculator/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/hardware-tools/microphone-test-spectrum-analyzer/": {
+      "hash": "70fa17a281844724101f69d9181c6b9856624f16cc8792d9b99e1aa849742b3d",
+      "route": "/ja/utilities/categories/hardware-tools/microphone-test-spectrum-analyzer/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/hardware-tools/mobile-sensor-test/": {
+      "hash": "9a5fc58fe2c250d457b1bd3c120bd542b60763fad144b9bc31a28d68a147d821",
+      "route": "/ja/utilities/categories/hardware-tools/mobile-sensor-test/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/hardware-tools/monitor-ghosting-test/": {
+      "hash": "b1ca401a9557927cc096c975dcae2362652cc4ad4a60c472376cb561068cf435",
+      "route": "/ja/utilities/categories/hardware-tools/monitor-ghosting-test/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/hardware-tools/monitor-refresh-rate-detector/": {
+      "hash": "6e118b806ce8877fe905824bdfb0e3349898ff3775c6e55cf543db46232addd4",
+      "route": "/ja/utilities/categories/hardware-tools/monitor-refresh-rate-detector/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/hardware-tools/mouse-double-click-test/": {
+      "hash": "bef790a106f0769c2f73233d980b27418809849c6bfa2436efaa74741f939acf",
+      "route": "/ja/utilities/categories/hardware-tools/mouse-double-click-test/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/hardware-tools/mouse-dpi-analyzer/": {
+      "hash": "c904265ea4421fecade8365dd17bcb7f157a4aa0e8728581a5438fb336306d7f",
+      "route": "/ja/utilities/categories/hardware-tools/mouse-dpi-analyzer/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/hardware-tools/mouse-jitter-angle-snapping-test/": {
+      "hash": "c00c837448a6db9ee70a92be6bb2f9f739b5684e7a4a424e9e4dd825f36628ce",
+      "route": "/ja/utilities/categories/hardware-tools/mouse-jitter-angle-snapping-test/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/hardware-tools/mouse-polling-rate-test/": {
+      "hash": "c6c555c7a4c79dd75fa131db8b7921bf8d469840a118f257f22aa59cb37b4600",
+      "route": "/ja/utilities/categories/hardware-tools/mouse-polling-rate-test/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/hardware-tools/mouse-scroll-test/": {
+      "hash": "fa11658b8e4f336a7662d72717b7e13fea89ed2694dc29bb58bc89ffd660d9f3",
+      "route": "/ja/utilities/categories/hardware-tools/mouse-scroll-test/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/hardware-tools/ohm-law-power-calculator/": {
+      "hash": "3d8bc5d6529eab42661123849f1a4c2fa7d991dcb5806486d3551ed305108e99",
+      "route": "/ja/utilities/categories/hardware-tools/ohm-law-power-calculator/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/hardware-tools/oled-screen-burn-in-fixer/": {
+      "hash": "7bcd325794263d62d4b6082c95695107e9d0f081f164eb0d5fc80e22406e0fc2",
+      "route": "/ja/utilities/categories/hardware-tools/oled-screen-burn-in-fixer/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/hardware-tools/pcb-trace-width-impedance-calculator/": {
+      "hash": "3a67613c882a28feb4a3fe12a491900ba1e72b4fe3a245188edf262e287d105e",
+      "route": "/ja/utilities/categories/hardware-tools/pcb-trace-width-impedance-calculator/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/hardware-tools/private-webcam-camera-test-online/": {
+      "hash": "7a86cfed606658116310f917e552baa57d09a151c875e0c5099cdb512d41e955",
+      "route": "/ja/utilities/categories/hardware-tools/private-webcam-camera-test-online/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/hardware-tools/psu-power-requirement-calculator/": {
+      "hash": "34162530f7c5db3610bace604bf14dd2dce757cd9a0c5eb0b0eff85975822f71",
+      "route": "/ja/utilities/categories/hardware-tools/psu-power-requirement-calculator/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/hardware-tools/resistor-color-code-calculator/": {
+      "hash": "57144e4d79ff35710cce7d39887e32aecdb9a70ba50b2b11b45db9428e1c565b",
+      "route": "/ja/utilities/categories/hardware-tools/resistor-color-code-calculator/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/hardware-tools/speaker-phase-tester/": {
+      "hash": "67e439f2493e8bee12ed0dd14d9474c7a43b485dbfa3174ff4880a0bad90038d",
+      "route": "/ja/utilities/categories/hardware-tools/speaker-phase-tester/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/hardware-tools/stereo-audio-test/": {
+      "hash": "65316fdffed522cd34248ab73b4c3d8da80bd681437692bb00432524058e19d0",
+      "route": "/ja/utilities/categories/hardware-tools/stereo-audio-test/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/hardware-tools/subwoofer-crossover-test/": {
+      "hash": "321cd648c07f4e7e26f25e88e52268f6c9496b89b5f29d56a2f259158bb2d8f1",
+      "route": "/ja/utilities/categories/hardware-tools/subwoofer-crossover-test/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/hardware-tools/test-input-lag/": {
+      "hash": "1eb794c2cdd17dbb57c3519bcc2600ec99e01e49c713ba8f7dd06a074fb907bb",
+      "route": "/ja/utilities/categories/hardware-tools/test-input-lag/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/hardware-tools/tone-frequency-generator/": {
+      "hash": "78db998fda6153d187e5c8cefb84ba017d73830db8d46521ddf80c3a0ab98604",
+      "route": "/ja/utilities/categories/hardware-tools/tone-frequency-generator/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/hardware-tools/touch-screen-tester/": {
+      "hash": "9b8b57b05dfe37f7715c7fefcea0d25c37c6e51c610053024e428c9980e098ec",
+      "route": "/ja/utilities/categories/hardware-tools/touch-screen-tester/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/hardware-tools/ups-runtime-calculator/": {
+      "hash": "dc255ce17e7fd04fe9ce98fe068ca64e06af7201e7c7cc82670e0f2d6121e188",
+      "route": "/ja/utilities/categories/hardware-tools/ups-runtime-calculator/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/hardware-tools/usb-power-budget-calculator/": {
+      "hash": "2429acb2be11b29fab013bb3e16627d3a751328a6109ab591b53152128a4f31d",
+      "route": "/ja/utilities/categories/hardware-tools/usb-power-budget-calculator/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/hardware-tools/voltage-divider-calculator/": {
+      "hash": "a8312c160d5529816d911e7279514a78c5546836bd2466c47e269987e75c2664",
+      "route": "/ja/utilities/categories/hardware-tools/voltage-divider-calculator/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/hardware-tools/water-ejector-speaker-cleaner/": {
+      "hash": "e8e1620c043d5f57c8f8825c8c091eacfea55d6d44c53bb77974b49161aeb991",
+      "route": "/ja/utilities/categories/hardware-tools/water-ejector-speaker-cleaner/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/hardware-tools/web-bluetooth-ble-scanner/": {
+      "hash": "e63880e1bc6c7ef7cb604f511dc6976fbc340df7e1b78ae66718379290205877",
+      "route": "/ja/utilities/categories/hardware-tools/web-bluetooth-ble-scanner/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/hardware-tools/web-usb-serial-monitor/": {
+      "hash": "d5a487ac139e4e849799131f802ca0f1dd8a3baddf4c65a6c6e41e66e6bc253c",
+      "route": "/ja/utilities/categories/hardware-tools/web-usb-serial-monitor/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/hardware-tools/webmidi-keyboard-tester/": {
+      "hash": "4c302ffc72cae8708b5b58db80d9028818ec262cca87e6c214f7dd67dc8e53ab",
+      "route": "/ja/utilities/categories/hardware-tools/webmidi-keyboard-tester/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/hardware-tools/audio-delay-test/": {
+      "hash": "cc2839432d4fa438a4106b76b75b250b3c75e435b5c9c4e9e367b018769bc933",
+      "route": "/ko/utilities/categories/hardware-tools/audio-delay-test/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/hardware-tools/backlight-bleed-blooming-test/": {
+      "hash": "149352916814522550852720aa341edbae7347b676269939d643b2cde4451495",
+      "route": "/ko/utilities/categories/hardware-tools/backlight-bleed-blooming-test/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/hardware-tools/color-accuracy-test/": {
+      "hash": "f41c33a0b0bbb095ae41f39ebac20a11b594f7e7faf7781e2178424067b207d6",
+      "route": "/ko/utilities/categories/hardware-tools/color-accuracy-test/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/hardware-tools/dead-pixel-tester/": {
+      "hash": "e218967a47a185e6e03ca51c2a9b55c430eed76447d70e13bd8ee3d38b79916c",
+      "route": "/ko/utilities/categories/hardware-tools/dead-pixel-tester/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/hardware-tools/gamepad-polling-rate-checker/": {
+      "hash": "f861feccb24864df55bb7cd6923603afa6db8740bf33ef7ba04cdcd0ab0debb6",
+      "route": "/ko/utilities/categories/hardware-tools/gamepad-polling-rate-checker/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/hardware-tools/gamepad-test/": {
+      "hash": "553fb45ea004f73c15352805fccb88a0f154fb042699fc6f16ab6dc23791e02a",
+      "route": "/ko/utilities/categories/hardware-tools/gamepad-test/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/hardware-tools/gamepad-vibration-tester/": {
+      "hash": "6b2bea548da1c61105a996ca99c5af6574c16a276c320f80574019dccbb67952",
+      "route": "/ko/utilities/categories/hardware-tools/gamepad-vibration-tester/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/hardware-tools/": {
+      "hash": "251cfc377d2885daaa0f1d00e01942c3cc57de0cf431b99d051bacd3b3bdc9c4",
+      "route": "/ko/utilities/categories/hardware-tools/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/hardware-tools/keyboard-chatter-test/": {
+      "hash": "f23ed995460a01545c3dbcb0968871009f844d8cd2ebda249228d811a655772f",
+      "route": "/ko/utilities/categories/hardware-tools/keyboard-chatter-test/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/hardware-tools/keyboard-test/": {
+      "hash": "be3dfc9f822313ff8f80e6522f2bd532aa522fa2885fffae3f14d780daf8ee67",
+      "route": "/ko/utilities/categories/hardware-tools/keyboard-test/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/hardware-tools/led-resistor-calculator/": {
+      "hash": "41595911ab66acd611d4bbf8f594c9c4f327c5c8a328f1d2c7632438918b2452",
+      "route": "/ko/utilities/categories/hardware-tools/led-resistor-calculator/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/hardware-tools/lithium-battery-health-calculator/": {
+      "hash": "3f2681055e300b9d745bb08472e330c63e982bbe2c0f1efe6841a4c1a4f08425",
+      "route": "/ko/utilities/categories/hardware-tools/lithium-battery-health-calculator/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/hardware-tools/microphone-test-spectrum-analyzer/": {
+      "hash": "4b50df64be625c700c19b54e03d3cbb3c1f6bd42ac34b3f16644f89fc2afdbbd",
+      "route": "/ko/utilities/categories/hardware-tools/microphone-test-spectrum-analyzer/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/hardware-tools/mobile-sensor-test/": {
+      "hash": "c76565958382e51ab886e3849386335dd9b0cfe644eec47c37b2b0b3814cf0d1",
+      "route": "/ko/utilities/categories/hardware-tools/mobile-sensor-test/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/hardware-tools/monitor-ghosting-test/": {
+      "hash": "69d849b581730abc6d5dd8fba7393d8d782375ba95f9cd056dc2cea9836a195c",
+      "route": "/ko/utilities/categories/hardware-tools/monitor-ghosting-test/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/hardware-tools/monitor-refresh-rate-detector/": {
+      "hash": "7b6992bb42b246753cfa5479653577a3ba96744567703296eb52f0fbfc9a404f",
+      "route": "/ko/utilities/categories/hardware-tools/monitor-refresh-rate-detector/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/hardware-tools/mouse-double-click-test/": {
+      "hash": "986528a2af9dbad0897fd4871abf0485a1ed12abfd9cbc3b199b1c6294b52cdc",
+      "route": "/ko/utilities/categories/hardware-tools/mouse-double-click-test/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/hardware-tools/mouse-dpi-analyzer/": {
+      "hash": "30a07dc5a1defac4048c1ba8218c6831090c0ff13b1ba1a8bc860f6dfba16d19",
+      "route": "/ko/utilities/categories/hardware-tools/mouse-dpi-analyzer/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/hardware-tools/mouse-jitter-angle-snapping-test/": {
+      "hash": "f669d70807e3fa7373c04e7bd23d584f8d6eda1b7a6d6d5b58ffb711eb9333fa",
+      "route": "/ko/utilities/categories/hardware-tools/mouse-jitter-angle-snapping-test/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/hardware-tools/mouse-polling-rate-test/": {
+      "hash": "120ce969d95eb26d1ab9bf3277115072c6958997cac49aa5d4b830688ab99293",
+      "route": "/ko/utilities/categories/hardware-tools/mouse-polling-rate-test/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/hardware-tools/mouse-scroll-test/": {
+      "hash": "a0e69690498ca97e218fed2c98841af99b25f5fe7bd9f33c4378501e9529db2c",
+      "route": "/ko/utilities/categories/hardware-tools/mouse-scroll-test/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/hardware-tools/ohm-law-power-calculator/": {
+      "hash": "fbae9f47c9bdd5bbe85fc4b5a5cf079039608343610960a1ea26d47e0015b3c0",
+      "route": "/ko/utilities/categories/hardware-tools/ohm-law-power-calculator/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/hardware-tools/oled-screen-burn-in-fixer/": {
+      "hash": "cf4547289c4851072ce8102fb86082e757ac75cd49e1e852dd15b82691726964",
+      "route": "/ko/utilities/categories/hardware-tools/oled-screen-burn-in-fixer/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/hardware-tools/pcb-trace-width-impedance-calculator/": {
+      "hash": "d11b078efc6c3ab4602060f7837c4b6b1a87c9cfba0820e00b94f8e0703b34f2",
+      "route": "/ko/utilities/categories/hardware-tools/pcb-trace-width-impedance-calculator/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/hardware-tools/private-webcam-camera-test-online/": {
+      "hash": "52e2bbf6a5950708e47393cc0273ce32e70f0b64f163cf15a31cd955d6b95a7f",
+      "route": "/ko/utilities/categories/hardware-tools/private-webcam-camera-test-online/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/hardware-tools/psu-power-requirement-calculator/": {
+      "hash": "6a82cb09c1448779ceaf8e61738e5cf161a82f7449ca2afa1bf656b5aade089c",
+      "route": "/ko/utilities/categories/hardware-tools/psu-power-requirement-calculator/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/hardware-tools/resistor-color-code-calculator/": {
+      "hash": "25eb9fa8a9cef20b87a6f571c815909458e3537be3d5b5b73bc8e7b1267fb6c8",
+      "route": "/ko/utilities/categories/hardware-tools/resistor-color-code-calculator/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/hardware-tools/speaker-phase-tester/": {
+      "hash": "e844c53f0b820524a317c809cbaf839469b21cd0e12df98a49ca9771f1458d35",
+      "route": "/ko/utilities/categories/hardware-tools/speaker-phase-tester/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/hardware-tools/stereo-audio-test/": {
+      "hash": "b905e8d7dfb10e33900ea2ee14268baaf3c716b630831ac8fa3ff7b9a889e99e",
+      "route": "/ko/utilities/categories/hardware-tools/stereo-audio-test/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/hardware-tools/subwoofer-crossover-test/": {
+      "hash": "24d9b522352291f744e3b0a2d01326a3e7abcaf7e9f8396070d50504f10e7929",
+      "route": "/ko/utilities/categories/hardware-tools/subwoofer-crossover-test/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/hardware-tools/test-input-lag/": {
+      "hash": "29a1de1ea021f825c2f6e295d40eefdc121a28bab9ea4da8ea148f5e4779d7da",
+      "route": "/ko/utilities/categories/hardware-tools/test-input-lag/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/hardware-tools/tone-frequency-generator/": {
+      "hash": "c769e8abec31420b581c23e0ed4774635b129cde53209964f847ed020f39f2cd",
+      "route": "/ko/utilities/categories/hardware-tools/tone-frequency-generator/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/hardware-tools/touch-screen-tester/": {
+      "hash": "b17769690fd1ee976080e45475069f67041889741a3a29422b2e7ce387b63a0c",
+      "route": "/ko/utilities/categories/hardware-tools/touch-screen-tester/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/hardware-tools/ups-runtime-calculator/": {
+      "hash": "2d2fd82441027c62d967818c8609c14f1cfc20815d99e83e3b4f9492c6bae31f",
+      "route": "/ko/utilities/categories/hardware-tools/ups-runtime-calculator/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/hardware-tools/usb-power-budget-calculator/": {
+      "hash": "ace2fbfe00b4fc64035ecf52d7a92e8366486cdd50797d9ec4f24f8149a6ec35",
+      "route": "/ko/utilities/categories/hardware-tools/usb-power-budget-calculator/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/hardware-tools/voltage-divider-calculator/": {
+      "hash": "31e46660c4b45296e9d5e30ec347b8b5e78758853e3890e5a7d193f9095f22ca",
+      "route": "/ko/utilities/categories/hardware-tools/voltage-divider-calculator/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/hardware-tools/water-ejector-speaker-cleaner/": {
+      "hash": "ad3a2c9852fd012cf285b557b5bd432d35ffd7689bf032f5b7c38fab88c0d28c",
+      "route": "/ko/utilities/categories/hardware-tools/water-ejector-speaker-cleaner/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/hardware-tools/web-bluetooth-ble-scanner/": {
+      "hash": "94b2f057e577c9d2f948d1c960bb7c6b341e539f46ded3ad30157e019ce6bc8e",
+      "route": "/ko/utilities/categories/hardware-tools/web-bluetooth-ble-scanner/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/hardware-tools/web-usb-serial-monitor/": {
+      "hash": "a636fdfa732b347e5033ff73d6148256b3f8f9656568a50cd7c2fa11e73342ac",
+      "route": "/ko/utilities/categories/hardware-tools/web-usb-serial-monitor/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/hardware-tools/webmidi-keyboard-tester/": {
+      "hash": "f69a321fa0e050b485e19285fac4b3d5ed0e339df6341b8c6bebeb506e3a092a",
+      "route": "/ko/utilities/categories/hardware-tools/webmidi-keyboard-tester/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/hardware-testtools/aanraakscherm-test/": {
+      "hash": "81b12e4917645b4440a448c6f81eb66bddacc60151d9df5957a52351193844bd",
+      "route": "/nl/hulpmiddelen/categorieen/hardware-testtools/aanraakscherm-test/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/hardware-testtools/audioverraging-test/": {
+      "hash": "7a4862bb1d5a87da0f63b2f4765a4f42a1c17ce31bdb13affb721fd347075bc1",
+      "route": "/nl/hulpmiddelen/categorieen/hardware-testtools/audioverraging-test/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/hardware-testtools/backlight-bleeding-bloomingtest/": {
+      "hash": "ef9a0a207eb23d69f3cae6ca9d12a366c819cdad39d1f801d740f0cf7801061e",
+      "route": "/nl/hulpmiddelen/categorieen/hardware-testtools/backlight-bleeding-bloomingtest/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/hardware-testtools/dode-pixel-test-schermreparatie/": {
+      "hash": "7732dc088fecae1c8daa7b9015d1a3e8738fe7b15d658aaffeed836d3933d63b",
+      "route": "/nl/hulpmiddelen/categorieen/hardware-testtools/dode-pixel-test-schermreparatie/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/hardware-testtools/gamepad-polling-rate-tester-hertz/": {
+      "hash": "c7be6a5bf8b6b98d2f7ac0848aed91495284f5878bfb1a38151080ae7b498cc6",
+      "route": "/nl/hulpmiddelen/categorieen/hardware-testtools/gamepad-polling-rate-tester-hertz/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/hardware-testtools/gamepad-test-online/": {
+      "hash": "336700a25ae0507dfa65abc902d24115cca9764a5fc6b48c9f44c6f21bf1056f",
+      "route": "/nl/hulpmiddelen/categorieen/hardware-testtools/gamepad-test-online/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/hardware-testtools/gamepad-vibratie-test-online/": {
+      "hash": "41c1b0db961d872914488938842d692988d482a75529c2729c6d270ea443616c",
+      "route": "/nl/hulpmiddelen/categorieen/hardware-testtools/gamepad-vibratie-test-online/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/hardware-testtools/": {
+      "hash": "c6189063335f0049aa10d80da69a4d6e3c8724947efa19cc2e27b8ede36dd3ed",
+      "route": "/nl/hulpmiddelen/categorieen/hardware-testtools/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/hardware-testtools/input-lag-test/": {
+      "hash": "5ee1b1275069d9763db719d23e644a4db742e0cb8470403a35a66dd98c859bab",
+      "route": "/nl/hulpmiddelen/categorieen/hardware-testtools/input-lag-test/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/hardware-testtools/kleurnauwkeurigheid-test/": {
+      "hash": "e32a5b9b2138ddd6ce66cc0e86fff5cb2f96082599ba3bb576862518da69d884",
+      "route": "/nl/hulpmiddelen/categorieen/hardware-testtools/kleurnauwkeurigheid-test/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/hardware-testtools/led-voorschakelweerstand-calculator/": {
+      "hash": "b1cd272f9dd64e0f3df97107a27e5a35437158bba3441158a9bd9193047e8d60",
+      "route": "/nl/hulpmiddelen/categorieen/hardware-testtools/led-voorschakelweerstand-calculator/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/hardware-testtools/lithium-batterij-gezondheidscalculator/": {
+      "hash": "fb4241cc5eeb498748407469c44e76509d48aa493940b324b9f01b552f39ffed",
+      "route": "/nl/hulpmiddelen/categorieen/hardware-testtools/lithium-batterij-gezondheidscalculator/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/hardware-testtools/luidspreker-fase-tester/": {
+      "hash": "19d8ef966c6bf1d8190c616492d45d74b2623e68b04c0134fd7d89c4fb027b0e",
+      "route": "/nl/hulpmiddelen/categorieen/hardware-testtools/luidspreker-fase-tester/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/hardware-testtools/microfoontest-spectrum-analysator/": {
+      "hash": "9bddfd104738dcc2ea5533d31f08d3bd17c40c43d7446ce07a045c6982f13706",
+      "route": "/nl/hulpmiddelen/categorieen/hardware-testtools/microfoontest-spectrum-analysator/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/hardware-testtools/midi-toetsenbordtester/": {
+      "hash": "fd98fddd80520581c4358ea384ba292303a02d6bb26310589ea061ae3a2fd122",
+      "route": "/nl/hulpmiddelen/categorieen/hardware-testtools/midi-toetsenbordtester/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/hardware-testtools/mobiele-sensor-test/": {
+      "hash": "583a86cb94e5a789d079dbacc132ff54ae7178dd54debfb40c4c1c487aaeee08",
+      "route": "/nl/hulpmiddelen/categorieen/hardware-testtools/mobiele-sensor-test/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/hardware-testtools/monitor-ghosting-test-nederlands/": {
+      "hash": "3bf3b01a6b8709d0904347ec50d4022ddf5f7acae65c84ca8d9a9f628c222d84",
+      "route": "/nl/hulpmiddelen/categorieen/hardware-testtools/monitor-ghosting-test-nederlands/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/hardware-testtools/monitor-verversingssnelheid-detector/": {
+      "hash": "323f250ab3c29686df9f942e8375ef181637fd6ed109cb03503480b0ee6a3531",
+      "route": "/nl/hulpmiddelen/categorieen/hardware-testtools/monitor-verversingssnelheid-detector/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/hardware-testtools/muis-dpi-analyse/": {
+      "hash": "7a0c17b1f7e73935198abba323484a724ab93c219e92807b33c90a12ed7e6cd4",
+      "route": "/nl/hulpmiddelen/categorieen/hardware-testtools/muis-dpi-analyse/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/hardware-testtools/muis-dubbelklik-test/": {
+      "hash": "30661ee06b9dab8b5d6ab040d56fdaa2b7eb0891e6a60fecdd8724a3806b1324",
+      "route": "/nl/hulpmiddelen/categorieen/hardware-testtools/muis-dubbelklik-test/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/hardware-testtools/muis-jitter-hoekcorrectie-test/": {
+      "hash": "0c38f92fc73b1a4f778955c7c97900f50e43be9b077f23c5c8e99fc24d57ae4d",
+      "route": "/nl/hulpmiddelen/categorieen/hardware-testtools/muis-jitter-hoekcorrectie-test/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/hardware-testtools/muis-polling-rate-test-online/": {
+      "hash": "82fed364d65be671144511c3490bdc561627035eadc31b3611420e71d37ac671",
+      "route": "/nl/hulpmiddelen/categorieen/hardware-testtools/muis-polling-rate-test-online/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/hardware-testtools/muiswiel-test/": {
+      "hash": "71116d1707b909a67c6953522c5936361d3ff0117589385bc8a767120564b0be",
+      "route": "/nl/hulpmiddelen/categorieen/hardware-testtools/muiswiel-test/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/hardware-testtools/oled-inbranding-hersteller/": {
+      "hash": "51df76b1c6b4d2c031f9008f56078f8965f8d73120c78a1a959f5793b62013b2",
+      "route": "/nl/hulpmiddelen/categorieen/hardware-testtools/oled-inbranding-hersteller/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/hardware-testtools/pcb-spoorbreedte-impedantie-calculator/": {
+      "hash": "8584157a4f2d47f232c71a779d3b617a9eb6be83af067e5b3c95e733489068b8",
+      "route": "/nl/hulpmiddelen/categorieen/hardware-testtools/pcb-spoorbreedte-impedantie-calculator/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/hardware-testtools/prive-webcam-camera-test-online/": {
+      "hash": "4654cfe04aae8bdd7c67c3d2bc28dcc3e2f3099fcd56b77341a5b7b6d05af70e",
+      "route": "/nl/hulpmiddelen/categorieen/hardware-testtools/prive-webcam-camera-test-online/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/hardware-testtools/psu-vermogenscalculator-computer/": {
+      "hash": "c7e5e1b01709a75fff769a868c63a69c2844efe4d4f95dc21e8746f09d1e6ed0",
+      "route": "/nl/hulpmiddelen/categorieen/hardware-testtools/psu-vermogenscalculator-computer/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/hardware-testtools/spanningsdeler-rekenmachine/": {
+      "hash": "e65b1c0609c295a9b4a47bd8fd1c47057a14150315b5252db32d75ac87dd47dd",
+      "route": "/nl/hulpmiddelen/categorieen/hardware-testtools/spanningsdeler-rekenmachine/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/hardware-testtools/stereo-audio-testen/": {
+      "hash": "571bbb6c6590d5e81c4c100d61ddfefafb185c15d1636bcad92ebe88a2c5c9bf",
+      "route": "/nl/hulpmiddelen/categorieen/hardware-testtools/stereo-audio-testen/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/hardware-testtools/subwoofer-laagfrequentietest-online/": {
+      "hash": "85b13bc809417abd5c4e903cc96d6d8367112fbcfad27ce7832bf1958a05dc18",
+      "route": "/nl/hulpmiddelen/categorieen/hardware-testtools/subwoofer-laagfrequentietest-online/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/hardware-testtools/toetsenbord-chatter-test/": {
+      "hash": "f4d6e7332482116a30a171da4b370ae1b974c2083042f13d7f0e4c8e2ad25481",
+      "route": "/nl/hulpmiddelen/categorieen/hardware-testtools/toetsenbord-chatter-test/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/hardware-testtools/toetsenbord-test-online/": {
+      "hash": "7f3643849ae29e1b29dd28a78ea1b40ff00d4ee8f87789d08d69efb7cef53dd7",
+      "route": "/nl/hulpmiddelen/categorieen/hardware-testtools/toetsenbord-test-online/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/hardware-testtools/toon-frequentie-generator-online/": {
+      "hash": "f66e5a13498f8a580161545c8188aff44779fbb21344ef423c8893b96753a08e",
+      "route": "/nl/hulpmiddelen/categorieen/hardware-testtools/toon-frequentie-generator-online/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/hardware-testtools/ups-looptijd-calculator/": {
+      "hash": "053d2ab681ab20c229bbe293f5d0b36c7575b2b69a5b2643e03ceece2db620a1",
+      "route": "/nl/hulpmiddelen/categorieen/hardware-testtools/ups-looptijd-calculator/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/hardware-testtools/usb-vermogensbudget-calculator/": {
+      "hash": "0ae700d678a9456871246b086b6716cfd7ce4f592d87ee94602245718526c18c",
+      "route": "/nl/hulpmiddelen/categorieen/hardware-testtools/usb-vermogensbudget-calculator/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/hardware-testtools/verkenner-ble-web-bluetooth/": {
+      "hash": "670d32f52d4a1bc2119e44ab3f66ca43037e35b0d0b24ee934db3e8d75af6d41",
+      "route": "/nl/hulpmiddelen/categorieen/hardware-testtools/verkenner-ble-web-bluetooth/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/hardware-testtools/wateruitwerper-luidsprekerreiniger/": {
+      "hash": "1dd5ae4ac96673b90a4ac5985eb381d5748901d2dba7a607604b6a1c750fbea1",
+      "route": "/nl/hulpmiddelen/categorieen/hardware-testtools/wateruitwerper-luidsprekerreiniger/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/hardware-testtools/web-usb-seriele-monitor/": {
+      "hash": "faed404f5db1050d718fb1f5d26d6ab872eb959bee161ff5f6c2a19752060218",
+      "route": "/nl/hulpmiddelen/categorieen/hardware-testtools/web-usb-seriele-monitor/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/hardware-testtools/weerstand-kleurcode-calculator/": {
+      "hash": "9cf438fa6103c0efd8648a939e2240a14212e7331c5974dcd4e4b413d12c1771",
+      "route": "/nl/hulpmiddelen/categorieen/hardware-testtools/weerstand-kleurcode-calculator/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/hardware-testtools/wet-van-ohm-vermogen-calculator/": {
+      "hash": "14294ffe3b26eec0a6dc0ac4f2b820f823f8aeb67b31adf0d9f6dfacc27c76ad",
+      "route": "/nl/hulpmiddelen/categorieen/hardware-testtools/wet-van-ohm-vermogen-calculator/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/analizator-dpi-myszy/": {
+      "hash": "74bd55b08ef2e352ab64d98d6a489d151f1354d109df9944705c2bae94265154",
+      "route": "/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/analizator-dpi-myszy/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/detektor-czestotliwosci-odswiezania-monitora/": {
+      "hash": "f9050f834f91d71ceb481238e7932aee2a4a78eff7d2b0d7a99dc134c4e9592a",
+      "route": "/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/detektor-czestotliwosci-odswiezania-monitora/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/generator-tonow-czestotliwosci-online/": {
+      "hash": "d3cb8444d9a8de4b1ead5d170f9184632deb6ffeaf7433e78fe395e6c9c2d31e",
+      "route": "/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/generator-tonow-czestotliwosci-online/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/": {
+      "hash": "1aa7cca4b89a0abbcf7fe618a603dec69013f65b6d77e3add32910fc818e55bd",
+      "route": "/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/kalkulator-budzetu-zasilania-usb/": {
+      "hash": "dd5d761c22cf1d73de84b49d5398ce1135c64224941d96497939cd6662efa743",
+      "route": "/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/kalkulator-budzetu-zasilania-usb/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/kalkulator-czasu-pracy-ups/": {
+      "hash": "eb8fc4868392df5749aa51cb2658a7c31904c92d5aa17ab9fab7a8c6e0db2bf7",
+      "route": "/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/kalkulator-czasu-pracy-ups/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/kalkulator-dzielnika-napiecia/": {
+      "hash": "347c725fdd7c0833c4ea12bedba642ffeaa4da583cfbde7a88cc82466093931e",
+      "route": "/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/kalkulator-dzielnika-napiecia/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/kalkulator-kodu-kolorow-rezystora/": {
+      "hash": "5c6f01aa491b1e9c55d507167772a4e55616b989f7d6466b74abdedc9f714216",
+      "route": "/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/kalkulator-kodu-kolorow-rezystora/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/kalkulator-prawa-ohma-mocy/": {
+      "hash": "17f0fd9ddcd1c07883b700cf7a52ee14f28ed7366692c4dd3ed958f987e4cbb5",
+      "route": "/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/kalkulator-prawa-ohma-mocy/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/kalkulator-rezystora-led/": {
+      "hash": "6a3ce743aa9b72cf1b4f8733fa8f3ec0579c735f6f403d49ece7cde576ff39c4",
+      "route": "/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/kalkulator-rezystora-led/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/kalkulator-stanu-baterii-litowej/": {
+      "hash": "5e9615b5a9644e64decd2cb77337af4f1f8004f6f1138e9371e071d08445c7b7",
+      "route": "/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/kalkulator-stanu-baterii-litowej/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/kalkulator-szerokosci-sciezki-impedancji-pcb/": {
+      "hash": "a1ef56ac7884b5b5f2ddf597464da1e1d7928fe2a416215d536e439955d81ad2",
+      "route": "/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/kalkulator-szerokosci-sciezki-impedancji-pcb/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/kalkulator-zapotrzebowania-mocy-psu/": {
+      "hash": "a4d3de1852aad6c2c4331cdda2108911335040b4a5893b2dca0d5565522e3b64",
+      "route": "/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/kalkulator-zapotrzebowania-mocy-psu/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/monitor-szeregowy-webusb/": {
+      "hash": "aa001b9da2bc7805b2dd8f74294fdb54bc0ba493529ab920b2bcb56760c38033",
+      "route": "/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/monitor-szeregowy-webusb/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/naprawiacz-wypalania-ekranu-oled/": {
+      "hash": "9ee6a70e73072c8794ee97473064a3284c6f99f2dd00bc4046ad6315585bfce7",
+      "route": "/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/naprawiacz-wypalania-ekranu-oled/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/prywatny-test-kamery-internetowej-online/": {
+      "hash": "1058e3b7216784e46c0290b0467601ddf2e786521d0812b5b6a1856c419d7871",
+      "route": "/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/prywatny-test-kamery-internetowej-online/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/skaner-ble-web-bluetooth/": {
+      "hash": "0001bcac162f1dd868bdc1cc87867b26b865dded9b980cf2d6e9edf7f3cfd19b",
+      "route": "/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/skaner-ble-web-bluetooth/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/sprawdzanie-dzwieku-stereo/": {
+      "hash": "358809f1f9b20882d791fb980b96aba7d10a5e1c0bf6d3e916921ac7f7d2c0eb",
+      "route": "/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/sprawdzanie-dzwieku-stereo/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/test-chatter-klawiatury/": {
+      "hash": "0c581ac00e5d7e74b8512553fbc140e82eed6640971be48c539334e12872439d",
+      "route": "/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/test-chatter-klawiatury/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/test-crossover-subwoofera-online/": {
+      "hash": "270094b5edb22b00e0a72ba7c79536ef66b30652ecd2be0a5115857577f4a0de",
+      "route": "/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/test-crossover-subwoofera-online/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/test-czujnikow-telefonu/": {
+      "hash": "1a5f3777e73acb76fcd87a9f604123ad82a2d176d65d934ebe596ae1aedf8a2d",
+      "route": "/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/test-czujnikow-telefonu/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/test-dokladnosci-kolorow/": {
+      "hash": "2a9dd1d7cd1955405852ebc213613bbb592959adbe303c1cd11308b91015db7a",
+      "route": "/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/test-dokladnosci-kolorow/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/test-drgania-kata-myszy/": {
+      "hash": "35871497f88d12159836c93f99fdbf9f63975d93d9920e93cefb627af2d94e73",
+      "route": "/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/test-drgania-kata-myszy/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/test-ghostingu-monitora/": {
+      "hash": "93defebdedc86456e45cbae6daf88489f351aa8e3e58f484813eb83308f05a62",
+      "route": "/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/test-ghostingu-monitora/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/test-klawiatury-online/": {
+      "hash": "d1af491fd39def7dd95bd73060a4fed1af543bb37a03a40442000c85d7942115",
+      "route": "/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/test-klawiatury-online/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/test-kolka-myszy/": {
+      "hash": "233532faff3dd801bea638b3b2e6868dcf331d6d479f8a141ae7ceaeea2c7676",
+      "route": "/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/test-kolka-myszy/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/test-martwych-pikseli-naprawa-monitora/": {
+      "hash": "9ed0a74007b367913ca846c8b0f3bb58a385daf63451b2c81c7192e90f2f78d5",
+      "route": "/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/test-martwych-pikseli-naprawa-monitora/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/test-mikrofonu-analizator-widma/": {
+      "hash": "f9f8c6b887d6531518e277b88357fe226cb5e32f8c9a52b67efbb106179cfab0",
+      "route": "/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/test-mikrofonu-analizator-widma/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/test-opoznienia-dzwieku/": {
+      "hash": "3b8b15afaf8ef50c37918d2eea6ad41591a5f4296446d4f3df550bb9a17e66ed",
+      "route": "/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/test-opoznienia-dzwieku/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/test-opoznienia-input-lag/": {
+      "hash": "13a377c4f301bf1726ce5f892f0605379b11e2275e16d654cf52569619755752",
+      "route": "/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/test-opoznienia-input-lag/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/test-pada-online/": {
+      "hash": "8981874e54e24562311aadb6c707b05a09ae775a7e1f009fbcbc302ee6c76859",
+      "route": "/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/test-pada-online/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/test-podwojnego-klikniecia/": {
+      "hash": "d76185b268d1932ed76620041e92d0d6811df77fa10e9186559c08df86370313",
+      "route": "/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/test-podwojnego-klikniecia/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/test-polling-rate-myszki-online/": {
+      "hash": "09c58b461bfcf4cbdbb0c4afaa259c55447ece81a8557e7fab69a551fade602d",
+      "route": "/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/test-polling-rate-myszki-online/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/test-wibracji-pada-online/": {
+      "hash": "f9c4dc888826d6167cbb09c7533a4d69bfdb4200ceed06d06d7a5be244d5a39f",
+      "route": "/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/test-wibracji-pada-online/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/test-wyciekow-podswietlenia-blooming/": {
+      "hash": "3dadb7f9eac1ca7c5db0257ad2b6a304eeb73bb83799fb451b83da3b744e19c1",
+      "route": "/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/test-wyciekow-podswietlenia-blooming/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/tester-czestotliwosci-odswiezania-kontrolera-hertz/": {
+      "hash": "584e7d10ac6ac49db409bbfb70ca6c18ef32c78f59ffb539e2d28eaca421cf88",
+      "route": "/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/tester-czestotliwosci-odswiezania-kontrolera-hertz/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/tester-ekranu-dotykowego/": {
+      "hash": "445c2514bf5b52bc08de25f94057b3d480b2dc41cd19168de310ab401e37e7b4",
+      "route": "/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/tester-ekranu-dotykowego/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/tester-fazy-glosnikow/": {
+      "hash": "7d5e8e393b8162fd4fcc38701048cfda3ce03cf7913d90bb484ac67abc9e7c42",
+      "route": "/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/tester-fazy-glosnikow/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/tester-klawiatury-midi/": {
+      "hash": "d696d2a1f2869a8fa898c3b4c10d1261f19a56817a419cb4baf4f3bc983459e7",
+      "route": "/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/tester-klawiatury-midi/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/wyrzutnik-wody-czyszczenie-glosnika/": {
+      "hash": "9dd9627dcdd3723a92bc2df54380456ae3a72d6e0981213531088fb21d73cb60",
+      "route": "/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu/wyrzutnik-wody-czyszczenie-glosnika/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/ferramentas-diagnostico-hardware/analisador-dpi-mouse/": {
+      "hash": "c3f26128e8ac3c69cc904c0919744b0af4c7caeb835c68f425f774d5c6386f2d",
+      "route": "/pt/utilidades/categorias/ferramentas-diagnostico-hardware/analisador-dpi-mouse/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/ferramentas-diagnostico-hardware/calculadora-autonomia-ups/": {
+      "hash": "ec4dcc9f993f86301e37688548ac5940ed976f2d6b238caeea75bcc04acb2c70",
+      "route": "/pt/utilidades/categorias/ferramentas-diagnostico-hardware/calculadora-autonomia-ups/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/ferramentas-diagnostico-hardware/calculadora-codigo-cores-resistor/": {
+      "hash": "c5e8e925ca30413c8214010f92cf75129d64d5c84baed9ab9de5a18ff60d861c",
+      "route": "/pt/utilidades/categorias/ferramentas-diagnostico-hardware/calculadora-codigo-cores-resistor/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/ferramentas-diagnostico-hardware/calculadora-divisor-tensao/": {
+      "hash": "7ddb01717c66d584ce4fc8918d22151e06174656007c636ebd7605a06a644354",
+      "route": "/pt/utilidades/categorias/ferramentas-diagnostico-hardware/calculadora-divisor-tensao/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/ferramentas-diagnostico-hardware/calculadora-largura-trilha-impedancia-pcb/": {
+      "hash": "d3fde54604162c2d0cc556d7a972b8e975a5d57ad4313ead396b69f6e5810d37",
+      "route": "/pt/utilidades/categorias/ferramentas-diagnostico-hardware/calculadora-largura-trilha-impedancia-pcb/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/ferramentas-diagnostico-hardware/calculadora-lei-ohm-potencia/": {
+      "hash": "d5e4925291b9b216b21381b0749c448783b154890429be193e43cccd22d21780",
+      "route": "/pt/utilidades/categorias/ferramentas-diagnostico-hardware/calculadora-lei-ohm-potencia/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/ferramentas-diagnostico-hardware/calculadora-orcamento-energia-usb/": {
+      "hash": "a8975119b35f2ca497f202a6e1f46b3bde0d5b8ae4fb3399819e1ba148c74887",
+      "route": "/pt/utilidades/categorias/ferramentas-diagnostico-hardware/calculadora-orcamento-energia-usb/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/ferramentas-diagnostico-hardware/calculadora-potencia-fonte-computador/": {
+      "hash": "94af129aa2277f30b829d869ee82091c7f24aae7426e11989da41485f8f63244",
+      "route": "/pt/utilidades/categorias/ferramentas-diagnostico-hardware/calculadora-potencia-fonte-computador/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/ferramentas-diagnostico-hardware/calculadora-resistor-led/": {
+      "hash": "b9c2375d0e40c92d9bd5317f4836ca7101c1e881b5721f4da4d1df2d8a968dd0",
+      "route": "/pt/utilidades/categorias/ferramentas-diagnostico-hardware/calculadora-resistor-led/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/ferramentas-diagnostico-hardware/calculadora-saude-bateria-litio/": {
+      "hash": "b2a529727a6b4049f73f240d8054ef1c487a92a7981ec0469c52decf536d2897",
+      "route": "/pt/utilidades/categorias/ferramentas-diagnostico-hardware/calculadora-saude-bateria-litio/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/ferramentas-diagnostico-hardware/detector-taxa-atualizacao-monitor/": {
+      "hash": "b50a29dd88ddff333b01a1512dd9826c094db21c7f0b07796c5c8874f8c0c829",
+      "route": "/pt/utilidades/categorias/ferramentas-diagnostico-hardware/detector-taxa-atualizacao-monitor/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/ferramentas-diagnostico-hardware/ejetor-agua-limpeza-altifalante/": {
+      "hash": "4cc7dce896440912ad57f46f2237b6e004f4e9f1910e6b22bd8237c19d02260d",
+      "route": "/pt/utilidades/categorias/ferramentas-diagnostico-hardware/ejetor-agua-limpeza-altifalante/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/ferramentas-diagnostico-hardware/escaneador-ble-web-bluetooth/": {
+      "hash": "e3c0b85f4f327bed27cbc862ea1da3fbe35c0527b428f0df4b4d2f811b3619d3",
+      "route": "/pt/utilidades/categorias/ferramentas-diagnostico-hardware/escaneador-ble-web-bluetooth/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/ferramentas-diagnostico-hardware/gerador-tons-frequencia-online/": {
+      "hash": "c0008a8fd6e058bf612117e5f8b6d2bfb036d19854bc4279de1832c772dfdd95",
+      "route": "/pt/utilidades/categorias/ferramentas-diagnostico-hardware/gerador-tons-frequencia-online/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/ferramentas-diagnostico-hardware/": {
+      "hash": "4ae4eab4f863607c872c5016799ee595ff5d26b99a7b4a94b4d1e97523224e2f",
+      "route": "/pt/utilidades/categorias/ferramentas-diagnostico-hardware/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/ferramentas-diagnostico-hardware/monitor-serial-web-usb/": {
+      "hash": "4eb9b92068deab881aee76d7dfa8be81ddc0e9e069c733b3c18db054783385eb",
+      "route": "/pt/utilidades/categorias/ferramentas-diagnostico-hardware/monitor-serial-web-usb/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/ferramentas-diagnostico-hardware/reparador-queimado-tela-oled/": {
+      "hash": "e0b6b2cd845193ce53cc79df300d5f71c0f6cff25ce2ee71a4f8c542fc7fc3f9",
+      "route": "/pt/utilidades/categorias/ferramentas-diagnostico-hardware/reparador-queimado-tela-oled/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/ferramentas-diagnostico-hardware/testador-fase-altifalantes/": {
+      "hash": "937651d1c9924d598a8fdbba6ea29fc903923700d20a0a099cc2ac7647817c44",
+      "route": "/pt/utilidades/categorias/ferramentas-diagnostico-hardware/testador-fase-altifalantes/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/ferramentas-diagnostico-hardware/testador-taxa-atualizacao-controle-hertz/": {
+      "hash": "7272eb0997d0f86f6e7861b72191e8f218cf8b900d304cddfa58fb479d1be42d",
+      "route": "/pt/utilidades/categorias/ferramentas-diagnostico-hardware/testador-taxa-atualizacao-controle-hertz/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/ferramentas-diagnostico-hardware/testador-teclado-midi/": {
+      "hash": "8a927feadc31a8575a2c24fbc4b395ec27e97b164b8f6b5585dcd09dee639620",
+      "route": "/pt/utilidades/categorias/ferramentas-diagnostico-hardware/testador-teclado-midi/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/ferramentas-diagnostico-hardware/teste-atraso-audio/": {
+      "hash": "7f50f44b5c1a53a487374efcf5bf48665cbc1312ec211ab800385d6a98789ed1",
+      "route": "/pt/utilidades/categorias/ferramentas-diagnostico-hardware/teste-atraso-audio/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/ferramentas-diagnostico-hardware/teste-chatter-teclado/": {
+      "hash": "ff90ebf8f8bd161dd64f31b5e0175e2e528206734c07b71a178b259b2d4df73b",
+      "route": "/pt/utilidades/categorias/ferramentas-diagnostico-hardware/teste-chatter-teclado/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/ferramentas-diagnostico-hardware/teste-clique-duplo-mouse/": {
+      "hash": "d5f1b4792e5c0a78b8fd36ebdc2f760ad5f7141c1d8e6714ce93c031d0b38209",
+      "route": "/pt/utilidades/categorias/ferramentas-diagnostico-hardware/teste-clique-duplo-mouse/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/ferramentas-diagnostico-hardware/teste-crossover-subwoofer-online/": {
+      "hash": "32daeb87074e79f12a0d8a9619ecef9c169760f7e4d17a89213faaf23faea99f",
+      "route": "/pt/utilidades/categorias/ferramentas-diagnostico-hardware/teste-crossover-subwoofer-online/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/ferramentas-diagnostico-hardware/teste-de-audio-estereo/": {
+      "hash": "f3168ad1daaa81d46a522b9632004727030848d48164a9d8cae69ea8228301a4",
+      "route": "/pt/utilidades/categorias/ferramentas-diagnostico-hardware/teste-de-audio-estereo/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/ferramentas-diagnostico-hardware/teste-fuga-retroiluminacao-blooming/": {
+      "hash": "6a85cfcda8081ddd46c292b221d736516a1d0276f32e2bcbe54c3bfaa304dd79",
+      "route": "/pt/utilidades/categorias/ferramentas-diagnostico-hardware/teste-fuga-retroiluminacao-blooming/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/ferramentas-diagnostico-hardware/teste-gamepad-online/": {
+      "hash": "fff061e0790af55ea235ac6b547e9318fa3d17849c5746f779ecc358b311e3a6",
+      "route": "/pt/utilidades/categorias/ferramentas-diagnostico-hardware/teste-gamepad-online/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/ferramentas-diagnostico-hardware/teste-ghosting-monitor/": {
+      "hash": "2861841a09692f92378dc2ab60930c171dc28ea4dfccd97fae92e60a3fac2e83",
+      "route": "/pt/utilidades/categorias/ferramentas-diagnostico-hardware/teste-ghosting-monitor/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/ferramentas-diagnostico-hardware/teste-lag-input-latencia/": {
+      "hash": "cb82ddbafd21324baeaa690a6ae9671421395bd9a2cfb1e5ee094f5584482887",
+      "route": "/pt/utilidades/categorias/ferramentas-diagnostico-hardware/teste-lag-input-latencia/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/ferramentas-diagnostico-hardware/teste-microfone-analisador-espectro/": {
+      "hash": "a86875a92cf76f81e4a6ba6c5289063afc0ae66031b322ead066cbc41ababd64",
+      "route": "/pt/utilidades/categorias/ferramentas-diagnostico-hardware/teste-microfone-analisador-espectro/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/ferramentas-diagnostico-hardware/teste-pixel-morto-reparacao-ecra/": {
+      "hash": "2cd8cf21434bfd0e702f9103d4c3156d8f1d2cbbcad51acd88bc0779bb687560",
+      "route": "/pt/utilidades/categorias/ferramentas-diagnostico-hardware/teste-pixel-morto-reparacao-ecra/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/ferramentas-diagnostico-hardware/teste-polling-rate-rato-online/": {
+      "hash": "9e099511c8390248b14c8dd9776ae111ddbfc5d1fc16e9b72fbce7f3512066ba",
+      "route": "/pt/utilidades/categorias/ferramentas-diagnostico-hardware/teste-polling-rate-rato-online/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/ferramentas-diagnostico-hardware/teste-precisao-cor/": {
+      "hash": "0b6f6fedfbef0313293900f7b6198beac9121be652c777b4b26f1a59e0f5a1fe",
+      "route": "/pt/utilidades/categorias/ferramentas-diagnostico-hardware/teste-precisao-cor/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/ferramentas-diagnostico-hardware/teste-scroll-mouse/": {
+      "hash": "13b9b1c75f7ca90d5ffc971af7153b2a334f01fa66a485f5d8d37ab63b4d9a40",
+      "route": "/pt/utilidades/categorias/ferramentas-diagnostico-hardware/teste-scroll-mouse/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/ferramentas-diagnostico-hardware/teste-sensores-celular/": {
+      "hash": "ea948183b0d73a00cf8466b927a78ae8a23ff47c0fadeb0f3fa02272f7ec8b03",
+      "route": "/pt/utilidades/categorias/ferramentas-diagnostico-hardware/teste-sensores-celular/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/ferramentas-diagnostico-hardware/teste-teclado-online/": {
+      "hash": "34f72302d3227d7f7b3774557b4ac1ac3564fdb0167ede1c40ae09b090bfa924",
+      "route": "/pt/utilidades/categorias/ferramentas-diagnostico-hardware/teste-teclado-online/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/ferramentas-diagnostico-hardware/teste-tela-sensivel-toque/": {
+      "hash": "7f89daac3eb65fe47c12907d019fb9b26c245139ebb976d1f65e131edb968366",
+      "route": "/pt/utilidades/categorias/ferramentas-diagnostico-hardware/teste-tela-sensivel-toque/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/ferramentas-diagnostico-hardware/teste-tremor-angulo-mouse/": {
+      "hash": "8430890379430ada56874589161575b6fce744bba902a5610715e043aaa10cca",
+      "route": "/pt/utilidades/categorias/ferramentas-diagnostico-hardware/teste-tremor-angulo-mouse/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/ferramentas-diagnostico-hardware/teste-vibracao-gamepad-online/": {
+      "hash": "b8e6bf1622af7c39f246f4ab350754775747663a85a5536cefabb58eb77d6ac0",
+      "route": "/pt/utilidades/categorias/ferramentas-diagnostico-hardware/teste-vibracao-gamepad-online/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/ferramentas-diagnostico-hardware/teste-webcam-privado-online/": {
+      "hash": "e358a036e304ed52d3112ef60170be4b02dc27871b78cce85d0209fc6d5b07d0",
+      "route": "/pt/utilidades/categorias/ferramentas-diagnostico-hardware/teste-webcam-privado-online/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/analizator-dpi-myshi/": {
+      "hash": "bb58094bf968c5a5a2388f4f742058dff8c4adfc7f5bec534ccde067c8c71a9f",
+      "route": "/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/analizator-dpi-myshi/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/detektor-chastoty-obnovleniya-monitora/": {
+      "hash": "62e335ab4b10f0cf261cfdf491c7d7732136696c69c1d227d2c5329ea7d1c932",
+      "route": "/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/detektor-chastoty-obnovleniya-monitora/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/": {
+      "hash": "801197ff32e358a4e4d55a3761e7884b70d732a545d47fdce34318535d3c3dfb",
+      "route": "/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/ispravlenie-vygoraniya-oled-ekrana/": {
+      "hash": "1cff20e85c6905fc970b04bd20449ebac3987dcca4b690ac510a5878b41901d0",
+      "route": "/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/ispravlenie-vygoraniya-oled-ekrana/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/kalkulyator-byudzheta-pitaniya-usb/": {
+      "hash": "b4fb6af261579484613f93a52c0fab12cc1057d544d5b6567c456ff2651220c9",
+      "route": "/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/kalkulyator-byudzheta-pitaniya-usb/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/kalkulyator-chastoty-oprosa-gejmpada-gercy/": {
+      "hash": "2198bec16b9acdc45e59970c83f7af366950316f6b338fbd4d78c711a1636fbf",
+      "route": "/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/kalkulyator-chastoty-oprosa-gejmpada-gercy/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/kalkulyator-cvetovogo-koda-rezistora/": {
+      "hash": "fd19d088d41f8c4a72e503325850f56d18b1394005ec7d18035f79f429712dfb",
+      "route": "/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/kalkulyator-cvetovogo-koda-rezistora/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/kalkulyator-delitelya-napryazheniya/": {
+      "hash": "29cadd33bb27e4b4f9fbbe284058f95b45057c76b6307760223083158f41e03c",
+      "route": "/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/kalkulyator-delitelya-napryazheniya/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/kalkulyator-moshchnosti-bloka-pitaniya/": {
+      "hash": "46bdd436acd2bd2b266afe749f5c269dce359fa0ca2fb9099ecb8db2b7af722c",
+      "route": "/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/kalkulyator-moshchnosti-bloka-pitaniya/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/kalkulyator-rezistora-led/": {
+      "hash": "63ff29dad4be346417aaebcdbd179b5847210b81573b0bbb8dd61247ee8bac78",
+      "route": "/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/kalkulyator-rezistora-led/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/kalkulyator-sostoyaniya-litievoj-batarei/": {
+      "hash": "ab5ba5972c52d8520949fbaee5ca0b2c2871f50ba1079fa402f25783080e2f36",
+      "route": "/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/kalkulyator-sostoyaniya-litievoj-batarei/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/kalkulyator-vremeni-raboty-ibp/": {
+      "hash": "1543b6afb8c545a12783314f5f9d9f259073a4494e695bfa8a83586c1b99632e",
+      "route": "/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/kalkulyator-vremeni-raboty-ibp/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/kalkulyator-zakona-oma-moshchnosti/": {
+      "hash": "4bcdd8307a5192ebd28abe7d81bd661c3d0cce9ef5f273865fd8474609798098",
+      "route": "/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/kalkulyator-zakona-oma-moshchnosti/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/monitor-posledovatelnyj-webusb/": {
+      "hash": "0e907479357eb57abf8d3ac4e03c804d0a49c54d0818290d9d85aabfb81ee2d0",
+      "route": "/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/monitor-posledovatelnyj-webusb/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/onlayn-generator-tonov-i-chastot/": {
+      "hash": "f3f08aa99918053a9ae3f5d27b313ac2d1da8cb8db9d5a93e8660115f95c9acb",
+      "route": "/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/onlayn-generator-tonov-i-chastot/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/poisk-ble-ustroistv-web/": {
+      "hash": "4ce5540e5794abfb03b8d3052c5c773fe76908853aaeb5cd80c30190f70df769",
+      "route": "/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/poisk-ble-ustroistv-web/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/proverka-mikrofona-analizator-spektra/": {
+      "hash": "b922721590b2346dce1f28278eae3f6d934690fd6de15a8c4abc542f3e729c5d",
+      "route": "/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/proverka-mikrofona-analizator-spektra/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/proverka-veb-kamery-onlajn/": {
+      "hash": "59d9dd4c0f5c16115bd3b1d1878fb8410294e9f0fe85a0ec3637bfc03ad56dfa",
+      "route": "/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/proverka-veb-kamery-onlajn/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/proverka-zaderzhki-vvoda-input-lag/": {
+      "hash": "7fe6cbb553310140fb185ab7831f25a050e4c57c2ed49e63125fcbb743047cad",
+      "route": "/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/proverka-zaderzhki-vvoda-input-lag/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/proverka-zaderzhki-zvuka/": {
+      "hash": "9ab791271cef8f77937a696d0af06e11fd8a3a1bb4367786906612d4bf155991",
+      "route": "/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/proverka-zaderzhki-zvuka/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/raschet-shiriny-dorozhki-impedansa-pcb/": {
+      "hash": "bd74ce8d2b59172b2152ca9e90ec2dbb3d40cc597e34788122f01900663fc9d7",
+      "route": "/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/raschet-shiriny-dorozhki-impedansa-pcb/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/test-bityh-pikselej-remont-ekrana/": {
+      "hash": "e3bdd28133124a4313b18b42535ef592befd628a71dbc4ebedccfab6c8270288",
+      "route": "/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/test-bityh-pikselej-remont-ekrana/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/test-datchikov-telefona/": {
+      "hash": "b6123eec1850cba5a788e1a706244d1fb190a34cbd926efc0041df5406ba1975",
+      "route": "/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/test-datchikov-telefona/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/test-drebezga-klaviatury/": {
+      "hash": "23e0119f3baef40e1e46ba475d8bd6b733fab29d7c0ede861131b57c05007714",
+      "route": "/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/test-drebezga-klaviatury/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/test-drozhaniya-ugla-myshi/": {
+      "hash": "b99418df7a4995d1b96fa897858e031b271ba3241e351551c07c7d92f5754977",
+      "route": "/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/test-drozhaniya-ugla-myshi/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/test-dvoynogo-shchelchka-myshi/": {
+      "hash": "21f21d597227b218a3423be8aa64baf606937648b245bf0c82d9f841081f16e6",
+      "route": "/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/test-dvoynogo-shchelchka-myshi/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/test-gejmpada-online/": {
+      "hash": "3a08a736f1fffb7671ea44009d55b5a74bb9dd2d4cf2d13d6acbd3737563ba45",
+      "route": "/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/test-gejmpada-online/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/test-ghosting-monitora-online/": {
+      "hash": "0d9cf83657d5a011bf6166212d1f1ba72d6d1a5397cd8f26a2dc253b76c305a8",
+      "route": "/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/test-ghosting-monitora-online/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/test-klaviatury-online/": {
+      "hash": "622644ba417f27fe4459f31f14efe8cb96084261edbb8d334b508b6a506168e6",
+      "route": "/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/test-klaviatury-online/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/test-kolesa-myshi/": {
+      "hash": "97168173a6421e655aead0edaedee7f04b30076d153854cf55750fe6695592b2",
+      "route": "/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/test-kolesa-myshi/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/test-krossovera-sabvufera-onlayn/": {
+      "hash": "441276b44ead150861d504b3861db161d4e30e8e0908399f1cf002ab608d6770",
+      "route": "/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/test-krossovera-sabvufera-onlayn/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/test-polling-rate-myshi-online/": {
+      "hash": "e6a4d64a0057c0c385ecd1d2f0e4ed40801e81c7e92853ea8bbaec6bf330e5db",
+      "route": "/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/test-polling-rate-myshi-online/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/test-sensornogo-ekrana/": {
+      "hash": "26e60f29c47e7608c42e5b4f258dbe4d0f49a676ad747fa34ab489f7fdfeedca",
+      "route": "/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/test-sensornogo-ekrana/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/test-stereo-audio/": {
+      "hash": "9fb3253a6915de55baf5fc71a02f82bbbf0b728a003e8e8ef0b8eedcdcbb3751",
+      "route": "/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/test-stereo-audio/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/test-tochnosti-tsvetoperedachi/": {
+      "hash": "0ff14f3c17a51ab355e89342e0a34379ea56f4d7c402f0bbe85fbd4f1c8e003d",
+      "route": "/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/test-tochnosti-tsvetoperedachi/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/test-vibracii-gejmpada-online/": {
+      "hash": "eb50a341dc9d15f0f57b69cf5ebd8ed7eb14510f081d2a342e1ed6f3f8db5ab8",
+      "route": "/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/test-vibracii-gejmpada-online/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/test-zasvetov-blooming/": {
+      "hash": "a80e58cd087edfb12bfb3fb042b22f38bdc2219ccc1d226f856caa9ed8072349",
+      "route": "/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/test-zasvetov-blooming/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/tester-fazy-dinamikov/": {
+      "hash": "98a18a231b0ec59c6ecf080bc1e127accb749caed1e32c1d611e0ac5396a42fb",
+      "route": "/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/tester-fazy-dinamikov/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/tester-midi-klaviatury/": {
+      "hash": "75c57d5f2c297745a1faff8f506f92fbe09a0ee666579450d3ed20c8e60ec666",
+      "route": "/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/tester-midi-klaviatury/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/vytalkivatel-vody-ochistka-dinamika/": {
+      "hash": "27c247bb9924e049103e8996df3c310edf6c45c564faaebb8b37d759654cae12",
+      "route": "/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo/vytalkivatel-vody-ochistka-dinamika/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/hardvarutestverktyg/doda-pixel-test-skarmreparation/": {
+      "hash": "d3fe36a2b8cfdf81ba9cbb08bdb29f5655b69b8c5696b30a1adc17ef98c4620e",
+      "route": "/sv/verktyg/kategorier/hardvarutestverktyg/doda-pixel-test-skarmreparation/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/hardvarutestverktyg/fargprecision-test/": {
+      "hash": "983344b4a70442dc9e9cebe179faa666eb0607730a07c814c9cdf3e6555d6f98",
+      "route": "/sv/verktyg/kategorier/hardvarutestverktyg/fargprecision-test/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/hardvarutestverktyg/gamepad-test-svenska/": {
+      "hash": "32c612aaa737a72be0fe484d8113e27af4fa93e4bdf8f813826ca83cfa2ab2ee",
+      "route": "/sv/verktyg/kategorier/hardvarutestverktyg/gamepad-test-svenska/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/hardvarutestverktyg/hogtalarfas-testare/": {
+      "hash": "939015ee3d6e30b60710ab929d9425abe173f6982db8c5278d08cfad8853716f",
+      "route": "/sv/verktyg/kategorier/hardvarutestverktyg/hogtalarfas-testare/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/hardvarutestverktyg/": {
+      "hash": "b9cde4fe91fd714f5478058486f78fee5bc7e20bb76012ea80673cdbae4d521a",
+      "route": "/sv/verktyg/kategorier/hardvarutestverktyg/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/hardvarutestverktyg/input-lag-test-fordrojning/": {
+      "hash": "fd3388b7c6870d1844e0106e467bf0403e8694eb34bbc97358b634120d753b0d",
+      "route": "/sv/verktyg/kategorier/hardvarutestverktyg/input-lag-test-fordrojning/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/hardvarutestverktyg/kalkylator-drifttid-ups/": {
+      "hash": "3f5b62ce85737c71c40653cd502bc2f9c15c849788855bfd4a3e3b31448d0e87",
+      "route": "/sv/verktyg/kategorier/hardvarutestverktyg/kalkylator-drifttid-ups/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/hardvarutestverktyg/kalkylator-effekt-nataggregat-dator/": {
+      "hash": "d997008d8e831759d70230d2788729b74e767375fdbbb0bfe4db8fa33ef86a67",
+      "route": "/sv/verktyg/kategorier/hardvarutestverktyg/kalkylator-effekt-nataggregat-dator/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/hardvarutestverktyg/kalkylator-for-usb-effektbudget/": {
+      "hash": "8af4543ee4190a169eab1799d37b7b57fbb24eab9db447d4afff25b13969a81a",
+      "route": "/sv/verktyg/kategorier/hardvarutestverktyg/kalkylator-for-usb-effektbudget/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/hardvarutestverktyg/led-forkopplingsmotstand-kalkylator/": {
+      "hash": "f109327402ed2d93709dae6deb539470a05b07aa4cf38057d16c94c812d99213",
+      "route": "/sv/verktyg/kategorier/hardvarutestverktyg/led-forkopplingsmotstand-kalkylator/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/hardvarutestverktyg/litiumbatteri-halsokalkylator/": {
+      "hash": "a4fd2f27b63c04baa521c7e441e5e8c92844ca2ef95b7830c93c88d76c070efd",
+      "route": "/sv/verktyg/kategorier/hardvarutestverktyg/litiumbatteri-halsokalkylator/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/hardvarutestverktyg/ljudfordrojningstest/": {
+      "hash": "f7fac2cbd2e7d5d85bca6c679456e31398f3f3ecd4f83293cf952caf536bb740",
+      "route": "/sv/verktyg/kategorier/hardvarutestverktyg/ljudfordrojningstest/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/hardvarutestverktyg/midi-keyboard-testare-online/": {
+      "hash": "1c94842e1a74ba80ae91afa05e3323b98852f2a79895aa8ba6dbfb1332140a1a",
+      "route": "/sv/verktyg/kategorier/hardvarutestverktyg/midi-keyboard-testare-online/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/hardvarutestverktyg/mikrofontest-spektrumanalysator/": {
+      "hash": "36559c7b2f5ecad22cdf8f26293b39b02c1c2425e07df9469a20205e43bd23fa",
+      "route": "/sv/verktyg/kategorier/hardvarutestverktyg/mikrofontest-spektrumanalysator/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/hardvarutestverktyg/mobilsensor-test/": {
+      "hash": "ff5659c85fade5f2d2bde77a3c66ac13d778ee291d80500cca9aaac68a3bf0a6",
+      "route": "/sv/verktyg/kategorier/hardvarutestverktyg/mobilsensor-test/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/hardvarutestverktyg/monitor-ghosting-test-svenska/": {
+      "hash": "f7e0bc55fc73f7fb0f2e243d91b881ebac2e331ee2effd6a2145ae6f79870cf9",
+      "route": "/sv/verktyg/kategorier/hardvarutestverktyg/monitor-ghosting-test-svenska/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/hardvarutestverktyg/monitor-uppdateringsfrekvens-detektor/": {
+      "hash": "c50fdb744df30cc2a5e72f7dd73852cd6ad70c173aa46e1007a61594eb6d6cdf",
+      "route": "/sv/verktyg/kategorier/hardvarutestverktyg/monitor-uppdateringsfrekvens-detektor/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/hardvarutestverktyg/motstand-fargkodskalkylator/": {
+      "hash": "38caf3be7c69986f88f56eec227a8bda4ce952bfbb41f08c0df2e3cb0afa27c2",
+      "route": "/sv/verktyg/kategorier/hardvarutestverktyg/motstand-fargkodskalkylator/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/hardvarutestverktyg/mus-dpi-analysator/": {
+      "hash": "4c64112a41607c46fa05e3c7b35617011376cc0c90a4af348e62f97c89f59553",
+      "route": "/sv/verktyg/kategorier/hardvarutestverktyg/mus-dpi-analysator/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/hardvarutestverktyg/mus-dubbelklick-test/": {
+      "hash": "b17c9f0b55bcb6a6532c5ac714cf6210b579aaf7fe299181060d51ed80e85ae4",
+      "route": "/sv/verktyg/kategorier/hardvarutestverktyg/mus-dubbelklick-test/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/hardvarutestverktyg/mus-polling-rate-test-online/": {
+      "hash": "dc90496360cd4e7d59b685e1d4ecdeb04f73af39fe1bc53a5044f5442fcf2a88",
+      "route": "/sv/verktyg/kategorier/hardvarutestverktyg/mus-polling-rate-test-online/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/hardvarutestverktyg/muskurv-hopp-vinkel-test/": {
+      "hash": "c14d3bfa27b1667d2b8cabecfc7f6a1e9436ca70170685f7b884ec21c13bf77a",
+      "route": "/sv/verktyg/kategorier/hardvarutestverktyg/muskurv-hopp-vinkel-test/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/hardvarutestverktyg/ohms-lag-effektkalkylator/": {
+      "hash": "dbaaf063692705bae4905f8ef93277d42c9131b1ee28f7b24de9785543385af8",
+      "route": "/sv/verktyg/kategorier/hardvarutestverktyg/ohms-lag-effektkalkylator/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/hardvarutestverktyg/oled-inbranningsfixare/": {
+      "hash": "3ed81e872dfb09fd141422846d55ac4733b4e845caeb939765cb9542ca060404",
+      "route": "/sv/verktyg/kategorier/hardvarutestverktyg/oled-inbranningsfixare/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/hardvarutestverktyg/pcb-banbredd-impedans-kalkylator/": {
+      "hash": "302c708adc3ffce0d30e5ae6e8aef0f72af57142fc1dc297c43e34b587582034",
+      "route": "/sv/verktyg/kategorier/hardvarutestverktyg/pcb-banbredd-impedans-kalkylator/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/hardvarutestverktyg/pekskarmstest/": {
+      "hash": "55f1310e5773863778fe78ab5618280925503924ba1a9f4e9a6aa0d5242291c3",
+      "route": "/sv/verktyg/kategorier/hardvarutestverktyg/pekskarmstest/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/hardvarutestverktyg/privat-webbkamera-test-online/": {
+      "hash": "31e562475e9281cc3601242dbfa1bf5652364c5489304539ef3a46065e24b3a1",
+      "route": "/sv/verktyg/kategorier/hardvarutestverktyg/privat-webbkamera-test-online/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/hardvarutestverktyg/skanner-ble-web-bluetooth/": {
+      "hash": "1b6969c19c28e00ea3d81fba4e1e35e080b3cda55f2cd28aa6f92c341859dd56",
+      "route": "/sv/verktyg/kategorier/hardvarutestverktyg/skanner-ble-web-bluetooth/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/hardvarutestverktyg/spanningsdelare-raknare/": {
+      "hash": "54c6d484f2806b4e9868f611741f5f30b8520aa2c96ea460874bb07e2d7a1b90",
+      "route": "/sv/verktyg/kategorier/hardvarutestverktyg/spanningsdelare-raknare/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/hardvarutestverktyg/stereo-ljudtest/": {
+      "hash": "592586a17936938a611e52a7c15fe407eedc07d865a6988c7846c0f4528279f1",
+      "route": "/sv/verktyg/kategorier/hardvarutestverktyg/stereo-ljudtest/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/hardvarutestverktyg/subwoofer-crossover-test-online/": {
+      "hash": "c4cd4aa030c9403a8efaec0b8ba0c4200a5acae2e14ab28df30339bcf48e0ef5",
+      "route": "/sv/verktyg/kategorier/hardvarutestverktyg/subwoofer-crossover-test-online/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/hardvarutestverktyg/tangentbord-chatter-test/": {
+      "hash": "ff5eb3e4e8f7f500378b94fa08545468caba625119bacd8c6eb4a3fdb5378bb0",
+      "route": "/sv/verktyg/kategorier/hardvarutestverktyg/tangentbord-chatter-test/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/hardvarutestverktyg/tangentbordstest-online/": {
+      "hash": "523d6b78e066bdc41682ce142144d2e10cc5356970dccb07d54cff72fe755ab5",
+      "route": "/sv/verktyg/kategorier/hardvarutestverktyg/tangentbordstest-online/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/hardvarutestverktyg/test-backlight-bleed-blooming/": {
+      "hash": "e442542e62c3e15fed16fc21f8161cf793603322db33bac7d0972788ef179799",
+      "route": "/sv/verktyg/kategorier/hardvarutestverktyg/test-backlight-bleed-blooming/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/hardvarutestverktyg/test-mushjul/": {
+      "hash": "ecabc6c07255e9bb14f5c24f0f4de85f3ff55f8d6a2927b3f962e38329191220",
+      "route": "/sv/verktyg/kategorier/hardvarutestverktyg/test-mushjul/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/hardvarutestverktyg/testa-gamepad-polling-rate-hertz/": {
+      "hash": "d70d60ad7b292674d2c6a1a0014d84b0495f74277f092d6a5fd2bfba7f4a1a18",
+      "route": "/sv/verktyg/kategorier/hardvarutestverktyg/testa-gamepad-polling-rate-hertz/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/hardvarutestverktyg/ton-och-frekvensgenerator-online/": {
+      "hash": "abc7e700a07497860a7f67d10bbe51b81a9fc5bfe8ded0979b598b9f8893cb03",
+      "route": "/sv/verktyg/kategorier/hardvarutestverktyg/ton-och-frekvensgenerator-online/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/hardvarutestverktyg/vattenutdrivare-hogtalarrengoring/": {
+      "hash": "7f53131ac6b5ff13597033e6dbbf6b68934752a59c8ba16557e68156950e981a",
+      "route": "/sv/verktyg/kategorier/hardvarutestverktyg/vattenutdrivare-hogtalarrengoring/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/hardvarutestverktyg/vibrationstest-gamepad-online/": {
+      "hash": "7dd1dc4d4bb2f299394e42fda83401af0ade2cee75067f11c998317e5880b5aa",
+      "route": "/sv/verktyg/kategorier/hardvarutestverktyg/vibrationstest-gamepad-online/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/hardvarutestverktyg/web-usb-seriell-monitor/": {
+      "hash": "ad61f5df027215cb89d19d93a712c540acadb440f6e158b78a31dc08c579fa00",
+      "route": "/sv/verktyg/kategorier/hardvarutestverktyg/web-usb-seriell-monitor/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/donanim-tani-araclari/arka-isik-sizmasi-blooming-testi/": {
+      "hash": "19da7249de49df2d5d7aae2155d472d7535f9571098dae96a1d7221b087210b8",
+      "route": "/tr/araclar/kategoriler/donanim-tani-araclari/arka-isik-sizmasi-blooming-testi/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/donanim-tani-araclari/direnc-renk-kodu-hesaplayici/": {
+      "hash": "508b8742e13ba00e61db8ceba9ddd2220ec7dab358672e80848c59cb20d04827",
+      "route": "/tr/araclar/kategoriler/donanim-tani-araclari/direnc-renk-kodu-hesaplayici/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/donanim-tani-araclari/dokunmatik-ekran-testi/": {
+      "hash": "b394a28debd2a49d4ec7cd7c986878bb1b71c44951870b0b498fa170a9dde3fa",
+      "route": "/tr/araclar/kategoriler/donanim-tani-araclari/dokunmatik-ekran-testi/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/donanim-tani-araclari/fare-cift-tiklama-testi/": {
+      "hash": "3a665c68346342058cd18b44a65a25e3677d4bcb3a58a0a5b5638ca426c7414e",
+      "route": "/tr/araclar/kategoriler/donanim-tani-araclari/fare-cift-tiklama-testi/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/donanim-tani-araclari/fare-dpi-analizoru/": {
+      "hash": "e0860531ab78d07d0cb321378bb98f75fec0c0b2dac0e7e9a7cef204c5c1766e",
+      "route": "/tr/araclar/kategoriler/donanim-tani-araclari/fare-dpi-analizoru/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/donanim-tani-araclari/fare-polling-hizi-testi-online/": {
+      "hash": "7c5de3b9c5f287eafbc63152d8a96f70eb4f9960e3f7434355916d7bc750989f",
+      "route": "/tr/araclar/kategoriler/donanim-tani-araclari/fare-polling-hizi-testi-online/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/donanim-tani-araclari/fare-tekerlegi-testi/": {
+      "hash": "fec00f04d65da4a34949243d74a9e0ec73e52c773ffbc19ce4912e8af5798cfe",
+      "route": "/tr/araclar/kategoriler/donanim-tani-araclari/fare-tekerlegi-testi/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/donanim-tani-araclari/fare-titreme-acisi-testi/": {
+      "hash": "6fdee0664043060c10193b1f868f8f17ca999c48a74f233b278e03fbcb6fbf20",
+      "route": "/tr/araclar/kategoriler/donanim-tani-araclari/fare-titreme-acisi-testi/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/donanim-tani-araclari/gamepad-tarama-hizi-testi-hertz/": {
+      "hash": "af9c67c49cc190316f9d38dca11139bb5dcd639e32217596b31b6f08819c116b",
+      "route": "/tr/araclar/kategoriler/donanim-tani-araclari/gamepad-tarama-hizi-testi-hertz/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/donanim-tani-araclari/gerilim-bolucu-hesaplayici/": {
+      "hash": "21389683d5d98f295bb8c6e0b55be604e5cd5dbae8d66704050de32567b2838a",
+      "route": "/tr/araclar/kategoriler/donanim-tani-araclari/gerilim-bolucu-hesaplayici/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/donanim-tani-araclari/gizli-web-kamerasi-testi-online/": {
+      "hash": "f6e543a34e52399ba3cd57c58d4bd9c3361414a700c9cc4f63054f6646ed42db",
+      "route": "/tr/araclar/kategoriler/donanim-tani-araclari/gizli-web-kamerasi-testi-online/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/donanim-tani-araclari/hoparlor-faz-test-edici/": {
+      "hash": "c5a6b02975d7173c1142c9eab837aba2e99f7e48f8d137e9b7fe8ed8be1d6817",
+      "route": "/tr/araclar/kategoriler/donanim-tani-araclari/hoparlor-faz-test-edici/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/donanim-tani-araclari/": {
+      "hash": "1968d495729057d7de5fe4886e88b37bdc3fe265d77a403ea6b439ffb167601b",
+      "route": "/tr/araclar/kategoriler/donanim-tani-araclari/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/donanim-tani-araclari/input-lag-gecikme-testi/": {
+      "hash": "6ad3a197593b3a2d029afc4d1ffe0bfeb05a1b04bcab739d27930f5f80416028",
+      "route": "/tr/araclar/kategoriler/donanim-tani-araclari/input-lag-gecikme-testi/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/donanim-tani-araclari/klavye-chatter-testi/": {
+      "hash": "229c563ccddaeeca5a57d124a088310dbcd948c1dde6a49c63e5912e7a808496",
+      "route": "/tr/araclar/kategoriler/donanim-tani-araclari/klavye-chatter-testi/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/donanim-tani-araclari/klavye-testi-online/": {
+      "hash": "5327ac03336444c25aa2781488e4807faed724bedaf3567c1acbd7170f6e18df",
+      "route": "/tr/araclar/kategoriler/donanim-tani-araclari/klavye-testi-online/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/donanim-tani-araclari/led-direnc-hesaplayici/": {
+      "hash": "fe7ac917b836c83a23a07b2a22eb3324c9434d8fcb818eafba88ebef4bd04722",
+      "route": "/tr/araclar/kategoriler/donanim-tani-araclari/led-direnc-hesaplayici/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/donanim-tani-araclari/lityum-pil-sagligi-hesaplayici/": {
+      "hash": "d84741fd5d2f8aef39f3b2f370ece835e5764e5829c5786b5a1563a8217d7697",
+      "route": "/tr/araclar/kategoriler/donanim-tani-araclari/lityum-pil-sagligi-hesaplayici/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/donanim-tani-araclari/midi-klavye-test-araci/": {
+      "hash": "5b3d4ff0310ddc36b4d02ef67b81177db95f15acc4c735dbc3a956fd5a406666",
+      "route": "/tr/araclar/kategoriler/donanim-tani-araclari/midi-klavye-test-araci/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/donanim-tani-araclari/mikrofon-testi-spektrum-analizoru/": {
+      "hash": "f66c1657dff94ac9ec8958d7b0f5f0bc233e3670fd3472b553ec3f4939bb8549",
+      "route": "/tr/araclar/kategoriler/donanim-tani-araclari/mikrofon-testi-spektrum-analizoru/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/donanim-tani-araclari/mobil-sensor-testi/": {
+      "hash": "545b5364b2e4b71e77cfd7a4b35b19d4469d799364a04ae30db47e3d7e160cde",
+      "route": "/tr/araclar/kategoriler/donanim-tani-araclari/mobil-sensor-testi/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/donanim-tani-araclari/monitor-ghosting-testi/": {
+      "hash": "8dc5e24acffcb60d6d62f5b1f483b968f9357e9329960a85ccc05489b304078c",
+      "route": "/tr/araclar/kategoriler/donanim-tani-araclari/monitor-ghosting-testi/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/donanim-tani-araclari/monitor-yenileme-hizi-dedektoru/": {
+      "hash": "f288f020ed6d6e39f4a3ee4d52767ec3f666e816c1c815e8d283ffee49cb627a",
+      "route": "/tr/araclar/kategoriler/donanim-tani-araclari/monitor-yenileme-hizi-dedektoru/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/donanim-tani-araclari/ohm-kanunu-guc-hesaplayici/": {
+      "hash": "ae652da5022ab0eadea17bf517f5b6bcb3040cc6e0322b3e9192b2895eae145d",
+      "route": "/tr/araclar/kategoriler/donanim-tani-araclari/ohm-kanunu-guc-hesaplayici/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/donanim-tani-araclari/oled-ekran-yanik-duzeltici/": {
+      "hash": "894cd3df71940ddca147522475f28c0287ccd8d3bb3ae5752c93803d5b822ead",
+      "route": "/tr/araclar/kategoriler/donanim-tani-araclari/oled-ekran-yanik-duzeltici/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/donanim-tani-araclari/olu-piksel-testi-ekran-tamiri/": {
+      "hash": "17f59a7aa2b608d4969dfd44d8a700029a058eece3310994196403bc0053ad6e",
+      "route": "/tr/araclar/kategoriler/donanim-tani-araclari/olu-piksel-testi-ekran-tamiri/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/donanim-tani-araclari/online-ses-ve-frekans-ureteci/": {
+      "hash": "3bc056ad9210842049756d8dfb62a9246b485f5265f0b4d8a28d5c6a6cd5c5a1",
+      "route": "/tr/araclar/kategoriler/donanim-tani-araclari/online-ses-ve-frekans-ureteci/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/donanim-tani-araclari/oyun-kolu-testi-online/": {
+      "hash": "f33e84165d6d141c670784a97cdda4b055bec3600850ae9480987a4e3df61ef3",
+      "route": "/tr/araclar/kategoriler/donanim-tani-araclari/oyun-kolu-testi-online/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/donanim-tani-araclari/oyun-kolu-titresim-testi-online/": {
+      "hash": "a427a394e64feba72ff6b58dfb8fb1c6f15213446d7414ef38aea0a5d79afdfe",
+      "route": "/tr/araclar/kategoriler/donanim-tani-araclari/oyun-kolu-titresim-testi-online/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/donanim-tani-araclari/pcb-iz-genisligi-empedans-hesaplayici/": {
+      "hash": "b1126790fc8dc4933daa9115bdc36acd0131d5d2726103de3671c4a334be3f66",
+      "route": "/tr/araclar/kategoriler/donanim-tani-araclari/pcb-iz-genisligi-empedans-hesaplayici/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/donanim-tani-araclari/psu-guc-ihtiyaci-hesaplayici/": {
+      "hash": "307a9108da385005976a527e4692ee7d4a98125a51cbc87ff0af80d4b931f156",
+      "route": "/tr/araclar/kategoriler/donanim-tani-araclari/psu-guc-ihtiyaci-hesaplayici/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/donanim-tani-araclari/renk-dogruluk-testi/": {
+      "hash": "f9cad93a7e1308753325067afd67b1dcb77afc5b49be368572a5ea70f944ebf1",
+      "route": "/tr/araclar/kategoriler/donanim-tani-araclari/renk-dogruluk-testi/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/donanim-tani-araclari/ses-gecikme-testi/": {
+      "hash": "cee7d63fdb114f5bb420fb8d68e8c88c1be442e1c5b1c6a521e1d10a59b4c702",
+      "route": "/tr/araclar/kategoriler/donanim-tani-araclari/ses-gecikme-testi/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/donanim-tani-araclari/stereo-ses-testi/": {
+      "hash": "6acc2dd84d1471add6920bcd2356b027d454c653e5992601aff5017012000227",
+      "route": "/tr/araclar/kategoriler/donanim-tani-araclari/stereo-ses-testi/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/donanim-tani-araclari/su-puskurtucu-hoparlor-temizleyici/": {
+      "hash": "84e5e4f97c0f655658ea0b251ad10fa02027b562c610319c603424eac06e9cd3",
+      "route": "/tr/araclar/kategoriler/donanim-tani-araclari/su-puskurtucu-hoparlor-temizleyici/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/donanim-tani-araclari/subwoofer-crossover-testi-online/": {
+      "hash": "54f5dc063be165ad860e95feb99a98c35fdb1e14282da1f28ef980f21779cf46",
+      "route": "/tr/araclar/kategoriler/donanim-tani-araclari/subwoofer-crossover-testi-online/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/donanim-tani-araclari/tarayici-ble-web-bluetooth/": {
+      "hash": "2dfeadc6aac25fc01a5404673b6b4f2ca861477847c678f61b968ea0bf910038",
+      "route": "/tr/araclar/kategoriler/donanim-tani-araclari/tarayici-ble-web-bluetooth/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/donanim-tani-araclari/ups-calisma-suresi-hesaplayici/": {
+      "hash": "b780d39f6f62daaf44f26217f145c14cb5a715fb1707abf1f7d8aca5891f7f31",
+      "route": "/tr/araclar/kategoriler/donanim-tani-araclari/ups-calisma-suresi-hesaplayici/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/donanim-tani-araclari/usb-guc-butcesi-hesaplayici/": {
+      "hash": "d3d4ce668f5655bfc720ee3ca0325cc1edf9fb73f22530537fc731ec4011672b",
+      "route": "/tr/araclar/kategoriler/donanim-tani-araclari/usb-guc-butcesi-hesaplayici/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/donanim-tani-araclari/web-usb-seri-monitor/": {
+      "hash": "c3cd30e8c5cef231b9f9e1bb1ec69fd5eb7b14359d4b6a807ea2196fb6c5d8f4",
+      "route": "/tr/araclar/kategoriler/donanim-tani-araclari/web-usb-seri-monitor/"
+    },
+    "https://www.jjlmoya.es/utilidades/analizador-dpi-raton/": {
+      "hash": "0f51c756099604e1f007221ab17476724bb1576fce7afc3e23ede00eaa32cfff",
+      "route": "/utilidades/analizador-dpi-raton/"
+    },
+    "https://www.jjlmoya.es/utilidades/calculadora-ancho-impedancia-pistas-pcb/": {
+      "hash": "f2d32b7d3ff0ed18b10a0ba4e80b1213204fad4d6fc7d17b8f3f7242eac58ad0",
+      "route": "/utilidades/calculadora-ancho-impedancia-pistas-pcb/"
+    },
+    "https://www.jjlmoya.es/utilidades/calculadora-autonomia-sai/": {
+      "hash": "991e613dfc758b2cc29b0af1e62a85a41fa3cd731675d2fba2597c15388eac54",
+      "route": "/utilidades/calculadora-autonomia-sai/"
+    },
+    "https://www.jjlmoya.es/utilidades/calculadora-codigo-colores-resistencia/": {
+      "hash": "3fda6f6e924ba602293e86a0e14bd38a090a84d4305d4c275dcb563b987358b9",
+      "route": "/utilidades/calculadora-codigo-colores-resistencia/"
+    },
+    "https://www.jjlmoya.es/utilidades/calculadora-divisor-tension/": {
+      "hash": "be9644887bd0182145b6e9776778291171d1e10e07279acb1cf7ad7c6179e138",
+      "route": "/utilidades/calculadora-divisor-tension/"
+    },
+    "https://www.jjlmoya.es/utilidades/calculadora-ley-ohm-potencia/": {
+      "hash": "bdc2bffcee75707ffa4dd1d55720b5e42ad68baa84bc2d0e9cd1ed903e01dd78",
+      "route": "/utilidades/calculadora-ley-ohm-potencia/"
+    },
+    "https://www.jjlmoya.es/utilidades/calculadora-potencia-fuente-ordenador/": {
+      "hash": "db0512e285e3a4e880e9cc6ad9ed4256c33bc293a084c9067aff44c473c267a8",
+      "route": "/utilidades/calculadora-potencia-fuente-ordenador/"
+    },
+    "https://www.jjlmoya.es/utilidades/calculadora-presupuesto-energia-usb/": {
+      "hash": "c84acab820ef92d4a33221d1c3e6448ae924b5ac8ef96dd2e93295881360d8b1",
+      "route": "/utilidades/calculadora-presupuesto-energia-usb/"
+    },
+    "https://www.jjlmoya.es/utilidades/calculadora-resistencia-led/": {
+      "hash": "524850342719c16464cee69497977781884e075286692fd77fd7089f5411a758",
+      "route": "/utilidades/calculadora-resistencia-led/"
+    },
+    "https://www.jjlmoya.es/utilidades/categorias/hardware/": {
+      "hash": "171257e1bfe38fc129a3c0deb9648e516baa33bb59da262ecbecb599756944eb",
+      "route": "/utilidades/categorias/hardware/"
+    },
+    "https://www.jjlmoya.es/utilidades/comprobador-tasa-sondeo-mando-hertzios/": {
+      "hash": "cccb96338912c5cc2ac240a935521a215c4d0e4136a6a41300f51d80c6c8af01",
+      "route": "/utilidades/comprobador-tasa-sondeo-mando-hertzios/"
+    },
+    "https://www.jjlmoya.es/utilidades/detector-frecuencia-actualizacion-monitor/": {
+      "hash": "5603d4568780e2661c8fcc07a1e5143db8a2bdc01a61c3713c113de6b7cf916c",
+      "route": "/utilidades/detector-frecuencia-actualizacion-monitor/"
+    },
+    "https://www.jjlmoya.es/utilidades/escaner-ble-web-bluetooth/": {
+      "hash": "728ae08db84e8be01249b18cb0db792f5ae9eeb3604a9940ac1b1c1877302db4",
+      "route": "/utilidades/escaner-ble-web-bluetooth/"
+    },
+    "https://www.jjlmoya.es/utilidades/estimador-salud-bateria/": {
+      "hash": "56dceb7445015c58c9461474f58af2808ac0ef777137f88ed491d4a2ce9d588d",
+      "route": "/utilidades/estimador-salud-bateria/"
+    },
+    "https://www.jjlmoya.es/utilidades/expulsor-agua-limpiador-altavoces/": {
+      "hash": "5b7fbd4a6b65d8b2ad24e4fc7335a078c28ab2fb5810167980decb7e9e7abdb2",
+      "route": "/utilidades/expulsor-agua-limpiador-altavoces/"
+    },
+    "https://www.jjlmoya.es/utilidades/generador-tonos/": {
+      "hash": "3d29154a2714a32a066885670cbf7afca73d00f5e165947359729524662f9154",
+      "route": "/utilidades/generador-tonos/"
+    },
+    "https://www.jjlmoya.es/utilidades/medidor-input-lag/": {
+      "hash": "8282f983d686216eb5ceecb962e036d87cb3b2ff8a82423cf39d0350d8e49c7a",
+      "route": "/utilidades/medidor-input-lag/"
+    },
+    "https://www.jjlmoya.es/utilidades/monitor-serie-webusb/": {
+      "hash": "b8265e14b6951930170ca08ed779101377a4a9d2e98c3968d7907eb45160910b",
+      "route": "/utilidades/monitor-serie-webusb/"
+    },
+    "https://www.jjlmoya.es/utilidades/pixeles-pantalla/": {
+      "hash": "49fb49f6a2b41b2c481d6490c3461b15b80640dd1859bb238440e77f2be91e84",
+      "route": "/utilidades/pixeles-pantalla/"
+    },
+    "https://www.jjlmoya.es/utilidades/probador-fase-altavoces/": {
+      "hash": "4e183116fae2b60146b0826bca29d9076dab5786cc70a935bb6bef6b27ee6985",
+      "route": "/utilidades/probador-fase-altavoces/"
+    },
+    "https://www.jjlmoya.es/utilidades/probador-pantalla-tactil/": {
+      "hash": "008f058c8876b78a824702dd3e2ecdeb799f4543993c2cddb18d4723a51ba2c9",
+      "route": "/utilidades/probador-pantalla-tactil/"
+    },
+    "https://www.jjlmoya.es/utilidades/probador-teclado-midi/": {
+      "hash": "61731029f2d7937e82631b0c7c8e78a34ce9feae26f051c5b0db217c0bcfd6ec",
+      "route": "/utilidades/probador-teclado-midi/"
+    },
+    "https://www.jjlmoya.es/utilidades/probador-vibracion-mando/": {
+      "hash": "4f6eeb2fdf9181ad326a7194643736c875ec6fbce42904df7ce4c70b4d83eb07",
+      "route": "/utilidades/probador-vibracion-mando/"
+    },
+    "https://www.jjlmoya.es/utilidades/prueba-camara-web-privada-en-linea/": {
+      "hash": "ca19c4f6b63ff0692f36a577df69f5701a9fe3012e2595571b4fdc7c814d6c3e",
+      "route": "/utilidades/prueba-camara-web-privada-en-linea/"
+    },
+    "https://www.jjlmoya.es/utilidades/prueba-cruce-subwoofer/": {
+      "hash": "bce43dadeca2fad0cb55a6dbf859aab7bdfff15b715c32596c314f72182b9840",
+      "route": "/utilidades/prueba-cruce-subwoofer/"
+    },
+    "https://www.jjlmoya.es/utilidades/prueba-de-audio-estereo/": {
+      "hash": "04cdced5782c570db617efe361b4b187c68e5219d2b1da835557204582bd05d4",
+      "route": "/utilidades/prueba-de-audio-estereo/"
+    },
+    "https://www.jjlmoya.es/utilidades/prueba-doble-clic-raton/": {
+      "hash": "818b6b7825472119ccd9beeabf011453bacda36251608305cdff1c7ceaba0b69",
+      "route": "/utilidades/prueba-doble-clic-raton/"
+    },
+    "https://www.jjlmoya.es/utilidades/prueba-ghosting-monitor/": {
+      "hash": "a35424c5ad473ec56c337795b821d7ab19088d1a1172e3fb8c3217b42571e008",
+      "route": "/utilidades/prueba-ghosting-monitor/"
+    },
+    "https://www.jjlmoya.es/utilidades/prueba-microfono-analizador-espectro/": {
+      "hash": "03d8ce3a861b46bedbcda370c8fe537de24c1788929599b7507f398f6e8b7711",
+      "route": "/utilidades/prueba-microfono-analizador-espectro/"
+    },
+    "https://www.jjlmoya.es/utilidades/prueba-scroll-raton/": {
+      "hash": "11ec1d5ba3e2021e07d17c8572f01a4a132768788df22ccc417920c40732fc6a",
+      "route": "/utilidades/prueba-scroll-raton/"
+    },
+    "https://www.jjlmoya.es/utilidades/prueba-temblor-angulo-raton/": {
+      "hash": "e95d2356c2ce13204278bb6fb48f11c135f2b6b2d990a664073da54d19fbb7eb",
+      "route": "/utilidades/prueba-temblor-angulo-raton/"
+    },
+    "https://www.jjlmoya.es/utilidades/reparador-quemado-pantalla-oled/": {
+      "hash": "1766204a7c1cbd59d3058ee33de81985e01b0dc1f1e979676ae5a328a287a4bd",
+      "route": "/utilidades/reparador-quemado-pantalla-oled/"
+    },
+    "https://www.jjlmoya.es/utilidades/test-chatter-teclado/": {
+      "hash": "2d1d1931e8e037d86abb2d1066e942cd06999fe7ea3b4ae940fbce8176b92dbc",
+      "route": "/utilidades/test-chatter-teclado/"
+    },
+    "https://www.jjlmoya.es/utilidades/test-fugas-retroiluminacion-blooming/": {
+      "hash": "472ce3cc580d593afdbae1ab7b7d9a361ac1bf92cd8fcc85427319ab21926e40",
+      "route": "/utilidades/test-fugas-retroiluminacion-blooming/"
+    },
+    "https://www.jjlmoya.es/utilidades/test-mando/": {
+      "hash": "3ea259665d6bd89bfa8c4960a088087967ba20dae7b4274133edb56d961103b2",
+      "route": "/utilidades/test-mando/"
+    },
+    "https://www.jjlmoya.es/utilidades/test-precision-color/": {
+      "hash": "43633651407f0de7824b0d1f4ce1e674dc1930431769d03ef3dce20960e2302e",
+      "route": "/utilidades/test-precision-color/"
+    },
+    "https://www.jjlmoya.es/utilidades/test-raton/": {
+      "hash": "eff9287c299cf595e25719f58f84d1c82a0ae9af3b10ec03bb2c52552418394e",
+      "route": "/utilidades/test-raton/"
+    },
+    "https://www.jjlmoya.es/utilidades/test-retardo-audio/": {
+      "hash": "002daf9a4acddddd3b6efc204a5eac3162d588c02241ce2ba3583974ed13591d",
+      "route": "/utilidades/test-retardo-audio/"
+    },
+    "https://www.jjlmoya.es/utilidades/test-sensores-movil/": {
+      "hash": "f9ba090f9980df67ea76ef021b34746ec209b0ff372a746109db47e241a270d4",
+      "route": "/utilidades/test-sensores-movil/"
+    },
+    "https://www.jjlmoya.es/utilidades/test-teclado/": {
+      "hash": "86b22895b035ba4290d903c2dfcfacaf43320e9e40dc15f8750011e8a4415797",
+      "route": "/utilidades/test-teclado/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/hardware-tools/audio-delay-test/": {
+      "hash": "da978cc565a19dc26dc302e5868bf2d454400ef1818ee0fee3d0dbc015719c97",
+      "route": "/zh/utilities/categories/hardware-tools/audio-delay-test/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/hardware-tools/backlight-bleed-blooming-test/": {
+      "hash": "b74c6be222bd4dd21576fded92392660ba8c5d3aa03c295c91910c39b53a000b",
+      "route": "/zh/utilities/categories/hardware-tools/backlight-bleed-blooming-test/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/hardware-tools/color-accuracy-test/": {
+      "hash": "ed32cd8655a2578bc717810720a783b10a3c31a2674f25728e55227604dcaba3",
+      "route": "/zh/utilities/categories/hardware-tools/color-accuracy-test/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/hardware-tools/dead-pixel-tester/": {
+      "hash": "7053207627ffa8ac993d321373b7e3d99e52e094eab057b6a3c7cdf33bcb5890",
+      "route": "/zh/utilities/categories/hardware-tools/dead-pixel-tester/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/hardware-tools/gamepad-polling-rate-checker/": {
+      "hash": "8ae5f4e39ef4d667645d064c78366515fa1d3fc32a654efa2ca72803e1d02ee7",
+      "route": "/zh/utilities/categories/hardware-tools/gamepad-polling-rate-checker/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/hardware-tools/gamepad-test/": {
+      "hash": "778e00c46ec29c440a4d80468ff5ab4dc61998784c3f5e5b81c8c3e8b4005761",
+      "route": "/zh/utilities/categories/hardware-tools/gamepad-test/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/hardware-tools/gamepad-vibration-tester/": {
+      "hash": "0e1654149e3648e0c11c3d73eaa8694e8eb5be6433682f08a53a56fcac1931b8",
+      "route": "/zh/utilities/categories/hardware-tools/gamepad-vibration-tester/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/hardware-tools/": {
+      "hash": "a9915cc94b2513304b5160bb97133a2c92f9ec2f97d12e6b2d3c09c9ff80a478",
+      "route": "/zh/utilities/categories/hardware-tools/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/hardware-tools/keyboard-chatter-test/": {
+      "hash": "ff54234dda395743a31441e64c999f72d26eec56d173205d84ace6defe39da1f",
+      "route": "/zh/utilities/categories/hardware-tools/keyboard-chatter-test/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/hardware-tools/keyboard-test/": {
+      "hash": "714f550b04c52819eb2c61684be2295f1c5daddec262f2fd6753218b637fb198",
+      "route": "/zh/utilities/categories/hardware-tools/keyboard-test/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/hardware-tools/led-resistor-calculator/": {
+      "hash": "8476df2a94e2368beeef121363366002389b31b07d7b0048f4cdf30fd38ef5c1",
+      "route": "/zh/utilities/categories/hardware-tools/led-resistor-calculator/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/hardware-tools/lithium-battery-health-calculator/": {
+      "hash": "eaa4f2f694580de70bf8cc8d94c5ebb2e6a62e315d6bb2c9d8615b63773b17df",
+      "route": "/zh/utilities/categories/hardware-tools/lithium-battery-health-calculator/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/hardware-tools/microphone-test-spectrum-analyzer/": {
+      "hash": "432a11d2d82a6905a49c101a686c66723709b01191c9225300dfe585181babdc",
+      "route": "/zh/utilities/categories/hardware-tools/microphone-test-spectrum-analyzer/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/hardware-tools/mobile-sensor-test/": {
+      "hash": "c3a20b2741ebedc6341d715fa7ab6316253faf8fdc0dbc70629facd28f666ce9",
+      "route": "/zh/utilities/categories/hardware-tools/mobile-sensor-test/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/hardware-tools/monitor-ghosting-test/": {
+      "hash": "8844d8d5ab3693b0ead8ebbd112fb5ea2e7ea65673eedbbead6ce2e0ffec57b0",
+      "route": "/zh/utilities/categories/hardware-tools/monitor-ghosting-test/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/hardware-tools/monitor-refresh-rate-detector/": {
+      "hash": "88dfea5073cfe583ce7a8690b6d5ff8d541d92f09518526bbddf118fef62d10a",
+      "route": "/zh/utilities/categories/hardware-tools/monitor-refresh-rate-detector/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/hardware-tools/mouse-double-click-test/": {
+      "hash": "f1ac699f07041d5ad25a06026aef7041971815ba9f1435c851820221b113ce01",
+      "route": "/zh/utilities/categories/hardware-tools/mouse-double-click-test/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/hardware-tools/mouse-dpi-analyzer/": {
+      "hash": "45ce89501388a507ae5590b479be86a98e7feb0e47c39f4b9767bda5fa17f175",
+      "route": "/zh/utilities/categories/hardware-tools/mouse-dpi-analyzer/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/hardware-tools/mouse-jitter-angle-snapping-test/": {
+      "hash": "b1290439c900b0427f9808115a172ff16aff4059470f67e0278e709893012474",
+      "route": "/zh/utilities/categories/hardware-tools/mouse-jitter-angle-snapping-test/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/hardware-tools/mouse-polling-rate-test/": {
+      "hash": "767b9d21aff9ba0562ddf78679cf39953938c7cd68e42026986d493866e2cee2",
+      "route": "/zh/utilities/categories/hardware-tools/mouse-polling-rate-test/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/hardware-tools/mouse-scroll-test/": {
+      "hash": "9c58d755489dae060a46cf05c07d9fb37778c57fb0df5aacfb69d9dd77c523c2",
+      "route": "/zh/utilities/categories/hardware-tools/mouse-scroll-test/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/hardware-tools/ohm-law-power-calculator/": {
+      "hash": "0d548043c21937702e29f99ed757bed9f361ecd159bc09044daa643fdef4b944",
+      "route": "/zh/utilities/categories/hardware-tools/ohm-law-power-calculator/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/hardware-tools/oled-screen-burn-in-fixer/": {
+      "hash": "0b31c87ba8e7185e7c942247ccc01986f4d0a562154ec0a287e87593ae5a3fc0",
+      "route": "/zh/utilities/categories/hardware-tools/oled-screen-burn-in-fixer/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/hardware-tools/pcb-trace-width-impedance-calculator/": {
+      "hash": "3272638c0d737c395f729f7f347d0b428ac9f095209cbc573ed710c5fe8a4baa",
+      "route": "/zh/utilities/categories/hardware-tools/pcb-trace-width-impedance-calculator/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/hardware-tools/private-webcam-camera-test-online/": {
+      "hash": "aa82277ff5f47d9cc2ac852ad6d863ed6824419bd0baec426c7f62f51d6b32e5",
+      "route": "/zh/utilities/categories/hardware-tools/private-webcam-camera-test-online/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/hardware-tools/psu-power-requirement-calculator/": {
+      "hash": "6347a89b15f643887f2adafb1c1166ccc0ddc34f508535a89c83a4a108b6d0cb",
+      "route": "/zh/utilities/categories/hardware-tools/psu-power-requirement-calculator/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/hardware-tools/resistor-color-code-calculator/": {
+      "hash": "faac9d8fe4ae7517bd62bdd40da6a8ada05f9d3f61e4a89316441700ba9aa64b",
+      "route": "/zh/utilities/categories/hardware-tools/resistor-color-code-calculator/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/hardware-tools/speaker-phase-tester/": {
+      "hash": "62d4b1283b1e2eabc08396c5a18cfd360890e48f3bcec592bbba6a2ba34cf042",
+      "route": "/zh/utilities/categories/hardware-tools/speaker-phase-tester/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/hardware-tools/stereo-audio-test/": {
+      "hash": "1e7fe04c78b30678f19b8656955dbf1e687fb3e03ec24482ffda822727bffc1e",
+      "route": "/zh/utilities/categories/hardware-tools/stereo-audio-test/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/hardware-tools/subwoofer-crossover-test/": {
+      "hash": "4f74f1e9d64b69aec3917464b0d40feb49c49f9cd91df3044ac8a2578c57b69c",
+      "route": "/zh/utilities/categories/hardware-tools/subwoofer-crossover-test/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/hardware-tools/test-input-lag/": {
+      "hash": "18c718bd992a0cc238689709b1be9cf729db307e52e4ac1af14fb256f4ad0ac0",
+      "route": "/zh/utilities/categories/hardware-tools/test-input-lag/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/hardware-tools/tone-frequency-generator/": {
+      "hash": "1a84f9561f063e69f56548b5eaa94a93533de272ca04ef58b177547ff1f4f6ef",
+      "route": "/zh/utilities/categories/hardware-tools/tone-frequency-generator/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/hardware-tools/touch-screen-tester/": {
+      "hash": "9c719fff5fe3ec538fb9125266322edaae8800c1ad2352ea261374873aa9acb4",
+      "route": "/zh/utilities/categories/hardware-tools/touch-screen-tester/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/hardware-tools/ups-runtime-calculator/": {
+      "hash": "24f99e32df88769b3536a6e01fd23d53af94caca1c9230d00272a1f51b16a1a4",
+      "route": "/zh/utilities/categories/hardware-tools/ups-runtime-calculator/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/hardware-tools/usb-power-budget-calculator/": {
+      "hash": "cfd50ab3cf7ed99d0260ea9a9b68295d67389600a121c46f4e189c266530672b",
+      "route": "/zh/utilities/categories/hardware-tools/usb-power-budget-calculator/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/hardware-tools/voltage-divider-calculator/": {
+      "hash": "71ee6c7b9b76f0b1d02f3e20a09e22bc30d0de34f80a4ab21656009dc78329cb",
+      "route": "/zh/utilities/categories/hardware-tools/voltage-divider-calculator/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/hardware-tools/water-ejector-speaker-cleaner/": {
+      "hash": "1f0a1da121267ee0292dec4c1d07c91db78521f45dcef17e5e73aaf96946aeb3",
+      "route": "/zh/utilities/categories/hardware-tools/water-ejector-speaker-cleaner/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/hardware-tools/web-bluetooth-ble-scanner/": {
+      "hash": "87403f62271029cd7aa9c59c19fd0141b807af4b45ea5aa5e817ba1eaf4dcb95",
+      "route": "/zh/utilities/categories/hardware-tools/web-bluetooth-ble-scanner/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/hardware-tools/web-usb-serial-monitor/": {
+      "hash": "4e64cc188bdfa54d183061c94a41111bac13ab03b6f64ac29ebf5adf147e44aa",
+      "route": "/zh/utilities/categories/hardware-tools/web-usb-serial-monitor/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/hardware-tools/webmidi-keyboard-tester/": {
+      "hash": "5031d2ecba85b2a6dbdce52304b94a9375e509a2d78154f2f0deab7455fef6dd",
+      "route": "/zh/utilities/categories/hardware-tools/webmidi-keyboard-tester/"
+    }
+  }
+}
