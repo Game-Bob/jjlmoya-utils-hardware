@@ -1,0 +1,240 @@
+{
+    "$schema": "./node_modules/wrangler/config-schema.json",
+    "name": "gamebob-utilities-hardware",
+    "main": "src/worker.ts",
+    "compatibility_date": "2026-07-22",
+    "workers_dev": false,
+    "preview_urls": true,
+    "routes": [
+        {
+            "pattern": "www.jjlmoya.es/utilidades/categorias/hardware*",
+            "zone_name": "jjlmoya.es"
+        },
+        {
+            "pattern": "www.jjlmoya.es/utilidades/test-retardo-audio*",
+            "zone_name": "jjlmoya.es"
+        },
+        {
+            "pattern": "www.jjlmoya.es/utilidades/test-fugas-retroiluminacion-blooming*",
+            "zone_name": "jjlmoya.es"
+        },
+        {
+            "pattern": "www.jjlmoya.es/utilidades/estimador-salud-bateria*",
+            "zone_name": "jjlmoya.es"
+        },
+        {
+            "pattern": "www.jjlmoya.es/utilidades/test-precision-color*",
+            "zone_name": "jjlmoya.es"
+        },
+        {
+            "pattern": "www.jjlmoya.es/utilidades/pixeles-pantalla*",
+            "zone_name": "jjlmoya.es"
+        },
+        {
+            "pattern": "www.jjlmoya.es/utilidades/comprobador-tasa-sondeo-mando-hertzios*",
+            "zone_name": "jjlmoya.es"
+        },
+        {
+            "pattern": "www.jjlmoya.es/utilidades/test-mando*",
+            "zone_name": "jjlmoya.es"
+        },
+        {
+            "pattern": "www.jjlmoya.es/utilidades/probador-vibracion-mando*",
+            "zone_name": "jjlmoya.es"
+        },
+        {
+            "pattern": "www.jjlmoya.es/utilidades/medidor-input-lag*",
+            "zone_name": "jjlmoya.es"
+        },
+        {
+            "pattern": "www.jjlmoya.es/utilidades/test-chatter-teclado*",
+            "zone_name": "jjlmoya.es"
+        },
+        {
+            "pattern": "www.jjlmoya.es/utilidades/test-teclado*",
+            "zone_name": "jjlmoya.es"
+        },
+        {
+            "pattern": "www.jjlmoya.es/utilidades/calculadora-resistencia-led*",
+            "zone_name": "jjlmoya.es"
+        },
+        {
+            "pattern": "www.jjlmoya.es/utilidades/prueba-microfono-analizador-espectro*",
+            "zone_name": "jjlmoya.es"
+        },
+        {
+            "pattern": "www.jjlmoya.es/utilidades/test-sensores-movil*",
+            "zone_name": "jjlmoya.es"
+        },
+        {
+            "pattern": "www.jjlmoya.es/utilidades/prueba-ghosting-monitor*",
+            "zone_name": "jjlmoya.es"
+        },
+        {
+            "pattern": "www.jjlmoya.es/utilidades/prueba-doble-clic-raton*",
+            "zone_name": "jjlmoya.es"
+        },
+        {
+            "pattern": "www.jjlmoya.es/utilidades/analizador-dpi-raton*",
+            "zone_name": "jjlmoya.es"
+        },
+        {
+            "pattern": "www.jjlmoya.es/utilidades/prueba-temblor-angulo-raton*",
+            "zone_name": "jjlmoya.es"
+        },
+        {
+            "pattern": "www.jjlmoya.es/utilidades/test-raton*",
+            "zone_name": "jjlmoya.es"
+        },
+        {
+            "pattern": "www.jjlmoya.es/utilidades/prueba-scroll-raton*",
+            "zone_name": "jjlmoya.es"
+        },
+        {
+            "pattern": "www.jjlmoya.es/utilidades/calculadora-ley-ohm-potencia*",
+            "zone_name": "jjlmoya.es"
+        },
+        {
+            "pattern": "www.jjlmoya.es/utilidades/reparador-quemado-pantalla-oled*",
+            "zone_name": "jjlmoya.es"
+        },
+        {
+            "pattern": "www.jjlmoya.es/utilidades/calculadora-ancho-impedancia-pistas-pcb*",
+            "zone_name": "jjlmoya.es"
+        },
+        {
+            "pattern": "www.jjlmoya.es/utilidades/calculadora-potencia-fuente-ordenador*",
+            "zone_name": "jjlmoya.es"
+        },
+        {
+            "pattern": "www.jjlmoya.es/utilidades/detector-frecuencia-actualizacion-monitor*",
+            "zone_name": "jjlmoya.es"
+        },
+        {
+            "pattern": "www.jjlmoya.es/utilidades/calculadora-codigo-colores-resistencia*",
+            "zone_name": "jjlmoya.es"
+        },
+        {
+            "pattern": "www.jjlmoya.es/utilidades/probador-fase-altavoces*",
+            "zone_name": "jjlmoya.es"
+        },
+        {
+            "pattern": "www.jjlmoya.es/utilidades/prueba-de-audio-estereo*",
+            "zone_name": "jjlmoya.es"
+        },
+        {
+            "pattern": "www.jjlmoya.es/utilidades/prueba-cruce-subwoofer*",
+            "zone_name": "jjlmoya.es"
+        },
+        {
+            "pattern": "www.jjlmoya.es/utilidades/generador-tonos*",
+            "zone_name": "jjlmoya.es"
+        },
+        {
+            "pattern": "www.jjlmoya.es/utilidades/probador-pantalla-tactil*",
+            "zone_name": "jjlmoya.es"
+        },
+        {
+            "pattern": "www.jjlmoya.es/utilidades/calculadora-autonomia-sai*",
+            "zone_name": "jjlmoya.es"
+        },
+        {
+            "pattern": "www.jjlmoya.es/utilidades/calculadora-presupuesto-energia-usb*",
+            "zone_name": "jjlmoya.es"
+        },
+        {
+            "pattern": "www.jjlmoya.es/utilidades/calculadora-divisor-tension*",
+            "zone_name": "jjlmoya.es"
+        },
+        {
+            "pattern": "www.jjlmoya.es/utilidades/expulsor-agua-limpiador-altavoces*",
+            "zone_name": "jjlmoya.es"
+        },
+        {
+            "pattern": "www.jjlmoya.es/utilidades/escaner-ble-web-bluetooth*",
+            "zone_name": "jjlmoya.es"
+        },
+        {
+            "pattern": "www.jjlmoya.es/utilidades/prueba-camara-web-privada-en-linea*",
+            "zone_name": "jjlmoya.es"
+        },
+        {
+            "pattern": "www.jjlmoya.es/utilidades/probador-teclado-midi*",
+            "zone_name": "jjlmoya.es"
+        },
+        {
+            "pattern": "www.jjlmoya.es/utilidades/monitor-serie-webusb*",
+            "zone_name": "jjlmoya.es"
+        },
+        {
+            "pattern": "www.gamebob.dev/en/utilities/categories/hardware-tools*",
+            "zone_name": "gamebob.dev"
+        },
+        {
+            "pattern": "www.gamebob.dev/fr/utilitaires/categories/outils-materiels*",
+            "zone_name": "gamebob.dev"
+        },
+        {
+            "pattern": "www.gamebob.dev/de/werkzeuge/kategorien/hardware-werkzeuge*",
+            "zone_name": "gamebob.dev"
+        },
+        {
+            "pattern": "www.gamebob.dev/it/utilita/categorie/strumenti-diagnostici-hardware*",
+            "zone_name": "gamebob.dev"
+        },
+        {
+            "pattern": "www.gamebob.dev/pt/utilidades/categorias/ferramentas-diagnostico-hardware*",
+            "zone_name": "gamebob.dev"
+        },
+        {
+            "pattern": "www.gamebob.dev/nl/hulpmiddelen/categorieen/hardware-testtools*",
+            "zone_name": "gamebob.dev"
+        },
+        {
+            "pattern": "www.gamebob.dev/sv/verktyg/kategorier/hardvarutestverktyg*",
+            "zone_name": "gamebob.dev"
+        },
+        {
+            "pattern": "www.gamebob.dev/pl/narzedzia/kategorie/narzedzia-diagnostyki-sprzetu*",
+            "zone_name": "gamebob.dev"
+        },
+        {
+            "pattern": "www.gamebob.dev/id/utilitas/kategori/alat-pengujian-perangkat-keras*",
+            "zone_name": "gamebob.dev"
+        },
+        {
+            "pattern": "www.gamebob.dev/tr/araclar/kategoriler/donanim-tani-araclari*",
+            "zone_name": "gamebob.dev"
+        },
+        {
+            "pattern": "www.gamebob.dev/ru/instrumenty/kategorii/instrumenty-diagnostiki-zhelezo*",
+            "zone_name": "gamebob.dev"
+        },
+        {
+            "pattern": "www.gamebob.dev/ja/utilities/categories/hardware-tools*",
+            "zone_name": "gamebob.dev"
+        },
+        {
+            "pattern": "www.gamebob.dev/ko/utilities/categories/hardware-tools*",
+            "zone_name": "gamebob.dev"
+        },
+        {
+            "pattern": "www.gamebob.dev/zh/utilities/categories/hardware-tools*",
+            "zone_name": "gamebob.dev"
+        },
+        {
+            "pattern": "www.gamebob.dev/_utilities/hardware/*",
+            "zone_name": "gamebob.dev"
+        },
+        {
+            "pattern": "www.jjlmoya.es/_utilities/hardware/*",
+            "zone_name": "jjlmoya.es"
+        }
+    ],
+    "assets": {
+        "directory": "./dist",
+        "binding": "ASSETS",
+        "html_handling": "force-trailing-slash",
+        "not_found_handling": "404-page"
+    }
+}

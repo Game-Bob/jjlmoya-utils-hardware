@@ -1,3 +1,4 @@
+import type { ToolDefinition } from '../../types';
 import { pcbTraceWidthImpedanceChecker } from "./entry";
 import type { ToolDefinition } from "../../types";
 

@@ -1,3 +1,4 @@
+import type { ToolDefinition } from '../../types';
 import { toneGenerator } from './entry';
 export * from './entry';
 export const TONE_GENERATOR_TOOL: ToolDefinition = {

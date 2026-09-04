@@ -1,3 +1,4 @@
+import type { ToolDefinition } from '../../types';
 import { estimadorSaludBateria } from './entry';
 export * from './entry';
 export const ESTIMADOR_SALUD_BATERIA_TOOL: ToolDefinition = {

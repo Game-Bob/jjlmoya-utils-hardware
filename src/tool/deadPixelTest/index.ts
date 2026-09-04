@@ -1,3 +1,4 @@
+import type { ToolDefinition } from '../../types';
 import { pixelesPantalla } from './entry';
 export * from './entry';
 export const PIXELES_PANTALLA_TOOL: ToolDefinition = {

@@ -1,4 +1,4 @@
-import type { BibliographyEntry } from '../../../types';
+import type { BibliographyEntry } from '../../types';
 
 export const bibliography: BibliographyEntry[] = [
   {

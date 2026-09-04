@@ -1,3 +1,4 @@
+import type { ToolDefinition } from '../../types';
 import { testTeclado } from './entry';
 export * from './entry';
 export const TEST_TECLADO_TOOL: ToolDefinition = {
