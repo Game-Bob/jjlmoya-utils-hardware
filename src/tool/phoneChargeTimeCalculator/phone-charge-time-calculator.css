@@ -1,0 +1,312 @@
+.phone-charge-tool {
+  --phone-ink: #103c3b;
+  --phone-teal: #0f766e;
+  --phone-aqua: #22c7c0;
+  --phone-orange: #e88935;
+  --phone-paper: color-mix(in srgb, var(--bg-surface) 96%, #fff4dc);
+
+  max-width: 68rem;
+  margin: 0 auto;
+  color: var(--text-main);
+}
+
+.phone-charge-card {
+  display: grid;
+  gap: 1rem;
+  overflow: hidden;
+  padding: clamp(1rem, 3vw, 2rem);
+  border: 1px solid color-mix(in srgb, var(--phone-teal) 24%, var(--border-base));
+  border-radius: 1.5rem;
+  background: linear-gradient(145deg, var(--phone-paper), color-mix(in srgb, var(--phone-teal) 5%, var(--bg-surface)));
+  box-shadow: 0 1.5rem 4rem color-mix(in srgb, var(--phone-ink) 15%, transparent);
+}
+
+.phone-charge-inputs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.phone-charge-field {
+  display: grid;
+  align-content: start;
+  gap: 0.4rem;
+}
+
+.phone-charge-field label,
+.phone-charge-visual-heading,
+.phone-charge-result-primary > span,
+.phone-charge-result-metrics span,
+.phone-charge-section-heading span,
+.phone-charge-assumptions h3 {
+  color: var(--text-main);
+  font-size: 0.73rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.phone-charge-control {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-height: 3rem;
+  padding: 0 0.75rem;
+  border: 1px solid color-mix(in srgb, var(--phone-teal) 25%, var(--border-base));
+  border-radius: 0.8rem;
+  background: color-mix(in srgb, var(--bg-surface) 86%, transparent);
+}
+
+.phone-charge-control:focus-within {
+  border-color: var(--phone-teal);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--phone-aqua) 25%, transparent);
+}
+
+.phone-charge-control input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--text-main);
+  font: inherit;
+  font-size: 1.1rem;
+  font-weight: 750;
+}
+
+.phone-charge-control span {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+.phone-charge-field small {
+  min-height: 1.05rem;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  line-height: 1.35;
+}
+
+.phone-charge-field[data-invalid="true"] .phone-charge-control {
+  border-color: #d34e4e;
+  box-shadow: 0 0 0 3px color-mix(in srgb, #d34e4e 15%, transparent);
+}
+
+.phone-charge-error {
+  color: #b3261e;
+}
+
+.phone-charge-card input:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--phone-orange) 65%, transparent);
+  outline-offset: 3px;
+}
+
+.phone-charge-status {
+  margin: -0.35rem 0 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.phone-charge-visual {
+  display: grid;
+  gap: 0.7rem;
+  padding: 1.15rem;
+  border-radius: 1.1rem;
+  background: color-mix(in srgb, var(--phone-teal) 9%, var(--bg-surface));
+}
+
+.phone-charge-visual-heading,
+.phone-charge-section-heading,
+.phone-charge-visual-scale {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.phone-charge-visual-heading strong {
+  color: var(--phone-orange);
+  font-size: 1rem;
+}
+
+.phone-charge-progress {
+  position: relative;
+  height: 1.4rem;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--phone-teal) 30%, var(--border-base));
+  border-radius: 999px;
+  background: repeating-linear-gradient(135deg, color-mix(in srgb, var(--phone-teal) 8%, var(--bg-surface)) 0 12px, color-mix(in srgb, var(--phone-teal) 14%, var(--bg-surface)) 12px 24px);
+}
+
+.phone-charge-progress::after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--charge-target, 80%);
+  width: 2px;
+  background: var(--phone-orange);
+  content: '';
+}
+
+.phone-charge-progress span {
+  display: block;
+  width: calc(var(--charge-target, 80%) - var(--charge-start, 20%));
+  height: 100%;
+  margin-left: var(--charge-start, 20%);
+  background: linear-gradient(90deg, var(--phone-teal), var(--phone-aqua));
+}
+
+.phone-charge-visual-scale {
+  position: relative;
+  min-height: 1.1rem;
+  color: var(--text-muted);
+  font-size: 0.73rem;
+}
+
+.phone-charge-visual-scale [data-target-marker] {
+  position: absolute;
+  left: var(--charge-target, 80%);
+  transform: translateX(-50%);
+  color: var(--phone-orange);
+  font-weight: 800;
+}
+
+.phone-charge-result {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem;
+  border: 1px solid color-mix(in srgb, var(--phone-orange) 30%, var(--border-base));
+  border-radius: 1.1rem;
+  background: radial-gradient(circle at 12% 20%, color-mix(in srgb, var(--phone-orange) 17%, transparent), transparent 45%), var(--bg-surface);
+}
+
+.phone-charge-result-primary {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.phone-charge-result-primary strong {
+  color: var(--text-main);
+  font-size: clamp(2rem, 6vw, 4rem);
+  line-height: 1;
+}
+
+.phone-charge-result-primary small {
+  color: var(--text-muted);
+}
+
+.phone-charge-result-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.phone-charge-result-metrics div {
+  display: grid;
+  gap: 0.35rem;
+  padding: 0.85rem;
+  border-radius: 0.8rem;
+  background: color-mix(in srgb, var(--phone-teal) 8%, var(--bg-surface));
+}
+
+.phone-charge-result-metrics strong {
+  color: var(--text-main);
+  font-size: 1rem;
+}
+
+.phone-charge-scenarios,
+.phone-charge-assumptions {
+  padding: 1.05rem;
+  border-top: 1px solid color-mix(in srgb, var(--phone-teal) 18%, var(--border-base));
+}
+
+.phone-charge-section-heading h3,
+.phone-charge-assumptions h3 {
+  margin: 0;
+}
+
+.phone-charge-section-heading span {
+  color: var(--text-muted);
+  font-size: 0.72rem;
+}
+
+.phone-charge-scenarios ul {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.7rem;
+  margin: 0.8rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.phone-charge-scenarios li {
+  display: grid;
+  gap: 0.55rem;
+  padding: 0.8rem;
+  border-radius: 0.75rem;
+  background: color-mix(in srgb, var(--phone-teal) 7%, var(--bg-surface));
+  color: var(--text-muted);
+  font-size: 0.84rem;
+}
+
+.phone-charge-scenarios li > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.phone-charge-scenarios strong {
+  color: var(--text-main);
+}
+
+.phone-charge-scenario-track {
+  display: block;
+  height: 0.35rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--phone-teal) 14%, var(--bg-surface));
+}
+
+.phone-charge-scenario-track span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--phone-teal), var(--phone-aqua));
+}
+
+.phone-charge-assumptions p {
+  margin: 0.6rem 0 0;
+  color: var(--text-muted);
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 760px) {
+  .phone-charge-inputs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .phone-charge-efficiency {
+    grid-column: auto;
+  }
+
+  .phone-charge-result {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .phone-charge-inputs,
+  .phone-charge-scenarios ul,
+  .phone-charge-result-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .phone-charge-efficiency {
+    grid-column: auto;
+  }
+}

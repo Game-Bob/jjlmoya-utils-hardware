@@ -1,0 +1,14 @@
+---
+import { SEORenderer } from '@jjlmoya/utils-shared';
+import { phoneChargeTimeCalculator } from './index';
+import type { KnownLocale } from '../../types';
+
+interface Props {
+  locale?: KnownLocale;
+}
+
+const { locale = 'en' } = Astro.props;
+const content = await phoneChargeTimeCalculator.i18n[locale]?.() ?? await phoneChargeTimeCalculator.i18n.en?.();
+---
+
+{content && <SEORenderer content={{ locale, sections: content.seo }} />}

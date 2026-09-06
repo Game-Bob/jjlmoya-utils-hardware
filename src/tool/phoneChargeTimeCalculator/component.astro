@@ -1,0 +1,101 @@
+---
+import type { KnownLocale } from '../../types';
+import type { PhoneChargeTimeCalculatorUI } from './ui';
+
+interface Props {
+  locale?: KnownLocale;
+  ui?: Record<string, unknown>;
+}
+
+const { ui } = Astro.props;
+const t = (ui ?? {}) as PhoneChargeTimeCalculatorUI;
+---
+
+<div class="phone-charge-tool" data-phone-charge-tool data-state="empty">
+  <form class="phone-charge-card" data-charge-form novalidate>
+    <div class="phone-charge-inputs">
+      <div class="phone-charge-field" data-field="capacity">
+        <label for="phone-charge-capacity">{t.capacityLabel}</label>
+        <div class="phone-charge-control"><input id="phone-charge-capacity" data-input="capacity" type="number" min="1" max="30000" step="1" value="4000" inputmode="numeric" aria-describedby="phone-charge-capacity-hint phone-charge-capacity-error" /><span>{t.capacityUnit}</span></div>
+        <small id="phone-charge-capacity-hint">{t.capacityHint}</small>
+        <small id="phone-charge-capacity-error" class="phone-charge-error" data-field-error="capacity" hidden></small>
+      </div>
+      <div class="phone-charge-field" data-field="current">
+        <label for="phone-charge-current">{t.currentLabel}</label>
+        <div class="phone-charge-control"><input id="phone-charge-current" data-input="current" type="number" min="0" max="99" step="1" value="20" inputmode="numeric" aria-describedby="phone-charge-current-error" /><span>{t.percentUnit}</span></div>
+        <small id="phone-charge-current-error" class="phone-charge-error" data-field-error="current" hidden></small>
+      </div>
+      <div class="phone-charge-field" data-field="target">
+        <label for="phone-charge-target">{t.targetLabel}</label>
+        <div class="phone-charge-control"><input id="phone-charge-target" data-input="target" type="number" min="1" max="100" step="1" value="80" inputmode="numeric" aria-describedby="phone-charge-target-error" /><span>{t.percentUnit}</span></div>
+        <small id="phone-charge-target-error" class="phone-charge-error" data-field-error="target" hidden></small>
+      </div>
+      <div class="phone-charge-field" data-field="power">
+        <label for="phone-charge-power">{t.powerLabel}</label>
+        <div class="phone-charge-control"><input id="phone-charge-power" data-input="power" type="number" min="1" max="240" step="0.5" value="20" inputmode="decimal" aria-describedby="phone-charge-power-error" /><span>{t.powerUnit}</span></div>
+        <small id="phone-charge-power-error" class="phone-charge-error" data-field-error="power" hidden></small>
+      </div>
+      <div class="phone-charge-field phone-charge-efficiency" data-field="efficiency">
+        <label for="phone-charge-efficiency">{t.efficiencyLabel}</label>
+        <div class="phone-charge-control"><input id="phone-charge-efficiency" data-input="efficiency" type="number" min="50" max="100" step="1" value="85" inputmode="numeric" aria-describedby="phone-charge-efficiency-hint phone-charge-efficiency-error" /><span>{t.efficiencyUnit}</span></div>
+        <small id="phone-charge-efficiency-hint">{t.efficiencyHint}</small>
+        <small id="phone-charge-efficiency-error" class="phone-charge-error" data-field-error="efficiency" hidden></small>
+      </div>
+    </div>
+
+    <p class="phone-charge-status" data-status role="status" aria-live="polite">{t.statusEmpty}</p>
+
+    <section class="phone-charge-visual" aria-labelledby="phone-charge-progress-title">
+      <div class="phone-charge-visual-heading"><span id="phone-charge-progress-title">{t.chargeProgressLabel}</span><strong data-charge-progress-label>20% → 80%</strong></div>
+      <div class="phone-charge-progress" data-charge-progress role="img" aria-label={t.chargeProgressLabel}><span></span></div>
+      <div class="phone-charge-visual-scale"><span>0%</span><span data-target-marker>{t.targetMarker}</span><span>100%</span></div>
+    </section>
+
+    <section class="phone-charge-result" aria-labelledby="phone-charge-result-title">
+      <div class="phone-charge-result-primary">
+        <span id="phone-charge-result-title">{t.resultTitle}</span>
+        <strong data-time>—</strong>
+        <small data-time-minutes>{t.fromCurrentCharge}</small>
+      </div>
+      <div class="phone-charge-result-metrics">
+        <div><span>{t.energyLabel}</span><strong><output data-energy>—</output> {t.energyUnit}</strong></div>
+        <div><span>{t.startNowLabel}</span><strong><output data-target>80</output> {t.percentUnit}</strong></div>
+      </div>
+    </section>
+
+    <section class="phone-charge-scenarios" aria-labelledby="phone-charge-scenarios-title">
+      <div class="phone-charge-section-heading"><h3 id="phone-charge-scenarios-title">{t.scenarioTitle}</h3><span>{t.scenarioAt}</span></div>
+      <ul data-scenario-list>
+        <li>
+          <div><span>5 {t.powerUnit}</span><strong>—</strong></div>
+          <span class="phone-charge-scenario-track" aria-hidden="true"><span></span></span>
+        </li>
+        <li>
+          <div><span>15 {t.powerUnit}</span><strong>—</strong></div>
+          <span class="phone-charge-scenario-track" aria-hidden="true"><span></span></span>
+        </li>
+        <li>
+          <div><span>30 {t.powerUnit}</span><strong>—</strong></div>
+          <span class="phone-charge-scenario-track" aria-hidden="true"><span></span></span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="phone-charge-assumptions" aria-labelledby="phone-charge-assumptions-title">
+      <h3 id="phone-charge-assumptions-title">{t.assumptionsTitle}</h3>
+      <p data-assumptions>{t.assumptionsText.replace('{voltage}', '3.85').replace('{efficiency}', '85').replace('{taper}', '8')}</p>
+    </section>
+  </form>
+</div>
+
+<link rel="stylesheet" href="./phone-charge-time-calculator.css" />
+
+<script is:inline type="application/json" data-phone-charge-ui set:html={JSON.stringify(t)}></script>
+
+<script>
+  import { mountPhoneChargeCalculator } from './controller';
+  const root = document.querySelector<HTMLElement>('[data-phone-charge-tool]');
+  const data = document.querySelector<HTMLScriptElement>('[data-phone-charge-ui]');
+  const ui = JSON.parse(data?.textContent ?? '{}');
+  if (root) mountPhoneChargeCalculator(root, ui);
+</script>

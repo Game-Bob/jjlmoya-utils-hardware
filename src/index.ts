@@ -51,3 +51,4 @@ export { LED_RESISTOR_CALCULATOR_TOOL } from './tool/ledResistorCalculator/index
 export { AUDIO_DELAY_TEST_TOOL } from './tool/audioDelayTest/index';
 export { MICROPHONE_SPECTRUM_TESTER_TOOL } from './tool/microphoneSpectrumTester/index';
 export { OHM_LAW_POWER_CALCULATOR_TOOL } from './tool/ohmLawPowerCalculator/index';
+export { PHONE_CHARGE_TIME_CALCULATOR_TOOL } from './tool/phoneChargeTimeCalculator/index';

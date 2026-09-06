@@ -1,0 +1,35 @@
+export interface PhoneChargeTimeCalculatorUI extends Record<string, string> {
+  capacityLabel: string;
+  capacityUnit: string;
+  capacityHint: string;
+  currentLabel: string;
+  targetLabel: string;
+  percentUnit: string;
+  powerLabel: string;
+  powerUnit: string;
+  efficiencyLabel: string;
+  efficiencyUnit: string;
+  efficiencyHint: string;
+  statusEmpty: string;
+  statusReady: string;
+  statusError: string;
+  resultTitle: string;
+  energyLabel: string;
+  energyUnit: string;
+  fromCurrentCharge: string;
+  startNowLabel: string;
+  scenarioTitle: string;
+  scenarioAt: string;
+  hourUnit: string;
+  minuteUnit: string;
+  assumptionsTitle: string;
+  assumptionsText: string;
+  errorCapacity: string;
+  errorCurrent: string;
+  errorTarget: string;
+  errorTargetOrder: string;
+  errorPower: string;
+  errorEfficiency: string;
+  targetMarker: string;
+  chargeProgressLabel: string;
+}
