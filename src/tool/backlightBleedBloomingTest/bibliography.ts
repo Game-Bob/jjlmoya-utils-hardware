@@ -19,7 +19,7 @@ export const bibliography: BibliographyEntry[] = [
   },
   {
     name: 'VESA DisplayHDR specifications',
-    url: 'https://displayhdr.org/',
+    url: 'https://displayhdr.org/performance-criteria/',
   },
   {
     name: 'TFTCentral: OLED, Mini LED and LCD panel technology guides',

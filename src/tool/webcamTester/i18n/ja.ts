@@ -163,8 +163,6 @@ export const content: ToolLocaleContent<WebcamTesterUI> = {
     guideAction: '構図ガイド',
     stageLabel: 'プライベートウェブカメラプレビューエリア',
     resolutionLabel: '解像度',
-    aspectLabel: 'アスペクト比',
-    orientationLabel: '向き',
     configuredFpsLabel: '設定FPS',
     observedFpsLabel: '計測FPS',
     frameDeliveryLabel: 'フレーム配信',

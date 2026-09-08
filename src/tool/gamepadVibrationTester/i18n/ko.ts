@@ -115,9 +115,7 @@ export const content: ToolLocaleContent<ProbadorVibracionMandoUI> = {
     },
   ],
   ui: {
-    badge: '진동 테스트',
     title: '게임패드 진동 테스터',
-    description: '게임패드의 Dual-Rumble 모터를 직접 제어하세요.',
     deviceDisconnected: '게임패드 연결 끊김',
     deviceDisconnectedSub: '시작하려면 게임패드의 버튼을 누르세요',
     deviceFallback: '게임패드 연결됨',

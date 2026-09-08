@@ -1,7 +1,5 @@
 export interface EstimadorSaludBateriaUI extends Record<string, string> {
-  badge: string;
   title: string;
-  description: string;
   paramsTitle: string;
   voltageLabel: string;
   cyclesLabel: string;

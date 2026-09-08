@@ -180,7 +180,6 @@ export const content: ToolLocaleContent<AudioDelayTestUI> = {
     calibrationHint: 'Передвигайте ползунок, пока вспышка и клик не совпадут',
     calibrationEarly: 'Звук спешит',
     calibrationLate: 'Картинка спешит',
-    calibrationCenter: 'Выровнено',
     visualLane: 'Визуализация',
     audioLane: 'Аудио',
     statusReady: 'Готов',

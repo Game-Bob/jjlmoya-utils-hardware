@@ -180,7 +180,6 @@ export const content: ToolLocaleContent<AudioDelayTestUI> = {
     calibrationHint: 'Przesuwaj suwak, aż błysk i kliknięcie zaczną występować jednocześnie',
     calibrationEarly: 'Dźwięk wyprzedza',
     calibrationLate: 'Wizualizacja wyprzedza',
-    calibrationCenter: 'Wyrównano',
     visualLane: 'Wizualizator',
     audioLane: 'Audio',
     statusReady: 'Gotowy',

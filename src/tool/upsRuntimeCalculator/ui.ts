@@ -23,7 +23,6 @@ export interface UpsRuntimeCalculatorUI extends Record<string, string> {
   presetMonitor: string;
   presetRouter: string;
   presetNas: string;
-  percentUnit: string;
   bandLight: string;
   bandBalanced: string;
   bandHeavy: string;

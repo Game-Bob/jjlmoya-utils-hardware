@@ -274,6 +274,5 @@ export const content: ToolLocaleContent<SpeakerPhaseTesterUI> = {
     rightShort: 'D',
     polarityNormal: '0° alineado',
     polarityInverted: '180° invertido',
-    safety: 'Empieza bajo. Las pruebas de polaridad pueden volverse fuertes con amplificadores, monitores de estudio, sistemas de audio de coche y auriculares.',
   },
 };

@@ -55,7 +55,7 @@ export function calculateUsbPowerBudget(input: UsbPowerInput): UsbPowerResult {
   const availableWatts = sourceWatts * (1 - input.headroomPercent / 100);
   const headroomWatts = availableWatts - requiredWatts;
   const loadCurrent = input.sourceVoltage > 0 ? requiredWatts / input.sourceVoltage : 0;
-  const conductorOhms = copperOhmsPerMeterByAwg[input.wireGaugeAwg] ?? copperOhmsPerMeterByAwg[28];
+  const conductorOhms = copperOhmsPerMeterByAwg[input.wireGaugeAwg] ?? copperOhmsPerMeterByAwg[28]!;
   const roundTripOhms = conductorOhms * input.cableLengthMeters * 2;
   const cableDropVolts = loadCurrent * roundTripOhms;
   const deviceEndVoltage = Math.max(0, input.sourceVoltage - cableDropVolts);

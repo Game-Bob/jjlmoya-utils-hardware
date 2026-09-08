@@ -180,7 +180,6 @@ export const content: ToolLocaleContent<AudioDelayTestUI> = {
     calibrationHint: 'Flytta reglaget tills blinkning och klick sammanfaller',
     calibrationEarly: 'Ljudet ligger före',
     calibrationLate: 'Bilden ligger före',
-    calibrationCenter: 'Synkroniserad',
     visualLane: 'Visuellt',
     audioLane: 'Ljud',
     statusReady: 'Redo',

@@ -167,7 +167,6 @@ export const content: ToolLocaleContent<SubwooferCrossoverTestUI> = {
   ],
   ui: {
     sweepLabel: 'Przemiatanie niskoczęstotliwościowe subwoofera',
-    currentFrequency: 'Aktualna częstotliwość',
     targetFrequency: 'Cel',
     elapsed: 'Upłynęło',
     statusReady: 'Gotowy do niskiego przemiatania',
@@ -180,7 +179,6 @@ export const content: ToolLocaleContent<SubwooferCrossoverTestUI> = {
     volume: 'Poziom wyjściowy',
     duration: 'Czas trwania przemiatania',
     safeStart: 'Zacznij od niskiego poziomu głośności, a następnie zaznacz pierwszą częstotliwość, przy której bas staje się trudny do usłyszenia.',
-    roomNote: 'Pozycja w pomieszczeniu i faza mogą drastycznie zmienić wynik.',
     dropoutLabel: 'Zaznaczony punkt',
     dropoutEmpty: 'Jeszcze nie zaznaczono',
     crossoverEstimate: 'Szacowany punkt zaniku',

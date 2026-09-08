@@ -115,9 +115,7 @@ export const content: ToolLocaleContent<ProbadorVibracionMandoUI> = {
     },
   ],
   ui: {
-    badge: 'Test Wibracji',
     title: 'Tester Wibracji Pada',
-    description: 'Bezpośrednia kontrola nad silnikiem Dual-Rumble Twojego pada.',
     deviceDisconnected: 'Pad rozłączony',
     deviceDisconnectedSub: 'Naciśnij przycisk na padzie, aby rozpocząć',
     deviceFallback: 'Pad połączony',

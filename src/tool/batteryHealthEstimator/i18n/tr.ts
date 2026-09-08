@@ -115,9 +115,7 @@ export const content: ToolLocaleContent<EstimadorSaludBateriaUI> = {
     },
   ],
   ui: {
-    badge: 'Li-Ion Pil',
     title: 'Pil Sağlığı Hesaplayıcı',
-    description: 'Lityum-İyon hücreleri için teknik bozulma teşhisi.',
     paramsTitle: 'Hücre Parametreleri',
     voltageLabel: 'Mevcut Voltaj',
     cyclesLabel: 'Şarj Döngüleri',

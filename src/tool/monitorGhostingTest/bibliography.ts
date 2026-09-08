@@ -3,7 +3,7 @@ import type { BibliographyEntry } from '../../types';
 export const bibliography: BibliographyEntry[] = [
   {
     name: 'Blur Busters UFO Motion Tests: visual tests for ghosting, pursuit tracking, and motion clarity',
-    url: 'https://www.testufo.com/',
+    url: 'https://www.testufo.com/ghosting',
   },
   {
     name: 'RTINGS: monitor response time, overshoot, and motion handling methodology',

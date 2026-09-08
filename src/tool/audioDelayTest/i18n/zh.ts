@@ -180,7 +180,6 @@ export const content: ToolLocaleContent<AudioDelayTestUI> = {
     calibrationHint: '移动滑块直到闪烁与点击音重合',
     calibrationEarly: '音频超前',
     calibrationLate: '画面超前',
-    calibrationCenter: '已对齐',
     visualLane: '画面',
     audioLane: '音频',
     statusReady: '就绪',

@@ -167,7 +167,6 @@ export const content: ToolLocaleContent<SubwooferCrossoverTestUI> = {
   ],
   ui: {
     sweepLabel: 'Barrido de baja frecuencia del subwoofer',
-    currentFrequency: 'Frecuencia actual',
     targetFrequency: 'Objetivo',
     elapsed: 'Transcurrido',
     statusReady: 'Listo para barrido bajo',
@@ -180,7 +179,6 @@ export const content: ToolLocaleContent<SubwooferCrossoverTestUI> = {
     volume: 'Nivel de salida',
     duration: 'Duración del barrido',
     safeStart: 'Empieza con volumen bajo y marca la primera frecuencia donde los graves se vuelven difíciles de oír.',
-    roomNote: 'La posición en la sala y la fase pueden cambiar drásticamente el resultado.',
     dropoutLabel: 'Punto marcado',
     dropoutEmpty: 'Aún no marcado',
     crossoverEstimate: 'Punto de caída estimado',

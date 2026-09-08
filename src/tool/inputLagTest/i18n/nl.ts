@@ -145,22 +145,22 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
         {
           value: '< 10 ms',
           label: 'Esports Doel-Latency',
-          trend: 'Optimale competitieve waarde',
+          trend: { value: 'Optimale competitieve waarde', positive: true },
         },
         {
           value: '1000 Hz',
           label: 'Standaard USB Polling',
-          trend: '1.0 ms interval tussen signalen',
+          trend: { value: '1.0 ms interval tussen signalen', positive: true },
         },
         {
           value: '240 Hz',
           label: 'Hoge Verversingssnelheid',
-          trend: '4.16 ms beeldtijd per frame',
+          trend: { value: '4.16 ms beeldtijd per frame', positive: true },
         },
         {
           value: '16.6 ms',
           label: '60Hz Beeldtijd',
-          trend: 'Basisvertraging per getoond beeld',
+          trend: { value: 'Basisvertraging per getoond beeld', positive: true },
         },
       ],
       columns: 4,
@@ -210,7 +210,7 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
         {
           title: 'Gaming Muizen',
           description: 'Snelle draadloze (2.4GHz) of bekabelde verbinding.',
-          highlight: '0.5ms - 2ms Latency',
+          highlight: true,
           points: [
             '1000Hz tot 8000Hz polling rate',
             'Optische schakelaars zonder dendervertraging',
@@ -220,7 +220,7 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
         {
           title: 'Mechanische Toetsenborden',
           description: 'Matrix-scanning met dender-controle.',
-          highlight: '1ms - 10ms Latency',
+          highlight: true,
           points: [
             'Magnetische Hall-effect schakelaars (Rapid Trigger)',
             'Scanfrequentie tot 8000Hz',
@@ -230,7 +230,7 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
         {
           title: 'Mobiele Touchscreens',
           description: 'Capacitieve sampling op mobiele apparaten.',
-          highlight: '15ms - 45ms Latency',
+          highlight: true,
           points: [
             'Touch-sampling frekwentie (120Hz - 480Hz)',
             'Vertraging door besturingssysteem-compositor',

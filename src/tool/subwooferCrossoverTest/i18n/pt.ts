@@ -167,7 +167,6 @@ export const content: ToolLocaleContent<SubwooferCrossoverTestUI> = {
   ],
   ui: {
     sweepLabel: 'Varredura de baixa frequência do subwoofer',
-    currentFrequency: 'Frequência atual',
     targetFrequency: 'Alvo',
     elapsed: 'Decorrido',
     statusReady: 'Pronto para varredura baixa',
@@ -180,7 +179,6 @@ export const content: ToolLocaleContent<SubwooferCrossoverTestUI> = {
     volume: 'Nível de saída',
     duration: 'Duração da varredura',
     safeStart: 'Comece com volume baixo e marque a primeira frequência onde os graves se tornam difíceis de ouvir.',
-    roomNote: 'A posição na sala e a fase podem alterar drasticamente o resultado.',
     dropoutLabel: 'Ponto marcado',
     dropoutEmpty: 'Ainda não marcado',
     crossoverEstimate: 'Ponto de queda estimado',

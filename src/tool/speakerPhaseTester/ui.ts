@@ -19,5 +19,4 @@ export interface SpeakerPhaseTesterUI extends Record<string, string> {
   rightShort: string;
   polarityNormal: string;
   polarityInverted: string;
-  safety: string;
 }

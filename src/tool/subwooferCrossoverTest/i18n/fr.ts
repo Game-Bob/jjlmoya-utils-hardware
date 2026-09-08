@@ -167,7 +167,6 @@ export const content: ToolLocaleContent<SubwooferCrossoverTestUI> = {
   ],
   ui: {
     sweepLabel: 'Balayage basse fréquence du subwoofer',
-    currentFrequency: 'Fréquence actuelle',
     targetFrequency: 'Cible',
     elapsed: 'Écoulé',
     statusReady: 'Prêt pour le balayage bas',
@@ -180,7 +179,6 @@ export const content: ToolLocaleContent<SubwooferCrossoverTestUI> = {
     volume: 'Niveau de sortie',
     duration: 'Durée du balayage',
     safeStart: 'Commencez à bas volume, puis marquez la première fréquence où les basses deviennent difficiles à entendre.',
-    roomNote: 'La position dans la pièce et la phase peuvent changer radicalement le résultat.',
     dropoutLabel: 'Point marqué',
     dropoutEmpty: 'Pas encore marqué',
     crossoverEstimate: 'Point de décrochage estimé',

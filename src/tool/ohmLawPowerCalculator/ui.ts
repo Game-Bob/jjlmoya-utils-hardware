@@ -14,7 +14,6 @@ export interface OhmLawPowerCalculatorUI extends Record<string, string> {
   resultHint: string;
   formulaTitle: string;
   formulaHint: string;
-  statusTitle: string;
   statusEmpty: string;
   statusInvalid: string;
   statusReady: string;
@@ -24,17 +23,5 @@ export interface OhmLawPowerCalculatorUI extends Record<string, string> {
   presetAmplifier: string;
   resetLabel: string;
   orbitCaption: string;
-  knownBadge: string;
   solvedBadge: string;
-  unitVoltage: string;
-  unitCurrent: string;
-  unitResistance: string;
-  unitPower: string;
-  formulaVoltageCurrent: string;
-  formulaVoltageResistance: string;
-  formulaVoltagePower: string;
-  formulaCurrentResistance: string;
-  formulaCurrentPower: string;
-  formulaResistancePower: string;
-  seoTitle: string;
 }

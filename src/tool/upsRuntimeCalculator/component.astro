@@ -138,15 +138,16 @@ const t = (ui ?? {}) as UpsRuntimeCalculatorUI;
     minutes: string;
     hours: string;
     wattsUnit: string;
+    vaUnit: string;
     percentUnit: string;
     assumptionsLabel: string;
   }
   interface PersistedState {
     devices?: Device[];
-    batteryWh?: string;
-    efficiency?: string;
-    powerFactor?: string;
-    reserve?: string;
+    batteryWh?: string | undefined;
+    efficiency?: string | undefined;
+    powerFactor?: string | undefined;
+    reserve?: string | undefined;
   }
   type RuntimeStats = { totalWatts: number; usableWh: number; runtimeMinutes: number; recommendedWatts: number; recommendedVa: number };
   const root = document.querySelector<HTMLElement>('.ups-root');

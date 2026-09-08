@@ -145,22 +145,22 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
         {
           value: '< 10 ms',
           label: 'Objectif E-sport',
-          trend: 'Valeur optimale compétitive',
+          trend: { value: 'Valeur optimale compétitive', positive: true },
         },
         {
           value: '1000 Hz',
           label: 'Taux USB standard',
-          trend: 'Intervalle de 1.0 ms entre signaux',
+          trend: { value: 'Intervalle de 1.0 ms entre signaux', positive: true },
         },
         {
           value: '240 Hz',
           label: 'Écran haute fréquence',
-          trend: 'Durée d image de 4.16 ms',
+          trend: { value: 'Durée d image de 4.16 ms', positive: true },
         },
         {
           value: '16.6 ms',
           label: 'Durée d image 60Hz',
-          trend: 'Délai de base par image affichée',
+          trend: { value: 'Délai de base par image affichée', positive: true },
         },
       ],
       columns: 4,
@@ -210,7 +210,7 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
         {
           title: 'Souris Gamer',
           description: 'Connexion sans fil rapide 2.4GHz ou filaire.',
-          highlight: '0.5ms - 2ms de Latence',
+          highlight: true,
           points: [
             'Taux USB de 1000Hz à 8000Hz',
             'Interrupteurs optiques sans rebond',
@@ -220,7 +220,7 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
         {
           title: 'Claviers Mécaniques',
           description: 'Balayage de matrice avec anti-rebond.',
-          highlight: '1ms - 10ms de Latence',
+          highlight: true,
           points: [
             'Interrupteurs magnétiques à effet Hall',
             'Fréquence de balayage jusqu à 8000Hz',
@@ -230,7 +230,7 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
         {
           title: 'Écrans Tactiles',
           description: 'Échantillonnage capacitif sur mobile.',
-          highlight: '15ms - 45ms de Latence',
+          highlight: true,
           points: [
             'Taux d échantillonnage (120Hz - 480Hz)',
             'Délai de composition du système',

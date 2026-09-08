@@ -23,9 +23,7 @@ export interface VoltageDividerUI extends Record<string, string> {
   formulaPredict: string;
   formulaTarget: string;
   supplyNode: string;
-  topNode: string;
   tapNode: string;
-  bottomNode: string;
   groundNode: string;
   hint: string;
   targetHint: string;

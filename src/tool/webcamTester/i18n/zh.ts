@@ -163,8 +163,6 @@ export const content: ToolLocaleContent<WebcamTesterUI> = {
     guideAction: '构图网格',
     stageLabel: '私密摄像头预览区域',
     resolutionLabel: '分辨率',
-    aspectLabel: '宽高比',
-    orientationLabel: '方向',
     configuredFpsLabel: '配置 FPS',
     observedFpsLabel: '观察到的 FPS',
     frameDeliveryLabel: '帧率推送',

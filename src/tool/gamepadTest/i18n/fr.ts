@@ -121,7 +121,6 @@ export const content: ToolLocaleContent<TestMandoUI> = {
     title: 'Test de Manette et de Contrôleur',
     description: 'Testez votre manette et détectez les problèmes.',
     connectionMessage: 'Connectez votre appareil USB ou Bluetooth',
-    connectionStatus: 'Connecté',
     axisLabel: 'Axes',
     buttonsLabel: 'Boutons',
     vibrationTitle: 'Test de Vibration',

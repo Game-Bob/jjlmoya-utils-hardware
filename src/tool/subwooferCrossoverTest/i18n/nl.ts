@@ -167,7 +167,6 @@ export const content: ToolLocaleContent<SubwooferCrossoverTestUI> = {
   ],
   ui: {
     sweepLabel: 'Subwoofer laagfrequente sweep',
-    currentFrequency: 'Huidige frequentie',
     targetFrequency: 'Doel',
     elapsed: 'Verstreken',
     statusReady: 'Klaar voor lage sweep',
@@ -180,7 +179,6 @@ export const content: ToolLocaleContent<SubwooferCrossoverTestUI> = {
     volume: 'Uitvoerniveau',
     duration: 'Sweepduur',
     safeStart: 'Begin op laag volume en markeer dan de eerste frequentie waar de bas moeilijk hoorbaar wordt.',
-    roomNote: 'Kamerpositie en fase kunnen het resultaat drastisch veranderen.',
     dropoutLabel: 'Gemarkeerd punt',
     dropoutEmpty: 'Nog niet gemarkeerd',
     crossoverEstimate: 'Geschat uitvalpunt',

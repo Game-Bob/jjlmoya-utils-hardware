@@ -145,22 +145,22 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
         {
           value: '< 10 ms',
           label: 'eスポーツ推奨目標値',
-          trend: '最適な競争力基準',
+          trend: { value: '最適な競争力基準', positive: true },
         },
         {
           value: '1000 Hz',
           label: '標準USBポーリングレート',
-          trend: '1.0 ms入力ミリ秒間隔',
+          trend: { value: '1.0 ms入力ミリ秒間隔', positive: true },
         },
         {
           value: '240 Hz',
           label: '高リフレッシュレート',
-          trend: '4.16 msフレーム時間',
+          trend: { value: '4.16 msフレーム時間', positive: true },
         },
         {
           value: '16.6 ms',
           label: '60Hzフレーム間隔',
-          trend: '画面更新の基本遅延',
+          trend: { value: '画面更新の基本遅延', positive: true },
         },
       ],
       columns: 4,
@@ -210,7 +210,7 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
         {
           title: 'ゲーミングマウス',
           description: '高速ワイヤレス(2.4GHz)または有線接続。',
-          highlight: '0.5ms - 2ms 遅延',
+          highlight: true,
           points: [
             '1000Hzから8000Hzのポーリングレート',
             'デバウンス遅延のない光学式スイッチ',
@@ -220,7 +220,7 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
         {
           title: 'メカニカルキーボード',
           description: 'キーマトリクススキャンとデバウンス制御。',
-          highlight: '1ms - 10ms 遅延',
+          highlight: true,
           points: [
             'Rapid Trigger対応の磁気ホロースイッチ',
             '最大8000Hzのマトリクススキャンレート',
@@ -230,7 +230,7 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
         {
           title: 'モバイルタッチパネル',
           description: '静電容量方式デジタイザのサンプリング。',
-          highlight: '15ms - 45ms 遅延',
+          highlight: true,
           points: [
             'タッチサンプリングレート(120Hz - 480Hz)',
             'OSコンポジターによる描画遅延',

@@ -1,7 +1,5 @@
 export interface ProbadorVibracionMandoUI extends Record<string, string> {
-  badge: string;
   title: string;
-  description: string;
   deviceDisconnected: string;
   deviceDisconnectedSub: string;
   deviceFallback: string;

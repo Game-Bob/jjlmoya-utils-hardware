@@ -115,9 +115,7 @@ export const content: ToolLocaleContent<EstimadorSaludBateriaUI> = {
     },
   ],
   ui: {
-    badge: 'Li-Ion Batterie',
     title: 'Batterie Gesundheitsrechner',
-    description: 'Technische Degradationsdiagnose für Lithium-Ionen-Zellen.',
     paramsTitle: 'Zellparameter',
     voltageLabel: 'Aktuelle Spannung',
     cyclesLabel: 'Ladezyklen',

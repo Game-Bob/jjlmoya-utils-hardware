@@ -115,9 +115,7 @@ export const content: ToolLocaleContent<ProbadorVibracionMandoUI> = {
     },
   ],
   ui: {
-    badge: '振動テスト',
     title: 'ゲームパッド振動テスター',
-    description: 'ゲームパッドのDual-Rumbleモーターを直接制御。',
     deviceDisconnected: 'ゲームパッド未接続',
     deviceDisconnectedSub: '開始するにはゲームパッドのボタンを押してください',
     deviceFallback: 'ゲームパッド接続完了',

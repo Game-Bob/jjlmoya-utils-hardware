@@ -115,9 +115,7 @@ export const content: ToolLocaleContent<ProbadorVibracionMandoUI> = {
     },
   ],
   ui: {
-    badge: 'Teste de Vibração',
     title: 'Testador de Vibração de Comando',
-    description: 'Controlo direto sobre o motor Dual-Rumble do seu comando.',
     deviceDisconnected: 'Comando Desligado',
     deviceDisconnectedSub: 'Prima um botão no comando para começar',
     deviceFallback: 'Comando Ligado',

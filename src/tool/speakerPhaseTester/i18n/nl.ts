@@ -274,6 +274,5 @@ export const content: ToolLocaleContent<SpeakerPhaseTesterUI> = {
     rightShort: 'R',
     polarityNormal: '0° gelijkfasig',
     polarityInverted: '180° geïnverteerd',
-    safety: 'Begin zacht. Polariteitstests kunnen luid worden via versterkers, studiomonitors, car-audiosystemen en hoofdtelefoons.',
   },
 };

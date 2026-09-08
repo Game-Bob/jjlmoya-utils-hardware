@@ -35,7 +35,6 @@ export interface LedResistorUI extends Record<string, string> {
   statusInvalid: string;
   supplyLabel: string;
   resistorLabel: string;
-  ledLabel: string;
   groundLabel: string;
   anodeLabel: string;
   cathodeLabel: string;

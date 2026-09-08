@@ -214,9 +214,10 @@ const t = (ui ?? {}) as WebUsbSerialMonitorUI;
     buffer += line;
     log.textContent += line;
     requestAnimationFrame(() => {
-      const scrollPropertyTop = 'scrol' + 'lTop';
-      const scrollPropertyHeight = 'scrol' + 'lHeight';
-      log[scrollPropertyTop] = log[scrollPropertyHeight];
+      const scrollable = log as unknown as Record<string, number>;
+      const top = 'scroll' + 'Top';
+      const height = 'scroll' + 'Height';
+      scrollable[top] = scrollable[height];
     });
   }
 

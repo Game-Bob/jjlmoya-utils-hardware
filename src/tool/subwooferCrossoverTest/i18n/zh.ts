@@ -167,7 +167,6 @@ export const content: ToolLocaleContent<SubwooferCrossoverTestUI> = {
   ],
   ui: {
     sweepLabel: '低音炮低频扫描',
-    currentFrequency: '当前频率',
     targetFrequency: '目标',
     elapsed: '已用时间',
     statusReady: '准备低频扫描',
@@ -180,7 +179,6 @@ export const content: ToolLocaleContent<SubwooferCrossoverTestUI> = {
     volume: '输出电平',
     duration: '扫描时长',
     safeStart: '以低音量开始，然后标记低音变得难以听到的第一个频率。',
-    roomNote: '房间位置和相位可能会显著改变结果。',
     dropoutLabel: '标记点',
     dropoutEmpty: '尚未标记',
     crossoverEstimate: '估计衰减点',

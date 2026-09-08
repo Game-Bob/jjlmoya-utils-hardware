@@ -11,6 +11,6 @@ export const bibliography: BibliographyEntry[] = [
   },
   {
     name: 'IPC - Current carrying capacity and voltage drop fundamentals',
-    url: 'https://www.ipc.org/',
+    url: 'https://www.ipc.org/standards',
   },
 ];

@@ -1,0 +1,14 @@
+---
+import { Bibliography as SharedBibliography } from '@jjlmoya/utils-shared';
+import { laptopBatteryRuntime } from './entry';
+import type { KnownLocale } from '../../types';
+
+interface Props {
+  locale: KnownLocale;
+}
+
+const { locale } = Astro.props;
+const content = await laptopBatteryRuntime.i18n[locale]?.() ?? await laptopBatteryRuntime.i18n.en?.();
+---
+
+{content && content.bibliography.length > 0 && <SharedBibliography links={content.bibliography} />}

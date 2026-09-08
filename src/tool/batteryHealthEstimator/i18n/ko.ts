@@ -115,9 +115,7 @@ export const content: ToolLocaleContent<EstimadorSaludBateriaUI> = {
     },
   ],
   ui: {
-    badge: '리튬 이온 배터리',
     title: '배터리 수명 진단기',
-    description: '리튬 이온 셀을 위한 기술적 퇴화 진단.',
     paramsTitle: '셀 매개변수',
     voltageLabel: '현재 전압',
     cyclesLabel: '충전 사이클',

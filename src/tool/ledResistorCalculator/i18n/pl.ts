@@ -107,7 +107,6 @@ export const content: ToolLocaleContent<LedResistorUI> = {
     statusInvalid: 'Sprawdź wprowadzone dane',
     supplyLabel: 'Zasilacz',
     resistorLabel: 'Rezystor',
-    ledLabel: 'LED',
     groundLabel: 'GND',
     anodeLabel: 'Anoda (+)',
     cathodeLabel: 'Katoda (-)',

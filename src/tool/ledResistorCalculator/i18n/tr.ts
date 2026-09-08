@@ -107,7 +107,6 @@ export const content: ToolLocaleContent<LedResistorUI> = {
     statusInvalid: 'Girdileri kontrol edin',
     supplyLabel: 'Besleme',
     resistorLabel: 'Direnç',
-    ledLabel: 'LED',
     groundLabel: 'GND',
     anodeLabel: 'A+',
     cathodeLabel: 'K-',

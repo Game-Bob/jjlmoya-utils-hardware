@@ -1,0 +1,120 @@
+---
+import { calculateRuntimeSummary, getDefaultRuntimeInputs } from './logic';
+import type { LaptopBatteryRuntimeUI } from './ui';
+import './laptop-battery-runtime-calculator.css';
+
+interface Props {
+  ui: LaptopBatteryRuntimeUI;
+  locale: string;
+}
+
+const { ui } = Astro.props;
+const initialState = getDefaultRuntimeInputs();
+const initialSummary = calculateRuntimeSummary(initialState);
+const scenarioLabels = {
+  light: ui.scenarioLight,
+  balanced: ui.scenarioBalanced,
+  intense: ui.scenarioIntense,
+};
+---
+
+<div class="laptop-battery-runtime" data-laptop-battery-runtime data-locale="en" data-health-percent={initialState.batteryHealthPercent} data-charge-percent={initialState.chargePercent}>
+  <div class="runtime-controls">
+    <fieldset class="runtime-fieldset">
+      <legend>{ui.batteryInputsLabel}</legend>
+      <div class="runtime-input-grid">
+        <label class="runtime-input">
+          <span>{ui.designCapacityLabel}</span>
+          <span class="runtime-input-row"><input type="number" data-field="designCapacity" min="1" max="200" step="1" value={initialState.designCapacityWh} inputmode="decimal" /><b>Wh</b></span>
+          <small>{ui.designCapacityHint}</small>
+          <input type="range" data-range="designCapacity" min="1" max="200" step="1" value={initialState.designCapacityWh} aria-label={ui.designCapacityLabel} />
+        </label>
+        <label class="runtime-input">
+          <span>{ui.healthLabel}</span>
+          <span class="runtime-input-row"><input type="number" data-field="batteryHealth" min="1" max="100" step="1" value={initialState.batteryHealthPercent} inputmode="decimal" /><b>%</b></span>
+          <small>{ui.healthHint}</small>
+          <input type="range" data-range="batteryHealth" min="1" max="100" step="1" value={initialState.batteryHealthPercent} aria-label={ui.healthLabel} />
+        </label>
+        <label class="runtime-input">
+          <span>{ui.chargeLabel}</span>
+          <span class="runtime-input-row"><input type="number" data-field="chargePercent" min="0" max="100" step="1" value={initialState.chargePercent} inputmode="decimal" /><b>%</b></span>
+          <small>{ui.chargeHint}</small>
+          <input type="range" data-range="chargePercent" min="0" max="100" step="1" value={initialState.chargePercent} aria-label={ui.chargeLabel} />
+        </label>
+      </div>
+    </fieldset>
+
+    <fieldset class="runtime-fieldset runtime-scenarios">
+      <legend>{ui.scenariosLabel}</legend>
+      <p class="runtime-hint">{ui.scenariosHint}</p>
+      <div class="runtime-presets" aria-label={ui.presetsLabel}>
+        <span>{ui.presetsLabel}</span>
+        <button type="button" data-preset="balanced" data-active="true">{ui.presetBalanced}</button>
+        <button type="button" data-preset="travel">{ui.presetTravel}</button>
+        <button type="button" data-preset="creative">{ui.presetCreative}</button>
+      </div>
+      <div class="scenario-inputs">
+        {initialState.scenarios.map((scenario) => (
+          <label class="scenario-input" data-scenario-input={scenario.id}>
+            <span class="scenario-input-name"><i data-scenario-mark={scenario.id}></i>{scenarioLabels[scenario.id as keyof typeof scenarioLabels]}</span>
+            <span class="runtime-input-row"><input type="number" data-field={`${scenario.id}Power`} min="1" max="300" step="1" value={scenario.powerWatts} inputmode="decimal" aria-label={`${ui.powerLabel} ${scenarioLabels[scenario.id as keyof typeof scenarioLabels]}`} /><b>{ui.wattsSuffix}</b></span>
+            <small>{ui.powerLabel}</small>
+          </label>
+        ))}
+      </div>
+    </fieldset>
+  </div>
+
+  <section class="runtime-runway" aria-labelledby="runtime-runway-title">
+    <div class="runway-heading">
+      <div>
+        <span class="runway-kicker">{ui.runwayLabel}</span>
+        <h2 id="runtime-runway-title"><span data-role="available-energy">{initialSummary.availableEnergyWh.toFixed(1)} Wh</span></h2>
+        <span class="runway-amount-label">{ui.availableEnergyLabel}</span>
+        <p>{ui.runwayCaption}</p>
+      </div>
+      <div class="runway-metrics" aria-label={ui.sceneEnergyLabel}>
+        <span><b data-role="full-capacity">{initialSummary.fullChargeCapacityWh.toFixed(1)} Wh</b><small>{ui.fullCapacityLabel}</small></span>
+        <span><b data-role="health-state">{ui.healthStateGood}</b><small>{ui.healthLabel}</small></span>
+      </div>
+    </div>
+
+      <div class="runway-scene" role="img" aria-label={ui.sceneBatteryLabel}>
+      <div class="battery-portrait">
+        <div class="battery-cap"></div>
+        <div class="battery-shell"><div class="battery-level" data-role="battery-level" style={`height: ${initialState.chargePercent}%`}></div><span data-role="charge-display">{initialState.chargePercent}%</span></div>
+        <span class="battery-caption">{ui.sceneBatteryLabel}</span>
+      </div>
+      <div class="runway-lanes" aria-label={ui.sceneTimeLabel}>
+        {initialSummary.scenarios.map((scenario) => (
+          <div class="runtime-lane" data-scenario-row={scenario.id} data-status="workable" data-active={scenario.id === initialSummary.shortestScenarioId}>
+            <div class="runtime-lane-meta"><span><i data-scenario-mark={scenario.id}></i>{scenarioLabels[scenario.id as keyof typeof scenarioLabels]}</span><b data-role={`${scenario.id}-runtime`} aria-label={`${ui.runtimeLabel}: ${scenarioLabels[scenario.id as keyof typeof scenarioLabels]}`}>{Math.floor(scenario.runtimeHours)} h {Math.round((scenario.runtimeHours % 1) * 60)} min</b></div>
+            <div class="runtime-track"><div class="runtime-track-start">0</div><div class="runtime-track-line"><div class="runtime-lane-fill" data-scenario-fill={scenario.id} style={`width: ${scenario.trackPercent}%`}></div><div class="runtime-lane-marker" data-scenario-marker={scenario.id} style={`left: ${scenario.trackPercent}%`}></div></div><div class="runtime-track-end">12h</div></div>
+            <div class="runtime-lane-foot"><span>{ui.loadLabel} <b data-role={`${scenario.id}-power`}>{scenario.powerWatts} W</b></span><span data-role={`${scenario.id}-status`}>{ui.statusWorkable}</span></div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="runtime-decision" aria-live="polite"><span>{ui.shortestScenarioLabel}</span><strong data-role="shortest-scenario">intense</strong><span class="runtime-health-note">{ui.noteLabel}: {ui.noteText}</span></div>
+  </section>
+
+  <script is:inline type="application/json" data-runtime-state set:html={JSON.stringify(initialState)}></script>
+  <script is:inline type="application/json" data-runtime-ui set:html={JSON.stringify(ui)}></script>
+</div>
+
+<script>
+  import { mountLaptopBatteryRuntime } from './controller';
+
+  const root = document.querySelector<HTMLElement>('[data-laptop-battery-runtime]');
+  const stateNode = root?.querySelector<HTMLScriptElement>('[data-runtime-state]');
+  const uiNode = root?.querySelector<HTMLScriptElement>('[data-runtime-ui]');
+  if (root && stateNode && uiNode) {
+    mountLaptopBatteryRuntime({
+      root,
+      initialState: JSON.parse(stateNode.textContent ?? '{}'),
+      ui: JSON.parse(uiNode.textContent ?? '{}'),
+      locale: root.dataset.locale ?? 'en',
+    });
+  }
+</script>

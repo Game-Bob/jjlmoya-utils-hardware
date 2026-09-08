@@ -145,22 +145,22 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
         {
           value: '< 10 ms',
           label: 'E-sport Målvärde',
-          trend: 'Optimal tävlingsnivå',
+          trend: { value: 'Optimal tävlingsnivå', positive: true },
         },
         {
           value: '1000 Hz',
           label: 'Standard USB-Polling',
-          trend: '1.0 ms intervall mellan signaler',
+          trend: { value: '1.0 ms intervall mellan signaler', positive: true },
         },
         {
           value: '240 Hz',
           label: 'Högskärmsuppdatering',
-          trend: '4.16 ms bildrutetid per frame',
+          trend: { value: '4.16 ms bildrutetid per frame', positive: true },
         },
         {
           value: '16.6 ms',
           label: '60Hz Bildrutetid',
-          trend: 'Grundläggande skärmfördröjning per bild',
+          trend: { value: 'Grundläggande skärmfördröjning per bild', positive: true },
         },
       ],
       columns: 4,
@@ -210,7 +210,7 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
         {
           title: 'Gamingmöss',
           description: 'Snabb trådlös (2.4GHz) eller trådbunden anslutning.',
-          highlight: '0.5ms - 2ms Fördröjning',
+          highlight: true,
           points: [
             '1000Hz till 8000Hz polling rate',
             'Optiska brytare utan studsfördröjning',
@@ -220,7 +220,7 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
         {
           title: 'Mekaniska Tangentbord',
           description: 'Matrisskanning med studskontroll.',
-          highlight: '1ms - 10ms Fördröjning',
+          highlight: true,
           points: [
             'Magnetiska Hall-effect-brytare (Rapid Trigger)',
             'Skanningsfrekvens upp till 8000Hz',
@@ -230,7 +230,7 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
         {
           title: 'Mobila Pekskärmar',
           description: 'Kapacitiv avläsning på mobila enheter.',
-          highlight: '15ms - 45ms Fördröjning',
+          highlight: true,
           points: [
             'Pekavläsningsfrekvens (120Hz - 480Hz)',
             'Fördröjning i operativsystemets grafikhanterare',

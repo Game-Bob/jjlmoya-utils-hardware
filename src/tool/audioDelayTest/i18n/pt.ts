@@ -180,7 +180,6 @@ export const content: ToolLocaleContent<AudioDelayTestUI> = {
     calibrationHint: 'Mova o controle até que o piscar e o clique coincidam',
     calibrationEarly: 'Áudio adiantado',
     calibrationLate: 'Visual adiantado',
-    calibrationCenter: 'Alinhado',
     visualLane: 'Visual',
     audioLane: 'Áudio',
     statusReady: 'Pronto',

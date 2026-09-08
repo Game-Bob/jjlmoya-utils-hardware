@@ -121,7 +121,6 @@ export const content: ToolLocaleContent<TestMandoUI> = {
     title: '手柄与控制器测试',
     description: '在线检测您的控制器并发现潜在问题。',
     connectionMessage: '请连接您的 USB 或蓝牙设备',
-    connectionStatus: '已连接',
     axisLabel: '摇杆轴',
     buttonsLabel: '按键',
     vibrationTitle: '振动测试',

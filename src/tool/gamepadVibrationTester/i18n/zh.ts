@@ -115,9 +115,7 @@ export const content: ToolLocaleContent<ProbadorVibracionMandoUI> = {
     },
   ],
   ui: {
-    badge: '振动测试',
     title: '手柄振动测试器',
-    description: '直接控制手柄的 Dual-Rumble 马达。',
     deviceDisconnected: '手柄已断开连接',
     deviceDisconnectedSub: '按下手柄上的按键开始',
     deviceFallback: '手柄已连接',

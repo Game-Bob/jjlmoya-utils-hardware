@@ -112,9 +112,7 @@ export const content: ToolLocaleContent<ProbadorVibracionMandoUI> = {
     { type: 'paragraph', html: "Lancez chaque moteur séparément puis combinez les deux intensités. Une différence persistante entre les côtés indique un problème matériel ou une alimentation instable." },
   ],
   ui: {
-    badge: 'Test de Vibration',
     title: 'Testeur de Vibration de Manette',
-    description: 'Contrôle direct sur le moteur Dual-Rumble de votre manette.',
     deviceDisconnected: 'Manette Déconnectée',
     deviceDisconnectedSub: 'Appuyez sur un bouton de votre manette pour commencer',
     deviceFallback: 'Manette Connectée',

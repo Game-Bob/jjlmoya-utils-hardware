@@ -121,7 +121,6 @@ export const content: ToolLocaleContent<TestMandoUI> = {
     title: '게임패드 및 컨트롤러 테스트',
     description: '컨트롤러를 테스트하고 결함을 찾아보세요.',
     connectionMessage: 'USB 또는 블루투스 장치를 연결하세요',
-    connectionStatus: '연결됨',
     axisLabel: '스틱 축',
     buttonsLabel: '버튼',
     vibrationTitle: '진동 테스트',

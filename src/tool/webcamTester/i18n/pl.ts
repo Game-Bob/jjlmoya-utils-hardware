@@ -163,8 +163,6 @@ export const content: ToolLocaleContent<WebcamTesterUI> = {
     guideAction: 'Przewodnik kadrowania',
     stageLabel: 'Obszar prywatnego podglądu kamery',
     resolutionLabel: 'Rozdzielczość',
-    aspectLabel: 'Proporcje obrazu',
-    orientationLabel: 'Orientacja',
     configuredFpsLabel: 'Skonfigurowane FPS',
     observedFpsLabel: 'Zaobserwowane FPS',
     frameDeliveryLabel: 'Płynność klatek',

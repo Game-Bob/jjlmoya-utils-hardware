@@ -62,14 +62,12 @@ export const DCIP3_TESTS: ColorTest[] = [
 export class SpectrumCanvasTest {
   private currentTestIndex = 0;
   private currentColorIndex = 0;
-  private gamut: 'srgb' | 'dcip3' = 'srgb';
   private tests: ColorTest[] = SRGB_TESTS;
   private testBg: HTMLElement | null = null;
   private testName: HTMLElement | null = null;
   private testDescription: HTMLElement | null = null;
   private progressBar: HTMLElement | null = null;
   private testOverlay: HTMLElement | null = null;
-  private dashboard: HTMLElement | null = null;
 
   constructor() {
     this.testBg = document.getElementById('test-bg');
@@ -77,11 +75,9 @@ export class SpectrumCanvasTest {
     this.testDescription = document.getElementById('test-description');
     this.progressBar = document.querySelector('.sc-progress-bar');
     this.testOverlay = document.getElementById('test-overlay');
-    this.dashboard = document.getElementById('dashboard');
   }
 
   start(gamut: 'srgb' | 'dcip3' = 'srgb') {
-    this.gamut = gamut;
     this.tests = gamut === 'dcip3' ? DCIP3_TESTS : SRGB_TESTS;
     this.currentTestIndex = 0;
     this.currentColorIndex = 0;
@@ -104,7 +100,7 @@ export class SpectrumCanvasTest {
     this.updateProgress();
     this.displayColor();
 
-    const win = window as Record<string, unknown>;
+    const win = window as unknown as Record<string, unknown>;
     if (win.updateTestUI) {
       (win.updateTestUI as () => void)();
     }
@@ -120,7 +116,7 @@ export class SpectrumCanvasTest {
         'linear-gradient(90deg, #f00, #ff0, #0f0, #0ff, #00f, #f0f, #f00)';
     } else {
       this.testBg.style.background = '';
-      const color = test.colors[this.currentColorIndex % test.colors.length];
+      const color = test.colors[this.currentColorIndex % test.colors.length] ?? '';
       this.testBg.style.backgroundColor = color;
     }
   }
@@ -170,6 +166,7 @@ export class SpectrumCanvasTest {
       }
       this.currentTestIndex--;
       const prevTest = this.tests[this.currentTestIndex];
+      if (!prevTest) return;
       this.currentColorIndex = prevTest.colors.length - 1;
       this.showCurrentTest();
     } else {

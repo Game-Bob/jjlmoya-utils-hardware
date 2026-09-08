@@ -163,8 +163,6 @@ export const content: ToolLocaleContent<WebcamTesterUI> = {
     guideAction: 'Inramningsguide',
     stageLabel: 'Privat förhandsgranskningsområde för webbkamera',
     resolutionLabel: 'Upplösning',
-    aspectLabel: 'Bildförhållande',
-    orientationLabel: 'Orientering',
     configuredFpsLabel: 'Konfigurerad FPS',
     observedFpsLabel: 'Uppmätt FPS',
     frameDeliveryLabel: 'Bildleverans',

@@ -121,7 +121,6 @@ export const content: ToolLocaleContent<TestMandoUI> = {
     title: 'Oyun Kolu ve Kontrolcü Testi',
     description: 'Kontrolcünüzü test edin ve sorunları algılayın.',
     connectionMessage: 'USB veya Bluetooth cihazınızı bağlayın',
-    connectionStatus: 'Bağlı',
     axisLabel: 'Eksenler',
     buttonsLabel: 'Düğmeler',
     vibrationTitle: 'Titreşim Testi',

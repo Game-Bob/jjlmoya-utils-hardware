@@ -180,7 +180,6 @@ export const content: ToolLocaleContent<AudioDelayTestUI> = {
     calibrationHint: '섬광과 클릭 소리가 일치할 때까지 슬라이더 이동',
     calibrationEarly: '오디오가 빠름',
     calibrationLate: '시각 신호가 빠름',
-    calibrationCenter: '동기화됨',
     visualLane: '시각',
     audioLane: '오디오',
     statusReady: '준비됨',

@@ -8,7 +8,6 @@ export interface PsuPowerRequirementUI extends Record<string, string> {
   highEndPreset: string;
   workstationPreset: string;
   miniPcPreset: string;
-  componentsHeader: string;
   cpuWatts: string;
   gpuWatts: string;
   motherboardWatts: string;
@@ -18,16 +17,12 @@ export interface PsuPowerRequirementUI extends Record<string, string> {
   currentPsuWatts: string;
   showAdvanced: string;
   hideAdvanced: string;
-  marginsHeader: string;
   transientMargin: string;
   growthMargin: string;
   wattsUnit: string;
   baseLoad: string;
-  minimumPsu: string;
   recommendedPsu: string;
-  currentPsu: string;
   headroom: string;
-  statusLabel: string;
   statusInsufficient: string;
   statusTight: string;
   statusRecommended: string;
@@ -41,5 +36,4 @@ export interface PsuPowerRequirementUI extends Record<string, string> {
   adviceTight: string;
   adviceRecommended: string;
   adviceOversized: string;
-  inputHint: string;
 }

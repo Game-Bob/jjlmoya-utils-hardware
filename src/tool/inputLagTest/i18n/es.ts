@@ -134,10 +134,10 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
     {
       type: 'stats',
       items: [
-        { value: '< 10 ms', label: 'Objetivo Esports', trend: 'Rendimiento óptimo' },
-        { value: '1000 Hz', label: 'Muestreo USB', trend: '1.0 ms intervalo' },
-        { value: '240 Hz', label: 'Monitor Gaming', trend: '4.16 ms por fotograma' },
-        { value: '16.6 ms', label: 'Base 60Hz', trend: 'Retardo estándar' },
+        { value: '< 10 ms', label: 'Objetivo Esports', trend: { value: 'Rendimiento óptimo', positive: true } },
+        { value: '1000 Hz', label: 'Muestreo USB', trend: { value: '1.0 ms intervalo', positive: true } },
+        { value: '240 Hz', label: 'Monitor Gaming', trend: { value: '4.16 ms por fotograma', positive: true } },
+        { value: '16.6 ms', label: 'Base 60Hz', trend: { value: 'Retardo estándar', positive: true } },
       ],
       columns: 4,
     },
@@ -183,9 +183,9 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
       type: 'comparative',
       columns: 3,
       items: [
-        { title: 'Ratones gaming', description: 'Conexión cableada o inalámbrica de alta frecuencia.', highlight: '0.5 ms a 2 ms', points: ['Sondeo de 1000 Hz o superior', 'Interruptores ópticos con menos rebote', 'Sensor con procesamiento rápido'] },
-        { title: 'Teclados mecánicos', description: 'Matriz de teclas con control del antirrebote.', highlight: '1 ms a 10 ms', points: ['Interruptores magnéticos con activación rápida', 'Escaneo de matriz configurable', 'Distancia de actuación ajustable'] },
-        { title: 'Pantallas táctiles', description: 'Digitalizador capacitivo superpuesto al panel.', highlight: '15 ms a 45 ms', points: ['Frecuencia de muestreo táctil', 'Procesamiento del controlador de pantalla', 'Filtros para rechazar toques accidentales'] },
+        { title: 'Ratones gaming', description: 'Conexión cableada o inalámbrica de alta frecuencia.', highlight: true, points: ['Sondeo de 1000 Hz o superior', 'Interruptores ópticos con menos rebote', 'Sensor con procesamiento rápido'] },
+        { title: 'Teclados mecánicos', description: 'Matriz de teclas con control del antirrebote.', highlight: true, points: ['Interruptores magnéticos con activación rápida', 'Escaneo de matriz configurable', 'Distancia de actuación ajustable'] },
+        { title: 'Pantallas táctiles', description: 'Digitalizador capacitivo superpuesto al panel.', highlight: true, points: ['Frecuencia de muestreo táctil', 'Procesamiento del controlador de pantalla', 'Filtros para rechazar toques accidentales'] },
       ],
     },
     {

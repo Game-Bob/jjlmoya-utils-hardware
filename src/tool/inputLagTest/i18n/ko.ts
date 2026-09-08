@@ -145,22 +145,22 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
         {
           value: '< 10 ms',
           label: 'e스포츠 권장 목표치',
-          trend: '최적의 반응 속도',
+          trend: { value: '최적의 반응 속도', positive: true },
         },
         {
           value: '1000 Hz',
           label: '표준 USB 폴링레이트',
-          trend: '1.0 ms 입력 간격',
+          trend: { value: '1.0 ms 입력 간격', positive: true },
         },
         {
           value: '240 Hz',
           label: '고주사율 모니터',
-          trend: '4.16 ms 프레임 간격',
+          trend: { value: '4.16 ms 프레임 간격', positive: true },
         },
         {
           value: '16.6 ms',
           label: '60Hz 프레임 간격',
-          trend: '디스플레이 기본 지연',
+          trend: { value: '디스플레이 기본 지연', positive: true },
         },
       ],
       columns: 4,
@@ -210,7 +210,7 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
         {
           title: '게이밍 마우스',
           description: '고속 무선 (2.4GHz) 및 유선 연결.',
-          highlight: '0.5ms - 2ms 지연 시간',
+          highlight: true,
           points: [
             '1000Hz~8000Hz 폴링레이트',
             '디바운스 지연이 없는 광학 스위치',
@@ -220,7 +220,7 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
         {
           title: '기계식 키보드',
           description: '키 스캔 마트릭스 및 디바운스 제어.',
-          highlight: '1ms - 10ms 지연 시간',
+          highlight: true,
           points: [
             '래피드 트리거 지원 홀 효과 자성 스위치',
             '최대 8000Hz 스캔 레이트',
@@ -230,7 +230,7 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
         {
           title: '모바일 터치스크린',
           description: '정전식 터치 디지타이저 샘플링.',
-          highlight: '15ms - 45ms 지연 시간',
+          highlight: true,
           points: [
             '터치 샘플링 레이트 (120Hz - 480Hz)',
             'OS 디스플레이 컴포지터 지연',

@@ -180,7 +180,6 @@ export const content: ToolLocaleContent<AudioDelayTestUI> = {
     calibrationHint: 'Move the slider until the flash and click meet',
     calibrationEarly: 'Audio leads',
     calibrationLate: 'Visual leads',
-    calibrationCenter: 'Aligned',
     visualLane: 'Visual',
     audioLane: 'Audio',
     statusReady: 'Ready',

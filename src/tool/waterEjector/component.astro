@@ -158,7 +158,7 @@ const strings = JSON.stringify({
         gain = null;
       }
       setPlaying(false);
-      if (statusText && completed) statusText.textContent = copy.complete ?? copy.idle;
+      if (statusText && completed) statusText.textContent = copy.complete ?? copy.idle ?? '';
       updateStaticReadout();
     }
 

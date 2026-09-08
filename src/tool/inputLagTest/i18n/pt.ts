@@ -145,22 +145,22 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
         {
           value: '< 10 ms',
           label: 'Meta para eSports',
-          trend: 'Valor ideal competitivo',
+          trend: { value: 'Valor ideal competitivo', positive: true },
         },
         {
           value: '1000 Hz',
           label: 'Amostragem USB Padrão',
-          trend: 'Intervalo de 1.0 ms entre sinais',
+          trend: { value: 'Intervalo de 1.0 ms entre sinais', positive: true },
         },
         {
           value: '240 Hz',
           label: 'Monitor de Alta Frequência',
-          trend: 'Duração de quadro de 4.16 ms',
+          trend: { value: 'Duração de quadro de 4.16 ms', positive: true },
         },
         {
           value: '16.6 ms',
           label: 'Duração de Quadro 60Hz',
-          trend: 'Atraso base da tela por quadro',
+          trend: { value: 'Atraso base da tela por quadro', positive: true },
         },
       ],
       columns: 4,
@@ -210,7 +210,7 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
         {
           title: 'Mouses Gamer',
           description: 'Conexão sem fio 2.4GHz rápida ou com fio.',
-          highlight: 'Latência de 0.5ms - 2ms',
+          highlight: true,
           points: [
             'Taxa de polling de 1000Hz a 8000Hz',
             'Interruptores ópticos sem atraso de debounce',
@@ -220,7 +220,7 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
         {
           title: 'Teclados Mecânicos',
           description: 'Varredura de matriz com controle de debounce.',
-          highlight: 'Latência de 1ms - 10ms',
+          highlight: true,
           points: [
             'Interruptores magnéticos Hall-effect (Rapid Trigger)',
             'Frequência de varredura de até 8000Hz',
@@ -230,7 +230,7 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
         {
           title: 'Telas Sensíveis ao Toque',
           description: 'Amostragem capacitiva em dispositivos móveis.',
-          highlight: 'Latência de 15ms - 45ms',
+          highlight: true,
           points: [
             'Taxa de amostragem de toque (120Hz - 480Hz)',
             'Atraso do compositor do sistema operacional',

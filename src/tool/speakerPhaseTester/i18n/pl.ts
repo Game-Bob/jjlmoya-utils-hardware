@@ -274,6 +274,5 @@ export const content: ToolLocaleContent<SpeakerPhaseTesterUI> = {
     rightShort: 'P',
     polarityNormal: '0° zgodny',
     polarityInverted: '180° odwrócony',
-    safety: 'Zacznij cicho. Testy polaryzacji mogą stać się głośne przez wzmacniacze, monitory studyjne, systemy car audio i słuchawki.',
   },
 };

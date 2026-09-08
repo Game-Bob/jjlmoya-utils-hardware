@@ -180,7 +180,6 @@ export const content: ToolLocaleContent<AudioDelayTestUI> = {
     calibrationHint: 'Verschuif de slider tot flits en klik samenvallen',
     calibrationEarly: 'Audio voorlopend',
     calibrationLate: 'Visueel voorlopend',
-    calibrationCenter: 'Uitgelijnd',
     visualLane: 'Visueel',
     audioLane: 'Audio',
     statusReady: 'Gereed',

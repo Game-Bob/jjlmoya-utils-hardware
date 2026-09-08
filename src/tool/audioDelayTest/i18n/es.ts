@@ -180,7 +180,6 @@ export const content: ToolLocaleContent<AudioDelayTestUI> = {
     calibrationHint: 'Mueve el deslizador hasta hacer coincidir el destello y el clic',
     calibrationEarly: 'Audio adelantado',
     calibrationLate: 'Visual adelantado',
-    calibrationCenter: 'Alineado',
     visualLane: 'Visual',
     audioLane: 'Audio',
     statusReady: 'Listo',

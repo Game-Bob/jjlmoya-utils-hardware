@@ -167,7 +167,6 @@ export const content: ToolLocaleContent<SubwooferCrossoverTestUI> = {
   ],
   ui: {
     sweepLabel: 'Subwoofer lågfrekvenssvep',
-    currentFrequency: 'Aktuell frekvens',
     targetFrequency: 'Mål',
     elapsed: 'Förfluten',
     statusReady: 'Redo för lågt svep',
@@ -180,7 +179,6 @@ export const content: ToolLocaleContent<SubwooferCrossoverTestUI> = {
     volume: 'Utgångsnivå',
     duration: 'Sveplängd',
     safeStart: 'Börja på låg volym och markera sedan den första frekvensen där basen blir svår att höra.',
-    roomNote: 'Rumsposition och fas kan förändra resultatet dramatiskt.',
     dropoutLabel: 'Markerad punkt',
     dropoutEmpty: 'Inte markerad än',
     crossoverEstimate: 'Uppskattad bortfallspunkt',

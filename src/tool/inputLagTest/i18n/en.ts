@@ -147,22 +147,22 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
         {
           value: '< 10 ms',
           label: 'Esports Target Latency',
-          trend: 'Optimal competitive benchmark',
+          trend: { value: 'Optimal competitive benchmark', positive: true },
         },
         {
           value: '1000 Hz',
           label: 'Standard USB Polling Rate',
-          trend: '1.0 ms input interval',
+          trend: { value: '1.0 ms input interval', positive: true },
         },
         {
           value: '240 Hz',
           label: 'High Refresh Monitor',
-          trend: '4.16 ms frame interval',
+          trend: { value: '4.16 ms frame interval', positive: true },
         },
         {
           value: '16.6 ms',
           label: '60Hz Frame Interval',
-          trend: 'Base display delay per frame',
+          trend: { value: 'Base display delay per frame', positive: true },
         },
       ],
       columns: 4,
@@ -215,7 +215,7 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
         {
           title: 'Gaming Mice',
           description: 'High polling rate wireless (2.4GHz) or wired connections.',
-          highlight: '0.5ms - 2ms Input Lag',
+          highlight: true,
           points: [
             '1000Hz to 8000Hz polling rate',
             'Optical switches eliminate mechanical debounce',
@@ -225,7 +225,7 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
         {
           title: 'Mechanical Keyboards',
           description: 'Key matrix scanning with debounce delay control.',
-          highlight: '1ms - 10ms Input Lag',
+          highlight: true,
           points: [
             'Hall-effect magnetic switches with rapid trigger',
             'Matrix scan rates from 500Hz to 8000Hz',
@@ -235,7 +235,7 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
         {
           title: 'Mobile Touchscreens',
           description: 'Capacitive touch digitizer overlay sampling.',
-          highlight: '15ms - 45ms Input Lag',
+          highlight: true,
           points: [
             'Touch sampling rates (120Hz - 480Hz)',
             'Display driver compositor lag',

@@ -115,9 +115,7 @@ export const content: ToolLocaleContent<ProbadorVibracionMandoUI> = {
     },
   ],
   ui: {
-    badge: 'Vibrationstest',
     title: 'Gamepad Vibrationstester',
-    description: 'Direkte Kontrolle über den Dual Rumble Motor Ihres Gamepads.',
     deviceDisconnected: 'Gamepad getrennt',
     deviceDisconnectedSub: 'Drücken Sie eine Taste an Ihrem Gamepad, um zu starten',
     deviceFallback: 'Gamepad verbunden',

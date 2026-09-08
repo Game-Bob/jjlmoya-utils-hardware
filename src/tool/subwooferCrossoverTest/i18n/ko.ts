@@ -167,7 +167,6 @@ export const content: ToolLocaleContent<SubwooferCrossoverTestUI> = {
   ],
   ui: {
     sweepLabel: '서브우퍼 저주파 스위프',
-    currentFrequency: '현재 주파수',
     targetFrequency: '목표',
     elapsed: '경과',
     statusReady: '저역 스위프 준비 완료',
@@ -180,7 +179,6 @@ export const content: ToolLocaleContent<SubwooferCrossoverTestUI> = {
     volume: '출력 레벨',
     duration: '스위프 시간',
     safeStart: '낮은 볼륨으로 시작한 다음, 저음이 들리기 어려워지는 첫 번째 주파수를 표시하세요.',
-    roomNote: '룸 위치와 위상은 결과를 극적으로 바꿀 수 있습니다.',
     dropoutLabel: '표시된 지점',
     dropoutEmpty: '아직 표시되지 않음',
     crossoverEstimate: '추정 드롭아웃 지점',

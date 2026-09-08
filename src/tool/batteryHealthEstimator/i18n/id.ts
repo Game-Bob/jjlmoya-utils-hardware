@@ -115,9 +115,7 @@ export const content: ToolLocaleContent<EstimadorSaludBateriaUI> = {
     },
   ],
   ui: {
-    badge: 'Baterai Li-Ion',
     title: 'Estimator Kesehatan Baterai',
-    description: 'Diagnosis degradasi teknis untuk sel Lithium-Ion.',
     paramsTitle: 'Parameter Sel',
     voltageLabel: 'Tegangan Saat Ini',
     cyclesLabel: 'Siklus Pengisian',

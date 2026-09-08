@@ -167,7 +167,6 @@ export const content: ToolLocaleContent<SubwooferCrossoverTestUI> = {
   ],
   ui: {
     sweepLabel: 'Subwoofer düşük frekans taraması',
-    currentFrequency: 'Mevcut frekans',
     targetFrequency: 'Hedef',
     elapsed: 'Geçen süre',
     statusReady: 'Düşük taramaya hazır',
@@ -180,7 +179,6 @@ export const content: ToolLocaleContent<SubwooferCrossoverTestUI> = {
     volume: 'Çıkış seviyesi',
     duration: 'Tarama süresi',
     safeStart: 'Düşük sesle başlayın, ardından basın duyulması zorlaştığı ilk frekansı işaretleyin.',
-    roomNote: 'Oda konumu ve faz, sonucu önemli ölçüde değiştirebilir.',
     dropoutLabel: 'İşaretlenmiş nokta',
     dropoutEmpty: 'Henüz işaretlenmedi',
     crossoverEstimate: 'Tahmini düşüş noktası',

@@ -3,7 +3,6 @@ export interface TestMandoUI extends Record<string, string> {
   title: string;
   description: string;
   connectionMessage: string;
-  connectionStatus: string;
   axisLabel: string;
   buttonsLabel: string;
   vibrationTitle: string;

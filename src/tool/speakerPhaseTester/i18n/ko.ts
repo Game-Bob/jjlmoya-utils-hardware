@@ -274,6 +274,5 @@ export const content: ToolLocaleContent<SpeakerPhaseTesterUI> = {
     rightShort: 'R',
     polarityNormal: '0° 정렬됨',
     polarityInverted: '180° 반전됨',
-    safety: '낮게 시작하세요. 극성 테스트는 앰프, 스튜디오 모니터, 카 오디오 시스템 및 헤드폰을 통해 크게 들릴 수 있습니다.',
   },
 };

@@ -167,7 +167,6 @@ export const content: ToolLocaleContent<SubwooferCrossoverTestUI> = {
   ],
   ui: {
     sweepLabel: 'Низкочастотная развертка сабвуфера',
-    currentFrequency: 'Текущая частота',
     targetFrequency: 'Цель',
     elapsed: 'Прошло',
     statusReady: 'Готов к низкой развертке',
@@ -180,7 +179,6 @@ export const content: ToolLocaleContent<SubwooferCrossoverTestUI> = {
     volume: 'Уровень выхода',
     duration: 'Длительность развертки',
     safeStart: 'Начните с низкой громкости, затем отметьте первую частоту, на которой бас становится трудно слышимым.',
-    roomNote: 'Положение в комнате и фаза могут резко изменить результат.',
     dropoutLabel: 'Отмеченная точка',
     dropoutEmpty: 'Ещё не отмечено',
     crossoverEstimate: 'Предполагаемая точка провала',

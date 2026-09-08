@@ -145,22 +145,22 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
         {
           value: '< 10 ms',
           label: 'Target Latensi Esports',
-          trend: 'Nilai teratas kompetitif',
+          trend: { value: 'Nilai teratas kompetitif', positive: true },
         },
         {
           value: '1000 Hz',
           label: 'Polling Rate USB Standar',
-          trend: 'Interval 1.0 ms antar sinyal',
+          trend: { value: 'Interval 1.0 ms antar sinyal', positive: true },
         },
         {
           value: '240 Hz',
           label: 'Monitor Refresh Tinggi',
-          trend: 'Interval bingkai 4.16 ms',
+          trend: { value: 'Interval bingkai 4.16 ms', positive: true },
         },
         {
           value: '16.6 ms',
           label: 'Interval Bingkai 60Hz',
-          trend: 'Penundaan dasar tampilan',
+          trend: { value: 'Penundaan dasar tampilan', positive: true },
         },
       ],
       columns: 4,
@@ -210,7 +210,7 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
         {
           title: 'Tetikus Gaming',
           description: 'Koneksi nirkabel 2.4GHz atau kabel berkecepatan tinggi.',
-          highlight: 'Latensi 0.5ms - 2ms',
+          highlight: true,
           points: [
             'Polling rate 1000Hz hingga 8000Hz',
             'Sakelar optik tanpa penundaan debounce',
@@ -220,7 +220,7 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
         {
           title: 'Papan Ketik Mekanis',
           description: 'Pemindaian matriks dengan kontrol debounce.',
-          highlight: 'Latensi 1ms - 10ms',
+          highlight: true,
           points: [
             'Sakelar magnetik efek Hall (Rapid Trigger)',
             'Kecepatan pemindaian hingga 8000Hz',
@@ -230,7 +230,7 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
         {
           title: 'Layar Sentuh Seluler',
           description: 'Pengambilan sampel digitizer kapasitif.',
-          highlight: 'Latensi 15ms - 45ms',
+          highlight: true,
           points: [
             'Sampling sentuh (120Hz - 480Hz)',
             'Penundaan komposisi penggerak layar',

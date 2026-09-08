@@ -8,6 +8,6 @@ export const bibliography: BibliographyEntry[] = [
     },
     {
       name: 'Dead Pixel Policy - Common Standards (VESA)',
-      url: 'https://www.vesa.org/',
+      url: 'https://vesa.org/standards-specifications/',
     },
 ];

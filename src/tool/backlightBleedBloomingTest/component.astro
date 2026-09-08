@@ -62,15 +62,17 @@ const t = (ui ?? {}) as BacklightBleedBloomingTestUI;
   </div>
 
   <script>
-    const root = document.querySelector('.bbt-root');
+    type TestMode = 'idle' | 'bleed' | 'blooming';
+    type InputEvent = PointerEvent | TouchEvent;
+    const root = document.querySelector<HTMLElement>('.bbt-root');
     const panel = root?.querySelector('#bbt-panel');
     const overlay = root?.querySelector('#bbt-test');
-    const hotspot = root?.querySelector('#bbt-hotspot');
+    const hotspot = root?.querySelector<HTMLElement>('#bbt-hotspot');
     const hint = root?.querySelector('#bbt-hint');
     const startBleed = root?.querySelector('#bbt-start-bleed');
     const startBlooming = root?.querySelector('#bbt-start-blooming');
 
-    let mode = 'idle';
+    let mode: TestMode = 'idle';
     let idleTimer = 0;
     let dragging = false;
     let pendingFrame = 0;
@@ -100,7 +102,7 @@ const t = (ui ?? {}) as BacklightBleedBloomingTestUI;
       }, 2000);
     };
 
-    const setPageScrollLock = (locked) => {
+    const setPageScrollLock = (locked: boolean) => {
       document.documentElement.classList.toggle('bbt-page-locked', locked);
       document.body?.classList.toggle('bbt-page-locked', locked);
     };
@@ -116,7 +118,7 @@ const t = (ui ?? {}) as BacklightBleedBloomingTestUI;
       document.documentElement.requestFullscreen?.().catch(() => {});
     };
 
-    const showTestLayer = (nextMode) => {
+    const showTestLayer = (nextMode: Exclude<TestMode, 'idle'>) => {
       root?.classList.add('bbt-running');
       panel?.setAttribute('aria-hidden', 'true');
       overlay?.setAttribute('aria-hidden', 'false');
@@ -124,13 +126,13 @@ const t = (ui ?? {}) as BacklightBleedBloomingTestUI;
       overlay?.classList.remove('bbt-cursor-hidden');
     };
 
-    const setTestHint = (nextMode) => {
+    const setTestHint = (nextMode: Exclude<TestMode, 'idle'>) => {
       if (!(hint instanceof HTMLElement)) return;
 
       hint.textContent = nextMode === 'blooming' ? root?.getAttribute('data-drag-hint') || '' : root?.getAttribute('data-escape-hint') || '';
     };
 
-    const start = (nextMode) => {
+    const start = (nextMode: Exclude<TestMode, 'idle'>) => {
       mode = nextMode;
       setPageScrollLock(true);
       showTestLayer(nextMode);
@@ -151,12 +153,15 @@ const t = (ui ?? {}) as BacklightBleedBloomingTestUI;
       window.clearTimeout(idleTimer);
     };
 
-    const pointerPoint = (event) => {
-      const touch = event.touches?.[0] || event.changedTouches?.[0];
-      return touch ? { x: touch.clientX, y: touch.clientY } : { x: event.clientX, y: event.clientY };
+    const pointerPoint = (event: InputEvent) => {
+      const touch = 'touches' in event ? event.touches[0] || event.changedTouches[0] : undefined;
+      if (touch) return { x: touch.clientX, y: touch.clientY };
+      return 'clientX' in event && typeof event.clientX === 'number'
+        ? { x: event.clientX, y: event.clientY }
+        : { x: 0, y: 0 };
     };
 
-    const moveHotspot = (event) => {
+    const moveHotspot = (event: InputEvent) => {
       if (mode !== 'blooming' || !dragging) return;
       event.preventDefault();
       const point = pointerPoint(event);
@@ -166,7 +171,7 @@ const t = (ui ?? {}) as BacklightBleedBloomingTestUI;
       hideCursorSoon();
     };
 
-    const beginDrag = (event) => {
+    const beginDrag = (event: InputEvent) => {
       if (mode !== 'blooming') return;
       dragging = true;
       moveHotspot(event);
@@ -188,11 +193,11 @@ const t = (ui ?? {}) as BacklightBleedBloomingTestUI;
       if (mode === 'blooming') centerHotspot();
     });
     overlay?.addEventListener('mousemove', hideCursorSoon);
-    overlay?.addEventListener('pointerdown', beginDrag);
-    window.addEventListener('pointermove', moveHotspot, { passive: false });
+    overlay?.addEventListener('pointerdown', (event) => beginDrag(event as PointerEvent));
+    window.addEventListener('pointermove', (event) => moveHotspot(event as PointerEvent), { passive: false });
     window.addEventListener('pointerup', endDrag);
-    overlay?.addEventListener('touchstart', beginDrag, { passive: false });
-    window.addEventListener('touchmove', moveHotspot, { passive: false });
+    overlay?.addEventListener('touchstart', (event) => beginDrag(event as TouchEvent), { passive: false });
+    window.addEventListener('touchmove', (event) => moveHotspot(event as TouchEvent), { passive: false });
     window.addEventListener('touchend', endDrag);
   </script>
 </div>

@@ -180,7 +180,6 @@ export const content: ToolLocaleContent<AudioDelayTestUI> = {
     calibrationHint: 'Flaş ve tık çakışana kadar kaydırıcıyı hareket ettirin',
     calibrationEarly: 'Ses önde',
     calibrationLate: 'Görsel önde',
-    calibrationCenter: 'Hizalandı',
     visualLane: 'Görsel',
     audioLane: 'Ses',
     statusReady: 'Hazır',

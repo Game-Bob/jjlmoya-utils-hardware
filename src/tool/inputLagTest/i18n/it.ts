@@ -145,22 +145,22 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
         {
           value: '< 10 ms',
           label: 'Obiettivo Esport',
-          trend: 'Valore ottimale',
+          trend: { value: 'Valore ottimale', positive: true },
         },
         {
           value: '1000 Hz',
           label: 'Polling Rate USB Standard',
-          trend: 'Intervallo 1.0 ms',
+          trend: { value: 'Intervallo 1.0 ms', positive: true },
         },
         {
           value: '240 Hz',
           label: 'Monitor ad Alta Frequenza',
-          trend: 'Durata fotogramma 4.16 ms',
+          trend: { value: 'Durata fotogramma 4.16 ms', positive: true },
         },
         {
           value: '16.6 ms',
           label: 'Durata Fotogramma 60Hz',
-          trend: 'Ritardo base dello schermo',
+          trend: { value: 'Ritardo base dello schermo', positive: true },
         },
       ],
       columns: 4,
@@ -210,7 +210,7 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
         {
           title: 'Mouse da Gioco',
           description: 'Connessione wireless a 2.4GHz o cablata ad alta velocità.',
-          highlight: 'Latenza 0.5ms - 2ms',
+          highlight: true,
           points: [
             'Polling rate da 1000Hz a 8000Hz',
             'Interruttori ottici senza ritardo di debounce',
@@ -220,7 +220,7 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
         {
           title: 'Tastiere Meccaniche',
           description: 'Scansione della matrice con controllo del debounce.',
-          highlight: 'Latenza 1ms - 10ms',
+          highlight: true,
           points: [
             'Interruttori magnetici a effetto Hall (Rapid Trigger)',
             'Frequenza di scansione fino a 8000Hz',
@@ -230,7 +230,7 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
         {
           title: 'Schermi Tattili Mobile',
           description: 'Campionamento capacitivo sui dispositivi mobili.',
-          highlight: 'Latenza 15ms - 45ms',
+          highlight: true,
           points: [
             'Frequenza di campionamento touch (120Hz - 480Hz)',
             'Ritardo di composizione del sistema operativo',

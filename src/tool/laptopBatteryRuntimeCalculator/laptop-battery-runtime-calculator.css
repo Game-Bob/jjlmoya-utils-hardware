@@ -1,0 +1,555 @@
+:root {
+  --n-ink: rgb(24, 32, 38);
+  --n-muted: rgb(86, 99, 106);
+  --n-surface: rgb(255, 254, 249);
+  --n-surface-soft: rgb(244, 243, 235);
+  --n-line: rgb(211, 214, 205);
+  --n-accent: rgb(12, 112, 104);
+  --n-accent-soft: rgb(211, 241, 232);
+  --n-warm: rgb(231, 142, 62);
+  --n-danger: rgb(184, 67, 57);
+  --n-shadow: rgba(33, 43, 40, 0.12);
+}
+
+.theme-dark {
+  --n-ink: rgb(241, 244, 235);
+  --n-muted: rgb(183, 196, 189);
+  --n-surface: rgb(27, 35, 35);
+  --n-surface-soft: rgb(36, 47, 45);
+  --n-line: rgb(76, 96, 90);
+  --n-accent: rgb(91, 210, 178);
+  --n-accent-soft: rgb(25, 75, 68);
+  --n-warm: rgb(244, 174, 89);
+  --n-danger: rgb(246, 127, 109);
+  --n-shadow: rgba(0, 0, 0, 0.35);
+}
+
+.laptop-battery-runtime {
+  --n-ink: rgb(24, 32, 38);
+  --n-muted: rgb(86, 99, 106);
+  --n-surface: rgb(255, 254, 249);
+  --n-surface-soft: rgb(244, 243, 235);
+  --n-line: rgb(211, 214, 205);
+  --n-accent: rgb(12, 112, 104);
+  --n-accent-soft: rgb(211, 241, 232);
+  --n-warm: rgb(231, 142, 62);
+  --n-danger: rgb(184, 67, 57);
+  --n-shadow: rgba(33, 43, 40, 0.12);
+
+  box-sizing: border-box;
+  width: 100%;
+  max-width: calc(100vw - 2rem);
+  min-width: 0;
+  margin-inline: auto;
+  container-name: laptop-runtime;
+  container-type: inline-size;
+  overflow: hidden;
+  border: 1px solid var(--n-line);
+  border-radius: 1.5rem;
+  background: var(--n-surface);
+  color: var(--n-ink);
+  box-shadow: 0 1.25rem 3rem var(--n-shadow);
+}
+
+.theme-dark .laptop-battery-runtime {
+  --n-ink: rgb(241, 244, 235);
+  --n-muted: rgb(183, 196, 189);
+  --n-surface: rgb(27, 35, 35);
+  --n-surface-soft: rgb(36, 47, 45);
+  --n-line: rgb(76, 96, 90);
+  --n-accent: rgb(91, 210, 178);
+  --n-accent-soft: rgb(25, 75, 68);
+  --n-warm: rgb(244, 174, 89);
+  --n-danger: rgb(246, 127, 109);
+  --n-shadow: rgba(0, 0, 0, 0.35);
+}
+
+.runtime-controls {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  gap: 0;
+  border-bottom: 1px solid var(--n-line);
+}
+
+.runtime-fieldset {
+  min-width: 0;
+  margin: 0;
+  border: 0;
+  padding: 1.7rem;
+}
+
+.runtime-fieldset + .runtime-fieldset {
+  border-left: 1px solid var(--n-line);
+}
+
+.runtime-fieldset legend,
+.runway-kicker {
+  color: var(--n-accent);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.runtime-input-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.runtime-input,
+.scenario-input {
+  display: grid;
+  gap: 0.45rem;
+  color: var(--n-ink);
+  font-size: 0.94rem;
+  font-weight: 700;
+}
+
+.runtime-input small,
+.scenario-input small,
+.runtime-hint,
+.runway-heading p {
+  margin: 0;
+  color: var(--n-muted);
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.runtime-input-row {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.runtime-input-row input {
+  min-width: 0;
+  width: 100%;
+  border: 1px solid var(--n-line);
+  border-radius: 0.65rem;
+  padding: 0.7rem 0.65rem;
+  background: var(--n-surface-soft);
+  color: var(--n-ink);
+  font: inherit;
+  font-variant-numeric: tabular-nums;
+}
+
+.runtime-input-row input:focus-visible,
+.runtime-input input[type="range"]:focus-visible,
+.scenario-input input:focus-visible,
+.runtime-presets button:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--n-accent) 35%, transparent);
+  outline-offset: 2px;
+}
+
+.runtime-input-row b {
+  color: var(--n-muted);
+  font-size: 0.8rem;
+}
+
+.runtime-input input[type="range"] {
+  width: 100%;
+  accent-color: var(--n-accent);
+  cursor: ew-resize;
+}
+
+.runtime-scenarios {
+  display: grid;
+  align-content: start;
+}
+
+.runtime-hint {
+  margin-top: 0.45rem;
+}
+
+.runtime-presets {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 1.15rem;
+}
+
+.runtime-presets > span {
+  margin-right: 0.25rem;
+  color: var(--n-muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.runtime-presets button {
+  border: 1px solid var(--n-line);
+  border-radius: 99rem;
+  padding: 0.45rem 0.7rem;
+  background: transparent;
+  color: var(--n-ink);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.75rem;
+}
+
+.runtime-presets button[data-active="true"] {
+  border-color: var(--n-accent);
+  background: var(--n-accent-soft);
+  color: var(--n-accent);
+}
+
+.scenario-inputs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.7rem;
+  margin-top: 1rem;
+}
+
+.scenario-input-name,
+.runtime-lane-meta span,
+.runtime-lane-foot span {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.scenario-input-name i,
+.runtime-lane-meta i {
+  display: inline-block;
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 50%;
+  background: var(--n-accent);
+}
+
+[data-scenario-mark="balanced"] {
+  background: var(--n-warm);
+}
+
+[data-scenario-mark="intense"] {
+  background: var(--n-danger);
+}
+
+.runtime-runway {
+  padding: 2rem;
+}
+
+.runway-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.runway-heading h2 {
+  margin: 0.35rem 0 0.25rem;
+  color: var(--n-ink);
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  line-height: 1;
+}
+
+.runway-heading p {
+  max-width: 34rem;
+  font-size: 0.85rem;
+}
+
+.runway-amount-label {
+  display: block;
+  margin-top: 0.1rem;
+  color: var(--n-muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.runway-metrics {
+  display: flex;
+  align-items: start;
+  gap: 1.25rem;
+  text-align: right;
+}
+
+.runway-metrics span {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.runway-metrics b {
+  max-width: 12rem;
+  color: var(--n-ink);
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.runway-metrics small {
+  color: var(--n-muted);
+  font-size: 0.68rem;
+}
+
+.runway-scene {
+  display: grid;
+  grid-template-columns: 8rem minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: center;
+  margin-top: 2.25rem;
+  border-top: 1px solid var(--n-line);
+  border-bottom: 1px solid var(--n-line);
+  padding: 1.7rem 0;
+}
+
+.battery-portrait {
+  display: grid;
+  justify-items: center;
+  gap: 0.7rem;
+}
+
+.battery-shell {
+  position: relative;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  overflow: hidden;
+  width: 4rem;
+  height: 8rem;
+  border: 3px solid var(--n-ink);
+  border-radius: 0.9rem;
+  background: var(--n-surface-soft);
+}
+
+.battery-cap {
+  width: 1.6rem;
+  height: 0.45rem;
+  margin-bottom: -0.15rem;
+  border-radius: 0.3rem 0.3rem 0 0;
+  background: var(--n-ink);
+}
+
+.battery-level {
+  width: 100%;
+  background: var(--n-accent);
+  transition: height 180ms ease;
+}
+
+.battery-shell span {
+  position: absolute;
+  z-index: 1;
+  bottom: 0.55rem;
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.35rem;
+  background: var(--n-ink);
+  color: var(--n-surface);
+  font-size: 0.9rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.battery-caption {
+  color: var(--n-muted);
+  font-size: 0.7rem;
+  text-align: center;
+}
+
+.runway-lanes {
+  display: grid;
+  gap: 1.15rem;
+}
+
+.runtime-lane {
+  display: grid;
+  gap: 0.45rem;
+  opacity: 0.78;
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.runtime-lane[data-active="true"] {
+  opacity: 1;
+  transform: translateX(0.35rem);
+}
+
+.runtime-lane-meta,
+.runtime-lane-foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--n-muted);
+  font-size: 0.82rem;
+}
+
+.runtime-lane-meta span {
+  color: var(--n-ink);
+  font-weight: 800;
+}
+
+.runtime-lane-meta b {
+  color: var(--n-ink);
+  font-size: 1rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.runtime-track {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr) 2rem;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.runtime-track-start,
+.runtime-track-end {
+  color: var(--n-muted);
+  font-size: 0.68rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.runtime-track-end {
+  text-align: right;
+}
+
+.runtime-track-line {
+  position: relative;
+  height: 0.75rem;
+  border-radius: 99rem;
+  background: var(--n-surface-soft);
+  box-shadow: inset 0 0 0 1px var(--n-line);
+}
+
+.runtime-lane-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: var(--n-accent);
+  transition: width 180ms ease;
+}
+
+.runtime-lane:nth-child(2) .runtime-lane-fill {
+  background: var(--n-warm);
+}
+
+.runtime-lane:nth-child(3) .runtime-lane-fill {
+  background: var(--n-danger);
+}
+
+.runtime-lane-marker {
+  position: absolute;
+  top: 50%;
+  width: 0.95rem;
+  height: 0.95rem;
+  border: 3px solid var(--n-surface);
+  border-radius: 50%;
+  background: var(--n-ink);
+  box-shadow: 0 0 0 1px var(--n-ink);
+  transform: translate(-50%, -50%);
+  transition: left 180ms ease;
+}
+
+.runtime-lane-foot {
+  font-size: 0.74rem;
+}
+
+.runtime-lane-foot b {
+  color: var(--n-ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.runtime-lane[data-status="urgent"] .runtime-lane-foot span:last-child,
+.runtime-lane[data-status="tight"] .runtime-lane-foot span:last-child {
+  color: var(--n-danger);
+  font-weight: 800;
+}
+
+.runtime-decision {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.55rem;
+  margin-top: 1.25rem;
+  color: var(--n-muted);
+  font-size: 0.8rem;
+}
+
+.runtime-decision strong {
+  color: var(--n-ink);
+  font-size: 1rem;
+  text-transform: capitalize;
+}
+
+.runtime-health-note {
+  flex-basis: 100%;
+  max-width: 54rem;
+  color: var(--n-muted);
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+
+@container laptop-runtime (max-width: 1200px) {
+  .runtime-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .runtime-fieldset + .runtime-fieldset {
+    border-top: 1px solid var(--n-line);
+    border-left: 0;
+  }
+
+}
+
+@container laptop-runtime (max-width: 760px) {
+  .runtime-input-grid,
+  .scenario-inputs {
+    grid-template-columns: 1fr;
+  }
+
+  .runway-heading {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .runway-metrics {
+    justify-content: space-between;
+    text-align: left;
+  }
+
+  .runway-scene {
+    grid-template-columns: 1fr;
+  }
+
+  .battery-portrait {
+    grid-template-columns: auto auto;
+    justify-content: start;
+    align-items: center;
+  }
+
+  .battery-caption {
+    text-align: left;
+  }
+
+  .runtime-lane[data-active="true"] {
+    transform: none;
+  }
+
+  .runtime-lanes {
+    gap: 1.5rem;
+  }
+
+  .runtime-lane-meta b {
+    font-size: 0.95rem;
+  }
+
+  .runtime-track-line {
+    height: 0.85rem;
+  }
+}
+
+@container laptop-runtime (max-width: 420px) {
+  .runtime-fieldset,
+  .runtime-runway {
+    padding: 1.1rem;
+  }
+
+  .runtime-presets {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .runtime-presets button {
+    width: 100%;
+  }
+}

@@ -274,6 +274,5 @@ export const content: ToolLocaleContent<SpeakerPhaseTesterUI> = {
     rightShort: 'R',
     polarityNormal: '0 deg aligned',
     polarityInverted: '180 deg inverted',
-    safety: 'Start low. Polarity tests can become loud through amplifiers, studio monitors, car audio systems, and headphones.',
   },
 };

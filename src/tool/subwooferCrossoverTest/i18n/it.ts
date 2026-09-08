@@ -167,7 +167,6 @@ export const content: ToolLocaleContent<SubwooferCrossoverTestUI> = {
   ],
   ui: {
     sweepLabel: 'Scansione a bassa frequenza del subwoofer',
-    currentFrequency: 'Frequenza attuale',
     targetFrequency: 'Obiettivo',
     elapsed: 'Trascorso',
     statusReady: 'Pronto per la scansione bassa',
@@ -180,7 +179,6 @@ export const content: ToolLocaleContent<SubwooferCrossoverTestUI> = {
     volume: 'Livello di uscita',
     duration: 'Durata scansione',
     safeStart: 'Inizia a basso volume, poi segna la prima frequenza dove i bassi diventano difficili da sentire.',
-    roomNote: 'La posizione nella stanza e la fase possono cambiare drasticamente il risultato.',
     dropoutLabel: 'Punto segnato',
     dropoutEmpty: 'Non ancora segnato',
     crossoverEstimate: 'Punto di decadimento stimato',

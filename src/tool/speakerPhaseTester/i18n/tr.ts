@@ -274,6 +274,5 @@ export const content: ToolLocaleContent<SpeakerPhaseTesterUI> = {
     rightShort: 'Sğ',
     polarityNormal: '0° aynı fazlı',
     polarityInverted: '180° ters çevrilmiş',
-    safety: 'Düşük başlayın. Polarite testleri amfiler, stüdyo monitörleri, araç ses sistemleri ve kulaklıklarla yüksek sese ulaşabilir.',
   },
 };

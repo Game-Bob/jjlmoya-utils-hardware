@@ -115,9 +115,7 @@ export const content: ToolLocaleContent<ProbadorVibracionMandoUI> = {
     },
   ],
   ui: {
-    badge: 'Titreşim Testi',
     title: 'Oyun Kolu Titreşim Test Edici',
-    description: 'Oyun kolunuzun Dual-Rumble motoru üzerinde doğrudan kontrol.',
     deviceDisconnected: 'Oyun Kolu Bağlantısı Kesildi',
     deviceDisconnectedSub: 'Başlamak için oyun kolunuzdaki bir düğmeye basın',
     deviceFallback: 'Oyun Kolu Bağlandı',

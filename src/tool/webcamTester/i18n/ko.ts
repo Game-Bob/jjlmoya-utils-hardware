@@ -163,8 +163,6 @@ export const content: ToolLocaleContent<WebcamTesterUI> = {
     guideAction: '구도 가이드',
     stageLabel: '비공개 웹캠 미리보기 영역',
     resolutionLabel: '해상도',
-    aspectLabel: '화면 비율',
-    orientationLabel: '방향',
     configuredFpsLabel: '설정 FPS',
     observedFpsLabel: '측정 FPS',
     frameDeliveryLabel: '프레임 전달',

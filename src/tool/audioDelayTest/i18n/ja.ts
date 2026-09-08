@@ -180,7 +180,6 @@ export const content: ToolLocaleContent<AudioDelayTestUI> = {
     calibrationHint: '点滅とクリックが一致するまでスライダーを動かします',
     calibrationEarly: '音声が進んでいる',
     calibrationLate: '映像が進んでいる',
-    calibrationCenter: '同期完了',
     visualLane: '映像',
     audioLane: '音声',
     statusReady: '準備完了',

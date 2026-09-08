@@ -167,7 +167,6 @@ export const content: ToolLocaleContent<SubwooferCrossoverTestUI> = {
   ],
   ui: {
     sweepLabel: 'Subwoofer-Tieffrequenz-Sweep',
-    currentFrequency: 'Aktuelle Frequenz',
     targetFrequency: 'Ziel',
     elapsed: 'Verstrichen',
     statusReady: 'Bereit für Tief-Sweep',
@@ -180,7 +179,6 @@ export const content: ToolLocaleContent<SubwooferCrossoverTestUI> = {
     volume: 'Ausgabepegel',
     duration: 'Sweep-Dauer',
     safeStart: 'Starte mit niedriger Lautstärke und markiere dann die erste Frequenz, bei der der Bass schwer hörbar wird.',
-    roomNote: 'Raumposition und Phase können das Ergebnis drastisch verändern.',
     dropoutLabel: 'Markierter Punkt',
     dropoutEmpty: 'Noch nicht markiert',
     crossoverEstimate: 'Geschätzter Ausfallpunkt',

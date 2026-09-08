@@ -16,13 +16,7 @@ export interface UsbPowerBudgetCalculatorUI extends Record<string, string> {
   headroom: string;
   utilization: string;
   safeStatus: string;
-  tightStatus: string;
-  overStatus: string;
   safeAdvice: string;
-  tightAdvice: string;
-  overAdvice: string;
-  busLane: string;
-  loadLane: string;
   cableLane: string;
   boardEyebrow: string;
   sourceSocket: string;

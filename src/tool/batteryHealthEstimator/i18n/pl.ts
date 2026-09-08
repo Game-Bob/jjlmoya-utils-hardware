@@ -115,9 +115,7 @@ export const content: ToolLocaleContent<EstimadorSaludBateriaUI> = {
     },
   ],
   ui: {
-    badge: 'Bateria Li-Ion',
     title: 'Kalkulator Zdrowia Baterii',
-    description: 'Techniczna diagnoza degradacji ogniw litowo-jonowych.',
     paramsTitle: 'Parametry Ogniwa',
     voltageLabel: 'Aktualne Napięcie',
     cyclesLabel: 'Cykle Ładowania',

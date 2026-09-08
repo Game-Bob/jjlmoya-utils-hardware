@@ -19,7 +19,6 @@ export interface ResistorColorCodeUI extends Record<string, string> {
   noTempco: string;
   targetResistance: string;
   targetHint: string;
-  targetUnit: string;
   toleranceChoice: string;
   tolerance20: string;
   tolerance10: string;
@@ -28,34 +27,12 @@ export interface ResistorColorCodeUI extends Record<string, string> {
   tolerance1: string;
   smdCode: string;
   smdHint: string;
-  decodeSmd: string;
-  valueUnit: string;
-  ohms: string;
-  kiloohms: string;
-  megaohms: string;
-  gigaohms: string;
-  minValue: string;
-  maxValue: string;
-  actualValue: string;
   requestedValue: string;
   status: string;
   statusReady: string;
   statusCheck: string;
   statusInvalid: string;
   orientationNote: string;
-  reverseNote: string;
   smdNote: string;
-  colorBlack: string;
-  colorBrown: string;
-  colorRed: string;
-  colorOrange: string;
-  colorYellow: string;
-  colorGreen: string;
-  colorBlue: string;
-  colorViolet: string;
-  colorGray: string;
-  colorWhite: string;
-  colorGold: string;
-  colorSilver: string;
 }
 

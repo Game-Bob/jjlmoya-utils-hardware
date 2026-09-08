@@ -12,8 +12,6 @@ export interface WebcamTesterUI extends Record<string, string> {
   guideAction: string;
   stageLabel: string;
   resolutionLabel: string;
-  aspectLabel: string;
-  orientationLabel: string;
   configuredFpsLabel: string;
   observedFpsLabel: string;
   frameDeliveryLabel: string;

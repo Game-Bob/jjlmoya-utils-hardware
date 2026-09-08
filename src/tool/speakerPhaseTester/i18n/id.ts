@@ -274,6 +274,5 @@ export const content: ToolLocaleContent<SpeakerPhaseTesterUI> = {
     rightShort: 'Ka',
     polarityNormal: '0° selaras',
     polarityInverted: '180° terbalik',
-    safety: 'Mulai rendah. Uji polaritas bisa menjadi keras melalui amplifier, monitor studio, sistem audio mobil, dan headphone.',
   },
 };

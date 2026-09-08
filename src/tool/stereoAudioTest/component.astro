@@ -111,8 +111,8 @@ const t = (ui ?? {}) as StereoAudioTestUI;
   const config = JSON.parse(root?.dataset.config ?? '{}') as Config;
   const audioState: {
     context?: AudioContext;
-    oscillator?: OscillatorNode;
-    gain?: GainNode;
+    oscillator?: OscillatorNode | undefined;
+    gain?: GainNode | undefined;
     stopTimer?: number;
     sweepTimer?: number;
   } = {};

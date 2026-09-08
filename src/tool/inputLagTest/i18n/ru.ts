@@ -145,22 +145,22 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
         {
           value: '< 10 мс',
           label: 'Киберспортивный Ориентир',
-          trend: 'Оптимальный соревновательный показатель',
+          trend: { value: 'Оптимальный соревновательный показатель', positive: true },
         },
         {
           value: '1000 Гц',
           label: 'Стандартный Опрос USB',
-          trend: 'Интервал 1.0 мс между сигналами',
+          trend: { value: 'Интервал 1.0 мс между сигналами', positive: true },
         },
         {
           value: '240 Гц',
           label: 'Высокочастотный Монитор',
-          trend: 'Время кадра 4.16 мс на кадр',
+          trend: { value: 'Время кадра 4.16 мс на кадр', positive: true },
         },
         {
           value: '16.6 мс',
           label: 'Время Кадра 60Гц',
-          trend: 'Базовая задержка экрана за кадр',
+          trend: { value: 'Базовая задержка экрана за кадр', positive: true },
         },
       ],
       columns: 4,
@@ -210,7 +210,7 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
         {
           title: 'Игровые Мыши',
           description: 'Быстрое беспроводное (2.4ГГц) или проводное подключение.',
-          highlight: 'Задержка 0.5мс - 2мс',
+          highlight: true,
           points: [
             'Частота опроса от 1000Гц до 8000Гц',
             'Оптические переключатели без задержки дребезга',
@@ -220,7 +220,7 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
         {
           title: 'Механические Клавиатуры',
           description: 'Сканирование матрицы с контролем дребезга.',
-          highlight: 'Задержка 1мс - 10мс',
+          highlight: true,
           points: [
             'Магнитные переключатели на эффекте Холла (Rapid Trigger)',
             'Частота сканирования матрицы до 8000Гц',
@@ -230,7 +230,7 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
         {
           title: 'Сенсорные Экраны',
           description: 'Емкостное сканирование на мобильных устройствах.',
-          highlight: 'Задержка 15мс - 45мс',
+          highlight: true,
           points: [
             'Частота опроса касаний (120Гц - 480Гц)',
             'Задержка композитора операционной системы',

@@ -274,6 +274,5 @@ export const content: ToolLocaleContent<SpeakerPhaseTesterUI> = {
     rightShort: 'П',
     polarityNormal: '0° синфазно',
     polarityInverted: '180° инвертировано',
-    safety: 'Начинайте тихо. Тесты полярности могут стать громкими с усилителями, студийными мониторами, автозвуком и наушниками.',
   },
 };

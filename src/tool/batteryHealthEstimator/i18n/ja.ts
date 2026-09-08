@@ -115,9 +115,7 @@ export const content: ToolLocaleContent<EstimadorSaludBateriaUI> = {
     },
   ],
   ui: {
-    badge: 'リチウムイオン電池',
     title: 'バッテリー寿命診断',
-    description: 'リチウムイオンセルのテクニカルな劣化診断。',
     paramsTitle: 'セルパラメータ',
     voltageLabel: '現在の電圧',
     cyclesLabel: '充電サイクル',

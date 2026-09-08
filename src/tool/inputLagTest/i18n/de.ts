@@ -145,22 +145,22 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
         {
           value: '< 10 ms',
           label: 'E-Sports Ziel-Latenz',
-          trend: 'Optimaler Wert',
+          trend: { value: 'Optimaler Wert', positive: true },
         },
         {
           value: '1000 Hz',
           label: 'Standard USB-Abtastrate',
-          trend: '1.0 ms Intervall',
+          trend: { value: '1.0 ms Intervall', positive: true },
         },
         {
           value: '240 Hz',
           label: 'High-Refresh Monitor',
-          trend: '4.16 ms Bilddauer',
+          trend: { value: '4.16 ms Bilddauer', positive: true },
         },
         {
           value: '16.6 ms',
           label: '60Hz Bilddauer',
-          trend: 'Basisverzögerung pro Bild',
+          trend: { value: 'Basisverzögerung pro Bild', positive: true },
         },
       ],
       columns: 4,
@@ -210,7 +210,7 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
         {
           title: 'Gaming Mäuse',
           description: 'Hochfrequente kabellose (2.4GHz) oder kabelgebundene Verbindungen.',
-          highlight: '0.5ms - 2ms Latenz',
+          highlight: true,
           points: [
             '1000Hz bis 8000Hz Abtastrate',
             'Optische Schalter ohne Entprellverzögerung',
@@ -220,7 +220,7 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
         {
           title: 'Mechanische Tastaturen',
           description: 'Tastaturmatrix-Abtastung mit optimierter Entprellung.',
-          highlight: '1ms - 10ms Latenz',
+          highlight: true,
           points: [
             'Hall-Effekt-Magnetschalter mit Rapid Trigger',
             'Matrix-Abtastraten von 500Hz bis 8000Hz',
@@ -230,7 +230,7 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
         {
           title: 'Touchscreens',
           description: 'Kapazitive Abtastung auf mobilen Geräten.',
-          highlight: '15ms - 45ms Latenz',
+          highlight: true,
           points: [
             'Touch-Abtastraten (120Hz - 480Hz)',
             'Verzögerung durch Betriebssystem-Compositor',

@@ -163,8 +163,6 @@ export const content: ToolLocaleContent<WebcamTesterUI> = {
     guideAction: 'Kadraj kılavuzu',
     stageLabel: 'Gizli web kamerası önizleme alanı',
     resolutionLabel: 'Çözünürlük',
-    aspectLabel: 'En boy oranı',
-    orientationLabel: 'Yön',
     configuredFpsLabel: 'Yapılandırılmış FPS',
     observedFpsLabel: 'Gözlemlenen FPS',
     frameDeliveryLabel: 'Kare akışı',

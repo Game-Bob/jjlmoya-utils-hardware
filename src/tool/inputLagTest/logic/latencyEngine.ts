@@ -56,8 +56,8 @@ export class LatencyEngine {
       timestamp: renderTime,
       latencyMs: Number(adjustedLatency.toFixed(2)),
       inputType: this.pendingInputType,
-      keyName: this.pendingKeyName,
     };
+    if (this.pendingKeyName !== undefined) sample.keyName = this.pendingKeyName;
 
     this.samples.push(sample);
     this.pendingInputTime = null;

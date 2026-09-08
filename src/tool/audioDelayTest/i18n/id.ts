@@ -180,7 +180,6 @@ export const content: ToolLocaleContent<AudioDelayTestUI> = {
     calibrationHint: 'Geser pengatur hingga kilatan dan klik bertemu',
     calibrationEarly: 'Audio mendahului',
     calibrationLate: 'Visual mendahului',
-    calibrationCenter: 'Terselaraskan',
     visualLane: 'Visual',
     audioLane: 'Audio',
     statusReady: 'Siap',

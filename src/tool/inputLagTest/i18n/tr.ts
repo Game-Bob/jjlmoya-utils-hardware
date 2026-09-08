@@ -145,22 +145,22 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
         {
           value: '< 10 ms',
           label: 'E-Spor Hedef Gecikmesi',
-          trend: 'En ideal seviye',
+          trend: { value: 'En ideal seviye', positive: true },
         },
         {
           value: '1000 Hz',
           label: 'Standart USB Bildirim Hızı',
-          trend: '1.0 ms aralık',
+          trend: { value: '1.0 ms aralık', positive: true },
         },
         {
           value: '240 Hz',
           label: 'Yüksek Yenilemeli Monitör',
-          trend: '4.16 ms kare süresi',
+          trend: { value: '4.16 ms kare süresi', positive: true },
         },
         {
           value: '16.6 ms',
           label: '60Hz Kare Süresi',
-          trend: 'Temel ekran gecikmesi',
+          trend: { value: 'Temel ekran gecikmesi', positive: true },
         },
       ],
       columns: 4,
@@ -210,7 +210,7 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
         {
           title: 'Oyuncu Fareleri',
           description: 'Hızlı kablosuz (2.4GHz) veya kablolu bağlantı.',
-          highlight: '0.5ms - 2ms Gecikme',
+          highlight: true,
           points: [
             '1000Hz ile 8000Hz arası bildirim hızı',
             'Sıçrama gecikmesi olmayan optik anahtarlar',
@@ -220,7 +220,7 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
         {
           title: 'Mekanik Klavyeler',
           description: 'Sıçrama kontrollü matris taraması.',
-          highlight: '1ms - 10ms Gecikme',
+          highlight: true,
           points: [
             'Hızlı tetiklemeli Hall-effect manyetik anahtarlar',
             '8000Hz e kadar matris tarama hızı',
@@ -230,7 +230,7 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
         {
           title: 'Mobil Dokunmatik Ekranlar',
           description: 'Mobil cihazlarda kapasitif örnekleme.',
-          highlight: '15ms - 45ms Gecikme',
+          highlight: true,
           points: [
             'Dokunmatik örnekleme hızı (120Hz - 480Hz)',
             'İşletim sistemi görüntü birleştirici gecikmesi',

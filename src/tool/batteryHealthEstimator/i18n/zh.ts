@@ -115,9 +115,7 @@ export const content: ToolLocaleContent<EstimadorSaludBateriaUI> = {
     },
   ],
   ui: {
-    badge: '锂电池',
     title: '电池健康度估算',
-    description: '锂离子电芯的技术衰减诊断。',
     paramsTitle: '电芯参数',
     voltageLabel: '当前电压',
     cyclesLabel: '充电循环',

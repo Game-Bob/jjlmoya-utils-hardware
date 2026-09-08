@@ -1,7 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import type * as DATA from '../data';
-
-const TOOLS: typeof DATA.audiovisualCategory[] = [];
+const TOOLS: Array<{ icon: string }> = [];
 
 describe('FAQ Content Validation', () => {
   TOOLS.forEach((entry) => {

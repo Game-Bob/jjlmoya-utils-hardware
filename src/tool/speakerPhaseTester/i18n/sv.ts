@@ -274,6 +274,5 @@ export const content: ToolLocaleContent<SpeakerPhaseTesterUI> = {
     rightShort: 'H',
     polarityNormal: '0° i fas',
     polarityInverted: '180° inverterad',
-    safety: 'Börja lågt. Polaritetstester kan bli höga genom förstärkare, studiomonitorer, bilstereosystem och hörlurar.',
   },
 };

@@ -5,7 +5,6 @@ export class MouseJitterAngleSnappingTester {
   private readonly points: PointSample[] = [];
   private readonly events: TraceEvent[] = [];
   private ctx: CanvasRenderingContext2D | null = null;
-  private raf = 0;
   private dirty = true;
   private active = false;
   private nextPointFresh = true;
@@ -132,8 +131,10 @@ export class MouseJitterAngleSnappingTester {
   }
 
   private getLineDeviations(points: PointSample[]) {
+    if (points.length < 2) return [0];
     const first = points[0];
-    const last = points[points.length - 1];
+    const last = points.at(-1);
+    if (!first || !last) return [0];
     const dx = last.x - first.x;
     const dy = last.y - first.y;
     const length = Math.hypot(dx, dy);
@@ -144,8 +145,11 @@ export class MouseJitterAngleSnappingTester {
   private getAngles(points: PointSample[]) {
     const angles: number[] = [];
     for (let i = 1; i < points.length; i++) {
-      const dx = points[i].x - points[i - 1].x;
-      const dy = points[i].y - points[i - 1].y;
+      const current = points[i];
+      const previous = points[i - 1];
+      if (!current || !previous) continue;
+      const dx = current.x - previous.x;
+      const dy = current.y - previous.y;
       if (Math.hypot(dx, dy) >= 1.5) angles.push(Math.atan2(dy, dx));
     }
     return angles;
@@ -181,7 +185,7 @@ export class MouseJitterAngleSnappingTester {
 
   private render() {
     if (this.dirty) this.draw();
-    this.raf = window.requestAnimationFrame(() => this.render());
+    window.requestAnimationFrame(() => this.render());
   }
 
   private setText(element: HTMLElement | null, value: string) {

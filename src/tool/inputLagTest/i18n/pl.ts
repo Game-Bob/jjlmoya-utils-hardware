@@ -145,22 +145,22 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
         {
           value: '< 10 ms',
           label: 'Cel w E-sporcie',
-          trend: 'Optymalna wartość rywalizacyjna',
+          trend: { value: 'Optymalna wartość rywalizacyjna', positive: true },
         },
         {
           value: '1000 Hz',
           label: 'Standardowe Próbkowanie USB',
-          trend: 'Interwał 1.0 ms między sygnałami',
+          trend: { value: 'Interwał 1.0 ms między sygnałami', positive: true },
         },
         {
           value: '240 Hz',
           label: 'Monitor Wysokiej Częstotliwości',
-          trend: 'Czas klatki 4.16 ms na obraz',
+          trend: { value: 'Czas klatki 4.16 ms na obraz', positive: true },
         },
         {
           value: '16.6 ms',
           label: 'Czas Klatki 60Hz',
-          trend: 'Podstawowe opóźnienie ekranu',
+          trend: { value: 'Podstawowe opóźnienie ekranu', positive: true },
         },
       ],
       columns: 4,
@@ -210,7 +210,7 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
         {
           title: 'Myszy dla Graczy',
           description: 'Szybkie połączenie bezprzewodowe 2.4GHz lub przewodowe.',
-          highlight: 'Opóźnienie 0.5ms - 2ms',
+          highlight: true,
           points: [
             'Próbkowanie od 1000Hz do 8000Hz',
             'Przełączniki optyczne bez opóźnienia drgań styków',
@@ -220,7 +220,7 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
         {
           title: 'Klawiatury Mechaniczne',
           description: 'Skanowanie macierzy z kontrolą drgań.',
-          highlight: 'Opóźnienie 1ms - 10ms',
+          highlight: true,
           points: [
             'Magnetyczne przełączniki z efektem Halla (Rapid Trigger)',
             'Częstotliwość skanowania macierzy do 8000Hz',
@@ -230,7 +230,7 @@ export const content: ToolLocaleContent<InputLagTestUI> = {
         {
           title: 'Ekrany Dotykowe',
           description: 'Próbkowanie pojemnościowe w urządzeniach mobilnych.',
-          highlight: 'Opóźnienie 15ms - 45ms',
+          highlight: true,
           points: [
             'Częstotliwość próbkowania dotyku (120Hz - 480Hz)',
             'Opóźnienie kompozytora systemu operacyjnego',

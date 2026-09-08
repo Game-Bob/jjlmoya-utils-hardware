@@ -163,8 +163,6 @@ export const content: ToolLocaleContent<WebcamTesterUI> = {
     guideAction: 'Сетка кадра',
     stageLabel: 'Область просмотра веб-камеры',
     resolutionLabel: 'Разрешение',
-    aspectLabel: 'Соотношение сторон',
-    orientationLabel: 'Ориентация',
     configuredFpsLabel: 'Настроенные FPS',
     observedFpsLabel: 'Фактические FPS',
     frameDeliveryLabel: 'Подача кадров',

@@ -167,7 +167,6 @@ export const content: ToolLocaleContent<SubwooferCrossoverTestUI> = {
   ],
   ui: {
     sweepLabel: 'Sapuan frekuensi rendah subwoofer',
-    currentFrequency: 'Frekuensi saat ini',
     targetFrequency: 'Target',
     elapsed: 'Berlalu',
     statusReady: 'Siap untuk sapuan rendah',
@@ -180,7 +179,6 @@ export const content: ToolLocaleContent<SubwooferCrossoverTestUI> = {
     volume: 'Level output',
     duration: 'Durasi sapuan',
     safeStart: 'Mulai dengan volume rendah, lalu tandai frekuensi pertama di mana bass menjadi sulit didengar.',
-    roomNote: 'Posisi ruangan dan fase dapat mengubah hasil secara dramatis.',
     dropoutLabel: 'Titik yang ditandai',
     dropoutEmpty: 'Belum ditandai',
     crossoverEstimate: 'Perkiraan titik penurunan',

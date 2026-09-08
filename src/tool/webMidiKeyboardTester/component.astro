@@ -61,7 +61,27 @@ const t = (ui ?? {}) as WebMidiKeyboardTesterUI;
 <link rel="stylesheet" href="./webmidi-keyboard-tester.css" />
 
 <script>
-  type Config = Record<string, string>;
+  interface Config {
+    channelLabel: string;
+    controlChange: string;
+    emptyLog: string;
+    eventSeparator: string;
+    inputIdle: string;
+    inputLabel: string;
+    modulationLabel: string;
+    noDevice: string;
+    noteOff: string;
+    noteOn: string;
+    octaveRangeLabel: string;
+    pitchBend: string;
+    secureContext: string;
+    statusConnected: string;
+    statusError: string;
+    statusNoInputs: string;
+    statusPermission: string;
+    unsupportedBody: string;
+    velocityLabel: string;
+  }
   interface MIDIMessageEventLike { data: Uint8Array; target: MIDIInputLike; }
   interface MIDIInputLike extends EventTarget { id: string; name?: string; manufacturer?: string; state?: string; onmidimessage: ((event: MIDIMessageEventLike) => void) | null; }
   interface MIDIAccessLike extends EventTarget { inputs: Map<string, MIDIInputLike>; onstatechange: (() => void) | null; }
@@ -253,7 +273,7 @@ const t = (ui ?? {}) as WebMidiKeyboardTesterUI;
   }
 
   function handleMessage(event: MIDIMessageEventLike) {
-    const [status, data1 = 0, data2 = 0] = Array.from(event.data);
+    const [status = 0, data1 = 0, data2 = 0] = Array.from(event.data);
     const command = status & 0xf0;
     const channel = (status & 0x0f) + 1;
     const inputName = event.target.name || config.noDevice;
@@ -283,7 +303,7 @@ const t = (ui ?? {}) as WebMidiKeyboardTesterUI;
   }
 
   async function connectMidi() {
-    const midi = navigator as MIDINavigator;
+    const midi = navigator as unknown as MIDINavigator;
     if (!midi.requestMIDIAccess) {
       setStatus(config.statusError, 'error');
       pushLog(config.unsupportedBody);
@@ -316,5 +336,5 @@ const t = (ui ?? {}) as WebMidiKeyboardTesterUI;
 
   renderKeyboard();
   drawCurve();
-  if (!(navigator as MIDINavigator).requestMIDIAccess) setStatus(config.statusError, 'error');
+  if (!(navigator as unknown as MIDINavigator).requestMIDIAccess) setStatus(config.statusError, 'error');
 </script>

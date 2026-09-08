@@ -115,9 +115,7 @@ export const content: ToolLocaleContent<EstimadorSaludBateriaUI> = {
     },
   ],
   ui: {
-    badge: 'Li-Ion Batteri',
     title: 'Batterihälsokalkylator',
-    description: 'Teknisk nedbrytningsdiagnos för litiumjonceller.',
     paramsTitle: 'Cellparametrar',
     voltageLabel: 'Aktuell Spänning',
     cyclesLabel: 'Laddningscykler',

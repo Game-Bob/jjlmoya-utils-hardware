@@ -163,8 +163,6 @@ export const content: ToolLocaleContent<WebcamTesterUI> = {
     guideAction: 'Panduan bingkai',
     stageLabel: 'Area pratinjau webcam privat',
     resolutionLabel: 'Resolusi',
-    aspectLabel: 'Rasio aspek',
-    orientationLabel: 'Orientasi',
     configuredFpsLabel: 'FPS terkonfigurasi',
     observedFpsLabel: 'FPS teramati',
     frameDeliveryLabel: 'Pengiriman bingkai',

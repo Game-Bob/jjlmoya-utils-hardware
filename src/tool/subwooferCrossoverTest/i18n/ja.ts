@@ -167,7 +167,6 @@ export const content: ToolLocaleContent<SubwooferCrossoverTestUI> = {
   ],
   ui: {
     sweepLabel: 'サブウーファー低周波スイープ',
-    currentFrequency: '現在の周波数',
     targetFrequency: '目標',
     elapsed: '経過時間',
     statusReady: '低域スイープ準備完了',
@@ -180,7 +179,6 @@ export const content: ToolLocaleContent<SubwooferCrossoverTestUI> = {
     volume: '出力レベル',
     duration: 'スイープ時間',
     safeStart: '低音量で始め、低音が聞こえにくくなる最初の周波数をマークしてください。',
-    roomNote: '部屋の位置と位相は結果を劇的に変える可能性があります。',
     dropoutLabel: 'マークされたポイント',
     dropoutEmpty: 'まだマークされていません',
     crossoverEstimate: '推定ドロップアウトポイント',

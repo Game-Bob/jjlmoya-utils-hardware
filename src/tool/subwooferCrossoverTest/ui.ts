@@ -1,6 +1,5 @@
 export interface SubwooferCrossoverTestUI extends Record<string, string> {
   sweepLabel: string;
-  currentFrequency: string;
   targetFrequency: string;
   elapsed: string;
   statusReady: string;
@@ -13,7 +12,6 @@ export interface SubwooferCrossoverTestUI extends Record<string, string> {
   volume: string;
   duration: string;
   safeStart: string;
-  roomNote: string;
   dropoutLabel: string;
   dropoutEmpty: string;
   crossoverEstimate: string;

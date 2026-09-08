@@ -115,9 +115,7 @@ export const content: ToolLocaleContent<ProbadorVibracionMandoUI> = {
     },
   ],
   ui: {
-    badge: 'Tes Getaran',
     title: 'Penguji Getaran Gamepad',
-    description: 'Kontrol langsung atas motor Dual-Rumble gamepad Anda.',
     deviceDisconnected: 'Gamepad Terputus',
     deviceDisconnectedSub: 'Tekan tombol pada gamepad untuk memulai',
     deviceFallback: 'Gamepad Terhubung',

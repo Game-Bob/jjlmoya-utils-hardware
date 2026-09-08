@@ -180,7 +180,6 @@ export const content: ToolLocaleContent<AudioDelayTestUI> = {
     calibrationHint: 'Déplacez le curseur jusqu à ce que le flash et le clic coïncident',
     calibrationEarly: 'Audio en avance',
     calibrationLate: 'Visuel en avance',
-    calibrationCenter: 'Aligné',
     visualLane: 'Visuel',
     audioLane: 'Audio',
     statusReady: 'Prêt',

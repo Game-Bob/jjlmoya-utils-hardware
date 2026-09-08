@@ -274,6 +274,5 @@ export const content: ToolLocaleContent<SpeakerPhaseTesterUI> = {
     rightShort: 'R',
     polarityNormal: '0° 同相',
     polarityInverted: '180° 反転',
-    safety: '小さく始めてください。極性テストはアンプ、スタジオモニター、カーオーディオシステム、ヘッドフォンを通じて大音量になる可能性があります。',
   },
 };

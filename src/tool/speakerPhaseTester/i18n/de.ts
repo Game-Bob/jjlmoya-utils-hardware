@@ -274,6 +274,5 @@ export const content: ToolLocaleContent<SpeakerPhaseTesterUI> = {
     rightShort: 'R',
     polarityNormal: '0° gleichphasig',
     polarityInverted: '180° invertiert',
-    safety: 'Beginnen Sie leise. Polaritätstests können über Verstärker, Studiomonitore, Car-Audio-Systeme und Kopfhörer laut werden.',
   },
 };

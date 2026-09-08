@@ -261,7 +261,7 @@ const t = (ui ?? {}) as TestMandoUI;
     });
     window.addEventListener('gamepaddisconnected', () => {
       cancelAnimationFrame(rafId); toggleConnectedUI(false);
-      if (connMsg) connMsg.textContent = S.cm ?? 'Conecta tu dispositivo USB o Bluetooth';
+      if (connMsg) connMsg.textContent = S.cm ?? '';
       if (txtIndex) txtIndex.textContent = '--';
       addLog(`<span style="color:#f43f5e;font-weight:700">${S.d ?? 'Desconectado'}</span>`);
     });

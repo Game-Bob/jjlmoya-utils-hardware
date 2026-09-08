@@ -13,7 +13,6 @@ export interface AudioDelayTestUI extends Record<string, string> {
   calibrationHint: string;
   calibrationEarly: string;
   calibrationLate: string;
-  calibrationCenter: string;
   visualLane: string;
   audioLane: string;
   statusReady: string;

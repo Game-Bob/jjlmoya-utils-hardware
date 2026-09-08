@@ -163,8 +163,6 @@ export const content: ToolLocaleContent<WebcamTesterUI> = {
     guideAction: 'Framing guide',
     stageLabel: 'Private live webcam preview',
     resolutionLabel: 'Resolution',
-    aspectLabel: 'Aspect ratio',
-    orientationLabel: 'Orientation',
     configuredFpsLabel: 'Configured FPS',
     observedFpsLabel: 'Observed FPS',
     frameDeliveryLabel: 'Frame delivery',

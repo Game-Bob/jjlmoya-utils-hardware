@@ -7,11 +7,8 @@ export interface MouseDpiAnalyzerUI extends Record<string, string> {
   balancedPreset: string;
   inchPreset: string;
   cardPreset: string;
-  lineStart: string;
   holdButton: string;
   holdHint: string;
-  progressLabel: string;
-  activeHint: string;
   dpiLabel: string;
   pixelsLabel: string;
   distanceReadout: string;

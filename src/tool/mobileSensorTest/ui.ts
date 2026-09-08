@@ -12,8 +12,6 @@ export interface MobileSensorTestUI extends Record<string, string> {
   statusUnsupported: string;
   statusActive: string;
   steadyLabel: string;
-  movingLabel: string;
-  shakingLabel: string;
   alphaLabel: string;
   betaLabel: string;
   gammaLabel: string;
@@ -24,7 +22,6 @@ export interface MobileSensorTestUI extends Record<string, string> {
   rotationBetaLabel: string;
   rotationGammaLabel: string;
   levelOffsetLabel: string;
-  motionMagnitudeLabel: string;
   cubeLabel: string;
   bubbleLabel: string;
   calibrationLabel: string;

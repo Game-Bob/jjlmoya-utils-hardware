@@ -274,6 +274,5 @@ export const content: ToolLocaleContent<SpeakerPhaseTesterUI> = {
     rightShort: 'R',
     polarityNormal: '0° 同相',
     polarityInverted: '180° 反相',
-    safety: '从低音量开始。极性测试通过放大器、录音室监听、汽车音响系统和耳机时可能会变得很大声。',
   },
 };

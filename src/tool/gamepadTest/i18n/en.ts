@@ -121,7 +121,6 @@ export const content: ToolLocaleContent<TestMandoUI> = {
     title: 'Gamepad and Controller Test',
     description: 'Test your controller and detect issues.',
     connectionMessage: 'Connect your USB or Bluetooth device',
-    connectionStatus: 'Connected',
     axisLabel: 'Axes',
     buttonsLabel: 'Buttons',
     vibrationTitle: 'Vibration Test',
